@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Instagram and Facebook are not a substitute for a website. Here's exactly why Brisbane small businesses are losing customers by relying on social media alone.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.clawmark.com.au/blog/instagram-facebook-vs-website">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.clawmark.com.au/blog/instagram-facebook-vs-website">
+  <meta property="og:site_name" content="Clawmark">
+  <meta property="og:title" content="Why Instagram and Facebook Aren't Enough for Your Brisbane Business">
+  <meta property="og:description" content="Instagram and Facebook are not a substitute for a website. Here's exactly why Brisbane small businesses are losing customers by relying on social media alone.">
+  <meta property="og:image" content="https://www.clawmark.com.au/og-image.jpg">
+  <meta property="og:locale" content="en_AU">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@clawmark">
+  <meta name="twitter:title" content="Why Instagram and Facebook Aren't Enough for Your Brisbane Business">
+  <meta name="twitter:description" content="Instagram and Facebook are not a substitute for a website. Here's exactly why Brisbane small businesses are losing customers by relying on social media alone.">
+  <meta name="twitter:image" content="https://www.clawmark.com.au/og-image.jpg">
+  <title>Why Instagram and Facebook aren't enough for your Brisbane business — Clawmark Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111111;
+      --dark-2:       #181818;
+      --orange:       #FF5500;
+      --orange-dim:   rgba(255,85,0,0.10);
+      --white:        #FFFFFF;
+      --off-white:    #F6F3EF;
+      --muted-dark:   rgba(255,255,255,0.42);
+      --muted-light:  rgba(10,10,10,0.45);
+      --border-dark:  rgba(255,255,255,0.07);
+      --border-light: rgba(10,10,10,0.08);
+      --serif:        'Syne', sans-serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: none; }
+
+    .cursor { position: fixed; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease; }
+    .cursor.grow { width: 36px; height: 36px; opacity: 0.22; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,85,0,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.18s ease; }
+    @media (hover: none) { .cursor, .cursor-ring { display: none; } body, button { cursor: auto; } }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.85rem 1.75rem; border: 1.5px solid transparent; border-radius: 4px; transition: all 0.2s ease; white-space: nowrap; }
+    .btn-orange { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
+    .btn-outline-dark { background: transparent; color: var(--black); border-color: rgba(10,10,10,0.22); }
+    .btn-outline-dark:hover { border-color: var(--black); background: rgba(10,10,10,0.04); }
+    .btn-arrow::after { content: ' →'; }
+
+    /* NAV */
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; background: rgba(10,10,10,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--muted-dark); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--white); }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 490; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
+
+    /* HERO */
+    .post-hero { background: var(--black); padding: 9rem 3rem 0; position: relative; overflow: hidden; }
+    .post-hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; background: radial-gradient(circle, rgba(255,85,0,0.09) 0%, transparent 65%); pointer-events: none; }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%); }
+    .post-hero-content { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; }
+
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--muted-dark); margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .breadcrumb a { color: var(--muted-dark); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+    .breadcrumb-current { color: var(--orange); }
+
+    .post-cat-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); border: 1px solid rgba(255,85,0,0.35); padding: 0.35rem 0.85rem; border-radius: 99px; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.18s cubic-bezier(0.22,1,0.36,1) forwards; }
+
+    .post-title { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; color: var(--white); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.75s 0.28s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .post-title .accent { color: var(--orange); }
+
+    .post-meta-row { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; padding-bottom: 2rem; opacity: 0; animation: fadeUp 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .meta-author { display: flex; align-items: center; gap: 0.65rem; }
+    .meta-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), #FF8C42); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 0.85rem; font-weight: 700; color: var(--white); flex-shrink: 0; }
+    .meta-author-name { font-size: 0.8rem; font-weight: 500; color: var(--white); }
+    .meta-author-role { font-size: 0.68rem; color: var(--muted-dark); }
+    .meta-sep { width: 1px; height: 24px; background: var(--border-dark); }
+    .meta-item { font-size: 0.75rem; color: var(--muted-dark); }
+
+    /* Hero image */
+    .post-hero-image-wrap { position: relative; z-index: 2; max-width: 900px; margin: 2.5rem auto 0; opacity: 0; animation: fadeUp 0.8s 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .post-hero-image {
+      width: 100%; height: 440px; border-radius: 10px 10px 0 0; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #0f0a1a 0%, #1a0f2e 35%, #2a1040 60%, #0d0818 100%);
+      position: relative;
+    }
+    .post-hero-image::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,85,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,85,0,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    /* Decorative social icons fading out */
+    .hero-social-decay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      gap: 3rem; font-size: 3.5rem; opacity: 0.12; filter: grayscale(1);
+      pointer-events: none;
+    }
+    .post-hero-image-inner { position: relative; z-index: 2; text-align: center; }
+    .hero-img-icon { font-size: 4.5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 24px rgba(255,85,0,0.5)); }
+    .hero-img-label { font-family: var(--serif); font-size: clamp(1.5rem, 2.8vw, 2.3rem); font-weight: 800; color: var(--white); letter-spacing: -0.02em; line-height: 1.1; }
+    .hero-img-label span { color: var(--orange); }
+    .hero-img-sub { font-size: 0.8rem; font-weight: 300; color: var(--muted-dark); margin-top: 0.6rem; }
+    .post-image-caption { font-size: 0.7rem; font-weight: 300; color: var(--muted-dark); text-align: center; padding: 0.75rem 0 0; font-style: italic; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ARTICLE */
+    .article-section { background: var(--off-white); padding: 5rem 3rem 6rem; }
+    .article-layout { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 280px; gap: 5rem; align-items: start; }
+
+    .article-intro { font-family: var(--serif); font-size: clamp(1.15rem, 1.8vw, 1.35rem); font-weight: 600; color: var(--black); line-height: 1.55; letter-spacing: -0.01em; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-light); }
+    .article-intro .intro-highlight { color: var(--orange); }
+
+    .article-body h2 { font-family: var(--serif); font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 700; color: var(--black); letter-spacing: -0.02em; line-height: 1.15; margin-top: 3rem; margin-bottom: 1rem; }
+    .article-body h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--black); margin-top: 2rem; margin-bottom: 0.6rem; }
+    .article-body p { font-size: 0.92rem; font-weight: 300; line-height: 1.85; color: rgba(10,10,10,0.75); margin-bottom: 1.35rem; }
+    .article-body strong { font-weight: 600; color: var(--black); }
+    .article-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    .article-body ul, .article-body ol { padding-left: 1.25rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .article-body li { font-size: 0.92rem; font-weight: 300; line-height: 1.7; color: rgba(10,10,10,0.75); }
+
+    .callout { background: var(--white); border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; padding: 1.5rem 1.75rem; margin: 2rem 0; }
+    .callout-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .callout p { margin-bottom: 0; font-size: 0.88rem; color: var(--muted-light); }
+    .callout strong { color: var(--black); }
+
+    .pull-quote { border-top: 2px solid var(--orange); border-bottom: 1px solid var(--border-light); padding: 2rem 0; margin: 2.5rem 0; }
+    .pull-quote blockquote { font-family: var(--serif); font-size: clamp(1.2rem, 1.8vw, 1.5rem); font-weight: 700; color: var(--black); line-height: 1.3; letter-spacing: -0.01em; }
+
+    /* Comparison table */
+    .compare-block { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; margin: 2.5rem 0; }
+    .compare-block-head { display: grid; grid-template-columns: 1fr 1fr 1fr; background: var(--black); }
+    .compare-col-head { padding: 0.9rem 1.25rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-dark); }
+    .compare-col-head.highlight { color: var(--orange); }
+    .compare-row { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid var(--border-light); }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-cell { padding: 0.95rem 1.25rem; font-size: 0.82rem; font-weight: 300; color: var(--muted-light); line-height: 1.4; border-right: 1px solid var(--border-light); }
+    .compare-cell:last-child { border-right: none; }
+    .compare-cell.feature { font-weight: 500; color: var(--black); }
+    .compare-cell .yes { color: #2D8A4E; font-weight: 600; }
+    .compare-cell .no { color: #C0392B; font-weight: 600; }
+    .compare-cell .meh { color: #D48200; font-weight: 500; }
+
+    /* Stat block */
+    .inline-stat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border-light); border-radius: 6px; overflow: hidden; margin: 2rem 0; background: var(--white); }
+    .inline-stat-cell { padding: 1.5rem 1.25rem; text-align: center; border-right: 1px solid var(--border-light); }
+    .inline-stat-cell:last-child { border-right: none; }
+    .inline-stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 0.3rem; }
+    .inline-stat-label { font-size: 0.72rem; font-weight: 400; color: var(--muted-light); line-height: 1.35; }
+
+    /* In-article CTA */
+    .article-cta { background: var(--black); border-radius: 8px; padding: 2.5rem; margin: 3rem 0; border: 1px solid var(--border-dark); position: relative; overflow: hidden; }
+    .article-cta::before { content: ''; position: absolute; top: -30px; right: -30px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,85,0,0.15) 0%, transparent 70%); pointer-events: none; }
+    .article-cta-label { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+    .article-cta-title { font-family: var(--serif); font-size: clamp(1.3rem, 2vw, 1.7rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.85rem; }
+    .article-cta-title span { color: var(--orange); }
+    .article-cta-text { font-size: 0.85rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 1.75rem; }
+    .article-cta-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+    .article-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-light); }
+    .article-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 99px; border: 1px solid var(--border-light); color: var(--muted-light); transition: all 0.2s; }
+    .article-tag:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* SIDEBAR */
+    .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .sidebar-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; }
+    .sidebar-card-head { background: var(--black); padding: 1.25rem 1.5rem; }
+    .sidebar-card-head-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .sidebar-card-body { padding: 1.5rem; }
+    .sidebar-card-body p { font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--muted-light); margin-bottom: 1.25rem; }
+    .sidebar-card-body .btn { width: 100%; justify-content: center; font-size: 0.75rem; padding: 0.75rem 1rem; }
+
+    .sidebar-toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-toc-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; }
+    .toc-list li a { display: block; padding: 0.55rem 0; font-size: 0.78rem; color: var(--muted-light); border-bottom: 1px solid var(--border-light); transition: color 0.2s; line-height: 1.4; }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list li a:hover { color: var(--orange); }
+
+    .sidebar-share { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-share-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .share-btns { display: flex; flex-direction: column; gap: 0.6rem; }
+    .share-btn { display: flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; color: var(--black); background: var(--off-white); border: 1px solid var(--border-light); border-radius: 4px; padding: 0.65rem 1rem; cursor: pointer; transition: all 0.2s; }
+    .share-btn:hover { border-color: var(--orange); color: var(--orange); background: var(--white); }
+    .share-btn span { font-size: 1rem; }
+
+    /* RELATED */
+    .related-section { background: var(--off-white); padding: 5rem 3rem; border-top: 1px solid var(--border-light); }
+    .related-wrap { max-width: 1100px; margin: 0 auto; }
+    .related-hd { margin-bottom: 2.5rem; }
+    .related-hd .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .related-hd h2 { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.75rem; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+    .related-card:hover { border-color: rgba(10,10,10,0.14); transform: translateY(-2px); }
+    .related-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
+    .related-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--black); line-height: 1.25; margin-bottom: 0.6rem; flex: 1; }
+    .related-meta { font-size: 0.68rem; color: var(--muted-light); display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; }
+    .related-link { color: var(--orange); font-weight: 500; }
+
+    /* CTA BAND */
+    .cta-band { background: var(--black); padding: 6rem 3rem; text-align: center; }
+    .cta-band-inner { max-width: 620px; margin: 0 auto; }
+    .cta-band p.eyebrow { font-size: 0.82rem; font-weight: 300; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-dark); margin-bottom: 1.5rem; }
+    .cta-band h2 { font-family: var(--serif); font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 700; color: var(--white); margin-bottom: 1rem; line-height: 1.08; letter-spacing: -0.02em; }
+    .cta-band h2 span { color: var(--orange); }
+    .cta-band-sub { font-size: 0.88rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 2.5rem; }
+    .cta-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-links-row { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
+    .footer-links-row a { font-size: 0.75rem; color: var(--muted-dark); transition: color 0.2s; }
+    .footer-links-row a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--orange); z-index: 1000; width: 0%; transition: width 0.1s linear; }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .article-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 560px) and (max-width: 960px) {
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      #nav { padding: 1.1rem 1.5rem; }
+      .nav-links, .nav-right .btn { display: none; }
+      .nav-hamburger { display: flex; }
+      .post-hero { padding: 7.5rem 1.5rem 0; }
+      .post-hero-image { height: 240px; }
+      .article-section, .related-section, .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .compare-block-head, .compare-row { grid-template-columns: 1fr 1fr; }
+      .compare-col-head:first-child, .compare-cell.feature { display: none; }
+      .inline-stat { grid-template-columns: 1fr; }
+      .inline-stat-cell { border-right: none; border-bottom: 1px solid var(--border-light); }
+      footer { padding: 2rem 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+
+  <div class="progress-bar" id="progress"></div>
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="ring"></div>
+
+  <div class="mobile-nav" id="mob">
+    <button class="mobile-close" id="mob-close">✕</button>
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="faqs.html">FAQs</a>
+    <a href="blog.html" style="color:var(--orange)">Blog</a>
+    <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+  </div>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">CLAW<span>MARK</span></a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Get My Free Website</a>
+      <button class="nav-hamburger" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="post-hero">
+    <div class="hero-grid"></div>
+    <div class="post-hero-content">
+
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="blog.html">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Websites</span>
+      </nav>
+
+      <div class="post-cat-tag">🌐 Websites</div>
+
+      <h1 class="post-title">
+        Your Instagram page is not a website.<br>
+        <span class="accent">Here's what you're actually losing.</span>
+      </h1>
+
+      <div class="post-meta-row">
+        <div class="meta-author">
+          <div class="meta-avatar">A</div>
+          <div>
+            <div class="meta-author-name">Andres Henao</div>
+            <div class="meta-author-role">Founder, Clawmark</div>
+          </div>
+        </div>
+        <div class="meta-sep"></div>
+        <span class="meta-item">📅 April 9, 2026</span>
+        <span class="meta-item">⏱ 6 min read</span>
+        <span class="meta-item">📍 Brisbane, QLD</span>
+      </div>
+
+    </div>
+
+    <div class="post-hero-image-wrap">
+      <div class="post-hero-image">
+        <div class="hero-social-decay">📱 📘 📸 👍 ❤️ 💬</div>
+        <div class="post-hero-image-inner">
+          <div class="hero-img-icon">🌐</div>
+          <div class="hero-img-label">
+            You don't own<br>
+            <span>social media.</span>
+          </div>
+          <div class="hero-img-sub">They can change the rules any time. A website can't.</div>
+        </div>
+      </div>
+      <p class="post-image-caption">Thousands of Brisbane businesses operate with only a Facebook or Instagram page. Most don't realise how much that's costing them — until a competitor with a real website takes their customers.</p>
+    </div>
+  </section>
+
+  <!-- ══ ARTICLE ══ -->
+  <section class="article-section">
+    <div class="article-layout">
+
+      <article>
+
+        <!-- INTRO -->
+        <p class="article-intro reveal">
+          A Facebook page is better than nothing. An Instagram profile is better than nothing. But <span class="intro-highlight">relying on social media alone as your only online presence is one of the most expensive mistakes a small Brisbane business can make</span> — and most owners don't even know they're making it.
+        </p>
+
+        <!-- BODY -->
+        <div class="article-body reveal">
+
+          <h2 id="not-your-turf">You don't own any of it</h2>
+
+          <p>This is the thing most people don't think about until it's too late. When your "website" is a Facebook page, you are building your entire online presence on land you don't own. Meta decides the rules. Meta decides who sees your posts. Meta can change its algorithm overnight, restrict your account, or shut it down entirely — and there is nothing you can do about it.</p>
+
+          <p>This isn't hypothetical. It happens constantly. Businesses have had pages disabled without warning. Organic reach for business pages has dropped from over 16% in 2012 to <strong>under 2% today</strong>. The posts you worked hard on are being seen by almost nobody unless you pay to boost them.</p>
+
+          <p>A website is yours. No algorithm. No platform deciding who sees it. No risk of waking up to find your entire presence gone.</p>
+
+          <div class="callout">
+            <div class="callout-label">Reality check</div>
+            <p><strong>Facebook organic reach for business pages averages 1.5–2% in 2026.</strong> If you have 500 followers, roughly 8–10 people see your posts. A website with basic local SEO can send you leads from people who've never heard of you — every single day.</p>
+          </div>
+
+          <h2 id="google-wont-find-you">Google can't send you customers from a Facebook page</h2>
+
+          <p>Here's the most expensive part of the social-media-only approach: when someone in your suburb searches for what you do, they go to Google. Not Facebook. Not Instagram. Google.</p>
+
+          <p>And Google sends people to websites — not social media profiles. A Facebook page might appear somewhere deep in search results. An Instagram profile almost never does. But a well-built website with proper local SEO will show up right when someone is actively looking for your service, in your suburb, ready to call.</p>
+
+          <p>That's the difference between someone who already follows you and someone brand new who is <em>right now</em> looking for exactly what you offer. Social media talks to people who already know you. A website brings in people who don't.</p>
+
+          <div class="inline-stat">
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">93%</div>
+              <div class="inline-stat-label">of online experiences begin with a search engine — not social media</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">1.5%</div>
+              <div class="inline-stat-label">average organic reach for business Facebook pages in 2026</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">75%</div>
+              <div class="inline-stat-label">of people judge a business's credibility by its website — not its social media</div>
+            </div>
+          </div>
+
+          <h2 id="credibility-gap">The credibility gap is real</h2>
+
+          <p>Think about the last time you needed a tradesperson, a dentist, or a new restaurant. You probably Googled them. You probably checked their website. If they didn't have one — or their website looked like it was built in 2010 — you probably moved on.</p>
+
+          <p>Your customers do the same thing. <strong>75% of people admit to judging a business's credibility based on its website design.</strong> Sending them to a Facebook page instead is not a neutral choice — it actively undermines trust.</p>
+
+          <p>A Facebook page says: "We're a small operation and we haven't got around to building a proper online presence yet." A website — even a simple, well-built one — says: "We're a professional business that takes itself seriously."</p>
+
+          <div class="pull-quote">
+            <blockquote>"If someone refers a customer to you and the first thing they find is a Facebook page, you've already lost a percentage of those people — before you've even spoken to them."</blockquote>
+          </div>
+
+          <h2 id="the-comparison">Social media vs a website — side by side</h2>
+
+          <p>It's not about choosing one or the other. It's about understanding what each actually does for your business.</p>
+
+          <div class="compare-block">
+            <div class="compare-block-head">
+              <div class="compare-col-head">What you need</div>
+              <div class="compare-col-head">Instagram / Facebook</div>
+              <div class="compare-col-head highlight">Your own website</div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-cell feature">Show up on Google</div>
+              <div class="compare-cell"><span class="no">✗ Rarely</span></div>
+              <div class="compare-cell"><span class="yes">✓ Yes, with SEO</span></div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-cell feature">You own and control it</div>
+              <div class="compare-cell"><span class="no">✗ No — platform does</span></div>
+              <div class="compare-cell"><span class="yes">✓ Completely</span></div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-cell feature">Reach new customers</div>
+              <div class="compare-cell"><span class="meh">~ Only followers</span></div>
+              <div class="compare-cell"><span class="yes">✓ Anyone searching</span></div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-cell feature">Build credibility</div>
+              <div class="compare-cell"><span class="meh">~ Partially</span></div>
+              <div class="compare-cell"><span class="yes">✓ Strongly</span></div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-cell feature">Show full services & pricing</div>
+              <div class="compare-cell"><span class="no">✗ Very limited</span></div>
+              <div class="compare-cell"><span class="yes">✓ Completely</span></div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-cell feature">Capture leads 24/7</div>
+              <div class="compare-cell"><span class="no">✗ No forms / booking</span></div>
+              <div class="compare-cell"><span class="yes">✓ Contact form, booking</span></div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-cell feature">Algorithm-proof</div>
+              <div class="compare-cell"><span class="no">✗ Constantly changing</span></div>
+              <div class="compare-cell"><span class="yes">✓ You set the rules</span></div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-cell feature">Works while you sleep</div>
+              <div class="compare-cell"><span class="meh">~ Only if you post</span></div>
+              <div class="compare-cell"><span class="yes">✓ Always on</span></div>
+            </div>
+          </div>
+
+          <h2 id="social-still-matters">Social media still matters — just not alone</h2>
+
+          <p>This isn't anti-social media. Facebook and Instagram are genuinely useful tools for staying in front of people who already know you, sharing updates, and building a local following. They're great for that.</p>
+
+          <p>But they're a loudspeaker — not a foundation. Your website is the foundation. Social media drives people to it. Email captures people from it. The whole system works together. <strong>But without a website at the centre, you're building on someone else's land.</strong></p>
+
+          <p>Think of it this way: if Facebook shut down tomorrow (it won't, but humour the thought), would your business still exist online? If the answer is no — that's the problem.</p>
+
+          <h2 id="the-fix">The fix is simpler than you think</h2>
+
+          <p>You don't need a complicated, expensive website. You need a clean, fast, mobile-first site that tells people what you do, where you do it, and how to get in touch. Add proper local SEO so Google can find you, and a basic contact form so enquiries land in your inbox.</p>
+
+          <p>That's the foundation. Everything else — reviews, social media, word of mouth — feeds into it and makes it stronger over time.</p>
+
+          <!-- IN-ARTICLE CTA -->
+          <div class="article-cta">
+            <div class="article-cta-label">Stop building on rented land</div>
+            <h3 class="article-cta-title">Get a real website for your business —<br><span>free upfront, no catch.</span></h3>
+            <p class="article-cta-text">A custom Webflow website built for your suburb and your industry, with local SEO baked in from day one. You see the full design before you sign anything. Plans from $129/month — no build fee.</p>
+            <div class="article-cta-actions">
+              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+              <a href="pricing.html" class="btn btn-outline-white">See Plans & Pricing</a>
+            </div>
+          </div>
+
+          <div class="article-tags">
+            <a href="blog.html" class="article-tag">Websites</a>
+            <a href="blog.html" class="article-tag">Social Media</a>
+            <a href="blog.html" class="article-tag">Brisbane</a>
+            <a href="blog.html" class="article-tag">Small Business</a>
+            <a href="blog.html" class="article-tag">Local SEO</a>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar reveal">
+
+        <div class="sidebar-toc">
+          <div class="sidebar-toc-title">In this article</div>
+          <ul class="toc-list">
+            <li><a href="#not-your-turf">You don't own any of it</a></li>
+            <li><a href="#google-wont-find-you">Google can't send you customers</a></li>
+            <li><a href="#credibility-gap">The credibility gap is real</a></li>
+            <li><a href="#the-comparison">Social media vs a website</a></li>
+            <li><a href="#social-still-matters">Social media still matters</a></li>
+            <li><a href="#the-fix">The fix is simpler than you think</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-head">
+            <div class="sidebar-card-head-title">Ready to get a real website?</div>
+          </div>
+          <div class="sidebar-card-body">
+            <p>Custom Webflow website with local SEO built in. You see the design before you commit. Plans from $129/mo — $0 upfront build fee.</p>
+            <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+          </div>
+        </div>
+
+        <div class="sidebar-share">
+          <div class="sidebar-share-title">Share this post</div>
+          <div class="share-btns">
+            <button class="share-btn" onclick="sharePost('facebook')"><span>👍</span> Share on Facebook</button>
+            <button class="share-btn" onclick="sharePost('linkedin')"><span>💼</span> Share on LinkedIn</button>
+            <button class="share-btn" onclick="copyLink()"><span>🔗</span> Copy link</button>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </section>
+
+  <!-- RELATED POSTS -->
+  <section class="related-section">
+    <div class="related-wrap">
+      <div class="related-hd reveal">
+        <div class="section-label">More from the blog</div>
+        <h2>Keep reading</h2>
+      </div>
+      <div class="related-grid">
+        <a href="blog-instagram-facebook-vs-website.html" class="related-card reveal">
+          <div class="related-tag">Local SEO</div>
+          <div class="related-title">Why Brisbane tradies are losing jobs to competitors with worse Google reviews</div>
+          <div class="related-meta"><span>April 7, 2026 · 5 min</span><span class="related-link">Read →</span></div>
+        </a>
+        <a href="blog-post-template.html" class="related-card reveal">
+          <div class="related-tag">Local Business</div>
+          <div class="related-title">Word of mouth is great. Here's why it's not enough for a Brisbane tradie in 2026.</div>
+          <div class="related-meta"><span>March 8, 2026 · 4 min</span><span class="related-link">Read →</span></div>
+        </a>
+        <a href="blog-post-template.html" class="related-card reveal">
+          <div class="related-tag">Websites</div>
+          <div class="related-title">How slow websites are costing Brisbane businesses customers every single day</div>
+          <div class="related-meta"><span>March 28, 2026 · 5 min</span><span class="related-link">Read →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="cta-band">
+    <div class="cta-band-inner reveal">
+      <p class="eyebrow">Stop relying on rented land</p>
+      <h2>Build something<br>you actually <span>own.</span></h2>
+      <p class="cta-band-sub">A Clawmark website is yours. Fast, mobile-first, built for local search — and free upfront. Book a call and see the design before you sign a thing.</p>
+      <div class="cta-actions">
+        <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book My Free Call</a>
+        <a href="blog.html" class="btn btn-outline-white">Back to Blog</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">CLAW<span>MARK</span></a>
+      <ul class="footer-links-row">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Clawmark. Brisbane, Australia.</p>
+    </div>
+  </footer>
+
+  <script>
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
+    animRing();
+    document.querySelectorAll('a,button').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+    });
+    document.getElementById('ham').addEventListener('click', () => document.getElementById('mob').classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob').classList.remove('open'));
+    window.addEventListener('scroll', () => {
+      const progress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('progress').style.width = progress + '%';
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    function sharePost(platform) {
+      const url = encodeURIComponent(window.location.href);
+      if (platform === 'facebook') window.open(`https://facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+      if (platform === 'linkedin') window.open(`https://linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+    }
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.querySelector('[onclick="copyLink()"]');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span>✓</span> Link copied!';
+        btn.style.color = '#2D8A4E'; btn.style.borderColor = '#2D8A4E';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; btn.style.borderColor = ''; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Clawmark blog — practical advice on websites, local SEO, and online presence for Brisbane small businesses.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.clawmark.com.au/blog">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.clawmark.com.au/blog">
+  <meta property="og:site_name" content="Clawmark">
+  <meta property="og:title" content="Blog — Clawmark | Website & SEO Tips for Brisbane Businesses">
+  <meta property="og:description" content="Clawmark blog — practical advice on websites, local SEO, and online presence for Brisbane small businesses.">
+  <meta property="og:image" content="https://www.clawmark.com.au/og-image.jpg">
+  <meta property="og:locale" content="en_AU">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@clawmark">
+  <meta name="twitter:title" content="Blog — Clawmark | Website & SEO Tips for Brisbane Businesses">
+  <meta name="twitter:description" content="Clawmark blog — practical advice on websites, local SEO, and online presence for Brisbane small businesses.">
+  <meta name="twitter:image" content="https://www.clawmark.com.au/og-image.jpg">
+  <title>Blog — Clawmark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111111;
+      --dark-2:       #181818;
+      --orange:       #FF5500;
+      --orange-dim:   rgba(255,85,0,0.10);
+      --white:        #FFFFFF;
+      --off-white:    #F6F3EF;
+      --muted-dark:   rgba(255,255,255,0.42);
+      --muted-light:  rgba(10,10,10,0.45);
+      --border-dark:  rgba(255,255,255,0.07);
+      --border-light: rgba(10,10,10,0.08);
+      --serif:        'Syne', sans-serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: none; }
+
+    .cursor { position: fixed; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease; }
+    .cursor.grow { width: 36px; height: 36px; opacity: 0.22; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,85,0,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.18s ease; }
+    @media (hover: none) { .cursor, .cursor-ring { display: none; } body, button { cursor: auto; } }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .h-section { font-family: var(--serif); font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; }
+
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.85rem 1.75rem; border: 1.5px solid transparent; border-radius: 4px; transition: all 0.2s ease; white-space: nowrap; }
+    .btn-orange { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
+    .btn-outline-dark { background: transparent; color: var(--black); border-color: rgba(10,10,10,0.22); }
+    .btn-outline-dark:hover { border-color: var(--black); background: rgba(10,10,10,0.04); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
+    .btn-arrow::after { content: ' →'; }
+
+    /* NAV */
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; background: rgba(10,10,10,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--muted-dark); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--white); }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 490; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
+
+    /* PAGE HERO */
+    .page-hero { background: var(--black); padding: 10rem 3rem 6rem; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -5%; left: 50%; transform: translateX(-50%); width: 600px; height: 500px; background: radial-gradient(circle, rgba(255,85,0,0.09) 0%, transparent 65%); pointer-events: none; }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%); }
+    .page-hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; }
+    .page-hero-left {}
+    .page-hero-h1 { font-family: var(--serif); font-weight: 800; line-height: 1; letter-spacing: -0.02em; font-size: clamp(3rem, 5.5vw, 5rem); color: var(--white); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.22s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .page-hero-h1 .accent { color: var(--orange); }
+    .section-label-anim { opacity: 0; animation: fadeUp 0.7s 0.1s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .page-hero-sub { font-size: 0.95rem; font-weight: 300; line-height: 1.75; color: var(--muted-dark); opacity: 0; animation: fadeUp 0.8s 0.38s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .page-hero-right { opacity: 0; animation: fadeUp 0.8s 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+
+    /* Hero featured post */
+    .hero-featured {
+      background: var(--dark-2);
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .hero-featured:hover { border-color: rgba(255,255,255,0.14); transform: translateY(-3px); }
+    .hero-featured-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #1a1109 0%, #2a1a06 50%, #111 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+    .hero-featured-body { padding: 1.75rem; }
+    .hero-featured-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
+    .hero-featured-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--white); line-height: 1.25; margin-bottom: 0.75rem; }
+    .hero-featured-excerpt { font-size: 0.8rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 1.25rem; }
+    .hero-featured-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.7rem; color: rgba(255,255,255,0.28); }
+    .hero-featured-read { color: var(--orange); font-weight: 500; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ── FILTER TABS ── */
+    .filter-section { background: var(--off-white); border-bottom: 1px solid var(--border-light); padding: 1.5rem 3rem; position: sticky; top: 72px; z-index: 200; backdrop-filter: blur(8px); }
+    .filter-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+    .filter-btn { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.5rem 1.1rem; border-radius: 99px; border: 1px solid var(--border-light); color: var(--muted-light); background: transparent; cursor: pointer; transition: all 0.2s; }
+    .filter-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .filter-btn.active { background: var(--orange); border-color: var(--orange); color: var(--white); }
+
+    /* ── BLOG GRID ── */
+    .blog-section { background: var(--off-white); padding: 5rem 3rem 8rem; }
+    .blog-wrap { max-width: 1200px; margin: 0 auto; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+
+    .post-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .post-card:hover { border-color: rgba(10,10,10,0.14); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+    .post-card-img {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      flex-shrink: 0;
+    }
+    .post-card-img.cat-seo { background: linear-gradient(135deg, #0a1628, #0f2348); }
+    .post-card-img.cat-web { background: linear-gradient(135deg, #1a0a05, #2d1108); }
+    .post-card-img.cat-local { background: linear-gradient(135deg, #0a1a0a, #0f2d14); }
+    .post-card-img.cat-tips { background: linear-gradient(135deg, #1a1a0a, #2d2d08); }
+
+    .post-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .post-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
+    .post-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--black); line-height: 1.25; margin-bottom: 0.65rem; }
+    .post-excerpt { font-size: 0.8rem; font-weight: 300; color: var(--muted-light); line-height: 1.7; flex: 1; margin-bottom: 1.25rem; }
+    .post-meta { display: flex; align-items: center; justify-content: space-between; }
+    .post-date { font-size: 0.68rem; color: var(--muted-light); }
+    .post-read { font-size: 0.72rem; font-weight: 500; color: var(--orange); letter-spacing: 0.04em; }
+    .post-read:hover { text-decoration: underline; }
+
+    /* Load more */
+    .blog-load-more { text-align: center; }
+
+    /* ── NEWSLETTER ── */
+    .newsletter-section { background: var(--dark); padding: 5rem 3rem; border-top: 1px solid var(--border-dark); }
+    .newsletter-wrap { max-width: 640px; margin: 0 auto; text-align: center; }
+    .newsletter-wrap .section-label { margin-bottom: 0.75rem; }
+    .newsletter-wrap .h-section { color: var(--white); margin-bottom: 0.75rem; }
+    .newsletter-wrap p { font-size: 0.88rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 2rem; }
+    .newsletter-form { display: flex; gap: 0.75rem; max-width: 480px; margin: 0 auto; }
+    .newsletter-input { flex: 1; background: var(--dark-2); border: 1px solid var(--border-dark); color: var(--white); font-family: var(--sans); font-size: 0.85rem; padding: 0.85rem 1.25rem; border-radius: 4px; outline: none; transition: border-color 0.2s; }
+    .newsletter-input::placeholder { color: var(--muted-dark); }
+    .newsletter-input:focus { border-color: var(--orange); }
+    .newsletter-note { font-size: 0.68rem; color: rgba(255,255,255,0.22); margin-top: 0.85rem; }
+
+    /* ── CTA BAND ── */
+    .cta-band { background: var(--black); border-top: 1px solid var(--border-dark); padding: 6rem 3rem; text-align: center; }
+    .cta-band-inner { max-width: 600px; margin: 0 auto; }
+    .cta-band p { font-size: 0.82rem; font-weight: 300; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-dark); margin-bottom: 1.5rem; }
+    .cta-band .h-section { color: var(--white); margin-bottom: 1rem; }
+    .cta-band .h-section span { color: var(--orange); }
+    .cta-band-sub { font-size: 0.88rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 2.5rem; }
+    .cta-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-links-row { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
+    .footer-links-row a { font-size: 0.75rem; color: var(--muted-dark); transition: color 0.2s; }
+    .footer-links-row a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+
+    @media (max-width: 900px) {
+      #nav { padding: 1.1rem 1.5rem; }
+      .nav-links, .nav-right .btn { display: none; }
+      .nav-hamburger { display: flex; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .filter-section { padding: 1.25rem 1.5rem; top: 62px; }
+      .page-hero, .blog-section, .newsletter-section, .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (min-width: 600px) and (max-width: 900px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="ring"></div>
+
+  <div class="mobile-nav" id="mob">
+    <button class="mobile-close" id="mob-close">✕</button>
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="faqs.html">FAQs</a>
+    <a href="blog.html" style="color:var(--orange)">Blog</a>
+    <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+  </div>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">CLAW<span>MARK</span></a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Get My Free Website</a>
+      <button class="nav-hamburger" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="hero-grid"></div>
+    <div class="page-hero-inner">
+      <div class="page-hero-left">
+        <div class="section-label section-label-anim">The Clawmark Blog</div>
+        <h1 class="page-hero-h1">Straight talk on<br>websites &<br><span class="accent">local business.</span></h1>
+        <p class="page-hero-sub">No fluff, no generic SEO tips. Practical advice for Brisbane small businesses trying to get found online and convert visitors into customers.</p>
+      </div>
+      <div class="page-hero-right">
+        <a href="blog-post-template.html" class="hero-featured">
+          <div class="hero-featured-img">🔍</div>
+          <div class="hero-featured-body">
+            <div class="hero-featured-tag">⭐ Featured · Local SEO</div>
+            <div class="hero-featured-title">Why Brisbane tradies are losing jobs to competitors with worse Google reviews</div>
+            <p class="hero-featured-excerpt">It's not about having the most 5-star reviews. It's about showing up when someone in your suburb searches for what you do.</p>
+            <div class="hero-featured-meta">
+              <span>April 7, 2026 · 5 min read</span>
+              <span class="hero-featured-read">Read post →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter tabs -->
+  <div class="filter-section">
+    <div class="filter-inner">
+      <button class="filter-btn active" data-cat="all">All posts</button>
+      <button class="filter-btn" data-cat="seo">Local SEO</button>
+      <button class="filter-btn" data-cat="web">Websites</button>
+      <button class="filter-btn" data-cat="local">Local Business</button>
+      <button class="filter-btn" data-cat="tips">Quick Tips</button>
+    </div>
+  </div>
+
+  <!-- Blog grid -->
+  <section class="blog-section">
+    <div class="blog-wrap">
+      <div class="blog-grid" id="blog-grid">
+
+        <a href="blog-instagram-facebook-vs-website.html" class="post-card reveal" data-cat="web">
+          <div class="post-card-img cat-web">📱</div>
+          <div class="post-card-body">
+            <div class="post-tag">Websites</div>
+            <div class="post-title">Your Instagram page is not a website. Here's what you're actually losing.</div>
+            <p class="post-excerpt">Facebook and Instagram are useful tools — but relying on them as your only online presence is one of the most expensive mistakes a Brisbane small business can make.</p>
+            <div class="post-meta">
+              <span class="post-date">April 9, 2026 · 6 min</span>
+              <span class="post-read">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-post-template.html" class="post-card reveal" data-cat="local">
+          <div class="post-card-img cat-local">🗺️</div>
+          <div class="post-card-body">
+            <div class="post-tag">Local Business</div>
+            <div class="post-title">Why your Google Business Profile matters more than your website right now</div>
+            <p class="post-excerpt">Most Brisbane business owners have set up a Google Business Profile and forgotten about it. That's a missed opportunity worth thousands in leads.</p>
+            <div class="post-meta">
+              <span class="post-date">April 4, 2026 · 4 min</span>
+              <span class="post-read">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-post-template.html" class="post-card reveal" data-cat="web">
+          <div class="post-card-img cat-web">⚡</div>
+          <div class="post-card-body">
+            <div class="post-tag">Websites</div>
+            <div class="post-title">How slow websites are costing Brisbane businesses customers every single day</div>
+            <p class="post-excerpt">A 1-second delay in page load time reduces conversions by 7%. If your site loads in more than 3 seconds, you're losing money on every visit.</p>
+            <div class="post-meta">
+              <span class="post-date">March 28, 2026 · 5 min</span>
+              <span class="post-read">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-post-template.html" class="post-card reveal" data-cat="seo">
+          <div class="post-card-img cat-seo">📍</div>
+          <div class="post-card-body">
+            <div class="post-tag">Local SEO</div>
+            <div class="post-title">The 5 local SEO mistakes Brisbane small businesses make (and how to fix them)</div>
+            <p class="post-excerpt">Most small business SEO advice is written for big companies with marketing teams. Here's what actually moves the needle for local businesses in Brisbane.</p>
+            <div class="post-meta">
+              <span class="post-date">March 20, 2026 · 6 min</span>
+              <span class="post-read">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-post-template.html" class="post-card reveal" data-cat="tips">
+          <div class="post-card-img cat-tips">📸</div>
+          <div class="post-card-body">
+            <div class="post-tag">Quick Tips</div>
+            <div class="post-title">Take better photos for your business website using nothing but your phone</div>
+            <p class="post-excerpt">You don't need a photographer. You need good light, a steady hand, and to know what actually works on a website versus what looks nice on Instagram.</p>
+            <div class="post-meta">
+              <span class="post-date">March 14, 2026 · 4 min</span>
+              <span class="post-read">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-post-template.html" class="post-card reveal" data-cat="local">
+          <div class="post-card-img cat-local">💬</div>
+          <div class="post-card-body">
+            <div class="post-tag">Local Business</div>
+            <div class="post-title">Word of mouth is great. Here's why it's not enough for a Brisbane tradie in 2026.</div>
+            <p class="post-excerpt">If someone is referred to you and they Google your name and find nothing — or find an embarrassing old website — you've already lost the job.</p>
+            <div class="post-meta">
+              <span class="post-date">March 8, 2026 · 4 min</span>
+              <span class="post-read">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-post-template.html" class="post-card reveal" data-cat="web">
+          <div class="post-card-img cat-web">🏗️</div>
+          <div class="post-card-body">
+            <div class="post-tag">Websites</div>
+            <div class="post-title">Webflow vs WordPress: what actually matters for a small business website in 2026</div>
+            <p class="post-excerpt">WordPress has more plugins. Webflow has better performance and security. Here's an honest breakdown of which one is right for a Brisbane small business.</p>
+            <div class="post-meta">
+              <span class="post-date">February 28, 2026 · 7 min</span>
+              <span class="post-read">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-post-template.html" class="post-card reveal" data-cat="seo">
+          <div class="post-card-img cat-seo">🔑</div>
+          <div class="post-card-body">
+            <div class="post-tag">Local SEO</div>
+            <div class="post-title">How to rank for "plumber near me" in your suburb — without paying for ads</div>
+            <p class="post-excerpt">Ranking locally for service searches is achievable for small businesses, and it doesn't require a big agency or a big budget. Here's the actual playbook.</p>
+            <div class="post-meta">
+              <span class="post-date">February 18, 2026 · 6 min</span>
+              <span class="post-read">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-post-template.html" class="post-card reveal" data-cat="tips">
+          <div class="post-card-img cat-tips">📝</div>
+          <div class="post-card-body">
+            <div class="post-tag">Quick Tips</div>
+            <div class="post-title">The one page on your website that most Brisbane businesses get completely wrong</div>
+            <p class="post-excerpt">It's not your homepage. It's not your services page. The most neglected and highest-converting page on most small business websites is the About page.</p>
+            <div class="post-meta">
+              <span class="post-date">February 10, 2026 · 3 min</span>
+              <span class="post-read">Read →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-post-template.html" class="post-card reveal" data-cat="local">
+          <div class="post-card-img cat-local">⭐</div>
+          <div class="post-card-body">
+            <div class="post-tag">Local Business</div>
+            <div class="post-title">How to ask for Google reviews without being awkward about it</div>
+            <p class="post-excerpt">Reviews are the most powerful local SEO signal for a small business. Most owners hate asking for them. Here's how to make it easy for everyone.</p>
+            <div class="post-meta">
+              <span class="post-date">January 30, 2026 · 4 min</span>
+              <span class="post-read">Read →</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="blog-load-more reveal">
+        <button class="btn btn-outline-dark" onclick="this.textContent='No more posts yet.'; this.disabled=true; this.style.opacity='0.4';">Load more posts</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <div class="newsletter-wrap reveal">
+      <div class="section-label">Stay in the loop</div>
+      <h2 class="h-section">One email. No spam.<br>Just useful stuff.</h2>
+      <p>We send a short, practical update once or twice a month — new posts, local SEO tips, and the occasional thing we've noticed that's worth knowing about.</p>
+      <form class="newsletter-form" onsubmit="handleSub(event)">
+        <input type="email" class="newsletter-input" placeholder="your@email.com.au" required>
+        <button type="submit" class="btn btn-orange">Subscribe</button>
+      </form>
+      <p class="newsletter-note">No noise. Unsubscribe any time.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="cta-band-inner reveal">
+      <p>Ready to get started?</p>
+      <h2 class="h-section">Get a website that<br>actually <span>gets found.</span></h2>
+      <p class="cta-band-sub">Free build. Simple monthly plan. No upfront cost. Book a 30-minute call and we'll show you what your site could look like before you commit to anything.</p>
+      <div class="cta-actions">
+        <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book My Free Call</a>
+        <a href="pricing.html" class="btn btn-outline-white">See Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">CLAW<span>MARK</span></a>
+      <ul class="footer-links-row">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Clawmark. Brisbane, Australia.</p>
+    </div>
+  </footer>
+
+  <script>
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
+    animRing();
+    document.querySelectorAll('a,button').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+    });
+    document.getElementById('ham').addEventListener('click', () => document.getElementById('mob').classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob').classList.remove('open'));
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        document.querySelectorAll('.post-card').forEach(card => {
+          if (cat === 'all' || card.dataset.cat === cat) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Newsletter
+    function handleSub(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'You\'re in! ✓';
+      btn.disabled = true;
+      btn.style.background = '#2D8A4E';
+      btn.style.borderColor = '#2D8A4E';
+    }
+  </script>
+</body>
+</html>

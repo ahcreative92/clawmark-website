@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How Clawmark works — free custom website, simple monthly plan, no upfront cost. Brisbane small business web design.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.clawmark.com.au/how-it-works">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.clawmark.com.au/how-it-works">
+  <meta property="og:site_name" content="Clawmark">
+  <meta property="og:title" content="How It Works — Clawmark | Free Brisbane Website Design">
+  <meta property="og:description" content="How Clawmark works — free custom website, simple monthly plan, no upfront cost. Brisbane small business web design.">
+  <meta property="og:image" content="https://www.clawmark.com.au/og-image.jpg">
+  <meta property="og:locale" content="en_AU">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@clawmark">
+  <meta name="twitter:title" content="How It Works — Clawmark | Free Brisbane Website Design">
+  <meta name="twitter:description" content="How Clawmark works — free custom website, simple monthly plan, no upfront cost. Brisbane small business web design.">
+  <meta name="twitter:image" content="https://www.clawmark.com.au/og-image.jpg">
+  <title>How It Works — Clawmark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* ── Variables ──────────────────────────────── */
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111111;
+      --dark-2:       #181818;
+      --orange:       #FF5500;
+      --orange-dim:   rgba(255,85,0,0.10);
+      --orange-glow:  rgba(255,85,0,0.18);
+      --white:        #FFFFFF;
+      --off-white:    #F6F3EF;
+      --stone:        #EBEBEB;
+      --muted-dark:   rgba(255,255,255,0.42);
+      --muted-light:  rgba(10,10,10,0.45);
+      --border-dark:  rgba(255,255,255,0.07);
+      --border-light: rgba(10,10,10,0.08);
+      --serif:        'Syne', sans-serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--off-white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      cursor: none;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: none; }
+
+    /* ── Custom Cursor ──────────────────────────── */
+    .cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--orange);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+    }
+    .cursor.grow { width: 36px; height: 36px; background: var(--orange); opacity: 0.22; }
+    .cursor-ring {
+      position: fixed;
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,85,0,0.35);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: transform 0.18s ease;
+    }
+    @media (hover: none) { .cursor, .cursor-ring { display: none; } body, button { cursor: auto; } }
+
+    /* ── Reveal ─────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    /* ── Shared typography ───────────────────────── */
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+    .h-display {
+      font-family: var(--serif);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+    }
+    .h-section {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── Buttons ─────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 0.85rem 1.75rem;
+      border: 1.5px solid transparent;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-orange { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
+    .btn-outline-dark { background: transparent; color: var(--black); border-color: rgba(10,10,10,0.22); }
+    .btn-outline-dark:hover { border-color: var(--black); background: rgba(10,10,10,0.04); }
+    .btn-arrow::after { content: ' →'; }
+
+    /* ════════════════════════════════════
+       NAVBAR
+    ════════════════════════════════════ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 3rem;
+      transition: padding 0.35s, background 0.35s, border-color 0.35s;
+      border-bottom: 1px solid transparent;
+      background: rgba(10,10,10,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: var(--border-dark);
+    }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.02em; color: var(--muted-dark); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--white); transition: all 0.25s; }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 490;
+      background: var(--black);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
+
+    /* ════════════════════════════════════
+       PAGE HERO
+    ════════════════════════════════════ */
+    .page-hero {
+      background: var(--black);
+      padding: 10rem 3rem 7rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 500px;
+      background: radial-gradient(circle, rgba(255,85,0,0.11) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%);
+    }
+    .page-hero-content { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+    .page-hero-content .section-label {
+      opacity: 0;
+      animation: fadeUp 0.7s 0.1s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .page-hero-h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.22s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .page-hero-h1 .accent { color: var(--orange); }
+    .page-hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--muted-dark);
+      max-width: 520px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.38s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ════════════════════════════════════
+       PROCESS — BIG STEPS
+    ════════════════════════════════════ */
+    .process-section {
+      background: var(--off-white);
+      padding: 7rem 3rem;
+    }
+    .process-wrap { max-width: 1100px; margin: 0 auto; }
+
+    .process-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 6rem;
+    }
+    .process-intro p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--muted-light);
+    }
+
+    /* Big numbered steps */
+    .big-steps { display: flex; flex-direction: column; gap: 0; }
+    .big-step {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      align-items: start;
+      gap: 3rem;
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--border-light);
+      position: relative;
+    }
+    .big-step:first-child { border-top: 1px solid var(--border-light); }
+    .big-step-num {
+      font-family: var(--serif);
+      font-size: clamp(4rem, 7vw, 7rem);
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      opacity: 0.18;
+      letter-spacing: -0.04em;
+    }
+    .big-step-body {}
+    .big-step-tag {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.8rem;
+    }
+    .big-step-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .big-step-text {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--muted-light);
+      max-width: 480px;
+    }
+    .big-step-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-end;
+      padding-top: 0.5rem;
+    }
+    .step-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.38rem 0.9rem;
+      border-radius: 99px;
+      border: 1px solid var(--border-light);
+      color: var(--muted-light);
+      white-space: nowrap;
+    }
+    .step-pill.orange { border-color: var(--orange); color: var(--orange); }
+
+    /* ════════════════════════════════════
+       WHAT YOU GET BAND
+    ════════════════════════════════════ */
+    .get-band {
+      background: var(--black);
+      padding: 6rem 3rem;
+    }
+    .get-wrap { max-width: 1100px; margin: 0 auto; }
+    .get-hd { margin-bottom: 4rem; }
+    .get-hd .h-section { color: var(--white); }
+    .get-hd p { font-size: 0.88rem; font-weight: 300; color: var(--muted-dark); margin-top: 0.75rem; max-width: 400px; line-height: 1.7; }
+
+    .get-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border-dark);
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .get-cell {
+      background: var(--black);
+      padding: 2.75rem 2.25rem;
+      transition: background 0.2s;
+    }
+    .get-cell:hover { background: var(--dark); }
+    .get-icon { font-size: 1.6rem; margin-bottom: 1.25rem; }
+    .get-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.65rem; }
+    .get-text { font-size: 0.82rem; font-weight: 300; line-height: 1.75; color: var(--muted-dark); }
+
+    /* ════════════════════════════════════
+       TIMELINE / FAQ MINI
+    ════════════════════════════════════ */
+    .timeline-section {
+      background: var(--off-white);
+      padding: 7rem 3rem;
+    }
+    .timeline-wrap { max-width: 900px; margin: 0 auto; }
+    .timeline-hd { text-align: center; margin-bottom: 4rem; }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--border-light);
+    }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+    .tl-dot {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--off-white);
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--orange);
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+    .tl-body {}
+    .tl-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.4rem; }
+    .tl-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
+    .tl-text { font-size: 0.85rem; font-weight: 300; line-height: 1.7; color: var(--muted-light); }
+
+    /* ════════════════════════════════════
+       CTA BAND
+    ════════════════════════════════════ */
+    .cta-band {
+      background: var(--dark);
+      border-top: 1px solid var(--border-dark);
+      padding: 6rem 3rem;
+      text-align: center;
+    }
+    .cta-band-inner { max-width: 640px; margin: 0 auto; }
+    .cta-band p { font-size: 0.82rem; font-weight: 300; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-dark); margin-bottom: 1.5rem; }
+    .cta-band .h-section { color: var(--white); margin-bottom: 1rem; }
+    .cta-band .h-section span { color: var(--orange); }
+    .cta-band-sub { font-size: 0.88rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 2.5rem; }
+    .cta-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════ */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border-dark);
+      padding: 3rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-links-row { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
+    .footer-links-row a { font-size: 0.75rem; color: var(--muted-dark); transition: color 0.2s; }
+    .footer-links-row a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+
+    /* ════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════ */
+    @media (max-width: 900px) {
+      #nav { padding: 1.1rem 1.5rem; }
+      .nav-links, .nav-right .btn { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .process-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+      .big-step { grid-template-columns: 1fr; gap: 1rem; }
+      .big-step-num { font-size: 3.5rem; opacity: 0.14; }
+      .big-step-meta { align-items: flex-start; }
+      .get-grid { grid-template-columns: 1fr; }
+      .timeline::before { display: none; }
+      .tl-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .tl-dot { display: none; }
+
+      .page-hero { padding: 8rem 1.5rem 5rem; }
+      .process-section, .get-band, .timeline-section, .cta-band { padding: 5rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    }
+  </style>
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="ring"></div>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav" id="mob">
+    <button class="mobile-close" id="mob-close">✕</button>
+    <a href="index.html" class="mob-link">Home</a>
+    <a href="how-it-works.html" class="mob-link" style="color:var(--orange)">How It Works</a>
+    <a href="pricing.html" class="mob-link">Pricing</a>
+    <a href="faqs.html" class="mob-link">FAQs</a>
+    <a href="blog.html" class="mob-link">Blog</a>
+    <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+  </div>
+
+  <!-- Navbar -->
+  <nav id="nav" role="navigation">
+    <a href="index.html" class="nav-logo">CLAW<span>MARK</span></a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html" class="active">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Get My Free Website</a>
+      <button class="nav-hamburger" id="ham" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="hero-grid"></div>
+    <div class="page-hero-content">
+      <div class="section-label">The Process</div>
+      <h1 class="page-hero-h1 h-display">How it <span class="accent">actually</span> works</h1>
+      <p class="page-hero-sub">No agency jargon. No 12-week timelines. No surprise invoices. Here's exactly what happens from first conversation to live website.</p>
+    </div>
+  </section>
+
+  <!-- Big Steps -->
+  <section class="process-section">
+    <div class="process-wrap">
+
+      <div class="process-intro reveal">
+        <div>
+          <div class="section-label">Simple by design</div>
+          <h2 class="h-section">Five steps from<br>conversation to live</h2>
+        </div>
+        <p>Most agencies make this complicated. We don't. You see your site before you sign anything, and the whole thing from first call to live website takes less than two weeks.</p>
+      </div>
+
+      <div class="big-steps">
+
+        <!-- Step 1 -->
+        <div class="big-step reveal">
+          <div class="big-step-num">01</div>
+          <div class="big-step-body">
+            <div class="big-step-tag">Step One</div>
+            <h3 class="big-step-title">We find you, or you find us</h3>
+            <p class="big-step-text">We spend time every week searching Google Maps for Brisbane businesses with no website, a broken one, or something built in 2014. If that's you, we'll reach out with a note specific to your business — not a copy-paste blast.<br><br>Or you can just come to us. Either way, the first conversation is free, with no pressure and no pitch deck.</p>
+          </div>
+          <div class="big-step-meta">
+            <span class="step-pill">📍 Brisbane-based</span>
+            <span class="step-pill orange">Free to start</span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="big-step reveal">
+          <div class="big-step-num">02</div>
+          <div class="big-step-body">
+            <div class="big-step-tag">Step Two</div>
+            <h3 class="big-step-title">We build you a free mockup</h3>
+            <p class="big-step-text">Before you commit to anything, we design a real mockup of your new website — tailored to your industry, your suburb, and your business. You get to see exactly what you'd be getting.<br><br>No vague wireframes. No stock templates. A proper design, built for you. If you don't love it, you walk away. No invoice, no hard feelings.</p>
+          </div>
+          <div class="big-step-meta">
+            <span class="step-pill">⚡ 48–72 hours</span>
+            <span class="step-pill orange">Zero cost</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="big-step reveal">
+          <div class="big-step-num">03</div>
+          <div class="big-step-body">
+            <div class="big-step-tag">Step Three</div>
+            <h3 class="big-step-title">You review, we refine</h3>
+            <p class="big-step-text">Like what you see? We'll hop on a quick call to walk through the mockup together. You tell us what you want to change — copy, layout, colours, anything — and we make it happen.<br><br>This is your website. We don't move forward until you're happy with the design.</p>
+          </div>
+          <div class="big-step-meta">
+            <span class="step-pill">🔄 Unlimited rounds</span>
+            <span class="step-pill orange">Your call</span>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="big-step reveal">
+          <div class="big-step-num">04</div>
+          <div class="big-step-body">
+            <div class="big-step-tag">Step Four</div>
+            <h3 class="big-step-title">You approve — we go live</h3>
+            <p class="big-step-text">Once you sign off on the design, we move into build. We connect your domain, set up hosting, configure SEO basics, and push the site live. The whole process from approval to live usually takes 3–5 business days.<br><br>You sign a simple subscription agreement (18-month minimum), and the monthly plan starts from the go-live date.</p>
+          </div>
+          <div class="big-step-meta">
+            <span class="step-pill">🚀 3–5 days to live</span>
+            <span class="step-pill orange">$0 upfront</span>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="big-step reveal">
+          <div class="big-step-num">05</div>
+          <div class="big-step-body">
+            <div class="big-step-tag">Step Five</div>
+            <h3 class="big-step-title">Ongoing support, every month</h3>
+            <p class="big-step-text">Your subscription covers hosting, maintenance, and regular updates. Need to change your hours? Add a new service? Update your pricing? Just shoot us a message — we handle it within your plan's response window.<br><br>You never need to touch the website yourself. That's the whole point.</p>
+          </div>
+          <div class="big-step-meta">
+            <span class="step-pill">📞 Direct access</span>
+            <span class="step-pill orange">Ongoing support</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section class="get-band">
+    <div class="get-wrap">
+      <div class="get-hd reveal">
+        <div class="section-label">Every plan includes</div>
+        <h2 class="h-section">What's covered from day one</h2>
+        <p>Everything you need to go live, look the part, and start getting enquiries. No extras, no bolt-ons, no tech headaches.</p>
+      </div>
+      <div class="get-grid">
+        <div class="get-cell reveal">
+          <div class="get-icon">🎨</div>
+          <div class="get-title">Custom Webflow build</div>
+          <p class="get-text">A real custom design built in Webflow — not a tweaked template. Fast-loading, mobile-ready, and built to convert visitors into enquiries.</p>
+        </div>
+        <div class="get-cell reveal">
+          <div class="get-icon">🔒</div>
+          <div class="get-title">Hosting & security</div>
+          <p class="get-text">Enterprise-grade Webflow hosting is included in every plan. SSL certificate, uptime monitoring, and automatic security updates — all handled.</p>
+        </div>
+        <div class="get-cell reveal">
+          <div class="get-icon">📍</div>
+          <div class="get-title">On-page SEO setup</div>
+          <p class="get-text">Every site is set up with proper meta titles, descriptions, image alt text, and local SEO signals so Google can actually find you.</p>
+        </div>
+        <div class="get-cell reveal">
+          <div class="get-icon">✏️</div>
+          <div class="get-title">Content updates</div>
+          <p class="get-text">Need a change? Just ask. Updates are included every month — from 2 on PRESENCE to 20 on AUTHORITY. No extra charges, no waiting weeks.</p>
+        </div>
+        <div class="get-cell reveal">
+          <div class="get-icon">📱</div>
+          <div class="get-title">Mobile-first design</div>
+          <p class="get-text">Most of your customers are on their phones. Every Clawmark site is designed mobile-first, then refined for desktop — not the other way around.</p>
+        </div>
+        <div class="get-cell reveal">
+          <div class="get-icon">🙋</div>
+          <div class="get-title">Direct access to Andres</div>
+          <p class="get-text">No account managers, no ticket queues, no offshore support. You deal directly with the person who built your website. Every time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline-section">
+    <div class="timeline-wrap">
+      <div class="timeline-hd reveal">
+        <div class="section-label">Realistic timeline</div>
+        <h2 class="h-section">From first chat to live site</h2>
+        <p style="font-size:0.88rem;font-weight:300;color:var(--muted-light);margin-top:0.75rem;line-height:1.7;">Most clients go live within 10–14 days. Here's what that looks like.</p>
+      </div>
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-dot">D1</div>
+          <div class="tl-body">
+            <div class="tl-label">Day 1</div>
+            <div class="tl-title">First conversation</div>
+            <p class="tl-text">We learn about your business, your goals, and what you're currently doing online. No commitment needed.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">D3</div>
+          <div class="tl-body">
+            <div class="tl-label">Day 2–3</div>
+            <div class="tl-title">Mockup delivered</div>
+            <p class="tl-text">You receive a custom design mockup built for your specific business, industry, and suburb.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">D5</div>
+          <div class="tl-body">
+            <div class="tl-label">Day 4–5</div>
+            <div class="tl-title">Feedback & refinement</div>
+            <p class="tl-text">We go back and forth until the design is exactly right. This usually takes one or two quick rounds.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">D7</div>
+          <div class="tl-body">
+            <div class="tl-label">Day 6–7</div>
+            <div class="tl-title">You approve & sign</div>
+            <p class="tl-text">Once you're happy, you sign a simple agreement and we move into build. Subscription starts from go-live.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">🚀</div>
+          <div class="tl-body">
+            <div class="tl-label">Day 10–14</div>
+            <div class="tl-title">Your site goes live</div>
+            <p class="tl-text">Domain connected, hosting live, SEO set up. Your business is now online and ready to take enquiries.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="cta-band-inner reveal">
+      <p>Ready to get started?</p>
+      <h2 class="h-section">See your site before you<br>spend a <span>single cent</span></h2>
+      <p class="cta-band-sub">Book a free 30-minute call and we'll walk through what your new website could look like — no commitment, no cost, no agency runaround.</p>
+      <div class="cta-actions">
+        <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book My Free Call</a>
+        <a href="pricing.html" class="btn btn-outline-white">See Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">CLAW<span>MARK</span></a>
+      <ul class="footer-links-row">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Clawmark. Brisbane, Australia.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Cursor
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
+    animRing();
+    document.querySelectorAll('a,button').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+    });
+
+    // Mobile nav
+    const mob = document.getElementById('mob');
+    document.getElementById('ham').addEventListener('click', () => mob.classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click', () => mob.classList.remove('open'));
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
