@@ -4,22 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="[POST META DESCRIPTION — 150 characters describing the article for Google]">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.clawmark.com.au/blog/[POST-SLUG]">
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.clawmark.com.au/blog/[POST-SLUG]">
-  <meta property="og:site_name" content="Clawmark">
-  <meta property="og:title" content="[POST TITLE] — Clawmark Blog">
-  <meta property="og:description" content="[POST META DESCRIPTION — 150 characters describing the article for Google]">
-  <meta property="og:image" content="https://www.clawmark.com.au/og-image.jpg">
-  <meta property="og:locale" content="en_AU">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@clawmark">
-  <meta name="twitter:title" content="[POST TITLE] — Clawmark Blog">
-  <meta name="twitter:description" content="[POST META DESCRIPTION — 150 characters describing the article for Google]">
-  <meta name="twitter:image" content="https://www.clawmark.com.au/og-image.jpg">
   <title>[POST TITLE] — Clawmark Blog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +39,7 @@
     .reveal.in { opacity:1; transform:translateY(0); }
 
     .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.85rem 1.75rem; border: 1.5px solid transparent; border-radius: 4px; transition: all 0.2s ease; white-space: nowrap; }
-    .btn-orange { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-orange { background: #FF5500; color: #FFFFFF !important; border-color: #FF5500; }
     .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
     .btn-outline-dark { background: transparent; color: var(--black); border-color: rgba(10,10,10,0.22); }
     .btn-outline-dark:hover { border-color: var(--black); background: rgba(10,10,10,0.04); }
@@ -458,13 +442,22 @@
     /* ════════════════════════════════════
        PAGE-BOTTOM CTA
     ════════════════════════════════════ */
-    .cta-band { background: var(--black); padding: 6rem 3rem; text-align: center; }
-    .cta-band-inner { max-width: 620px; margin: 0 auto; }
-    .cta-band p.eyebrow { font-size: 0.82rem; font-weight: 300; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-dark); margin-bottom: 1.5rem; }
-    .cta-band h2 { font-family: var(--serif); font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 700; color: var(--white); margin-bottom: 1rem; line-height: 1.08; letter-spacing: -0.02em; }
-    .cta-band h2 span { color: var(--orange); }
-    .cta-band-sub { font-size: 0.88rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 2.5rem; }
-    .cta-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+    .cta-band { background: #0A0A0A; padding: 0 3rem; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF5500 0%, rgba(255,85,0,0.3) 60%, transparent 100%); }
+    .cta-band::after { content: ''; position: absolute; left: -80px; top: 50%; transform: translateY(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(255,85,0,0.11) 0%, transparent 65%); pointer-events: none; }
+    .cta-band-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 5rem; padding: 5.5rem 0; position: relative; z-index: 2; }
+    .cta-band-left {}
+    .cta-band p.eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #FF5500; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+    .cta-band p.eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1.5px; background: #FF5500; flex-shrink: 0; }
+    .cta-band h2 { font-family: var(--serif); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; color: #FFFFFF; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .cta-band h2 span { color: #FF5500; }
+    .cta-band-sub { font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.52); line-height: 1.8; max-width: 500px; }
+    .cta-band-right { display: flex; flex-direction: column; gap: 0.85rem; flex-shrink: 0; min-width: 230px; }
+    .cta-band-right .btn { justify-content: center; padding: 1.05rem 2rem; font-size: 0.82rem; }
+    .cta-band-right .btn-orange { background: #FF5500 !important; color: #FFFFFF !important; border-color: #FF5500 !important; }
+    .cta-band-right .btn-outline-white { color: #FFFFFF !important; border-color: rgba(255,255,255,0.3) !important; }
+    .cta-band-note { font-size: 0.65rem; color: rgba(255,255,255,0.2); text-align: center; letter-spacing: 0.04em; margin-top: 0.25rem; }
+    @media (max-width: 780px) { .cta-band-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 0; } .cta-band-right { min-width: unset; } }
 
     /* FOOTER */
     footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
@@ -498,14 +491,6 @@
       .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
-  <!-- Google Analytics 4 — replace G-Y8W1YZ90B2 with your Measurement ID from analytics.google.com -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y8W1YZ90B2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Y8W1YZ90B2');
-  </script>
 </head>
 <body>
 
@@ -522,7 +507,7 @@
     <a href="pricing.html">Pricing</a>
     <a href="faqs.html">FAQs</a>
     <a href="blog.html" style="color:var(--orange)">Blog</a>
-    <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+    <a href="https://calendly.com/ahcreative92-arcr/30min" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
   </div>
 
   <nav id="nav">
@@ -681,7 +666,7 @@
             <h3 class="article-cta-title">Get a website built for local<br><span>Brisbane search</span> — free upfront.</h3>
             <p class="article-cta-text">Every Clawmark website is built with proper on-page SEO, mobile-first design, and fast load times. GROWTH plan includes local SEO and Google Business Profile management. You see the site before you sign anything.</p>
             <div class="article-cta-actions">
-              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+              <a href="https://calendly.com/ahcreative92-arcr/30min" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Book a Free Call</a>
               <a href="pricing.html" class="btn btn-outline-white">See Plans & Pricing</a>
             </div>
           </div>
@@ -719,7 +704,7 @@
           </div>
           <div class="sidebar-card-body">
             <p>Custom Webflow website, local SEO, and Google Business Profile management — starting from $189/mo with zero upfront build fee.</p>
-            <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+            <a href="https://calendly.com/ahcreative92-arcr/30min" class="btn btn-orange btn-arrow">Book a Free Call</a>
           </div>
         </div>
 
@@ -780,13 +765,16 @@
        BOTTOM CTA
   ════════════════════════════════════ -->
   <section class="cta-band">
-    <div class="cta-band-inner reveal">
-      <p class="eyebrow">No commitment required</p>
-      <h2>Your next customer is<br>searching. Are you <span>showing up?</span></h2>
-      <p class="cta-band-sub">A free Clawmark website with proper local SEO means more of those searches end with your phone ringing. Book a call and we'll show you what that looks like for your business.</p>
-      <div class="cta-actions">
-        <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book My Free Call</a>
-        <a href="blog.html" class="btn btn-outline-white">Back to Blog</a>
+    <div class="cta-band-inner">
+      <div class="cta-band-left">
+        <p class="eyebrow">No commitment required</p>
+        <h2>Your next customer is<br>searching. Are you <span>showing up?</span></h2>
+        <p class="cta-band-sub">A free Clawmark website with proper local SEO means more of those searches end with your phone ringing. Book a call and we'll show you what that looks like for your business.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="https://calendly.com/ahcreative92-arcr/30min" class="btn btn-orange btn-arrow" style="color:#FFFFFF;">Book My Free Call</a>
+        <a href="blog.html" class="btn btn-outline-white" style="color:#FFFFFF;">← Back to Blog</a>
+        <p class="cta-band-note">No commitment · See design first</p>
       </div>
     </div>
   </section>

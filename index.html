@@ -878,13 +878,15 @@
     .case-img-wrap {
       position: relative;
       overflow: hidden;
-      height: 240px;
-      background: var(--stone);
+      height: 280px;
+      background: #1A1A1A;
     }
     .case-img-wrap img {
       width: 100%; height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      object-position: top center;
+      transition: transform 0.55s ease;
+      display: block;
     }
     .case-card:hover .case-img-wrap img { transform: scale(1.04); }
     .case-img-overlay {
@@ -1493,7 +1495,7 @@
     <div class="work-grid">
       <div class="case-card reveal">
         <div class="case-img-wrap">
-          <img src="https://clawmark.com.au/images/hooked.jpg" alt="Hooked in Bellerive website" onerror="this.parentElement.style.background='#E8E3DC'">
+          <img src="https://image.thum.io/get/width/1280/crop/720/https://www.hookedonbellerive.com.au/" alt="Hooked in Bellerive website screenshot" loading="lazy">
           <div class="case-img-overlay"></div>
           <span class="case-img-tag">Web Design</span>
         </div>
@@ -1505,7 +1507,7 @@
       </div>
       <div class="case-card reveal">
         <div class="case-img-wrap">
-          <img src="https://clawmark.com.au/images/mezethes.jpg" alt="Mezethes Greek Taverna website" onerror="this.parentElement.style.background='#E8E3DC'">
+          <img src="https://image.thum.io/get/width/1280/crop/720/https://www.mezethes.com.au/" alt="Mezethes Greek Taverna website screenshot" loading="lazy">
           <div class="case-img-overlay"></div>
           <span class="case-img-tag">Web Design</span>
         </div>
