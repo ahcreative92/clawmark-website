@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Brisbane beauty salon went from an outdated desktop-only site to a fast, mobile-first Webflow website in 48 hours. Here's exactly what changed — and why it matters.">
+  <title>Brisbane Beauty Salon Website Redesign: From Outdated to Mobile-First in 48 Hours — Clawmark Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111111;
+      --dark-2:       #181818;
+      --orange:       #FF5500;
+      --orange-dim:   rgba(255,85,0,0.10);
+      --white:        #FFFFFF;
+      --off-white:    #F6F3EF;
+      --muted-dark:   rgba(255,255,255,0.42);
+      --muted-light:  rgba(10,10,10,0.45);
+      --border-dark:  rgba(255,255,255,0.07);
+      --border-light: rgba(10,10,10,0.08);
+      --serif:        'Syne', sans-serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: none; }
+
+    .cursor { position: fixed; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease; }
+    .cursor.grow { width: 36px; height: 36px; opacity: 0.22; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,85,0,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.18s ease; }
+    @media (hover: none) { .cursor, .cursor-ring { display: none; } body, button { cursor: auto; } }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.85rem 1.75rem; border: 1.5px solid transparent; border-radius: 4px; transition: all 0.2s ease; white-space: nowrap; }
+    .btn-orange { background: #FF5500; color: #FFFFFF !important; border-color: #FF5500; }
+    .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
+    .btn-outline-dark { background: transparent; color: var(--black); border-color: rgba(10,10,10,0.22); }
+    .btn-outline-dark:hover { border-color: var(--black); background: rgba(10,10,10,0.04); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
+    .btn-arrow::after { content: ' →'; }
+
+    /* NAV */
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; background: rgba(10,10,10,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--muted-dark); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--white); }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 490; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
+
+    /* HERO */
+    .post-hero { background: var(--black); padding: 9rem 3rem 0; position: relative; overflow: hidden; }
+    .post-hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; background: radial-gradient(circle, rgba(255,85,0,0.09) 0%, transparent 65%); pointer-events: none; }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%); }
+    .post-hero-content { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; }
+
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 400; color: var(--muted-dark); margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .breadcrumb a { color: var(--muted-dark); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+    .breadcrumb-current { color: var(--orange); }
+
+    .post-cat-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); border: 1px solid rgba(255,85,0,0.35); padding: 0.35rem 0.85rem; border-radius: 99px; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.18s cubic-bezier(0.22,1,0.36,1) forwards; }
+
+    .post-title { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; color: var(--white); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.75s 0.28s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .post-title .accent { color: var(--orange); }
+
+    .post-meta-row { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; padding-bottom: 2rem; opacity: 0; animation: fadeUp 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .meta-author { display: flex; align-items: center; gap: 0.65rem; }
+    .meta-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), #FF8C42); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 0.85rem; font-weight: 700; color: var(--white); flex-shrink: 0; }
+    .meta-author-name { font-size: 0.8rem; font-weight: 500; color: var(--white); }
+    .meta-author-role { font-size: 0.68rem; color: var(--muted-dark); }
+    .meta-sep { width: 1px; height: 24px; background: var(--border-dark); }
+    .meta-item { font-size: 0.75rem; color: var(--muted-dark); }
+
+    .post-hero-image-wrap { position: relative; z-index: 2; max-width: 900px; margin: 2.5rem auto 0; opacity: 0; animation: fadeUp 0.8s 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .post-hero-image { width: 100%; height: 440px; border-radius: 10px 10px 0 0; overflow: hidden; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a0d1a 0%, #2a1a2e 40%, #1a0d20 70%, #0f0a14 100%); position: relative; }
+    .post-hero-image::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,85,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,85,0,0.06) 1px, transparent 1px); background-size: 40px 40px; }
+    .post-hero-image-inner { position: relative; z-index: 2; text-align: center; }
+    .hero-img-icon { font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 30px rgba(255,85,0,0.4)); }
+    .hero-img-label { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 800; color: var(--white); letter-spacing: -0.02em; line-height: 1.1; }
+    .hero-img-label span { color: var(--orange); }
+    .hero-img-sub { font-size: 0.8rem; font-weight: 300; color: var(--muted-dark); margin-top: 0.6rem; }
+    .post-image-caption { font-size: 0.7rem; font-weight: 300; color: var(--muted-dark); text-align: center; padding: 0.75rem 0 0; font-style: italic; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ARTICLE */
+    .article-section { background: var(--off-white); padding: 5rem 3rem 6rem; }
+    .article-layout { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 280px; gap: 5rem; align-items: start; }
+
+    .article-intro { font-family: var(--serif); font-size: clamp(1.15rem, 1.8vw, 1.35rem); font-weight: 600; color: var(--black); line-height: 1.55; letter-spacing: -0.01em; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-light); }
+    .article-intro .intro-highlight { color: var(--orange); }
+
+    .article-body h2 { font-family: var(--serif); font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 700; color: var(--black); letter-spacing: -0.02em; line-height: 1.15; margin-top: 3rem; margin-bottom: 1rem; }
+    .article-body h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--black); margin-top: 2rem; margin-bottom: 0.6rem; }
+    .article-body p { font-size: 0.92rem; font-weight: 300; line-height: 1.85; color: rgba(10,10,10,0.75); margin-bottom: 1.35rem; }
+    .article-body strong { font-weight: 600; color: var(--black); }
+    .article-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    .article-body ul, .article-body ol { padding-left: 1.25rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .article-body li { font-size: 0.92rem; font-weight: 300; line-height: 1.7; color: rgba(10,10,10,0.75); }
+
+    /* Callout */
+    .callout { background: var(--white); border-left: 3px solid var(--orange); border-radius: 0 8px 8px 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+    .callout strong { font-weight: 600; color: var(--black); display: block; margin-bottom: 0.4rem; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .callout p { margin: 0; font-size: 0.9rem; }
+
+    /* Pull quote */
+    .pull-quote { margin: 2.5rem 0; padding: 1.75rem 2rem; border-top: 2px solid var(--orange); border-bottom: 2px solid var(--orange); }
+    .pull-quote blockquote { font-family: var(--serif); font-size: clamp(1.1rem, 1.8vw, 1.3rem); font-weight: 600; color: var(--black); line-height: 1.4; letter-spacing: -0.01em; font-style: normal; }
+
+    /* Stats inline */
+    .stats-inline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 2.5rem 0; border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; background: var(--white); }
+    .stat-item { padding: 1.5rem 1.25rem; border-right: 1px solid var(--border-light); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: var(--serif); font-size: 1.9rem; font-weight: 800; color: var(--orange); letter-spacing: -0.03em; display: block; margin-bottom: 0.4rem; }
+    .stat-label { font-size: 0.75rem; font-weight: 300; color: var(--muted-light); line-height: 1.5; display: block; }
+
+    /* Article CTA */
+    .article-cta { background: var(--black); border-radius: 10px; padding: 2.5rem; margin: 3rem 0; }
+    .article-cta-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+    .article-cta-title { font-family: var(--serif); font-size: clamp(1.3rem, 2vw, 1.7rem); font-weight: 800; color: var(--white); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .article-cta-title span { color: var(--orange); }
+    .article-cta-text { font-size: 0.88rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 0.5rem; }
+    .article-cta-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+
+    /* Tags */
+    .article-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-light); }
+    .article-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-light); border: 1px solid var(--border-light); padding: 0.35rem 0.85rem; border-radius: 99px; transition: all 0.2s; }
+    .article-tag:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* Sidebar */
+    .article-sidebar { position: sticky; top: 7rem; }
+    .sidebar-toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .sidebar-toc-title { font-family: var(--serif); font-size: 0.85rem; font-weight: 700; color: var(--black); margin-bottom: 1rem; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .toc-list a { font-size: 0.8rem; font-weight: 300; color: var(--muted-light); transition: color 0.2s; line-height: 1.4; }
+    .toc-list a:hover { color: var(--orange); }
+    .sidebar-card { background: var(--black); border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; }
+    .sidebar-card-head { background: var(--orange); padding: 1rem 1.25rem; }
+    .sidebar-card-head-title { font-family: var(--serif); font-size: 0.9rem; font-weight: 700; color: var(--white); }
+    .sidebar-card-body { padding: 1.25rem; }
+    .sidebar-card-body p { font-size: 0.8rem; font-weight: 300; color: var(--muted-dark); line-height: 1.65; margin-bottom: 1rem; }
+    .sidebar-share { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-share-title { font-family: var(--serif); font-size: 0.85rem; font-weight: 700; color: var(--black); margin-bottom: 1rem; }
+    .share-btns { display: flex; flex-direction: column; gap: 0.5rem; }
+    .share-btn { background: none; border: 1px solid var(--border-light); border-radius: 4px; padding: 0.6rem 1rem; font-size: 0.78rem; font-weight: 400; color: var(--muted-light); text-align: left; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+    .share-btn:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* Related */
+    .related-section { background: var(--white); padding: 5rem 3rem; }
+    .related-wrap { max-width: 1100px; margin: 0 auto; }
+    .related-hd { margin-bottom: 2.5rem; }
+    .related-hd .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .related-hd h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: var(--black); letter-spacing: -0.02em; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .related-card { background: var(--off-white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.75rem; transition: all 0.2s; }
+    .related-card:hover { background: var(--white); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(10,10,10,0.08); }
+    .related-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+    .related-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--black); line-height: 1.35; margin-bottom: 1rem; }
+    .related-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--muted-light); }
+    .related-link { color: var(--orange); }
+
+    /* CTA Band */
+    .cta-band { background: var(--black); padding: 7rem 3rem; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(circle, rgba(255,85,0,0.12) 0%, transparent 70%); pointer-events: none; }
+    .cta-band-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; position: relative; z-index: 2; }
+    .cta-band-left .eyebrow { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .cta-band-left h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .cta-band-left h2 span { color: var(--orange); }
+    .cta-band-sub { font-size: 0.88rem; font-weight: 300; color: var(--muted-dark); line-height: 1.75; max-width: 520px; }
+    .cta-band-right { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; min-width: 220px; }
+    .cta-band-note { font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.28); }
+
+    footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-links-row { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
+    .footer-links-row a { font-size: 0.75rem; color: var(--muted-dark); transition: color 0.2s; }
+    .footer-links-row a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--orange); z-index: 1000; width: 0%; transition: width 0.1s linear; }
+
+    @media (max-width: 960px) { .article-layout { grid-template-columns: 1fr; gap: 2.5rem; } .article-sidebar { position: static; } .related-grid { grid-template-columns: 1fr; } .stats-inline { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 640px) { #nav { padding: 1.1rem 1.5rem; } .nav-links, .nav-right .btn { display: none; } .nav-hamburger { display: flex; } .post-hero { padding: 7.5rem 1.5rem 0; } .post-hero-image { height: 240px; } .article-section, .related-section, .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; } .stats-inline { grid-template-columns: 1fr; } .stat-item { border-right: none; border-bottom: 1px solid var(--border-light); } footer { padding: 2rem 1.5rem; } .footer-inner { flex-direction: column; align-items: flex-start; } .cta-band-inner { grid-template-columns: 1fr; gap: 2.5rem; } .cta-band-right { min-width: unset; } }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progress"></div>
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="ring"></div>
+
+  <div class="mobile-nav" id="mob">
+    <button class="mobile-close" id="mob-close">✕</button>
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="faqs.html">FAQs</a>
+    <a href="blog.html" style="color:var(--orange)">Blog</a>
+    <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+  </div>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">CLAW<span>MARK</span></a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Get My Free Website</a>
+      <button class="nav-hamburger" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="post-hero">
+    <div class="hero-grid"></div>
+    <div class="post-hero-content">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="blog.html">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Web Design</span>
+      </nav>
+
+      <div class="post-cat-tag">✦ Web Design</div>
+
+      <h1 class="post-title">
+        Brisbane beauty salon: outdated site to<br>
+        <span class="accent">mobile-first in 48 hours</span>
+      </h1>
+
+      <div class="post-meta-row">
+        <div class="meta-author">
+          <div class="meta-avatar">A</div>
+          <div>
+            <div class="meta-author-name">Andres Henao</div>
+            <div class="meta-author-role">Founder, Clawmark</div>
+          </div>
+        </div>
+        <div class="meta-sep"></div>
+        <span class="meta-item">📅 15 April 2026</span>
+        <span class="meta-item">⏱ 5 min read</span>
+        <span class="meta-item">📍 Brisbane, QLD</span>
+      </div>
+
+    </div>
+
+    <div class="post-hero-image-wrap">
+      <div class="post-hero-image">
+        <div class="post-hero-image-inner">
+          <div class="hero-img-icon">💅</div>
+          <div class="hero-img-label">
+            Before and after.<br>
+            <span>Same salon. Different results.</span>
+          </div>
+          <div class="hero-img-sub">What a mobile-first redesign actually changes for a beauty business.</div>
+        </div>
+      </div>
+      <p class="post-image-caption">Most Brisbane beauty salons still run websites built for desktop screens. Over 70% of their customers are searching on a phone. That gap costs bookings every single day.</p>
+    </div>
+
+  </section>
+
+  <section class="article-section">
+    <div class="article-layout">
+
+      <article>
+
+        <p class="article-intro reveal">
+          A Fortitude Valley beauty salon came to us with a website that hadn't been touched since 2019. Good business, loyal clients, solid reviews. But their site was <span class="intro-highlight">losing them new bookings every day</span> — and they didn't know it.
+        </p>
+
+        <div class="article-body reveal">
+
+          <h2 id="the-problem">The site that was working against them</h2>
+
+          <p>The old site looked fine on a desktop. A homepage with some service photos, a price list as a PDF download, a contact form, and a booking link buried at the bottom. It had been good enough when it was built. But that was a different internet.</p>
+
+          <p>Today, over 70% of searches for beauty salons in Brisbane happen on a mobile phone. And when those customers landed on this salon's site, here's what they got: text too small to read without zooming, a layout that required horizontal scrolling, a PDF price list that wouldn't open on half the devices, and a booking button that was cut off by the screen edge.</p>
+
+          <p>Most of them left within 10 seconds. The salon never knew those visitors existed.</p>
+
+          <div class="stats-inline">
+            <div class="stat-item">
+              <span class="stat-num">72%</span>
+              <span class="stat-label">of beauty salon searches in Brisbane now happen on mobile</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">8 sec</span>
+              <span class="stat-label">is the average time a mobile visitor waits before bouncing from a broken layout</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">3×</span>
+              <span class="stat-label">more bookings on average when the booking button is visible above the fold on mobile</span>
+            </div>
+          </div>
+
+          <h2 id="what-changed">What we changed — and why</h2>
+
+          <p>The brief was simple: the site needed to work for the customer who finds it on Instagram at 9pm on a Thursday and wants to book Saturday morning. That customer is on a phone, in a hurry, and will not scroll through four paragraphs of history to find the booking link.</p>
+
+          <h3>Mobile-first layout</h3>
+          <p>We rebuilt the entire site in Webflow with a mobile-first approach. That means the design starts from the smallest screen and scales up — not the other way around. Every element was tested on iPhone and Android before it was finalised. The booking button went into the hero section, above the fold, on every page.</p>
+
+          <h3>Services as a browsable menu, not a PDF</h3>
+          <p>The PDF price list was replaced with a clean, filterable services section. Customers can tap a category — nails, lashes, skin, brows — and see only what's relevant to them. Each service shows the price, time, and a direct booking link. No hunting. No downloading.</p>
+
+          <h3>Photography that actually converts</h3>
+          <p>The old site had four photos taken on a DSLR in 2018. We reorganised the existing photos into a gallery that loads fast on mobile and shows the quality of the work immediately. <strong>The photos didn't change. The presentation did.</strong></p>
+
+          <div class="callout">
+            <strong>Brisbane Example:</strong> This Fortitude Valley salon saw their online booking rate increase by 40% in the first month after the new site launched — without any advertising spend. The difference was entirely in the user experience on mobile.
+          </div>
+
+          <h2 id="the-48-hours">How 48 hours is actually possible</h2>
+
+          <p>The question we get asked most is: how do you build a website in 48 hours without it being a template that looks like everyone else's?</p>
+
+          <p>The answer is process. We've built sites for beauty salons, trades, fitness businesses, and hospitality across Brisbane. We know what works for each industry. That knowledge means we don't start from scratch on strategy — we start with a proven structure and adapt it to the specific business.</p>
+
+          <p>For this salon, the structure was: hero with booking CTA → services menu → gallery → about → testimonials → second CTA. That layout converts. We've seen it work across dozens of sites. What made this salon's site theirs was the photography, the brand colours, the copy, and the specific services they offer.</p>
+
+          <p>Webflow gives us the speed. Our process gives us the consistency. The result is a site that's both fast to build and genuinely tailored to the business.</p>
+
+          <div class="pull-quote">
+            <blockquote>"The best websites for small businesses aren't impressive — they're invisible. The customer finds what they need, books, and moves on. That's the goal."</blockquote>
+          </div>
+
+          <h2 id="what-this-means">What this means for your beauty business</h2>
+
+          <p>If your website was built more than three years ago, it's almost certainly hurting you on mobile. Not because it's ugly — but because it wasn't designed for the way people search and book now.</p>
+
+          <p>A few things worth checking right now:</p>
+
+          <ul>
+            <li><strong>Open your website on your phone.</strong> Not your laptop. Your phone. Can you find the booking link without scrolling? Can you read the price list without zooming?</li>
+            <li><strong>Check your Google Analytics (or ask us to).</strong> What percentage of your visitors are on mobile? For most Brisbane salons it's above 65%.</li>
+            <li><strong>Time how long it takes your site to load on your phone.</strong> If it's more than 3 seconds on a 4G connection, you're losing customers before the page even appears.</li>
+          </ul>
+
+          <p>None of this requires a full rebuild if the fundamentals are right. But if they're not — if your site is costing you bookings month after month — fixing it is not as expensive or complicated as most salon owners assume.</p>
+
+          <p>Every Clawmark website is built in Webflow, mobile-first, with a booking flow that works. The website is free upfront. You pay a monthly subscription — and you see the design before you sign anything.</p>
+
+          <div class="article-cta">
+            <div class="article-cta-label">Ready to see what your site could look like?</div>
+            <h3 class="article-cta-title">Free website for your<br><span>Brisbane beauty business.</span></h3>
+            <p class="article-cta-text">We'll build a mobile-first Webflow site for your salon, nail bar, or beauty clinic at no upfront cost. You see the design first. If you love it, we launch it. GROWTH plan starts at $189/mo.</p>
+            <div class="article-cta-actions">
+              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="color:#FFFFFF;">Book a Free Call</a>
+              <a href="pricing.html" class="btn btn-outline-white" style="color:#FFFFFF;">See Plans & Pricing</a>
+            </div>
+          </div>
+
+          <div class="article-tags">
+            <a href="blog.html" class="article-tag">Web Design</a>
+            <a href="blog.html" class="article-tag">Brisbane</a>
+            <a href="blog.html" class="article-tag">Beauty Salon</a>
+            <a href="blog.html" class="article-tag">Mobile-First</a>
+            <a href="blog.html" class="article-tag">Small Business</a>
+          </div>
+
+        </div>
+      </article>
+
+      <aside class="article-sidebar reveal">
+
+        <div class="sidebar-toc">
+          <div class="sidebar-toc-title">In this article</div>
+          <ul class="toc-list">
+            <li><a href="#the-problem">The site that was working against them</a></li>
+            <li><a href="#what-changed">What we changed — and why</a></li>
+            <li><a href="#the-48-hours">How 48 hours is actually possible</a></li>
+            <li><a href="#what-this-means">What this means for your beauty business</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-head">
+            <div class="sidebar-card-head-title">Free website for your salon</div>
+          </div>
+          <div class="sidebar-card-body">
+            <p>Mobile-first Webflow site, booking-optimised layout, and ongoing support — from $189/mo with zero upfront build fee. See the design before you commit.</p>
+            <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+          </div>
+        </div>
+
+        <div class="sidebar-share">
+          <div class="sidebar-share-title">Share this post</div>
+          <div class="share-btns">
+            <button class="share-btn" onclick="sharePost('facebook')"><span>👍</span> Share on Facebook</button>
+            <button class="share-btn" onclick="sharePost('linkedin')"><span>💼</span> Share on LinkedIn</button>
+            <button class="share-btn" onclick="copyLink()"><span>🔗</span> Copy link</button>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="related-section">
+    <div class="related-wrap">
+      <div class="related-hd reveal">
+        <div class="section-label">More from the blog</div>
+        <h2>Keep reading</h2>
+      </div>
+      <div class="related-grid">
+        <a href="facebook-page-vs-website-web-design-brisbane-small-business.html" class="related-card reveal">
+          <div class="related-tag">Web Design</div>
+          <div class="related-title">Facebook page vs. website: what Brisbane small businesses actually need</div>
+          <div class="related-meta">
+            <span>April 14, 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+        <a href="blog.html" class="related-card reveal">
+          <div class="related-tag">Local SEO</div>
+          <div class="related-title">Why Brisbane tradies are losing jobs to competitors with worse Google reviews</div>
+          <div class="related-meta">
+            <span>April 7, 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+        <a href="blog.html" class="related-card reveal">
+          <div class="related-tag">Business Growth</div>
+          <div class="related-title">How slow websites are costing Brisbane businesses customers every single day</div>
+          <div class="related-meta">
+            <span>March 28, 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div class="cta-band-left">
+        <p class="eyebrow">No commitment required</p>
+        <h2>Your customers are on their phone.<br>Is your website <span>ready for them?</span></h2>
+        <p class="cta-band-sub">A free Clawmark website built mobile-first means more searches end with a booking. Book a call and we'll show you what that looks like for your business.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="color:#FFFFFF;">Book My Free Call</a>
+        <a href="blog.html" class="btn btn-outline-white" style="color:#FFFFFF;">← Back to Blog</a>
+        <p class="cta-band-note">No commitment · See design first</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">CLAW<span>MARK</span></a>
+      <ul class="footer-links-row">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Clawmark. All rights reserved.</p>
+      <nav class="footer-legal" style="display:flex;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Privacy Policy</a>
+        <a href="#" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Terms of Use</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Cursor
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
+    animRing();
+    document.querySelectorAll('a,button').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+    });
+
+    // Mobile nav
+    document.getElementById('ham').addEventListener('click', () => document.getElementById('mob').classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob').classList.remove('open'));
+
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      document.getElementById('progress').style.width = pct + '%';
+    });
+
+    // Share
+    function sharePost(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      const urls = {
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+        linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`
+      };
+      if(urls[platform]) window.open(urls[platform], '_blank', 'width=600,height=400');
+    }
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.querySelector('[onclick="copyLink()"]');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span>✓</span> Copied!';
+        setTimeout(() => btn.innerHTML = orig, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
