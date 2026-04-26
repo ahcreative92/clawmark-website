@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="[POST META DESCRIPTION — 150 characters describing the article for Google]">
-  <title>[POST TITLE] — Clawmark Blog</title>
+  <meta name="description" content="Is your website losing you customers? Run through this 9-point checklist for Brisbane business owners — and find out what to fix first.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.clawmark.com.au/website-costing-customers-checklist-brisbane">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.clawmark.com.au/website-costing-customers-checklist-brisbane">
+  <meta property="og:site_name" content="Clawmark">
+  <meta property="og:title" content="Is Your Website Costing You Customers? A Checklist for Brisbane Business Owners — Clawmark">
+  <meta property="og:description" content="Is your website losing you customers? Run through this 9-point checklist for Brisbane business owners — and find out what to fix first.">
+  <meta property="og:locale" content="en_AU">
+  <title>Is Your Website Costing You Customers? A Checklist for Brisbane Business Owners — Clawmark Blog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -98,7 +107,6 @@
       margin: 0 auto;
     }
 
-    /* Breadcrumb */
     .breadcrumb {
       display: flex;
       align-items: center;
@@ -115,7 +123,6 @@
     .breadcrumb-sep { color: rgba(255,255,255,0.2); }
     .breadcrumb-current { color: var(--orange); }
 
-    /* Post category tag */
     .post-cat-tag {
       display: inline-flex;
       align-items: center;
@@ -133,7 +140,6 @@
       animation: fadeUp 0.6s 0.18s cubic-bezier(0.22,1,0.36,1) forwards;
     }
 
-    /* Post headline */
     .post-title {
       font-family: var(--serif);
       font-size: clamp(2.2rem, 4vw, 3.5rem);
@@ -147,7 +153,6 @@
     }
     .post-title .accent { color: var(--orange); }
 
-    /* Meta row */
     .post-meta-row {
       display: flex;
       align-items: center;
@@ -176,7 +181,6 @@
     .meta-sep { width: 1px; height: 24px; background: var(--border-dark); }
     .meta-item { font-size: 0.75rem; color: var(--muted-dark); }
 
-    /* ── HERO IMAGE ── */
     .post-hero-image-wrap {
       position: relative;
       z-index: 2;
@@ -193,10 +197,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #0f1a2e 0%, #1a2a48 40%, #0d1520 70%, #0a1020 100%);
+      background: linear-gradient(135deg, #0f1a10 0%, #0a1a0a 40%, #0d1a10 70%, #0a120a 100%);
       position: relative;
     }
-    /* Hero image decorative pattern */
     .post-hero-image::before {
       content: '';
       position: absolute;
@@ -239,7 +242,6 @@
       align-items: start;
     }
 
-    /* ── INTRO TEXT ── */
     .article-intro {
       font-family: var(--serif);
       font-size: clamp(1.15rem, 1.8vw, 1.35rem);
@@ -253,7 +255,6 @@
     }
     .article-intro .intro-highlight { color: var(--orange); }
 
-    /* ── CONTENT TEXT ── */
     .article-body {}
     .article-body h2 {
       font-family: var(--serif);
@@ -294,6 +295,54 @@
       font-weight: 300;
       line-height: 1.7;
       color: rgba(10,10,10,0.75);
+    }
+
+    /* Checklist items */
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 2rem;
+    }
+    .checklist-item {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.5rem 1.75rem;
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-bottom: none;
+      transition: background 0.2s;
+    }
+    .checklist-item:first-child { border-radius: 8px 8px 0 0; }
+    .checklist-item:last-child { border-bottom: 1px solid var(--border-light); border-radius: 0 0 8px 8px; }
+    .checklist-item:hover { background: #fafafa; }
+    .checklist-num {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 2rem;
+      opacity: 0.7;
+    }
+    .checklist-content {}
+    .checklist-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+    }
+    .checklist-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(10,10,10,0.65);
+      line-height: 1.7;
+      margin: 0;
     }
 
     /* Callout box */
@@ -344,7 +393,7 @@
     .inline-stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 0.3rem; }
     .inline-stat-label { font-size: 0.72rem; font-weight: 400; color: var(--muted-light); line-height: 1.35; }
 
-    /* ── SIDEBAR ── */
+    /* SIDEBAR */
     .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 1.5rem; }
 
     .sidebar-card {
@@ -359,7 +408,6 @@
     .sidebar-card-body p { font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--muted-light); margin-bottom: 1.25rem; }
     .sidebar-card-body .btn { width: 100%; justify-content: center; font-size: 0.75rem; padding: 0.75rem 1rem; }
 
-    /* TOC */
     .sidebar-toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
     .sidebar-toc-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
     .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
@@ -376,7 +424,6 @@
     .toc-list li:last-child a { border-bottom: none; }
     .toc-list li a:hover { color: var(--orange); }
 
-    /* Share */
     .sidebar-share { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
     .sidebar-share-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
     .share-btns { display: flex; flex-direction: column; gap: 0.6rem; }
@@ -384,7 +431,6 @@
     .share-btn:hover { border-color: var(--orange); color: var(--orange); background: var(--white); }
     .share-btn span { font-size: 1rem; }
 
-    /* Tags */
     .article-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-light); }
     .article-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 99px; border: 1px solid var(--border-light); color: var(--muted-light); transition: all 0.2s; }
     .article-tag:hover { border-color: var(--orange); color: var(--orange); }
@@ -489,6 +535,7 @@
       .inline-stat-cell { border-right: none; border-bottom: 1px solid var(--border-light); }
       footer { padding: 2rem 1.5rem; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
+      .checklist-item { padding: 1.25rem; }
     }
   </style>
 </head>
@@ -531,25 +578,21 @@
     <div class="hero-grid"></div>
     <div class="post-hero-content">
 
-      <!-- Breadcrumb -->
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="index.html">Home</a>
         <span class="breadcrumb-sep">/</span>
         <a href="blog.html">Blog</a>
         <span class="breadcrumb-sep">/</span>
-        <span class="breadcrumb-current">[Category]</span>
+        <span class="breadcrumb-current">Business Growth</span>
       </nav>
 
-      <!-- Category tag -->
-      <div class="post-cat-tag">🔍 Local SEO</div>
+      <div class="post-cat-tag">📋 Business Growth</div>
 
-      <!-- Main headline -->
       <h1 class="post-title">
-        Why Brisbane tradies are losing jobs to competitors with<br>
-        <span class="accent">worse Google reviews</span>
+        Is your website <span class="accent">costing you customers?</span><br>
+        A checklist for Brisbane business owners
       </h1>
 
-      <!-- Meta row -->
       <div class="post-meta-row">
         <div class="meta-author">
           <div class="meta-avatar">A</div>
@@ -559,26 +602,25 @@
           </div>
         </div>
         <div class="meta-sep"></div>
-        <span class="meta-item">📅 April 7, 2026</span>
-        <span class="meta-item">⏱ 5 min read</span>
+        <span class="meta-item">📅 17 April 2026</span>
+        <span class="meta-item">⏱ 6 min read</span>
         <span class="meta-item">📍 Brisbane, QLD</span>
       </div>
 
     </div>
 
-    <!-- ── HERO IMAGE ── -->
     <div class="post-hero-image-wrap">
       <div class="post-hero-image">
         <div class="post-hero-image-inner">
-          <div class="hero-img-icon">🗺️</div>
+          <div class="hero-img-icon">🔍</div>
           <div class="hero-img-label">
-            Google Maps.<br>
-            <span>Your next customer is there.</span>
+            9 warning signs<br>
+            <span>your site is leaking leads.</span>
           </div>
-          <div class="hero-img-sub">Are you showing up when they search?</div>
+          <div class="hero-img-sub">Run through this checklist before your next customer slips away</div>
         </div>
       </div>
-      <p class="post-image-caption">Google Maps searches for "plumber near me" happen hundreds of times a day across Brisbane. Most of those clicks go to whoever shows up first — not whoever has the best reviews.</p>
+      <p class="post-image-caption">Most Brisbane business owners don't realise their website is working against them — until they check.</p>
     </div>
 
   </section>
@@ -589,94 +631,150 @@
   <section class="article-section">
     <div class="article-layout">
 
-      <!-- Main content -->
       <article>
 
-        <!-- ── INTRO TEXT ── -->
         <p class="article-intro reveal">
-          It's not about having the most 5-star reviews. It's about <span class="intro-highlight">showing up when someone in your suburb searches for what you do.</span> Brisbane tradies with 12 reviews and a well-optimised Google Business Profile are consistently beating competitors with 80 reviews and nothing else. Here's why — and what you can do about it.
+          Your website is either making you money or costing you money — there is no neutral. For most Brisbane small businesses, the honest answer is somewhere uncomfortable. <span class="intro-highlight">Run through these nine signs and see how many apply to yours.</span> If it's more than three, you've got a real problem worth fixing.
         </p>
 
-        <!-- ── CONTENT TEXT ── -->
         <div class="article-body reveal">
 
-          <h2 id="the-problem">The problem most tradies don't see</h2>
-
-          <p>Let's say you're a plumber in Chermside. You've been in business for eight years. You've got 65 Google reviews, mostly glowing. A customer in your suburb searches "emergency plumber Chermside" on their phone at 7pm on a Tuesday night.</p>
-
-          <p>You don't show up in the top three Google Maps results. Your competitor — six months in business, 14 reviews, a proper website and a well-managed Google Business Profile — does. They get the job. You don't even know you missed it.</p>
-
-          <p>This happens dozens of times a day across Brisbane. And it's not about who has the better reviews. <strong>It's about who Google trusts more as a local business.</strong></p>
+          <p>This isn't a checklist about pixel-perfect design or having the latest animations. It's about the practical, revenue-impacting problems that cause real customers — in Chermside, West End, Ipswich, Caboolture, and everywhere in between — to give up on your website and call someone else instead.</p>
 
           <div class="inline-stat">
             <div class="inline-stat-cell">
-              <div class="inline-stat-num">76%</div>
-              <div class="inline-stat-label">of local searches result in a phone call or visit within 24 hours</div>
-            </div>
-            <div class="inline-stat-cell">
-              <div class="inline-stat-num">#1–3</div>
-              <div class="inline-stat-label">Google Maps positions capture over 70% of all local search clicks</div>
-            </div>
-            <div class="inline-stat-cell">
               <div class="inline-stat-num">3 sec</div>
-              <div class="inline-stat-label">is all you get before a visitor bounces from a slow or amateur-looking website</div>
+              <div class="inline-stat-label">If your site takes longer than this to load, over half your visitors leave</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">61%</div>
+              <div class="inline-stat-label">of Google searches now happen on mobile — most local business sites still aren't built for it</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">75%</div>
+              <div class="inline-stat-label">of people judge a business's credibility by its website before ever making contact</div>
             </div>
           </div>
 
-          <h2 id="what-google-looks-at">What Google actually looks at</h2>
+          <h2 id="the-checklist">The checklist</h2>
 
-          <p>Google's local ranking algorithm uses three main factors: <strong>relevance, distance, and prominence</strong>. You can't control distance — Google knows where your customer is. But relevance and prominence are entirely in your hands.</p>
+          <p>Go through each one honestly. If you're not sure, pull out your phone right now, open your site in a fresh browser tab, and check.</p>
 
-          <h3>Relevance</h3>
-          <p>Does your Google Business Profile and website tell Google clearly what you do and where you do it? If your profile says "Joe's Plumbing" but doesn't mention Chermside, Aspley, or the specific services you offer, Google can't confidently connect you with someone searching in your area.</p>
+          <ul class="checklist">
 
-          <h3>Prominence</h3>
-          <p>This is where most tradies fall behind. Prominence is built through your website (quality, speed, mobile-friendliness), the consistency of your business information across the web, and yes — reviews. But reviews are just one input. A fast, well-built website with proper local SEO signals is often the deciding factor.</p>
+            <li class="checklist-item">
+              <div class="checklist-num">1</div>
+              <div class="checklist-content">
+                <div class="checklist-title">It takes more than 3 seconds to load</div>
+                <p class="checklist-desc">Test it at <strong>pagespeed.web.dev</strong>. If you score below 70 on mobile, you're losing visitors before they've seen a single word. This is the most common problem we find on Brisbane small business sites — and the one with the biggest immediate impact on leads.</p>
+              </div>
+            </li>
 
-          <div class="callout">
-            <div class="callout-label">Key insight</div>
-            <p><strong>A tradie with 14 reviews and a properly optimised website can outrank a tradie with 80 reviews and no website</strong> — because Google values trust signals across multiple channels, not just review count.</p>
-          </div>
+            <li class="checklist-item">
+              <div class="checklist-num">2</div>
+              <div class="checklist-content">
+                <div class="checklist-title">It looks broken on a phone</div>
+                <p class="checklist-desc">Hold your phone in portrait mode and open your site. Does anything overlap, overflow, or require pinching to read? Most trades and hospitality businesses get 70–80% of their traffic from mobile. A site that doesn't work on a phone is a site that doesn't work, full stop.</p>
+              </div>
+            </li>
 
-          <h2 id="what-to-do">What to do about it</h2>
+            <li class="checklist-item">
+              <div class="checklist-num">3</div>
+              <div class="checklist-content">
+                <div class="checklist-title">Your phone number isn't one tap away</div>
+                <p class="checklist-desc">On mobile, your phone number should be a tappable link at the top of the page — not buried in a Contact page three clicks deep. If someone has to work to call you, a percentage of them won't bother. That percentage costs you real jobs every month.</p>
+              </div>
+            </li>
 
-          <p>The good news is this is fixable. And most of it doesn't cost much. Here's where to start:</p>
+            <li class="checklist-item">
+              <div class="checklist-num">4</div>
+              <div class="checklist-content">
+                <div class="checklist-title">It doesn't say what suburb or area you service</div>
+                <p class="checklist-desc">Google uses your website copy to understand where you operate. If your site doesn't mention Springfield, Morayfield, Fortitude Valley, or wherever your customers actually are — Google won't confidently show you to people searching in those areas. This is one of the most fixable local SEO issues and most sites completely ignore it.</p>
+              </div>
+            </li>
 
-          <ul>
-            <li><strong>Claim and fully complete your Google Business Profile.</strong> Every field. Category, service areas, opening hours, photos, business description. If you haven't touched your profile in a year, it's probably incomplete.</li>
-            <li><strong>Get a real website.</strong> Not a Facebook page. Not a Google site. A proper, fast-loading, mobile-first website that tells Google who you are, what you do, and where you do it.</li>
-            <li><strong>Use suburb-specific keywords naturally.</strong> "Emergency plumber Chermside" and "blocked drain Aspley" should appear naturally in your website copy and Google Business Profile description.</li>
-            <li><strong>Keep asking for reviews — but respond to every single one.</strong> Responding to reviews is a trust signal Google pays attention to. Most tradies never respond.</li>
-            <li><strong>Be consistent.</strong> Your business name, phone number, and address should be identical everywhere it appears online — Google, Facebook, your website, directories.</li>
+            <li class="checklist-item">
+              <div class="checklist-num">5</div>
+              <div class="checklist-content">
+                <div class="checklist-title">There's no clear call to action above the fold</div>
+                <p class="checklist-desc">When someone lands on your homepage, what's the first thing they can do? If the answer is "scroll around and figure it out," you're losing them. A single clear action — "Book a free quote," "Call now," "Get in touch" — should be impossible to miss without scrolling.</p>
+              </div>
+            </li>
+
+            <li class="checklist-item">
+              <div class="checklist-num">6</div>
+              <div class="checklist-content">
+                <div class="checklist-title">Your site doesn't show up in Google at all</div>
+                <p class="checklist-desc">Search for your business name plus your suburb — e.g., "electrician Chermside" or "café West End Brisbane." If you're not on the first page, you're effectively invisible to people who don't already know your name. A website that isn't indexed properly, doesn't have a Google Business Profile connected, or lacks basic on-page SEO may as well not exist.</p>
+              </div>
+            </li>
+
+            <li class="checklist-item">
+              <div class="checklist-num">7</div>
+              <div class="checklist-content">
+                <div class="checklist-title">The design looks like it was built before 2018</div>
+                <p class="checklist-desc">Customers make a gut decision about your credibility in under a second. An outdated design — clashing fonts, stock photos from a decade ago, dense walls of text — signals that you're either out of business or not paying attention. We've seen Brisbane beauty salons, gyms, and trade businesses <a href="brisbane-beauty-salon-website-redesign.html">double their enquiries within a month</a> of launching a clean, modern site. Design is not vanity. It's trust.</p>
+              </div>
+            </li>
+
+            <li class="checklist-item">
+              <div class="checklist-num">8</div>
+              <div class="checklist-content">
+                <div class="checklist-title">There are no reviews or social proof on the site</div>
+                <p class="checklist-desc">A visitor who doesn't know you needs a reason to trust you before they'll call. Google reviews displayed on your site, a few client quotes, or even photos of completed jobs tell that story in seconds. Without them, your site is just a brochure with no credibility signal — and the next business they visit probably has a wall of five-star reviews front and centre.</p>
+              </div>
+            </li>
+
+            <li class="checklist-item">
+              <div class="checklist-num">9</div>
+              <div class="checklist-content">
+                <div class="checklist-title">Your contact form goes nowhere — or no one checks it</div>
+                <p class="checklist-desc">Test your own contact form right now. Send yourself a message. Does it arrive? Does it go to an email you actually check daily? A broken or unmonitored contact form is a silent lead killer — you'll never know how many enquiries you've missed because they hit a dead end.</p>
+              </div>
+            </li>
+
           </ul>
 
-          <div class="pull-quote">
-            <blockquote>"The tradies winning on Google Maps in Brisbane aren't the ones with the most reviews. They're the ones who've treated their online presence like a tool, not an afterthought."</blockquote>
+          <div class="callout">
+            <div class="callout-label">Be honest with yourself</div>
+            <p><strong>If you ticked three or more of those boxes, your website is actively losing you business.</strong> Not potentially — actively. Every day that passes is customers choosing someone else because their site made the decision easy.</p>
           </div>
 
-          <h2 id="the-bottom-line">The bottom line</h2>
+          <h2 id="what-to-do-next">What to do next</h2>
 
-          <p>If you're relying on word of mouth and Google reviews alone, you're leaving a significant chunk of your potential customers on the table. The ones going to your competitors aren't necessarily happier with them — they just found them first.</p>
+          <p>Some of these issues you can fix yourself with a few hours of work — updating your contact page, adding suburb names to your copy, making your phone number a tap-to-call link. Others, like site speed, mobile layout, and proper Google indexing, require either a developer or a platform that handles them by default.</p>
 
-          <p>A proper website, a well-managed Google Business Profile, and consistent local SEO signals are how you change that. It's not complicated. It just needs to be done.</p>
+          <p>The businesses we work with at Clawmark typically come to us because they've tried to fix things piecemeal — patching an old site, hiring someone on Fiverr, watching a few YouTube tutorials — and the problems keep coming back. At some point, it's cheaper and faster to start clean.</p>
+
+          <div class="pull-quote">
+            <blockquote>"The cost of fixing your website is almost always less than the revenue you're losing by leaving it broken."</blockquote>
+          </div>
+
+          <h2 id="how-clawmark-approaches-this">How we approach it</h2>
+
+          <p>Every Clawmark website is built from scratch on Webflow — fast by default, mobile-first, and designed for the specific industry and suburb our client operates in. We don't use templates. We don't recycle layouts. If you're a plumber in Ipswich, your site looks and reads like a plumber in Ipswich — not like a generic "handyman" placeholder.</p>
+
+          <p>The GROWTH plan ($189/mo) includes local SEO built into the site structure, Google Business Profile optimisation, and ongoing support. You see the design before you sign anything, and there's no upfront build fee — you get a professional, custom website and start paying monthly once you're happy with the result.</p>
+
+          <p>If you're not sure whether your current site is costing you, the fastest way to find out is to book a free call. We'll look at it with you and give you an honest assessment — whether that leads to working with us or not.</p>
 
           <!-- In-article CTA -->
           <div class="article-cta">
-            <div class="article-cta-label">Want to fix this for your business?</div>
-            <h3 class="article-cta-title">Get a website built for local<br><span>Brisbane search</span> — free upfront.</h3>
-            <p class="article-cta-text">Every Clawmark website is built with proper on-page SEO, mobile-first design, and fast load times. GROWTH plan includes local SEO and Google Business Profile management. You see the site before you sign anything.</p>
+            <div class="article-cta-label">Ready to fix it?</div>
+            <h3 class="article-cta-title">Get a <span>free website</span> built for Brisbane — no upfront cost.</h3>
+            <p class="article-cta-text">Custom Webflow build, mobile-first design, local SEO, and Google Business Profile management — from $189/mo on the GROWTH plan. You see it before you commit. Book a free 30-minute call and we'll show you what your site could look like.</p>
             <div class="article-cta-actions">
-              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Book a Free Call</a>
+              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
               <a href="pricing.html" class="btn btn-outline-white">See Plans & Pricing</a>
             </div>
           </div>
 
-          <!-- Tags -->
           <div class="article-tags">
-            <a href="blog.html" class="article-tag">Local SEO</a>
+            <a href="blog.html" class="article-tag">Business Growth</a>
+            <a href="blog.html" class="article-tag">Websites</a>
             <a href="blog.html" class="article-tag">Brisbane</a>
-            <a href="blog.html" class="article-tag">Google Business Profile</a>
-            <a href="blog.html" class="article-tag">Tradies</a>
+            <a href="blog.html" class="article-tag">Local SEO</a>
             <a href="blog.html" class="article-tag">Small Business</a>
           </div>
 
@@ -686,29 +784,25 @@
       <!-- Sidebar -->
       <aside class="article-sidebar reveal">
 
-        <!-- Table of contents -->
         <div class="sidebar-toc">
           <div class="sidebar-toc-title">In this article</div>
           <ul class="toc-list">
-            <li><a href="#the-problem">The problem most tradies don't see</a></li>
-            <li><a href="#what-google-looks-at">What Google actually looks at</a></li>
-            <li><a href="#what-to-do">What to do about it</a></li>
-            <li><a href="#the-bottom-line">The bottom line</a></li>
+            <li><a href="#the-checklist">The checklist (9 signs)</a></li>
+            <li><a href="#what-to-do-next">What to do next</a></li>
+            <li><a href="#how-clawmark-approaches-this">How we approach it</a></li>
           </ul>
         </div>
 
-        <!-- CTA card -->
         <div class="sidebar-card">
           <div class="sidebar-card-head">
-            <div class="sidebar-card-head-title">Get a website that gets you found</div>
+            <div class="sidebar-card-head-title">Free website. No upfront cost.</div>
           </div>
           <div class="sidebar-card-body">
-            <p>Custom Webflow website, local SEO, and Google Business Profile management — starting from $189/mo with zero upfront build fee.</p>
+            <p>Custom Webflow site, local SEO, and ongoing support — from $189/mo. You see the design before you pay anything.</p>
             <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
           </div>
         </div>
 
-        <!-- Share -->
         <div class="sidebar-share">
           <div class="sidebar-share-title">Share this post</div>
           <div class="share-btns">
@@ -733,27 +827,27 @@
         <h2>Keep reading</h2>
       </div>
       <div class="related-grid">
-        <a href="blog-post-template.html" class="related-card reveal">
-          <div class="related-tag">Local SEO</div>
-          <div class="related-title">The 5 local SEO mistakes Brisbane small businesses make (and how to fix them)</div>
+        <a href="brisbane-beauty-salon-website-redesign.html" class="related-card reveal">
+          <div class="related-tag">Web Design</div>
+          <div class="related-title">Brisbane Beauty Salon Website Redesign: Outdated to Mobile-First in 48 Hours</div>
           <div class="related-meta">
-            <span>March 20, 2026 · 6 min</span>
+            <span>April 15, 2026 · 5 min</span>
             <span class="related-link">Read →</span>
           </div>
         </a>
-        <a href="blog-post-template.html" class="related-card reveal">
+        <a href="blog-facebook-page-vs-website-web-design-brisbane-small-business.html" class="related-card reveal">
           <div class="related-tag">Websites</div>
-          <div class="related-title">How slow websites are costing Brisbane businesses customers every single day</div>
+          <div class="related-title">Your Facebook Page Is Not Your Website — And Google Knows the Difference</div>
           <div class="related-meta">
-            <span>March 28, 2026 · 5 min</span>
+            <span>April 14, 2026 · 5 min</span>
             <span class="related-link">Read →</span>
           </div>
         </a>
-        <a href="blog-post-template.html" class="related-card reveal">
-          <div class="related-tag">Local Business</div>
-          <div class="related-title">Why your Google Business Profile matters more than your website right now</div>
+        <a href="blog-instagram-facebook-vs-website.html" class="related-card reveal">
+          <div class="related-tag">Websites</div>
+          <div class="related-title">Your Instagram page is not a website. Here's what you're actually losing.</div>
           <div class="related-meta">
-            <span>April 4, 2026 · 4 min</span>
+            <span>April 9, 2026 · 6 min</span>
             <span class="related-link">Read →</span>
           </div>
         </a>
@@ -768,8 +862,8 @@
     <div class="cta-band-inner">
       <div class="cta-band-left">
         <p class="eyebrow">No commitment required</p>
-        <h2>Your next customer is<br>searching. Are you <span>showing up?</span></h2>
-        <p class="cta-band-sub">A free Clawmark website with proper local SEO means more of those searches end with your phone ringing. Book a call and we'll show you what that looks like for your business.</p>
+        <h2>Stop losing customers<br>to a site that <span>lets you down.</span></h2>
+        <p class="cta-band-sub">A Clawmark website is fast, mobile-first, and built to rank in your suburb. Book a call and we'll show you exactly what it would look like for your business — before you commit to anything.</p>
       </div>
       <div class="cta-band-right">
         <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="color:#FFFFFF;">Book My Free Call</a>
