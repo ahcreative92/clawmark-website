@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Word of mouth is great — until it isn't. Here's why Brisbane small businesses that rely only on referrals are leaving growth on the table.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.clawmark.com.au/referrals-not-enough-brisbane-small-business">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.clawmark.com.au/referrals-not-enough-brisbane-small-business">
+  <meta property="og:site_name" content="Clawmark">
+  <meta property="og:title" content="Why Brisbane Small Businesses Can't Afford to Rely on Referrals Alone — Clawmark Blog">
+  <meta property="og:description" content="Word of mouth is great — until it isn't. Here's why Brisbane small businesses that rely only on referrals are leaving growth on the table.">
+  <meta property="og:image" content="https://www.clawmark.com.au/og-image.jpg">
+  <meta property="og:locale" content="en_AU">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@clawmark">
+  <meta name="twitter:title" content="Why Brisbane Small Businesses Can't Afford to Rely on Referrals Alone">
+  <meta name="twitter:description" content="Word of mouth is great — until it isn't. Here's why Brisbane small businesses that rely only on referrals are leaving growth on the table.">
+  <meta name="twitter:image" content="https://www.clawmark.com.au/og-image.jpg">
+  <title>Why Brisbane Small Businesses Can't Afford to Rely on Referrals Alone — Clawmark Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111111;
+      --dark-2:       #181818;
+      --orange:       #FF5500;
+      --orange-dim:   rgba(255,85,0,0.10);
+      --white:        #FFFFFF;
+      --off-white:    #F6F3EF;
+      --muted-dark:   rgba(255,255,255,0.42);
+      --muted-light:  rgba(10,10,10,0.45);
+      --border-dark:  rgba(255,255,255,0.07);
+      --border-light: rgba(10,10,10,0.08);
+      --serif:        'Syne', sans-serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: none; }
+
+    .cursor { position: fixed; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease; }
+    .cursor.grow { width: 36px; height: 36px; opacity: 0.22; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,85,0,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.18s ease; }
+    @media (hover: none) { .cursor, .cursor-ring { display: none; } body, button { cursor: auto; } }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.85rem 1.75rem; border: 1.5px solid transparent; border-radius: 4px; transition: all 0.2s ease; white-space: nowrap; }
+    .btn-orange { background: #FF5500; color: #FFFFFF !important; border-color: #FF5500; }
+    .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
+    .btn-outline-dark { background: transparent; color: var(--black); border-color: rgba(10,10,10,0.22); }
+    .btn-outline-dark:hover { border-color: var(--black); background: rgba(10,10,10,0.04); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
+    .btn-arrow::after { content: ' →'; }
+
+    /* NAV */
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; background: rgba(10,10,10,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--muted-dark); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--white); }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 490; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
+
+    /* ════════════════════════════════════
+       HERO SECTION
+    ════════════════════════════════════ */
+    .post-hero {
+      background: var(--black);
+      padding: 9rem 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(circle, rgba(255,85,0,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
+    }
+
+    .post-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--muted-dark);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .breadcrumb a { color: var(--muted-dark); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+    .breadcrumb-current { color: var(--orange); }
+
+    /* Post category tag */
+    .post-cat-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid rgba(255,85,0,0.35);
+      padding: 0.35rem 0.85rem;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.18s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+
+    /* Post headline */
+    .post-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.75s 0.28s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .post-title .accent { color: var(--orange); }
+
+    /* Meta row */
+    .post-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .meta-author { display: flex; align-items: center; gap: 0.65rem; }
+    .meta-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), #FF8C42);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .meta-author-name { font-size: 0.8rem; font-weight: 500; color: var(--white); }
+    .meta-author-role { font-size: 0.68rem; color: var(--muted-dark); }
+    .meta-sep { width: 1px; height: 24px; background: var(--border-dark); }
+    .meta-item { font-size: 0.75rem; color: var(--muted-dark); }
+
+    /* ── HERO IMAGE ── */
+    .post-hero-image-wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.55s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .post-hero-image {
+      width: 100%;
+      height: 440px;
+      border-radius: 10px 10px 0 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f1a0a 0%, #1a2e10 40%, #0d2008 70%, #0a1a06 100%);
+      position: relative;
+    }
+    .post-hero-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,85,0,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,85,0,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .post-hero-image-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .hero-img-icon { font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 30px rgba(255,85,0,0.4)); }
+    .hero-img-label {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .hero-img-label span { color: var(--orange); }
+    .hero-img-sub { font-size: 0.8rem; font-weight: 300; color: var(--muted-dark); margin-top: 0.6rem; }
+    .post-image-caption { font-size: 0.7rem; font-weight: 300; color: var(--muted-dark); text-align: center; padding: 0.75rem 0 0; font-style: italic; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ════════════════════════════════════
+       ARTICLE LAYOUT
+    ════════════════════════════════════ */
+    .article-section { background: var(--off-white); padding: 5rem 3rem 6rem; }
+    .article-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* ── INTRO TEXT ── */
+    .article-intro {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .article-intro .intro-highlight { color: var(--orange); }
+
+    /* ── CONTENT TEXT ── */
+    .article-body {}
+    .article-body h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+    .article-body h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+    }
+    .article-body p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(10,10,10,0.75);
+      margin-bottom: 1.35rem;
+    }
+    .article-body strong { font-weight: 600; color: var(--black); }
+    .article-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    .article-body ul, .article-body ol {
+      padding-left: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .article-body li {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(10,10,10,0.75);
+    }
+
+    /* Callout box */
+    .callout {
+      background: var(--white);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 6px 6px 0;
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .callout-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .callout p { margin-bottom: 0; font-size: 0.88rem; color: var(--muted-light); }
+    .callout strong { color: var(--black); }
+
+    /* Pull quote */
+    .pull-quote {
+      border-top: 2px solid var(--orange);
+      border-bottom: 1px solid var(--border-light);
+      padding: 2rem 0;
+      margin: 2.5rem 0;
+    }
+    .pull-quote blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    /* Stat block inline */
+    .inline-stat {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 2rem 0;
+      background: var(--white);
+    }
+    .inline-stat-cell {
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      border-right: 1px solid var(--border-light);
+    }
+    .inline-stat-cell:last-child { border-right: none; }
+    .inline-stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 0.3rem; }
+    .inline-stat-label { font-size: 0.72rem; font-weight: 400; color: var(--muted-light); line-height: 1.35; }
+
+    /* ── SIDEBAR ── */
+    .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .sidebar-card-head { background: var(--black); padding: 1.25rem 1.5rem; }
+    .sidebar-card-head-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .sidebar-card-body { padding: 1.5rem; }
+    .sidebar-card-body p { font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--muted-light); margin-bottom: 1.25rem; }
+    .sidebar-card-body .btn { width: 100%; justify-content: center; font-size: 0.75rem; padding: 0.75rem 1rem; }
+
+    /* TOC */
+    .sidebar-toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-toc-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .toc-list li a {
+      display: block;
+      padding: 0.55rem 0;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted-light);
+      border-bottom: 1px solid var(--border-light);
+      transition: color 0.2s;
+      line-height: 1.4;
+    }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list li a:hover { color: var(--orange); }
+
+    /* Share */
+    .sidebar-share { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-share-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .share-btns { display: flex; flex-direction: column; gap: 0.6rem; }
+    .share-btn { display: flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; font-weight: 400; color: var(--black); background: var(--off-white); border: 1px solid var(--border-light); border-radius: 4px; padding: 0.65rem 1rem; cursor: pointer; transition: all 0.2s; }
+    .share-btn:hover { border-color: var(--orange); color: var(--orange); background: var(--white); }
+    .share-btn span { font-size: 1rem; }
+
+    /* Tags */
+    .article-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-light); }
+    .article-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 99px; border: 1px solid var(--border-light); color: var(--muted-light); transition: all 0.2s; }
+    .article-tag:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* ════════════════════════════════════
+       IN-ARTICLE CTA
+    ════════════════════════════════════ */
+    .article-cta {
+      background: var(--black);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      border: 1px solid var(--border-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .article-cta::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(255,85,0,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .article-cta-label { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+    .article-cta-title { font-family: var(--serif); font-size: clamp(1.3rem, 2vw, 1.7rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.85rem; }
+    .article-cta-title span { color: var(--orange); }
+    .article-cta-text { font-size: 0.85rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 1.75rem; }
+    .article-cta-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+    /* ════════════════════════════════════
+       RELATED POSTS
+    ════════════════════════════════════ */
+    .related-section { background: var(--off-white); padding: 5rem 3rem; border-top: 1px solid var(--border-light); }
+    .related-wrap { max-width: 1100px; margin: 0 auto; }
+    .related-hd { margin-bottom: 2.5rem; }
+    .related-hd .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .related-hd h2 { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .related-card:hover { border-color: rgba(10,10,10,0.14); transform: translateY(-2px); }
+    .related-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
+    .related-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--black); line-height: 1.25; margin-bottom: 0.6rem; flex: 1; }
+    .related-meta { font-size: 0.68rem; color: var(--muted-light); display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; }
+    .related-link { color: var(--orange); font-weight: 500; }
+
+    /* ════════════════════════════════════
+       PAGE-BOTTOM CTA
+    ════════════════════════════════════ */
+    .cta-band { background: #0A0A0A; padding: 0 3rem; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF5500 0%, rgba(255,85,0,0.3) 60%, transparent 100%); }
+    .cta-band::after { content: ''; position: absolute; left: -80px; top: 50%; transform: translateY(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(255,85,0,0.11) 0%, transparent 65%); pointer-events: none; }
+    .cta-band-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 5rem; padding: 5.5rem 0; position: relative; z-index: 2; }
+    .cta-band-left {}
+    .cta-band p.eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #FF5500; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+    .cta-band p.eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1.5px; background: #FF5500; flex-shrink: 0; }
+    .cta-band h2 { font-family: var(--serif); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; color: #FFFFFF; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .cta-band h2 span { color: #FF5500; }
+    .cta-band-sub { font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.52); line-height: 1.8; max-width: 500px; }
+    .cta-band-right { display: flex; flex-direction: column; gap: 0.85rem; flex-shrink: 0; min-width: 230px; }
+    .cta-band-right .btn { justify-content: center; padding: 1.05rem 2rem; font-size: 0.82rem; }
+    .cta-band-right .btn-orange { background: #FF5500 !important; color: #FFFFFF !important; border-color: #FF5500 !important; }
+    .cta-band-right .btn-outline-white { color: #FFFFFF !important; border-color: rgba(255,255,255,0.3) !important; }
+    .cta-band-note { font-size: 0.65rem; color: rgba(255,255,255,0.2); text-align: center; letter-spacing: 0.04em; margin-top: 0.25rem; }
+    @media (max-width: 780px) { .cta-band-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 0; } .cta-band-right { min-width: unset; } }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-links-row { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
+    .footer-links-row a { font-size: 0.75rem; color: var(--muted-dark); transition: color 0.2s; }
+    .footer-links-row a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+
+    /* Progress bar */
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--orange); z-index: 1000; width: 0%; transition: width 0.1s linear; }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .article-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+      .inline-stat { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      #nav { padding: 1.1rem 1.5rem; }
+      .nav-links, .nav-right .btn { display: none; }
+      .nav-hamburger { display: flex; }
+      .post-hero { padding: 7.5rem 1.5rem 0; }
+      .post-hero-image { height: 240px; }
+      .article-section, .related-section, .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .inline-stat { grid-template-columns: 1fr; }
+      .inline-stat-cell { border-right: none; border-bottom: 1px solid var(--border-light); }
+      footer { padding: 2rem 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y8W1YZ90B2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y8W1YZ90B2');
+  </script>
+</head>
+<body>
+
+  <!-- Reading progress bar -->
+  <div class="progress-bar" id="progress"></div>
+
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="ring"></div>
+
+  <div class="mobile-nav" id="mob">
+    <button class="mobile-close" id="mob-close">✕</button>
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="faqs.html">FAQs</a>
+    <a href="blog.html" style="color:var(--orange)">Blog</a>
+    <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+  </div>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">CLAW<span>MARK</span></a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Get My Free Website</a>
+      <button class="nav-hamburger" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════
+       HERO
+  ════════════════════════════════════ -->
+  <section class="post-hero">
+    <div class="hero-grid"></div>
+    <div class="post-hero-content">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="blog.html">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Local Business</span>
+      </nav>
+
+      <!-- Category tag -->
+      <div class="post-cat-tag">💬 Local Business</div>
+
+      <!-- Main headline -->
+      <h1 class="post-title">
+        "I get all my work through referrals" —<br>
+        <span class="accent">why that's a risky plan</span> for Brisbane small businesses
+      </h1>
+
+      <!-- Meta row -->
+      <div class="post-meta-row">
+        <div class="meta-author">
+          <div class="meta-avatar">A</div>
+          <div>
+            <div class="meta-author-name">Andres Henao</div>
+            <div class="meta-author-role">Founder, Clawmark</div>
+          </div>
+        </div>
+        <div class="meta-sep"></div>
+        <span class="meta-item">📅 April 28, 2026</span>
+        <span class="meta-item">⏱ 5 min read</span>
+        <span class="meta-item">📍 Brisbane, QLD</span>
+      </div>
+
+    </div>
+
+    <!-- ── HERO IMAGE ── -->
+    <div class="post-hero-image-wrap">
+      <div class="post-hero-image">
+        <div class="post-hero-image-inner">
+          <div class="hero-img-icon">🤝</div>
+          <div class="hero-img-label">
+            Referrals are great.<br>
+            <span>Until they stop.</span>
+          </div>
+          <div class="hero-img-sub">What happens to your business when the phone goes quiet?</div>
+        </div>
+      </div>
+      <p class="post-image-caption">Referral-based businesses feel invincible — until one slow month shows exactly how fragile that model really is.</p>
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════
+       ARTICLE
+  ════════════════════════════════════ -->
+  <section class="article-section">
+    <div class="article-layout">
+
+      <!-- Main content -->
+      <article>
+
+        <!-- ── INTRO TEXT ── -->
+        <p class="article-intro reveal">
+          Referrals are one of the best leads you can get. The trust is already there, the sale is half-done before you even pick up the phone. But <span class="intro-highlight">building your whole business around referrals is like building a house on someone else's land.</span> It works — until it doesn't. And when it stops, there's no fallback.
+        </p>
+
+        <!-- ── CONTENT TEXT ── -->
+        <div class="article-body reveal">
+
+          <h2 id="the-problem">The problem with a referral-only business</h2>
+
+          <p>I talk to Brisbane business owners every week. Tradies, café owners, beauty therapists, accountants. A lot of them say some version of the same thing: "I've been in business for years and I've never needed a website — all my work comes through word of mouth."</p>
+
+          <p>And honestly? Fair enough. Referrals are proof that you're good at what you do. People don't recommend businesses they're not happy with. So if you're getting consistent referral work, you've built real trust with your clients.</p>
+
+          <p>But here's the thing nobody says out loud: <strong>referrals are completely outside your control.</strong></p>
+
+          <p>You can't turn them on when you need work. You can't predict how many you'll get next month. And when business is slow — because of a quiet season, a big client moving on, or just a random dip — you have nothing else to fall back on.</p>
+
+          <div class="inline-stat">
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">97%</div>
+              <div class="inline-stat-label">of people search online to find local businesses — even ones they've been recommended</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">62%</div>
+              <div class="inline-stat-label">of consumers say they'd reject a business recommended to them if its online presence looked unprofessional</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">0</div>
+              <div class="inline-stat-label">new clients from Google if you're not showing up — regardless of how good your word-of-mouth reputation is</div>
+            </div>
+          </div>
+
+          <h2 id="referrals-still-check">Even referrals Google you first</h2>
+
+          <p>Here's something most business owners don't think about. When someone gets a referral — when their mate says "you should call this plumber, he's great" — what's the first thing they do?</p>
+
+          <p>They Google the name.</p>
+
+          <p>They want to check reviews. They want to see if the business looks legit. They want to find a phone number or a website. And if they find nothing — or worse, an outdated Facebook page with a last post from 2022 — a chunk of those referrals quietly move on to someone else.</p>
+
+          <p>You earned that referral. Your past client went out of their way to recommend you. And you still lost the job because there was nothing credible to land on.</p>
+
+          <div class="callout">
+            <div class="callout-label">Real talk</div>
+            <p><strong>A referral is a warm lead, not a guaranteed sale.</strong> If someone Googles you after being referred and finds no website, no clear information, or a website that looks ten years old — that lead goes cold fast. Your online presence is the confirmation that the referral was a good call.</p>
+          </div>
+
+          <h2 id="what-youre-missing">What you're missing with no website</h2>
+
+          <p>Referrals cap your growth at whatever your current network can generate. A website opens you up to something else entirely: people who need exactly what you do, right now, who've never heard of you.</p>
+
+          <p>Every day in Brisbane, people search for "emergency plumber Caboolture," "lash tech Chermside," "accountant West End," "best café Fortitude Valley." They're ready to spend. They're not asking for referrals — they're just searching.</p>
+
+          <p>If you don't have a website, you're invisible to every one of them. That's not a small number. In most trade and service categories across Brisbane, there are hundreds of relevant local searches happening daily. Some of those are for exactly what you do, in your suburb, from someone with cash ready to go.</p>
+
+          <h3>The compounding problem</h3>
+          <p>The longer you go without a website, the harder it is to compete when you eventually build one. Google rewards websites with history — older, well-maintained sites rank higher than brand new ones. Every month you wait is a month your competitors with websites are building authority that will take you time to catch up to.</p>
+
+          <div class="pull-quote">
+            <blockquote>"Word of mouth built your business. A website lets it keep growing while you sleep — or while the referrals dry up."</blockquote>
+          </div>
+
+          <h2 id="not-either-or">It's not referrals OR a website</h2>
+
+          <p>This isn't about choosing one or the other. The businesses that grow fastest in Brisbane are the ones that have both: a great reputation built through quality work and referrals, and a professional online presence that captures the people who are searching independently.</p>
+
+          <p>Those two things reinforce each other. A great website makes your referrals more likely to convert. Strong Google reviews (which belong to your Google Business Profile, linked to your site) make new searchers more likely to trust you. It's not a competition — it's a system.</p>
+
+          <p>Here's what a business owner with both looks like:</p>
+
+          <ul>
+            <li>Happy client refers a friend. Friend Googles the business, lands on a clean, fast website, sees real photos and clear pricing, books immediately.</li>
+            <li>Meanwhile, someone in the same suburb finds the business through Google. They've never heard of it through any referral. They book because the website looked trustworthy and the Google reviews confirmed it.</li>
+            <li>Both channels are running. Neither depends on the other. The business has predictable, growing revenue.</li>
+          </ul>
+
+          <h2 id="what-to-do">What to do about it</h2>
+
+          <p>If referrals are your whole pipeline right now, the move isn't to abandon what's working — it's to build something alongside it so you're not entirely dependent on a channel you can't control.</p>
+
+          <ul>
+            <li><strong>Get a proper website.</strong> Not a free website builder template that looks generic. A real, fast, mobile-first website that represents your business accurately and gives Google something to work with.</li>
+            <li><strong>Set up and complete your Google Business Profile.</strong> This is what shows up in Google Maps searches. It needs photos, accurate hours, a real business description, and your service areas listed clearly.</li>
+            <li><strong>Ask every satisfied client to leave a Google review.</strong> Referral clients are your best source of reviews — they're already happy. A quick text asking them to leave a review converts at a surprisingly high rate.</li>
+            <li><strong>Make it easy to find you.</strong> Your website URL and phone number should be on everything: email signature, invoices, social profiles, business cards. Every touchpoint is a chance to get a referral to Google you and confirm the trust.</li>
+          </ul>
+
+          <!-- In-article CTA -->
+          <div class="article-cta">
+            <div class="article-cta-label">Build your pipeline beyond referrals</div>
+            <h3 class="article-cta-title">A website that works for your business<br><span>while you're working in it.</span></h3>
+            <p class="article-cta-text">Every Clawmark website is built to get found on Google — proper local SEO, mobile-first, fast. The GROWTH plan includes Google Business Profile setup and management, so both channels are covered from day one. No build fee. You see the mockup before you sign anything.</p>
+            <div class="article-cta-actions">
+              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+              <a href="pricing.html" class="btn btn-outline-white">See Plans & Pricing</a>
+            </div>
+          </div>
+
+          <h2 id="bottom-line">The bottom line</h2>
+
+          <p>Referrals are a sign that your business is doing something right. Don't stop doing that. But they're not a growth strategy — they're a reward for past work. A website is what turns that reputation into something bigger and more consistent.</p>
+
+          <p>If a slow month would put you in a difficult spot, that's a sign your business is more fragile than it needs to be. A well-built website, properly set up on Google, is one of the lowest-cost ways to change that — and with Clawmark, there's no upfront cost to make it happen.</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="article-tag">Local Business</a>
+            <a href="blog.html" class="article-tag">Brisbane</a>
+            <a href="blog.html" class="article-tag">Referrals</a>
+            <a href="blog.html" class="article-tag">Small Business</a>
+            <a href="blog.html" class="article-tag">Local SEO</a>
+            <a href="blog.html" class="article-tag">Growth</a>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="article-sidebar reveal">
+
+        <!-- Table of contents -->
+        <div class="sidebar-toc">
+          <div class="sidebar-toc-title">In this article</div>
+          <ul class="toc-list">
+            <li><a href="#the-problem">The problem with referral-only</a></li>
+            <li><a href="#referrals-still-check">Even referrals Google you first</a></li>
+            <li><a href="#what-youre-missing">What you're missing</a></li>
+            <li><a href="#not-either-or">It's not referrals OR a website</a></li>
+            <li><a href="#what-to-do">What to do about it</a></li>
+            <li><a href="#bottom-line">The bottom line</a></li>
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-head">
+            <div class="sidebar-card-head-title">Stop depending on one channel</div>
+          </div>
+          <div class="sidebar-card-body">
+            <p>A Clawmark website gives your business a second pipeline — one that runs independently of referrals. Starting from $189/mo, no build fee.</p>
+            <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="sidebar-share">
+          <div class="sidebar-share-title">Share this post</div>
+          <div class="share-btns">
+            <button class="share-btn" onclick="sharePost('facebook')"><span>👍</span> Share on Facebook</button>
+            <button class="share-btn" onclick="sharePost('linkedin')"><span>💼</span> Share on LinkedIn</button>
+            <button class="share-btn" onclick="copyLink()"><span>🔗</span> Copy link</button>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       RELATED POSTS
+  ════════════════════════════════════ -->
+  <section class="related-section">
+    <div class="related-wrap">
+      <div class="related-hd reveal">
+        <div class="section-label">More from the blog</div>
+        <h2>Keep reading</h2>
+      </div>
+      <div class="related-grid">
+        <a href="blog-brisbane-electrician-80-google-reviews-no-website.html" class="related-card reveal">
+          <div class="related-tag">Case Study</div>
+          <div class="related-title">He had 80 five-star Google reviews and zero website. Here's what changed.</div>
+          <div class="related-meta">
+            <span>April 27, 2026 · 6 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+        <a href="website-costing-customers-checklist-brisbane.html" class="related-card reveal">
+          <div class="related-tag">Business Growth</div>
+          <div class="related-title">Is Your Website Costing You Customers? A Checklist for Brisbane Business Owners</div>
+          <div class="related-meta">
+            <span>April 17, 2026 · 6 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+        <a href="blog-post-template.html" class="related-card reveal">
+          <div class="related-tag">Local SEO</div>
+          <div class="related-title">Why Brisbane tradies are losing jobs to competitors with worse Google reviews</div>
+          <div class="related-meta">
+            <span>April 7, 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       BOTTOM CTA
+  ════════════════════════════════════ -->
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div class="cta-band-left">
+        <p class="eyebrow">No build fee, no commitment required</p>
+        <h2>Ready to add a second<br>pipeline to your <span>business?</span></h2>
+        <p class="cta-band-sub">A Clawmark website doesn't replace your referrals — it runs alongside them. More channels, more leads, more control over your own growth. Book a call and we'll show you what that looks like.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="color:#FFFFFF;">Book My Free Call</a>
+        <a href="blog.html" class="btn btn-outline-white" style="color:#FFFFFF;">← Back to Blog</a>
+        <p class="cta-band-note">No commitment · See design first</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">CLAW<span>MARK</span></a>
+      <ul class="footer-links-row">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Clawmark. Brisbane, Australia.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Cursor
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
+    animRing();
+    document.querySelectorAll('a,button').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+    });
+
+    // Mobile nav
+    document.getElementById('ham').addEventListener('click', () => document.getElementById('mob').classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob').classList.remove('open'));
+
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      document.getElementById('progress').style.width = progress + '%';
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Share functions
+    function sharePost(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      if (platform === 'facebook') window.open(`https://facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+      if (platform === 'linkedin') window.open(`https://linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+    }
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.querySelector('[onclick="copyLink()"]');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span>✓</span> Link copied!';
+        btn.style.color = '#2D8A4E';
+        btn.style.borderColor = '#2D8A4E';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; btn.style.borderColor = ''; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
