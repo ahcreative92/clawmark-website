@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Brisbane tradies are losing jobs to competitors with fewer reviews and less experience — because those competitors have a website. Here's exactly what's happening and how to fix it.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.clawmark.com.au/blog/2026-05-02-brisbane-tradies-website-competitors.html">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.clawmark.com.au/blog/2026-05-02-brisbane-tradies-website-competitors.html">
+  <meta property="og:site_name" content="Clawmark">
+  <meta property="og:title" content="Your Brisbane competitors have a website. You don't. Here's what that's costing you.">
+  <meta property="og:description" content="Brisbane tradies are losing jobs to competitors with fewer reviews and less experience — because those competitors have a website. Here's exactly what's happening and how to fix it.">
+  <meta property="og:locale" content="en_AU">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Your Brisbane competitors have a website. You don't. Here's what that's costing you.">
+  <meta name="twitter:description" content="Brisbane tradies are losing jobs to competitors with fewer reviews and less experience — because those competitors have a website.">
+  <title>Your Brisbane competitors have a website. You don't. Here's what that's costing you. — Clawmark Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111111;
+      --dark-2:       #181818;
+      --orange:       #FF5500;
+      --orange-dim:   rgba(255,85,0,0.10);
+      --white:        #FFFFFF;
+      --off-white:    #F6F3EF;
+      --muted-dark:   rgba(255,255,255,0.42);
+      --muted-light:  rgba(10,10,10,0.45);
+      --border-dark:  rgba(255,255,255,0.07);
+      --border-light: rgba(10,10,10,0.08);
+      --serif:        'Syne', sans-serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: none; }
+
+    .cursor { position: fixed; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease; }
+    .cursor.grow { width: 36px; height: 36px; opacity: 0.22; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,85,0,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.18s ease; }
+    @media (hover: none) { .cursor, .cursor-ring { display: none; } body, button { cursor: auto; } }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.85rem 1.75rem; border: 1.5px solid transparent; border-radius: 4px; transition: all 0.2s ease; white-space: nowrap; }
+    .btn-orange { background: #FF5500; color: #FFFFFF !important; border-color: #FF5500; }
+    .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
+    .btn-outline-dark { background: transparent; color: var(--black); border-color: rgba(10,10,10,0.22); }
+    .btn-outline-dark:hover { border-color: var(--black); background: rgba(10,10,10,0.04); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
+    .btn-arrow::after { content: ' →'; }
+
+    /* NAV */
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; background: rgba(10,10,10,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--muted-dark); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--white); }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 490; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
+
+    /* HERO */
+    .post-hero {
+      background: var(--black);
+      padding: 9rem 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(circle, rgba(255,85,0,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
+    }
+
+    .post-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--muted-dark);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .breadcrumb a { color: var(--muted-dark); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+    .breadcrumb-current { color: var(--orange); }
+
+    .post-cat-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid rgba(255,85,0,0.35);
+      padding: 0.35rem 0.85rem;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.18s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+
+    .post-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.75s 0.28s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .post-title .accent { color: var(--orange); }
+
+    .post-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .meta-author { display: flex; align-items: center; gap: 0.65rem; }
+    .meta-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), #FF8C42);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .meta-author-name { font-size: 0.8rem; font-weight: 500; color: var(--white); }
+    .meta-author-role { font-size: 0.68rem; color: var(--muted-dark); }
+    .meta-sep { width: 1px; height: 24px; background: var(--border-dark); }
+    .meta-item { font-size: 0.75rem; color: var(--muted-dark); }
+
+    .post-hero-image-wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.55s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .post-hero-image {
+      width: 100%;
+      height: 440px;
+      border-radius: 10px 10px 0 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f1209 0%, #1a2010 40%, #0d1508 70%, #0a1005 100%);
+      position: relative;
+    }
+    .post-hero-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,85,0,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,85,0,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .post-hero-image-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .hero-img-icon { font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 30px rgba(255,85,0,0.4)); }
+    .hero-img-label {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .hero-img-label span { color: var(--orange); }
+    .hero-img-sub { font-size: 0.8rem; font-weight: 300; color: var(--muted-dark); margin-top: 0.6rem; }
+    .post-image-caption { font-size: 0.7rem; font-weight: 300; color: var(--muted-dark); text-align: center; padding: 0.75rem 0 0; font-style: italic; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ARTICLE LAYOUT */
+    .article-section { background: var(--off-white); padding: 5rem 3rem 6rem; }
+    .article-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .article-intro {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .article-intro .intro-highlight { color: var(--orange); }
+
+    .article-body {}
+    .article-body h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+    .article-body h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+    }
+    .article-body p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(10,10,10,0.75);
+      margin-bottom: 1.35rem;
+    }
+    .article-body strong { font-weight: 600; color: var(--black); }
+    .article-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    .article-body ul, .article-body ol {
+      padding-left: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .article-body li {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(10,10,10,0.75);
+    }
+
+    .callout {
+      background: var(--white);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 6px 6px 0;
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .callout-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .callout p { margin-bottom: 0; font-size: 0.88rem; color: var(--muted-light); }
+    .callout strong { color: var(--black); }
+
+    .pull-quote {
+      border-top: 2px solid var(--orange);
+      border-bottom: 1px solid var(--border-light);
+      padding: 2rem 0;
+      margin: 2.5rem 0;
+    }
+    .pull-quote blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .inline-stat {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 2rem 0;
+      background: var(--white);
+    }
+    .inline-stat-cell {
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      border-right: 1px solid var(--border-light);
+    }
+    .inline-stat-cell:last-child { border-right: none; }
+    .inline-stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 0.3rem; }
+    .inline-stat-label { font-size: 0.72rem; font-weight: 400; color: var(--muted-light); line-height: 1.35; }
+
+    /* SIDEBAR */
+    .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .sidebar-card-head { background: var(--black); padding: 1.25rem 1.5rem; }
+    .sidebar-card-head-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .sidebar-card-body { padding: 1.5rem; }
+    .sidebar-card-body p { font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--muted-light); margin-bottom: 1.25rem; }
+    .sidebar-card-body .btn { width: 100%; justify-content: center; font-size: 0.75rem; padding: 0.75rem 1rem; }
+
+    .sidebar-toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-toc-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .toc-list li a {
+      display: block;
+      padding: 0.55rem 0;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted-light);
+      border-bottom: 1px solid var(--border-light);
+      transition: color 0.2s;
+      line-height: 1.4;
+    }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list li a:hover { color: var(--orange); }
+
+    .sidebar-share { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-share-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .share-btns { display: flex; flex-direction: column; gap: 0.6rem; }
+    .share-btn { display: flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; font-weight: 400; color: var(--black); background: var(--off-white); border: 1px solid var(--border-light); border-radius: 4px; padding: 0.65rem 1rem; cursor: pointer; transition: all 0.2s; }
+    .share-btn:hover { border-color: var(--orange); color: var(--orange); background: var(--white); }
+    .share-btn span { font-size: 1rem; }
+
+    .article-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-light); }
+    .article-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 99px; border: 1px solid var(--border-light); color: var(--muted-light); transition: all 0.2s; }
+    .article-tag:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* IN-ARTICLE CTA */
+    .article-cta {
+      background: var(--black);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      border: 1px solid var(--border-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .article-cta::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(255,85,0,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .article-cta-label { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+    .article-cta-title { font-family: var(--serif); font-size: clamp(1.3rem, 2vw, 1.7rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.85rem; }
+    .article-cta-title span { color: var(--orange); }
+    .article-cta-text { font-size: 0.85rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 1.75rem; }
+    .article-cta-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+    /* RELATED POSTS */
+    .related-section { background: var(--off-white); padding: 5rem 3rem; border-top: 1px solid var(--border-light); }
+    .related-wrap { max-width: 1100px; margin: 0 auto; }
+    .related-hd { margin-bottom: 2.5rem; }
+    .related-hd .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .related-hd h2 { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .related-card:hover { border-color: rgba(10,10,10,0.14); transform: translateY(-2px); }
+    .related-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
+    .related-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--black); line-height: 1.25; margin-bottom: 0.6rem; flex: 1; }
+    .related-meta { font-size: 0.68rem; color: var(--muted-light); display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; }
+    .related-link { color: var(--orange); font-weight: 500; }
+
+    /* BOTTOM CTA */
+    .cta-band { background: #0A0A0A; padding: 0 3rem; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF5500 0%, rgba(255,85,0,0.3) 60%, transparent 100%); }
+    .cta-band::after { content: ''; position: absolute; left: -80px; top: 50%; transform: translateY(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(255,85,0,0.11) 0%, transparent 65%); pointer-events: none; }
+    .cta-band-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 5rem; padding: 5.5rem 0; position: relative; z-index: 2; }
+    .cta-band p.eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #FF5500; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+    .cta-band p.eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1.5px; background: #FF5500; flex-shrink: 0; }
+    .cta-band h2 { font-family: var(--serif); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; color: #FFFFFF; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .cta-band h2 span { color: #FF5500; }
+    .cta-band-sub { font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.52); line-height: 1.8; max-width: 500px; }
+    .cta-band-right { display: flex; flex-direction: column; gap: 0.85rem; flex-shrink: 0; min-width: 230px; }
+    .cta-band-right .btn { justify-content: center; padding: 1.05rem 2rem; font-size: 0.82rem; }
+    .cta-band-note { font-size: 0.65rem; color: rgba(255,255,255,0.2); text-align: center; letter-spacing: 0.04em; margin-top: 0.25rem; }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-links-row { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
+    .footer-links-row a { font-size: 0.75rem; color: var(--muted-dark); transition: color 0.2s; }
+    .footer-links-row a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--orange); z-index: 1000; width: 0%; transition: width 0.1s linear; }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .article-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+      .inline-stat { grid-template-columns: repeat(3, 1fr); }
+      .cta-band-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 0; }
+      .cta-band-right { min-width: unset; }
+    }
+    @media (max-width: 640px) {
+      #nav { padding: 1.1rem 1.5rem; }
+      .nav-links, .nav-right .btn { display: none; }
+      .nav-hamburger { display: flex; }
+      .post-hero { padding: 7.5rem 1.5rem 0; }
+      .post-hero-image { height: 240px; }
+      .article-section, .related-section, .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .inline-stat { grid-template-columns: 1fr; }
+      .inline-stat-cell { border-right: none; border-bottom: 1px solid var(--border-light); }
+      footer { padding: 2rem 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y8W1YZ90B2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y8W1YZ90B2');
+  </script>
+</head>
+<body>
+
+  <div class="progress-bar" id="progress"></div>
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="ring"></div>
+
+  <div class="mobile-nav" id="mob">
+    <button class="mobile-close" id="mob-close">&#10005;</button>
+    <a href="../index.html">Home</a>
+    <a href="../how-it-works.html">How It Works</a>
+    <a href="../pricing.html">Pricing</a>
+    <a href="../faqs.html">FAQs</a>
+    <a href="../blog.html" style="color:var(--orange)">Blog</a>
+    <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+  </div>
+
+  <nav id="nav">
+    <a href="../index.html" class="nav-logo">CLAW<span>MARK</span></a>
+    <ul class="nav-links">
+      <li><a href="../how-it-works.html">How It Works</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../faqs.html">FAQs</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Get My Free Website</a>
+      <button class="nav-hamburger" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="post-hero">
+    <div class="hero-grid"></div>
+    <div class="post-hero-content">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../blog.html">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Trades</span>
+      </nav>
+
+      <div class="post-cat-tag">🔨 Brisbane Tradies</div>
+
+      <h1 class="post-title">
+        Your Brisbane competitors have a website.<br>
+        You don't. Here's what that's <span class="accent">costing you.</span>
+      </h1>
+
+      <div class="post-meta-row">
+        <div class="meta-author">
+          <div class="meta-avatar">A</div>
+          <div>
+            <div class="meta-author-name">Andres Henao</div>
+            <div class="meta-author-role">Founder, Clawmark</div>
+          </div>
+        </div>
+        <div class="meta-sep"></div>
+        <span class="meta-item">&#128197; May 2, 2026</span>
+        <span class="meta-item">&#8987; 6 min read</span>
+        <span class="meta-item">&#128205; Brisbane, QLD</span>
+      </div>
+
+    </div>
+
+    <div class="post-hero-image-wrap">
+      <div class="post-hero-image">
+        <div class="post-hero-image-inner">
+          <div class="hero-img-icon">🔧</div>
+          <div class="hero-img-label">
+            Great reviews.<br>
+            <span>No website. No ranking.</span>
+          </div>
+          <div class="hero-img-sub">Brisbane tradies are missing out on jobs they don't even know exist.</div>
+        </div>
+      </div>
+      <p class="post-image-caption">Every day, Brisbane homeowners search for a tradie and click on whoever shows up first — not whoever has the most experience. If you don't have a website, that's almost never you.</p>
+    </div>
+
+  </section>
+
+  <!-- ARTICLE -->
+  <section class="article-section">
+    <div class="article-layout">
+
+      <article>
+
+        <p class="article-intro reveal">
+          Your Google reviews are solid. You've built your business on word of mouth. You're busy — most of the time. But <span class="intro-highlight">Brisbane homeowners searching for a tradie right now aren't scrolling through Facebook or asking around. They're on Google. And if you're not there, they're calling someone else.</span>
+        </p>
+
+        <div class="article-body reveal">
+
+          <h2 id="the-invisible-problem">The problem you can't see</h2>
+
+          <p>When someone refers you, they search your name and find you. But most of the people who need your services have never heard of you. They're searching "electrician Caboolture" or "plumber near me" or "fencing contractor Springfield" right now — and they're clicking whoever shows up at the top.</p>
+
+          <p>Without a website, you're invisible to that entire group. Not invisible because you're not good enough. Invisible because Google has no way to connect you to what those people are searching for.</p>
+
+          <p>Your competitor — six months in the trade, half your experience, a fraction of your reviews — has a website. Google can see it, crawl it, understand what suburb they service and what they do. So they show up. You don't.</p>
+
+          <div class="inline-stat">
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">85%</div>
+              <div class="inline-stat-label">of people research a business online before making contact</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">Top 3</div>
+              <div class="inline-stat-label">Google results capture over 70% of all clicks on local searches</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">48hrs</div>
+              <div class="inline-stat-label">average time to go from first Clawmark call to a live, indexed website</div>
+            </div>
+          </div>
+
+          <h2 id="referrals-have-a-ceiling">Referrals have a ceiling. Google doesn't.</h2>
+
+          <p>Word of mouth is the best kind of lead — but it's inherently limited. Your referrals come from people who already know you. That pool doesn't grow on its own. It plateaus, and when it does, there's usually nothing underneath it.</p>
+
+          <p>Google is different. When someone moves to Morayfield and needs a plumber, they don't ask around — they search. When a Chermside homeowner's hot water system dies at 6am, they don't wait for a recommendation — they Google "emergency plumber Chermside" and call whoever shows up.</p>
+
+          <p>Those jobs are happening every single day. The question is just whether they're going to you or your competitors.</p>
+
+          <div class="callout">
+            <div class="callout-label">The referral trap</div>
+            <p><strong>Referrals are reliable until they're not.</strong> One slow season, one major client who stops needing your services, one competitor who starts getting in front of your referral network — and suddenly the pipeline that felt safe starts to look very thin. A website is what catches you when that happens.</p>
+          </div>
+
+          <h2 id="what-a-website-actually-does">What a website actually does for a tradie</h2>
+
+          <p>A website isn't just a digital business card. For a Brisbane tradie, a properly built website does four concrete things:</p>
+
+          <h3>1. Gets you found on Google</h3>
+          <p>When your website includes your services, your suburb, and the surrounding areas you cover, Google can match you to relevant searches. "Electrician Fortitude Valley", "fence builder Ipswich", "roof plumber West End" — these are real searches happening every day. A good website puts you in front of them.</p>
+
+          <h3>2. Converts visitors into calls</h3>
+          <p>When someone lands on your website, they're already looking for what you do. A clear layout with your services, a visible phone number, and a few photos of your work is enough to turn that visit into a call. No hard sell required — they came to you.</p>
+
+          <h3>3. Backs up your Google reviews</h3>
+          <p>Reviews are great. But a customer looking at your Google profile who then clicks through to a real website — with photos, service details, and a professional look — is far more likely to call than one who finds nothing. Your reviews build trust. Your website closes it.</p>
+
+          <h3>4. Works while you're on the tools</h3>
+          <p>Your website doesn't knock off at 3pm. It doesn't take weekends. Someone searching at 9pm on a Sunday can find your business, check your services, and send you an enquiry — ready for you to respond to on Monday morning.</p>
+
+          <div class="pull-quote">
+            <blockquote>"The tradies winning in Brisbane right now aren't necessarily better than you. They've just made it easier for customers to find them."</blockquote>
+          </div>
+
+          <h2 id="what-about-social-media">What about Facebook and Instagram?</h2>
+
+          <p>A lot of tradies use Facebook as their main online presence. It's better than nothing — but it's not a website, and Google treats it very differently.</p>
+
+          <p>Facebook pages rank poorly for local service searches. Google can't read your Facebook posts as clearly as it can read a website page. And when a potential customer lands on your Facebook page instead of a proper website, they're one scroll away from a competitor's ad, a distracted comment thread, or a notification pulling them somewhere else entirely.</p>
+
+          <p>Your website is yours. No algorithm changes, no platform shifts, no competing posts. Just your business, your services, and your contact details — exactly where customers expect to find them.</p>
+
+          <div class="callout">
+            <div class="callout-label">Real talk</div>
+            <p><strong>If a homeowner searches your trade + suburb and your Facebook page is the first result</strong>, a significant portion of them will click through and then keep scrolling when they realise it's just a Facebook page. They were hoping for a proper website. Give them one.</p>
+          </div>
+
+          <h2 id="what-it-costs">What it actually costs — and what it doesn't</h2>
+
+          <p>The common reason tradies don't have a website is the upfront cost. A decent custom website from a web designer can run $3,000 to $6,000 before you've even asked about ongoing maintenance. That's a hard expense to justify when you're not sure what you'll get back.</p>
+
+          <p>Clawmark works differently. There's no upfront build fee. We build your website for free — you see it before you sign anything — and you pay a flat monthly subscription starting at $129/month. That covers the website, hosting, ongoing updates, and depending on your plan, local SEO and Google Business Profile management.</p>
+
+          <p>For most tradies, one extra job per month from the website more than covers it. Most see that within the first 30 days.</p>
+
+          <!-- In-article CTA -->
+          <div class="article-cta">
+            <div class="article-cta-label">No upfront cost. No risk.</div>
+            <h3 class="article-cta-title">We build your website first.<br><span>You only pay if you love it.</span></h3>
+            <p class="article-cta-text">Custom Webflow website built for your trade, your suburb, and the way Brisbane homeowners search. See the full mockup before you commit to anything. GROWTH plan at $189/month includes local SEO and Google Business Profile management.</p>
+            <div class="article-cta-actions">
+              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+              <a href="../pricing.html" class="btn btn-outline-dark">See Plans &amp; Pricing</a>
+            </div>
+          </div>
+
+          <h2 id="how-to-get-started">How to get started</h2>
+
+          <p>If you're a Brisbane tradie without a website — or with one that hasn't been touched since 2019 — here's the honest starting point:</p>
+
+          <ul>
+            <li><strong>Claim and complete your Google Business Profile.</strong> This is free and takes under an hour. Fill in every field: category, service areas, opening hours, business description, photos. If it's sitting incomplete, you're leaving ranking potential on the table right now.</li>
+            <li><strong>Get a website that mentions your suburb.</strong> "Electrician Brisbane" is competitive. "Electrician Caboolture" or "Electrician Morayfield" is far more achievable — and those are exactly the people who'll become your customers.</li>
+            <li><strong>Make your phone number impossible to miss.</strong> A website that makes it easy to call converts better than one that doesn't. Sounds obvious. Most small business websites bury the phone number.</li>
+            <li><strong>Ask for reviews — and respond to every one.</strong> Responding to Google reviews is a trust signal. Most tradies never respond. It takes 30 seconds and it makes you look more professional than 90% of your competitors.</li>
+          </ul>
+
+          <h2 id="the-bottom-line">The bottom line</h2>
+
+          <p>Brisbane homeowners are searching for tradies every day. The ones with websites are getting called. The ones without are invisible to that entire group — and they don't even know what they're missing, because a missed Google lead never rings you to say they went elsewhere.</p>
+
+          <p>Your reviews are solid. Your work is good. The only thing standing between you and those customers is a website that tells Google who you are and what you do.</p>
+
+          <p>That's a fixable problem.</p>
+
+          <div class="article-tags">
+            <a href="../blog.html" class="article-tag">Tradies</a>
+            <a href="../blog.html" class="article-tag">Brisbane</a>
+            <a href="../blog.html" class="article-tag">Local SEO</a>
+            <a href="../blog.html" class="article-tag">Websites</a>
+            <a href="../blog.html" class="article-tag">Small Business</a>
+            <a href="../blog.html" class="article-tag">Google</a>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="article-sidebar reveal">
+
+        <div class="sidebar-toc">
+          <div class="sidebar-toc-title">In this article</div>
+          <ul class="toc-list">
+            <li><a href="#the-invisible-problem">The problem you can't see</a></li>
+            <li><a href="#referrals-have-a-ceiling">Referrals have a ceiling. Google doesn't.</a></li>
+            <li><a href="#what-a-website-actually-does">What a website actually does for a tradie</a></li>
+            <li><a href="#what-about-social-media">What about Facebook and Instagram?</a></li>
+            <li><a href="#what-it-costs">What it actually costs</a></li>
+            <li><a href="#how-to-get-started">How to get started</a></li>
+            <li><a href="#the-bottom-line">The bottom line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-head">
+            <div class="sidebar-card-head-title">Free website for Brisbane tradies</div>
+          </div>
+          <div class="sidebar-card-body">
+            <p>No upfront build fee. Custom site built for your trade and suburb. See the design before you sign anything. From $129/month.</p>
+            <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+          </div>
+        </div>
+
+        <div class="sidebar-share">
+          <div class="sidebar-share-title">Share this post</div>
+          <div class="share-btns">
+            <button class="share-btn" onclick="sharePost('facebook')"><span>&#128077;</span> Share on Facebook</button>
+            <button class="share-btn" onclick="sharePost('linkedin')"><span>&#128188;</span> Share on LinkedIn</button>
+            <button class="share-btn" onclick="copyLink()"><span>&#128279;</span> Copy link</button>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- RELATED POSTS -->
+  <section class="related-section">
+    <div class="related-wrap">
+      <div class="related-hd reveal">
+        <div class="section-label">More from the blog</div>
+        <h2>Keep reading</h2>
+      </div>
+      <div class="related-grid">
+        <a href="../blog-brisbane-electrician-80-google-reviews-no-website.html" class="related-card reveal">
+          <div class="related-tag">Case Study</div>
+          <div class="related-title">He had 80 five-star Google reviews and zero website. Here's what changed.</div>
+          <div class="related-meta">
+            <span>April 27, 2026 · 6 min</span>
+            <span class="related-link">Read &#8594;</span>
+          </div>
+        </a>
+        <a href="../blog-word-of-mouth-not-enough-brisbane-small-business.html" class="related-card reveal">
+          <div class="related-tag">Local Business</div>
+          <div class="related-title">"I get all my work through referrals" — why that's a risky plan for Brisbane small businesses</div>
+          <div class="related-meta">
+            <span>April 28, 2026 · 5 min</span>
+            <span class="related-link">Read &#8594;</span>
+          </div>
+        </a>
+        <a href="2026-05-01-google-hours-fortitude-valley-cafe.html" class="related-card reveal">
+          <div class="related-tag">Local SEO</div>
+          <div class="related-title">Wrong Google Hours Are Costing Fortitude Valley Cafes Bookings Every Day</div>
+          <div class="related-meta">
+            <span>May 1, 2026 · 6 min</span>
+            <span class="related-link">Read &#8594;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div class="cta-band-left">
+        <p class="eyebrow">No commitment required</p>
+        <h2>Stop letting your competitors<br>take jobs that should be <span>yours.</span></h2>
+        <p class="cta-band-sub">A free Clawmark website built for your trade and your Brisbane suburb means those Google searches start turning into calls. Book a free 30-minute call and we'll show you what it looks like for your business.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="color:#FFFFFF;">Book My Free Call</a>
+        <a href="../blog.html" class="btn btn-outline-white" style="color:#FFFFFF;">&#8592; Back to Blog</a>
+        <p class="cta-band-note">No commitment &middot; See design first</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="../index.html" class="footer-logo">CLAW<span>MARK</span></a>
+      <ul class="footer-links-row">
+        <li><a href="../how-it-works.html">How It Works</a></li>
+        <li><a href="../pricing.html">Pricing</a></li>
+        <li><a href="../faqs.html">FAQs</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a></li>
+      </ul>
+      <p class="footer-copy">&#169; 2026 Clawmark. All rights reserved.</p>
+      <nav class="footer-legal" style="display:flex;gap:1.5rem;">
+        <a href="../privacy-policy.html" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Privacy Policy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Cursor
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
+    animRing();
+    document.querySelectorAll('a,button').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+    });
+
+    // Mobile nav
+    document.getElementById('ham').addEventListener('click', () => document.getElementById('mob').classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob').classList.remove('open'));
+
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      document.getElementById('progress').style.width = progress + '%';
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Share functions
+    function sharePost(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      if (platform === 'facebook') window.open('https://facebook.com/sharer/sharer.php?u=' + url, '_blank');
+      if (platform === 'linkedin') window.open('https://linkedin.com/sharing/share-offsite/?url=' + url, '_blank');
+    }
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.querySelector('[onclick="copyLink()"]');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span>&#10003;</span> Link copied!';
+        btn.style.color = '#2D8A4E';
+        btn.style.borderColor = '#2D8A4E';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; btn.style.borderColor = ''; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
