@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fortitude Valley cafes losing bookings because Google shows wrong hours or 'permanently closed'. Here's why it happens and how to fix it today.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.clawmark.com.au/blog/2026-05-09-fortitude-valley-cafe-google-wrong-hours">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.clawmark.com.au/blog/2026-05-09-fortitude-valley-cafe-google-wrong-hours">
+  <meta property="og:site_name" content="Clawmark">
+  <meta property="og:title" content="Why Google Shows Your Cafe as Closed (And What It's Costing You)">
+  <meta property="og:description" content="Fortitude Valley cafes losing bookings because Google shows wrong hours or 'permanently closed'. Here's why it happens and how to fix it today.">
+  <meta property="og:locale" content="en_AU">
+  <title>Why Google Shows Your Cafe as Closed (And What It's Costing You) — Clawmark Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111111;
+      --dark-2:       #181818;
+      --orange:       #FF5500;
+      --orange-dim:   rgba(255,85,0,0.10);
+      --white:        #FFFFFF;
+      --off-white:    #F6F3EF;
+      --muted-dark:   rgba(255,255,255,0.42);
+      --muted-light:  rgba(10,10,10,0.45);
+      --border-dark:  rgba(255,255,255,0.07);
+      --border-light: rgba(10,10,10,0.08);
+      --serif:        'Syne', sans-serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: none; }
+
+    .cursor { position: fixed; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease; }
+    .cursor.grow { width: 36px; height: 36px; opacity: 0.22; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,85,0,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.18s ease; }
+    @media (hover: none) { .cursor, .cursor-ring { display: none; } body, button { cursor: auto; } }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.85rem 1.75rem; border: 1.5px solid transparent; border-radius: 4px; transition: all 0.2s ease; white-space: nowrap; }
+    .btn-orange { background: #FF5500; color: #FFFFFF !important; border-color: #FF5500; }
+    .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
+    .btn-outline-dark { background: transparent; color: var(--black); border-color: rgba(10,10,10,0.22); }
+    .btn-outline-dark:hover { border-color: var(--black); background: rgba(10,10,10,0.04); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
+    .btn-arrow::after { content: ' →'; }
+
+    /* NAV */
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; background: rgba(10,10,10,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--muted-dark); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--white); }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 490; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
+
+    /* ════════════════════════════════════
+       HERO SECTION
+    ════════════════════════════════════ */
+    .post-hero {
+      background: var(--black);
+      padding: 9rem 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(circle, rgba(255,85,0,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
+    }
+
+    .post-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--muted-dark);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .breadcrumb a { color: var(--muted-dark); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+    .breadcrumb-current { color: var(--orange); }
+
+    /* Post category tag */
+    .post-cat-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid rgba(255,85,0,0.35);
+      padding: 0.35rem 0.85rem;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.18s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+
+    /* Post headline */
+    .post-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.75s 0.28s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .post-title .accent { color: var(--orange); }
+
+    /* Meta row */
+    .post-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .meta-author { display: flex; align-items: center; gap: 0.65rem; }
+    .meta-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), #FF8C42);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .meta-author-name { font-size: 0.8rem; font-weight: 500; color: var(--white); }
+    .meta-author-role { font-size: 0.68rem; color: var(--muted-dark); }
+    .meta-sep { width: 1px; height: 24px; background: var(--border-dark); }
+    .meta-item { font-size: 0.75rem; color: var(--muted-dark); }
+
+    /* ── HERO IMAGE ── */
+    .post-hero-image-wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.55s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .post-hero-image {
+      width: 100%;
+      height: 440px;
+      border-radius: 10px 10px 0 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f1a2e 0%, #1a2a48 40%, #0d1520 70%, #0a1020 100%);
+      position: relative;
+    }
+    .post-hero-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,85,0,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,85,0,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .post-hero-image-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .hero-img-icon { font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 30px rgba(255,85,0,0.4)); }
+    .hero-img-label {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .hero-img-label span { color: var(--orange); }
+    .hero-img-sub { font-size: 0.8rem; font-weight: 300; color: var(--muted-dark); margin-top: 0.6rem; }
+    .post-image-caption { font-size: 0.7rem; font-weight: 300; color: var(--muted-dark); text-align: center; padding: 0.75rem 0 0; font-style: italic; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ════════════════════════════════════
+       ARTICLE LAYOUT
+    ════════════════════════════════════ */
+    .article-section { background: var(--off-white); padding: 5rem 3rem 6rem; }
+    .article-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* ── INTRO TEXT ── */
+    .article-intro {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .article-intro .intro-highlight { color: var(--orange); }
+
+    /* ── CONTENT TEXT ── */
+    .article-body {}
+    .article-body h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+    .article-body h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+    }
+    .article-body p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(10,10,10,0.75);
+      margin-bottom: 1.35rem;
+    }
+    .article-body strong { font-weight: 600; color: var(--black); }
+    .article-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    .article-body ul, .article-body ol {
+      padding-left: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .article-body li {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(10,10,10,0.75);
+    }
+
+    /* Callout box */
+    .callout {
+      background: var(--white);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 6px 6px 0;
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .callout-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .callout p { margin-bottom: 0; font-size: 0.88rem; color: var(--muted-light); }
+    .callout strong { color: var(--black); }
+
+    /* Pull quote */
+    .pull-quote {
+      border-top: 2px solid var(--orange);
+      border-bottom: 1px solid var(--border-light);
+      padding: 2rem 0;
+      margin: 2.5rem 0;
+    }
+    .pull-quote blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    /* Stat block inline */
+    .inline-stat {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 2rem 0;
+      background: var(--white);
+    }
+    .inline-stat-cell {
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      border-right: 1px solid var(--border-light);
+    }
+    .inline-stat-cell:last-child { border-right: none; }
+    .inline-stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 0.3rem; }
+    .inline-stat-label { font-size: 0.72rem; font-weight: 400; color: var(--muted-light); line-height: 1.35; }
+
+    /* ── SIDEBAR ── */
+    .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .sidebar-card-head { background: var(--black); padding: 1.25rem 1.5rem; }
+    .sidebar-card-head-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .sidebar-card-body { padding: 1.5rem; }
+    .sidebar-card-body p { font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--muted-light); margin-bottom: 1.25rem; }
+    .sidebar-card-body .btn { width: 100%; justify-content: center; font-size: 0.75rem; padding: 0.75rem 1rem; }
+
+    /* TOC */
+    .sidebar-toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-toc-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .toc-list li a {
+      display: block;
+      padding: 0.55rem 0;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted-light);
+      border-bottom: 1px solid var(--border-light);
+      transition: color 0.2s;
+      line-height: 1.4;
+    }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list li a:hover { color: var(--orange); }
+
+    /* Share */
+    .sidebar-share { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-share-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .share-btns { display: flex; flex-direction: column; gap: 0.6rem; }
+    .share-btn { display: flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; font-weight: 400; color: var(--black); background: var(--off-white); border: 1px solid var(--border-light); border-radius: 4px; padding: 0.65rem 1rem; cursor: pointer; transition: all 0.2s; }
+    .share-btn:hover { border-color: var(--orange); color: var(--orange); background: var(--white); }
+    .share-btn span { font-size: 1rem; }
+
+    /* Tags */
+    .article-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-light); }
+    .article-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 99px; border: 1px solid var(--border-light); color: var(--muted-light); transition: all 0.2s; }
+    .article-tag:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* ════════════════════════════════════
+       IN-ARTICLE CTA
+    ════════════════════════════════════ */
+    .article-cta {
+      background: var(--black);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      border: 1px solid var(--border-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .article-cta::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(255,85,0,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .article-cta-label { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+    .article-cta-title { font-family: var(--serif); font-size: clamp(1.3rem, 2vw, 1.7rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.85rem; }
+    .article-cta-title span { color: var(--orange); }
+    .article-cta-text { font-size: 0.85rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 1.75rem; }
+    .article-cta-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+    /* ════════════════════════════════════
+       RELATED POSTS
+    ════════════════════════════════════ */
+    .related-section { background: var(--off-white); padding: 5rem 3rem; border-top: 1px solid var(--border-light); }
+    .related-wrap { max-width: 1100px; margin: 0 auto; }
+    .related-hd { margin-bottom: 2.5rem; }
+    .related-hd .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .related-hd h2 { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .related-card:hover { border-color: rgba(10,10,10,0.14); transform: translateY(-2px); }
+    .related-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
+    .related-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--black); line-height: 1.25; margin-bottom: 0.6rem; flex: 1; }
+    .related-meta { font-size: 0.68rem; color: var(--muted-light); display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; }
+    .related-link { color: var(--orange); font-weight: 500; }
+
+    /* ════════════════════════════════════
+       PAGE-BOTTOM CTA
+    ════════════════════════════════════ */
+    .cta-band { background: #0A0A0A; padding: 0 3rem; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF5500 0%, rgba(255,85,0,0.3) 60%, transparent 100%); }
+    .cta-band::after { content: ''; position: absolute; left: -80px; top: 50%; transform: translateY(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(255,85,0,0.11) 0%, transparent 65%); pointer-events: none; }
+    .cta-band-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 5rem; padding: 5.5rem 0; position: relative; z-index: 2; }
+    .cta-band-left {}
+    .cta-band p.eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #FF5500; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+    .cta-band p.eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1.5px; background: #FF5500; flex-shrink: 0; }
+    .cta-band h2 { font-family: var(--serif); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; color: #FFFFFF; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .cta-band h2 span { color: #FF5500; }
+    .cta-band-sub { font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.52); line-height: 1.8; max-width: 500px; }
+    .cta-band-right { display: flex; flex-direction: column; gap: 0.85rem; flex-shrink: 0; min-width: 230px; }
+    .cta-band-right .btn { justify-content: center; padding: 1.05rem 2rem; font-size: 0.82rem; }
+    .cta-band-right .btn-orange { background: #FF5500 !important; color: #FFFFFF !important; border-color: #FF5500 !important; }
+    .cta-band-right .btn-outline-white { color: #FFFFFF !important; border-color: rgba(255,255,255,0.3) !important; }
+    .cta-band-note { font-size: 0.65rem; color: rgba(255,255,255,0.2); text-align: center; letter-spacing: 0.04em; margin-top: 0.25rem; }
+    @media (max-width: 780px) { .cta-band-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 0; } .cta-band-right { min-width: unset; } }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-links-row { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
+    .footer-links-row a { font-size: 0.75rem; color: var(--muted-dark); transition: color 0.2s; }
+    .footer-links-row a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+
+    /* Progress bar */
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--orange); z-index: 1000; width: 0%; transition: width 0.1s linear; }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .article-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+      .inline-stat { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      #nav { padding: 1.1rem 1.5rem; }
+      .nav-links, .nav-right .btn { display: none; }
+      .nav-hamburger { display: flex; }
+      .post-hero { padding: 7.5rem 1.5rem 0; }
+      .post-hero-image { height: 240px; }
+      .article-section, .related-section, .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .inline-stat { grid-template-columns: 1fr; }
+      .inline-stat-cell { border-right: none; border-bottom: 1px solid var(--border-light); }
+      footer { padding: 2rem 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading progress bar -->
+  <div class="progress-bar" id="progress"></div>
+
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="ring"></div>
+
+  <div class="mobile-nav" id="mob">
+    <button class="mobile-close" id="mob-close">✕</button>
+    <a href="../index.html">Home</a>
+    <a href="../how-it-works.html">How It Works</a>
+    <a href="../pricing.html">Pricing</a>
+    <a href="../faqs.html">FAQs</a>
+    <a href="../blog.html" style="color:var(--orange)">Blog</a>
+    <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+  </div>
+
+  <nav id="nav">
+    <a href="../index.html" class="nav-logo">CLAW<span>MARK</span></a>
+    <ul class="nav-links">
+      <li><a href="../how-it-works.html">How It Works</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../faqs.html">FAQs</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Get My Free Website</a>
+      <button class="nav-hamburger" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════
+       HERO
+  ════════════════════════════════════ -->
+  <section class="post-hero">
+    <div class="hero-grid"></div>
+    <div class="post-hero-content">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../blog.html">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Local SEO</span>
+      </nav>
+
+      <!-- Category tag -->
+      <div class="post-cat-tag">📍 Local SEO</div>
+
+      <!-- Main headline -->
+      <h1 class="post-title">
+        Why Google Shows Your Cafe as Closed<br>
+        <span class="accent">(And What It's Costing You)</span>
+      </h1>
+
+      <!-- Meta row -->
+      <div class="post-meta-row">
+        <div class="meta-author">
+          <div class="meta-avatar">A</div>
+          <div>
+            <div class="meta-author-name">Andres Henao</div>
+            <div class="meta-author-role">Founder, Clawmark</div>
+          </div>
+        </div>
+        <div class="meta-sep"></div>
+        <span class="meta-item">📅 9 May 2026</span>
+        <span class="meta-item">⏱ 5 min read</span>
+        <span class="meta-item">📍 Brisbane, QLD</span>
+      </div>
+
+    </div>
+
+    <!-- ── HERO IMAGE ── -->
+    <div class="post-hero-image-wrap">
+      <div class="post-hero-image">
+        <div class="post-hero-image-inner">
+          <div class="hero-img-icon">☕</div>
+          <div class="hero-img-label">
+            Google says you're <span>closed.</span><br>
+            Your doors are open.
+          </div>
+          <div class="hero-img-sub">Wrong hours on Google are costing Brisbane cafes bookings every single week.</div>
+        </div>
+      </div>
+      <p class="post-image-caption">A customer searches your cafe on Saturday afternoon. Google says you close at 3pm. It's 3:15. They go somewhere else. You never knew you lost them.</p>
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════
+       ARTICLE
+  ════════════════════════════════════ -->
+  <section class="article-section">
+    <div class="article-layout">
+
+      <!-- Main content -->
+      <article>
+
+        <!-- ── INTRO TEXT ── -->
+        <p class="article-intro reveal">
+          Google told a customer your cafe was closed. <span class="intro-highlight">Your doors were open, your coffee was hot, and you had empty tables.</span> But Google said otherwise — so they went next door. This is happening to Fortitude Valley hospitality businesses every week, and most owners have no idea.
+        </p>
+
+        <!-- ── CONTENT TEXT ── -->
+        <div class="article-body reveal">
+
+          <h2 id="the-problem">The silent booking killer</h2>
+
+          <p>Picture this. Someone's walking down Brunswick Street on a Saturday afternoon, phone in hand, searching "cafes open near me." Your place is 50 metres away. The coffee is good, the vibe is right — but Google Maps shows your hours as 7am–3pm. It's 3:20pm. You're actually open until 5pm.</p>
+
+          <p>They tap elsewhere. Walk somewhere else. You lose the table.</p>
+
+          <p>This is one of the most common and most invisible problems I see with Brisbane hospitality businesses. <strong>Wrong opening hours on Google.</strong> Or worse — Google's algorithm flags your listing as "permanently closed" because the information is outdated or your profile hasn't been touched in months. Both outcomes are catastrophic for foot traffic, and both are entirely fixable.</p>
+
+          <div class="inline-stat">
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">64%</div>
+              <div class="inline-stat-label">of consumers have used Google to find local business hours before visiting</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">56%</div>
+              <div class="inline-stat-label">of people say incorrect online info — including hours — caused them to avoid a business</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">4x</div>
+              <div class="inline-stat-label">more likely to be found on Google if your Business Profile is fully complete and up to date</div>
+            </div>
+          </div>
+
+          <h2 id="why-this-happens">Why Google gets your hours wrong</h2>
+
+          <p>Google doesn't just use what you tell it. That's the part most business owners don't realise. It also pulls data from third-party sources — directories, aggregators, old listings — and sometimes lets users suggest edits to your profile. If you haven't actively managed your Google Business Profile, there's a real chance the hours showing on Google Maps are wrong, outdated, or pulled from somewhere you set up three years ago and forgot about.</p>
+
+          <p>Changed your hours for summer trading? Extended them for a Friday night menu? Closed Mondays after the staffing reshuffle? Unless you updated Google Business Profile directly, Google doesn't know. And Google defaults to showing what it thinks is correct — which might be nothing like your actual operating reality.</p>
+
+          <p>There's another scenario worth knowing about. If your listing activity drops — no new reviews being responded to, no posts, no Q&A, no profile updates — Google's systems can quietly mark your business as potentially closed or reduce your visibility in local search results. It reads inactivity as a signal that maybe you've shut down.</p>
+
+          <div class="callout">
+            <div class="callout-label">Brisbane example</div>
+            <p><strong>A bar in Fortitude Valley extended its Friday kitchen service by two hours. They updated their Instagram, told regulars, and assumed Google would figure it out.</strong> Six months later, Google Maps still showed the old hours. Every Friday, potential customers searching for "late kitchen Fortitude Valley" were seeing a listing that said the kitchen closed two hours earlier than it actually did. The fix took eight minutes.</p>
+          </div>
+
+          <h2 id="the-website-connection">Why a website makes this less likely</h2>
+
+          <p>Here's where it connects. A business with a real website — one that clearly lists hours, location, and contact details — gives Google a reliable, authoritative source to cross-reference. Google's algorithm actively uses your website as a trust signal for your Google Business Profile data.</p>
+
+          <p>When your website says you're open until 5pm on Saturdays and your Google Business Profile says the same thing, Google is confident. It shows that information prominently. When there's no website, or the website is old and the hours don't match, Google starts to question the data — and in a conflict, it often defaults to showing nothing useful, or worse, showing incorrect information from a third-party source.</p>
+
+          <p>A Facebook page doesn't carry the same weight. Google can read your website. It indexes it, it trusts it. A Facebook page is a social media platform — useful for different reasons, but not how you tell Google the facts about your business.</p>
+
+          <h2 id="what-to-fix">What to fix right now</h2>
+
+          <p>There are three things every Fortitude Valley cafe or restaurant owner should check today.</p>
+
+          <p><strong>First, claim and verify your Google Business Profile</strong> if you haven't already. Go to business.google.com. If someone else has claimed it — including Google itself in some cases — you'll need to request ownership. It's a straightforward process but it can take a few days.</p>
+
+          <p><strong>Second, audit every piece of information on your profile.</strong> Hours (including special hours for public holidays), address, phone number, website URL, photos. All of it. Make sure what Google shows matches what's actually true today, not what was true when you first set the thing up.</p>
+
+          <p><strong>Third, set a reminder to update it.</strong> Every time your hours change — seasonally, for events, for public holidays — update Google Business Profile the same day. Five minutes of admin prevents weeks of lost foot traffic.</p>
+
+          <p>And yes — get a proper website. Not because it directly fixes your Google Business Profile, but because it closes the loop. Your website becomes the authoritative source that backs up everything Google is showing about you. When both sources agree, Google trusts the data and shows it confidently.</p>
+
+          <div class="pull-quote">
+            <blockquote>"A customer who can't confirm you're open on Google won't risk the trip. They'll just go somewhere they're certain about."</blockquote>
+          </div>
+
+          <h2 id="the-broader-picture">The broader picture for hospitality businesses</h2>
+
+          <p>Wrong hours are the most obvious version of this problem, but they're not the only one. I've seen Brisbane cafes with no photos on their Google listing. Restaurants with phone numbers that ring out to a disconnected line. Bars with descriptions written in 2019 that mention a menu they haven't served in three years.</p>
+
+          <p>Every one of those things is a reason for a potential customer to doubt you and choose someone else. In Fortitude Valley especially — where there are genuinely good alternatives within 100 metres in every direction — doubt is expensive.</p>
+
+          <p>The businesses that are consistently winning foot traffic from Google aren't necessarily the best ones. They're the ones that have treated their online presence like it matters. Updated profiles, real websites, recent photos, current hours. That's it. No magic.</p>
+
+          <p>If your Google Business Profile and your website are telling the same, accurate story about your business, you're already ahead of most of the competition. If they're telling different stories — or if there's no website at all — that's a problem worth fixing before the weekend.</p>
+
+          <p>A free website with your actual hours, your menu, and your contact details, properly linked to a clean Google Business Profile, is one of the most straightforward wins available to a hospitality business right now. We build them at <a href="https://www.clawmark.com.au/blog/2026-05-08-morayfield-retail-facebook-page-website">no upfront cost</a>, and we've seen the difference it makes for businesses that finally get their online presence sorted.</p>
+
+          <!-- In-article CTA -->
+          <div class="article-cta">
+            <div class="article-cta-label">Sort your online presence</div>
+            <h3 class="article-cta-title">Free website. Correct hours.<br><span>More tables filled.</span></h3>
+            <p class="article-cta-text">Every Clawmark website includes your actual hours, menu, location, and contact details — all properly set up to back your Google Business Profile. GROWTH plan includes ongoing Google Business Profile management so this never slips again. No upfront cost.</p>
+            <div class="article-cta-actions">
+              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+              <a href="../pricing.html" class="btn btn-outline-white">See Plans & Pricing</a>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="../blog.html" class="article-tag">Local SEO</a>
+            <a href="../blog.html" class="article-tag">Google Business Profile</a>
+            <a href="../blog.html" class="article-tag">Hospitality</a>
+            <a href="../blog.html" class="article-tag">Fortitude Valley</a>
+            <a href="../blog.html" class="article-tag">Brisbane Cafes</a>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="article-sidebar reveal">
+
+        <!-- Table of contents -->
+        <div class="sidebar-toc">
+          <div class="sidebar-toc-title">In this article</div>
+          <ul class="toc-list">
+            <li><a href="#the-problem">The silent booking killer</a></li>
+            <li><a href="#why-this-happens">Why Google gets your hours wrong</a></li>
+            <li><a href="#the-website-connection">Why a website makes this less likely</a></li>
+            <li><a href="#what-to-fix">What to fix right now</a></li>
+            <li><a href="#the-broader-picture">The broader picture</a></li>
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-head">
+            <div class="sidebar-card-head-title">Get your online presence sorted</div>
+          </div>
+          <div class="sidebar-card-body">
+            <p>Custom Webflow website with your actual hours, menu, and location — plus Google Business Profile management on GROWTH. Zero upfront build fee.</p>
+            <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="sidebar-share">
+          <div class="sidebar-share-title">Share this post</div>
+          <div class="share-btns">
+            <button class="share-btn" onclick="sharePost('facebook')"><span>👍</span> Share on Facebook</button>
+            <button class="share-btn" onclick="sharePost('linkedin')"><span>💼</span> Share on LinkedIn</button>
+            <button class="share-btn" onclick="copyLink()"><span>🔗</span> Copy link</button>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       RELATED POSTS
+  ════════════════════════════════════ -->
+  <section class="related-section">
+    <div class="related-wrap">
+      <div class="related-hd reveal">
+        <div class="section-label">More from the blog</div>
+        <h2>Keep reading</h2>
+      </div>
+      <div class="related-grid">
+        <a href="2026-05-08-morayfield-retail-facebook-page-website.html" class="related-card reveal">
+          <div class="related-tag">Business Growth</div>
+          <div class="related-title">Morayfield Retailers: A Facebook Page Is Not a Website</div>
+          <div class="related-meta">
+            <span>8 May 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+        <a href="2026-05-07-chermside-accountants-website-credibility.html" class="related-card reveal">
+          <div class="related-tag">Business Growth</div>
+          <div class="related-title">Why Chermside Accountants Lose Clients Without a Website</div>
+          <div class="related-meta">
+            <span>7 May 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+        <a href="2026-05-05-brisbane-beauty-salons-google-search-instagram.html" class="related-card reveal">
+          <div class="related-tag">Local SEO</div>
+          <div class="related-title">Brisbane Beauty Salons: Instagram Won't Get You Found on Google</div>
+          <div class="related-meta">
+            <span>5 May 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       BOTTOM CTA
+  ════════════════════════════════════ -->
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div class="cta-band-left">
+        <p class="eyebrow">No commitment required</p>
+        <h2>Your next customer is<br>searching. Are you <span>showing up?</span></h2>
+        <p class="cta-band-sub">A free Clawmark website with accurate hours, your menu, and local SEO means fewer lost customers and more tables filled. Book a call and we'll show you what that looks like for your business.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="color:#FFFFFF;">Book My Free Call</a>
+        <a href="../blog.html" class="btn btn-outline-white" style="color:#FFFFFF;">← Back to Blog</a>
+        <p class="cta-band-note">No commitment · See design first</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="../index.html" class="footer-logo">CLAW<span>MARK</span></a>
+      <ul class="footer-links-row">
+        <li><a href="../how-it-works.html">How It Works</a></li>
+        <li><a href="../pricing.html">Pricing</a></li>
+        <li><a href="../faqs.html">FAQs</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Clawmark. All rights reserved.</p>
+      <nav class="footer-legal" style="display:flex;gap:1.5rem;">
+        <a href="../privacy-policy.html" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Privacy Policy</a>
+        <a href="#" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Terms of Use</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Cursor
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
+    animRing();
+    document.querySelectorAll('a,button').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+    });
+
+    // Mobile nav
+    document.getElementById('ham').addEventListener('click', () => document.getElementById('mob').classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob').classList.remove('open'));
+
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      document.getElementById('progress').style.width = progress + '%';
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Share functions
+    function sharePost(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      if (platform === 'facebook') window.open(`https://facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+      if (platform === 'linkedin') window.open(`https://linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+    }
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.querySelector('[onclick="copyLink()"]');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span>✓</span> Link copied!';
+        btn.style.color = '#2D8A4E';
+        btn.style.borderColor = '#2D8A4E';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; btn.style.borderColor = ''; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
