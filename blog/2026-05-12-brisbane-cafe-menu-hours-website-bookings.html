@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your menu, hours, and location on a fast website can be the difference between a booking and a scroll past. Here's what Brisbane cafés are missing online.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.clawmark.com.au/blog/2026-05-12-brisbane-cafe-menu-hours-website-bookings">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.clawmark.com.au/blog/2026-05-12-brisbane-cafe-menu-hours-website-bookings">
+  <meta property="og:site_name" content="Clawmark">
+  <meta property="og:title" content="Brisbane Cafés: Your Menu, Hours and Location Online Can Make or Break a Booking">
+  <meta property="og:description" content="Your menu, hours, and location on a fast website can be the difference between a booking and a scroll past. Here's what Brisbane cafés are missing online.">
+  <meta property="og:locale" content="en_AU">
+  <title>Brisbane Cafés: Your Menu, Hours and Location Online Can Make or Break a Booking — Clawmark Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111111;
+      --dark-2:       #181818;
+      --orange:       #FF5500;
+      --orange-dim:   rgba(255,85,0,0.10);
+      --white:        #FFFFFF;
+      --off-white:    #F6F3EF;
+      --muted-dark:   rgba(255,255,255,0.42);
+      --muted-light:  rgba(10,10,10,0.45);
+      --border-dark:  rgba(255,255,255,0.07);
+      --border-light: rgba(10,10,10,0.08);
+      --serif:        'Syne', sans-serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: none; }
+
+    .cursor { position: fixed; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease; }
+    .cursor.grow { width: 36px; height: 36px; opacity: 0.22; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,85,0,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.18s ease; }
+    @media (hover: none) { .cursor, .cursor-ring { display: none; } body, button { cursor: auto; } }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.85rem 1.75rem; border: 1.5px solid transparent; border-radius: 4px; transition: all 0.2s ease; white-space: nowrap; }
+    .btn-orange { background: #FF5500; color: #FFFFFF !important; border-color: #FF5500; }
+    .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
+    .btn-outline-dark { background: transparent; color: var(--black); border-color: rgba(10,10,10,0.22); }
+    .btn-outline-dark:hover { border-color: var(--black); background: rgba(10,10,10,0.04); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
+    .btn-arrow::after { content: ' →'; }
+
+    /* NAV */
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; background: rgba(10,10,10,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--muted-dark); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--white); }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 490; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
+
+    /* HERO */
+    .post-hero {
+      background: var(--black);
+      padding: 9rem 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(circle, rgba(255,85,0,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
+    }
+    .post-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; font-weight: 400; color: var(--muted-dark);
+      margin-bottom: 2rem; opacity: 0;
+      animation: fadeUp 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .breadcrumb a { color: var(--muted-dark); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+    .breadcrumb-current { color: var(--orange); }
+    .post-cat-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--orange); border: 1px solid rgba(255,85,0,0.35);
+      padding: 0.35rem 0.85rem; border-radius: 99px; margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.6s 0.18s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .post-title {
+      font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 800; color: var(--white); line-height: 1.08;
+      letter-spacing: -0.02em; margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.75s 0.28s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .post-title .accent { color: var(--orange); }
+    .post-meta-row {
+      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+      padding-bottom: 2rem; opacity: 0;
+      animation: fadeUp 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .meta-author { display: flex; align-items: center; gap: 0.65rem; }
+    .meta-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), #FF8C42);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 0.85rem; font-weight: 700;
+      color: var(--white); flex-shrink: 0;
+    }
+    .meta-author-name { font-size: 0.8rem; font-weight: 500; color: var(--white); }
+    .meta-author-role { font-size: 0.68rem; color: var(--muted-dark); }
+    .meta-sep { width: 1px; height: 24px; background: var(--border-dark); }
+    .meta-item { font-size: 0.75rem; color: var(--muted-dark); }
+    .post-hero-image-wrap {
+      position: relative; z-index: 2; max-width: 900px; margin: 2.5rem auto 0;
+      opacity: 0; animation: fadeUp 0.8s 0.55s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .post-hero-image {
+      width: 100%; height: 440px; border-radius: 10px 10px 0 0; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #1a0f00 0%, #2d1a00 40%, #1a0a00 70%, #0d0500 100%);
+      position: relative;
+    }
+    .post-hero-image::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,85,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,85,0,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .post-hero-image-inner { position: relative; z-index: 2; text-align: center; }
+    .hero-img-icon { font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 30px rgba(255,85,0,0.4)); }
+    .hero-img-label { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 800; color: var(--white); letter-spacing: -0.02em; line-height: 1.1; }
+    .hero-img-label span { color: var(--orange); }
+    .hero-img-sub { font-size: 0.8rem; font-weight: 300; color: var(--muted-dark); margin-top: 0.6rem; }
+    .post-image-caption { font-size: 0.7rem; font-weight: 300; color: var(--muted-dark); text-align: center; padding: 0.75rem 0 0; font-style: italic; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ARTICLE */
+    .article-section { background: var(--off-white); padding: 5rem 3rem 6rem; }
+    .article-layout { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 280px; gap: 5rem; align-items: start; }
+    .article-intro { font-family: var(--serif); font-size: clamp(1.15rem, 1.8vw, 1.35rem); font-weight: 600; color: var(--black); line-height: 1.55; letter-spacing: -0.01em; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-light); }
+    .article-intro .intro-highlight { color: var(--orange); }
+    .article-body h2 { font-family: var(--serif); font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 700; color: var(--black); letter-spacing: -0.02em; line-height: 1.15; margin-top: 3rem; margin-bottom: 1rem; }
+    .article-body h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--black); margin-top: 2rem; margin-bottom: 0.6rem; }
+    .article-body p { font-size: 0.92rem; font-weight: 300; line-height: 1.85; color: rgba(10,10,10,0.75); margin-bottom: 1.35rem; }
+    .article-body strong { font-weight: 600; color: var(--black); }
+    .article-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    .article-body ul, .article-body ol { padding-left: 1.25rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .article-body li { font-size: 0.92rem; font-weight: 300; line-height: 1.7; color: rgba(10,10,10,0.75); }
+    .callout { background: var(--white); border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; padding: 1.5rem 1.75rem; margin: 2rem 0; }
+    .callout-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .callout p { margin-bottom: 0; font-size: 0.88rem; color: var(--muted-light); }
+    .callout strong { color: var(--black); }
+    .pull-quote { border-top: 2px solid var(--orange); border-bottom: 1px solid var(--border-light); padding: 2rem 0; margin: 2.5rem 0; }
+    .pull-quote blockquote { font-family: var(--serif); font-size: clamp(1.2rem, 1.8vw, 1.5rem); font-weight: 700; color: var(--black); line-height: 1.3; letter-spacing: -0.01em; }
+    .inline-stat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border-light); border-radius: 6px; overflow: hidden; margin: 2rem 0; background: var(--white); }
+    .inline-stat-cell { padding: 1.5rem 1.25rem; text-align: center; border-right: 1px solid var(--border-light); }
+    .inline-stat-cell:last-child { border-right: none; }
+    .inline-stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 0.3rem; }
+    .inline-stat-label { font-size: 0.72rem; font-weight: 400; color: var(--muted-light); line-height: 1.35; }
+
+    /* Checklist style */
+    .checklist { list-style: none; padding: 0; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0; background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; }
+    .checklist li { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-light); font-size: 0.88rem; font-weight: 300; color: rgba(10,10,10,0.75); display: flex; align-items: flex-start; gap: 0.85rem; line-height: 1.6; }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li strong { color: var(--black); font-weight: 600; }
+    .check-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 0.15rem; }
+
+    .article-cta { background: var(--black); border-radius: 8px; padding: 2.5rem; margin: 3rem 0; border: 1px solid var(--border-dark); position: relative; overflow: hidden; }
+    .article-cta::before { content: ''; position: absolute; top: -30px; right: -30px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,85,0,0.15) 0%, transparent 70%); pointer-events: none; }
+    .article-cta-label { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+    .article-cta-title { font-family: var(--serif); font-size: clamp(1.3rem, 2vw, 1.7rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.85rem; }
+    .article-cta-title span { color: var(--orange); }
+    .article-cta-text { font-size: 0.85rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 1.75rem; }
+    .article-cta-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .article-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-light); }
+    .article-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 99px; border: 1px solid var(--border-light); color: var(--muted-light); transition: all 0.2s; }
+    .article-tag:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* SIDEBAR */
+    .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .sidebar-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; }
+    .sidebar-card-head { background: var(--black); padding: 1.25rem 1.5rem; }
+    .sidebar-card-head-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .sidebar-card-body { padding: 1.5rem; }
+    .sidebar-card-body p { font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--muted-light); margin-bottom: 1.25rem; }
+    .sidebar-card-body .btn { width: 100%; justify-content: center; font-size: 0.75rem; padding: 0.75rem 1rem; }
+    .sidebar-toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-toc-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .toc-list li a { display: block; padding: 0.55rem 0; font-size: 0.78rem; font-weight: 400; color: var(--muted-light); border-bottom: 1px solid var(--border-light); transition: color 0.2s; line-height: 1.4; }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list li a:hover { color: var(--orange); }
+    .sidebar-share { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-share-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .share-btns { display: flex; flex-direction: column; gap: 0.6rem; }
+    .share-btn { display: flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; font-weight: 400; color: var(--black); background: var(--off-white); border: 1px solid var(--border-light); border-radius: 4px; padding: 0.65rem 1rem; cursor: pointer; transition: all 0.2s; }
+    .share-btn:hover { border-color: var(--orange); color: var(--orange); background: var(--white); }
+    .share-btn span { font-size: 1rem; }
+
+    /* RELATED */
+    .related-section { background: var(--off-white); padding: 5rem 3rem; border-top: 1px solid var(--border-light); }
+    .related-wrap { max-width: 1100px; margin: 0 auto; }
+    .related-hd { margin-bottom: 2.5rem; }
+    .related-hd .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .related-hd h2 { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.75rem; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+    .related-card:hover { border-color: rgba(10,10,10,0.14); transform: translateY(-2px); }
+    .related-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
+    .related-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--black); line-height: 1.25; margin-bottom: 0.6rem; flex: 1; }
+    .related-meta { font-size: 0.68rem; color: var(--muted-light); display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; }
+    .related-link { color: var(--orange); font-weight: 500; }
+
+    /* BOTTOM CTA */
+    .cta-band { background: #0A0A0A; padding: 0 3rem; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF5500 0%, rgba(255,85,0,0.3) 60%, transparent 100%); }
+    .cta-band::after { content: ''; position: absolute; left: -80px; top: 50%; transform: translateY(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(255,85,0,0.11) 0%, transparent 65%); pointer-events: none; }
+    .cta-band-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 5rem; padding: 5.5rem 0; position: relative; z-index: 2; }
+    .cta-band p.eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #FF5500; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+    .cta-band p.eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1.5px; background: #FF5500; flex-shrink: 0; }
+    .cta-band h2 { font-family: var(--serif); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; color: #FFFFFF; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .cta-band h2 span { color: #FF5500; }
+    .cta-band-sub { font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.52); line-height: 1.8; max-width: 500px; }
+    .cta-band-right { display: flex; flex-direction: column; gap: 0.85rem; flex-shrink: 0; min-width: 230px; }
+    .cta-band-right .btn { justify-content: center; padding: 1.05rem 2rem; font-size: 0.82rem; }
+    .cta-band-note { font-size: 0.65rem; color: rgba(255,255,255,0.2); text-align: center; letter-spacing: 0.04em; margin-top: 0.25rem; }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-links-row { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
+    .footer-links-row a { font-size: 0.75rem; color: var(--muted-dark); transition: color 0.2s; }
+    .footer-links-row a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--orange); z-index: 1000; width: 0%; transition: width 0.1s linear; }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .article-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+      .inline-stat { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      #nav { padding: 1.1rem 1.5rem; }
+      .nav-links, .nav-right .btn { display: none; }
+      .nav-hamburger { display: flex; }
+      .post-hero { padding: 7.5rem 1.5rem 0; }
+      .post-hero-image { height: 240px; }
+      .article-section, .related-section, .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .inline-stat { grid-template-columns: 1fr; }
+      .inline-stat-cell { border-right: none; border-bottom: 1px solid var(--border-light); }
+      footer { padding: 2rem 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .cta-band-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 0; }
+      .cta-band-right { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progress"></div>
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="ring"></div>
+
+  <div class="mobile-nav" id="mob">
+    <button class="mobile-close" id="mob-close">✕</button>
+    <a href="../index.html">Home</a>
+    <a href="../how-it-works.html">How It Works</a>
+    <a href="../pricing.html">Pricing</a>
+    <a href="../faqs.html">FAQs</a>
+    <a href="../blog.html" style="color:var(--orange)">Blog</a>
+    <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+  </div>
+
+  <nav id="nav">
+    <a href="../index.html" class="nav-logo">CLAW<span>MARK</span></a>
+    <ul class="nav-links">
+      <li><a href="../how-it-works.html">How It Works</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../faqs.html">FAQs</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Get My Free Website</a>
+      <button class="nav-hamburger" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="post-hero">
+    <div class="hero-grid"></div>
+    <div class="post-hero-content">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../blog.html">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Hospitality</span>
+      </nav>
+
+      <div class="post-cat-tag">☕ Hospitality</div>
+
+      <h1 class="post-title">
+        Your menu, hours and location.<br>
+        <span class="accent">The three things that cost Brisbane cafés bookings every single day.</span>
+      </h1>
+
+      <div class="post-meta-row">
+        <div class="meta-author">
+          <div class="meta-avatar">A</div>
+          <div>
+            <div class="meta-author-name">Andres Henao</div>
+            <div class="meta-author-role">Founder, Clawmark</div>
+          </div>
+        </div>
+        <div class="meta-sep"></div>
+        <span class="meta-item">📅 12 May 2026</span>
+        <span class="meta-item">⏱ 5 min read</span>
+        <span class="meta-item">📍 Brisbane, QLD</span>
+      </div>
+
+    </div>
+
+    <div class="post-hero-image-wrap">
+      <div class="post-hero-image">
+        <div class="post-hero-image-inner">
+          <div class="hero-img-icon">☕</div>
+          <div class="hero-img-label">
+            Brilliant coffee.<br>
+            <span>Invisible online.</span>
+          </div>
+          <div class="hero-img-sub">If they can't find your hours, menu or location — they'll book somewhere else.</div>
+        </div>
+      </div>
+      <p class="post-image-caption">A Brisbane café can have a full house on Saturday morning and still be losing bookings Monday to Friday — simply because the right information isn't online and easy to find.</p>
+    </div>
+
+  </section>
+
+  <!-- ARTICLE -->
+  <section class="article-section">
+    <div class="article-layout">
+
+      <article>
+
+        <p class="article-intro reveal">
+          Someone in West End searches "brunch near me" on their phone at 10am on a Wednesday. They click on three results. Two have a clear menu, listed hours, and a map. One has a Facebook page with posts from four months ago and no hours listed. <span class="intro-highlight">Guess which café loses the booking.</span>
+        </p>
+
+        <div class="article-body reveal">
+
+          <h2 id="the-decision">The decision happens in about eight seconds</h2>
+
+          <p>When someone is choosing where to eat or grab a coffee, they're not reading your story. They're checking three things, fast: <strong>Is it open? What's on the menu? Can I get there easily?</strong> If they can't answer all three in under ten seconds, they move on. Someone else wins the table.</p>
+
+          <p>This is not a small problem for Brisbane cafés. It's happening dozens of times a day — across Fortitude Valley, West End, New Farm, Newstead, Chermside. Customers who would have happily booked your place are walking into the café down the street, simply because that café answered their questions faster.</p>
+
+          <div class="inline-stat">
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">85%</div>
+              <div class="inline-stat-label">of people check a business online before visiting in person</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">8 sec</div>
+              <div class="inline-stat-label">is roughly how long someone gives a page to answer their question before bouncing</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">61%</div>
+              <div class="inline-stat-label">of users won't return to a mobile site they had trouble accessing</div>
+            </div>
+          </div>
+
+          <h2 id="what-goes-wrong">What goes wrong — and why it keeps happening</h2>
+
+          <p>Most Brisbane café owners aren't ignoring their online presence out of laziness. They're busy running a kitchen, managing staff, and keeping the doors open. The website or Facebook page gets set up once — and then it just sits there, quietly losing customers.</p>
+
+          <h3>Hours that don't match reality</h3>
+          <p>You updated your trading hours for Christmas. Then again for the long weekend. Then you changed your Tuesday hours. But your website — or your Google Business Profile — still says you open at 7am on Tuesdays, when you actually open at 8. A customer shows up at 7:15 to find the doors shut. They don't come back. They leave a one-star review about "false opening hours." This happens more than most owners realise.</p>
+
+          <h3>A menu that's either missing or impossible to read on mobile</h3>
+          <p>A PDF menu uploaded three years ago. A photo of a chalkboard taken on a slightly blurry iPhone. A menu page that loads fine on a laptop but is completely unusable on a phone — which is what nine out of ten people are using. Any of these situations has the same result: the customer gives up and goes somewhere they can actually read the menu.</p>
+
+          <h3>No location or parking information</h3>
+          <p>Brisbane is a city of suburbs. Someone coming from Chermside to eat in Fortitude Valley wants to know exactly where you are, whether there's street parking or a nearby carpark, and if they can get there by train or bus. If none of that is on your website, the decision gets harder. And harder means more likely to drop off.</p>
+
+          <div class="callout">
+            <div class="callout-label">The pattern</div>
+            <p>The café that gets the booking isn't always the best café. It's the one <strong>that made the decision easiest for the customer</strong>. Clear hours, a readable menu, simple location info — that's it. That's the whole thing.</p>
+          </div>
+
+          <h2 id="the-fix">What a good café website actually needs</h2>
+
+          <p>You don't need a complex website. You need a fast, mobile-first page that answers the questions customers are actually asking. Here's what should be on it:</p>
+
+          <ul class="checklist">
+            <li>
+              <span class="check-icon">📋</span>
+              <div><strong>A current menu, readable on mobile.</strong> Not a PDF. Not a photo. Actual text or a properly sized image that loads quickly and doesn't require zooming or pinching to read.</div>
+            </li>
+            <li>
+              <span class="check-icon">🕐</span>
+              <div><strong>Trading hours that match your Google Business Profile.</strong> Both need to be correct. Both need to be updated every time your hours change — including public holidays and seasonal adjustments.</div>
+            </li>
+            <li>
+              <span class="check-icon">📍</span>
+              <div><strong>Your exact address with a map embed.</strong> Street address, suburb, and an embedded Google Map so someone can tap and go directly to navigation. Don't make them copy-paste anything.</div>
+            </li>
+            <li>
+              <span class="check-icon">🅿️</span>
+              <div><strong>Parking and transport notes.</strong> One or two sentences. "Free street parking on X Street after 9am. Five-minute walk from Y train station." That's it. It removes a common reason people don't commit to the trip.</div>
+            </li>
+            <li>
+              <span class="check-icon">📞</span>
+              <div><strong>A phone number that's clickable on mobile.</strong> If someone wants to call ahead, they shouldn't have to manually type your number. A tappable link on mobile takes two seconds to set up and removes friction.</div>
+            </li>
+          </ul>
+
+          <div class="pull-quote">
+            <blockquote>"The café down the road isn't winning customers because they have better coffee. They're winning because when someone searched at 10am on a Wednesday, their website answered the question."</blockquote>
+          </div>
+
+          <h2 id="google-business-profile">Don't forget your Google Business Profile</h2>
+
+          <p>Your website and your Google Business Profile need to work together. If your website says you open at 7am but your Google listing says 7:30am, Google doesn't know which one to trust. Neither does the customer. Inconsistency like this also signals to Google that your listing might not be reliable — which can hurt your ranking in local search results.</p>
+
+          <p>Keep both updated at the same time. Every time your hours change, update both. Every time you change your menu, reflect that online. It's a small maintenance task that pays off every single day your doors are open.</p>
+
+          <h2 id="booking-links">One more thing: a booking link</h2>
+
+          <p>If your café takes bookings — even just for groups — your website should have a booking link. Not a "call us" instruction. Not a "DM us on Instagram." A direct link to wherever you take bookings, whether that's OpenTable, Bookify, a Google Form, or simply a reservation enquiry page.</p>
+
+          <p>The fewer steps between "I want to book" and "booking confirmed," the more bookings you get. Every extra step — find the phone number, call during business hours, wait on hold — is a reason to go somewhere else.</p>
+
+          <div class="article-cta">
+            <div class="article-cta-label">Ready to fix this for your café?</div>
+            <h3 class="article-cta-title">A website that answers the right questions — <span>free upfront.</span></h3>
+            <p class="article-cta-text">Every Clawmark website is built mobile-first, loads fast, and is set up to show your menu, hours, and location clearly. GROWTH plan includes ongoing updates so you're never stuck with outdated information. You see the design before you sign anything.</p>
+            <div class="article-cta-actions">
+              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+              <a href="../pricing.html" class="btn btn-outline-white">See Plans & Pricing</a>
+            </div>
+          </div>
+
+          <div class="article-tags">
+            <a href="../blog.html" class="article-tag">Hospitality</a>
+            <a href="../blog.html" class="article-tag">Brisbane Cafés</a>
+            <a href="../blog.html" class="article-tag">Local SEO</a>
+            <a href="../blog.html" class="article-tag">Small Business</a>
+            <a href="../blog.html" class="article-tag">Website</a>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="article-sidebar reveal">
+
+        <div class="sidebar-toc">
+          <div class="sidebar-toc-title">In this article</div>
+          <ul class="toc-list">
+            <li><a href="#the-decision">The decision happens in eight seconds</a></li>
+            <li><a href="#what-goes-wrong">What goes wrong — and why</a></li>
+            <li><a href="#the-fix">What a good café website actually needs</a></li>
+            <li><a href="#google-business-profile">Don't forget your Google Business Profile</a></li>
+            <li><a href="#booking-links">One more thing: a booking link</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-head">
+            <div class="sidebar-card-head-title">Get a website that fills tables</div>
+          </div>
+          <div class="sidebar-card-body">
+            <p>Custom Webflow website built for Brisbane hospitality — fast, mobile-first, with your menu, hours and booking link. $189/mo, no upfront build fee.</p>
+            <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+          </div>
+        </div>
+
+        <div class="sidebar-share">
+          <div class="sidebar-share-title">Share this post</div>
+          <div class="share-btns">
+            <button class="share-btn" onclick="sharePost('facebook')"><span>👍</span> Share on Facebook</button>
+            <button class="share-btn" onclick="sharePost('linkedin')"><span>💼</span> Share on LinkedIn</button>
+            <button class="share-btn" onclick="copyLink()"><span>🔗</span> Copy link</button>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- RELATED POSTS -->
+  <section class="related-section">
+    <div class="related-wrap">
+      <div class="related-hd reveal">
+        <div class="section-label">More from the blog</div>
+        <h2>Keep reading</h2>
+      </div>
+      <div class="related-grid">
+        <a href="2026-05-11-brisbane-cafe-facebook-page-losing-bookings.html" class="related-card reveal">
+          <div class="related-tag">Hospitality</div>
+          <div class="related-title">Brisbane Cafés: If a Facebook Page Is Your First Search Result, You're Losing Bookings</div>
+          <div class="related-meta">
+            <span>11 May 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+        <a href="2026-05-09-fortitude-valley-cafe-google-wrong-hours.html" class="related-card reveal">
+          <div class="related-tag">Local SEO</div>
+          <div class="related-title">Why Google Shows Your Cafe as Closed (And What It's Costing You)</div>
+          <div class="related-meta">
+            <span>9 May 2026 · 4 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+        <a href="2026-05-04-brisbane-small-business-online-presence-mistakes.html" class="related-card reveal">
+          <div class="related-tag">Business Growth</div>
+          <div class="related-title">3 Online Presence Mistakes Brisbane Small Businesses Keep Making</div>
+          <div class="related-meta">
+            <span>4 May 2026 · 6 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div class="cta-band-left">
+        <p class="eyebrow">No commitment required</p>
+        <h2>Stop losing bookings to<br>a <span>missing web page.</span></h2>
+        <p class="cta-band-sub">A fast, mobile-first Clawmark website with your menu, hours, location and booking link means fewer customers scrolling past and more tables filled. Book a call and see the design before you agree to anything.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="color:#FFFFFF;">Book My Free Call</a>
+        <a href="../blog.html" class="btn btn-outline-white" style="color:#FFFFFF;">← Back to Blog</a>
+        <p class="cta-band-note">No commitment · See design first</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="../index.html" class="footer-logo">CLAW<span>MARK</span></a>
+      <ul class="footer-links-row">
+        <li><a href="../how-it-works.html">How It Works</a></li>
+        <li><a href="../pricing.html">Pricing</a></li>
+        <li><a href="../faqs.html">FAQs</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Clawmark. All rights reserved.</p>
+      <nav class="footer-legal" style="display:flex;gap:1.5rem;">
+        <a href="../privacy-policy.html" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Privacy Policy</a>
+        <a href="#" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Terms of Use</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Cursor
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
+    animRing();
+    document.querySelectorAll('a,button').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+    });
+
+    // Mobile nav
+    document.getElementById('ham').addEventListener('click', () => document.getElementById('mob').classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob').classList.remove('open'));
+
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      document.getElementById('progress').style.width = progress + '%';
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Share functions
+    function sharePost(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      if (platform === 'facebook') window.open(`https://facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+      if (platform === 'linkedin') window.open(`https://linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+    }
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.querySelector('[onclick="copyLink()"]');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span>✓</span> Link copied!';
+        btn.style.color = '#2D8A4E';
+        btn.style.borderColor = '#2D8A4E';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; btn.style.borderColor = ''; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
