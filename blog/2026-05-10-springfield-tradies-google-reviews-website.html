@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Springfield tradies with great Google reviews are still losing jobs. Without a website, those reviews do almost nothing. Here's what's happening and how to fix it.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.clawmark.com.au/blog/2026-05-10-springfield-tradies-google-reviews-website">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.clawmark.com.au/blog/2026-05-10-springfield-tradies-google-reviews-website">
+  <meta property="og:site_name" content="Clawmark">
+  <meta property="og:title" content="Springfield Tradies: Your Google Reviews Are Wasted Without a Website">
+  <meta property="og:description" content="Springfield tradies with great Google reviews are still losing jobs. Without a website, those reviews do almost nothing. Here's what's happening and how to fix it.">
+  <meta property="og:locale" content="en_AU">
+  <title>Springfield Tradies: Your Google Reviews Are Wasted Without a Website — Clawmark Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111111;
+      --dark-2:       #181818;
+      --orange:       #FF5500;
+      --orange-dim:   rgba(255,85,0,0.10);
+      --white:        #FFFFFF;
+      --off-white:    #F6F3EF;
+      --muted-dark:   rgba(255,255,255,0.42);
+      --muted-light:  rgba(10,10,10,0.45);
+      --border-dark:  rgba(255,255,255,0.07);
+      --border-light: rgba(10,10,10,0.08);
+      --serif:        'Syne', sans-serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: none; }
+
+    .cursor { position: fixed; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease; }
+    .cursor.grow { width: 36px; height: 36px; opacity: 0.22; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,85,0,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.18s ease; }
+    @media (hover: none) { .cursor, .cursor-ring { display: none; } body, button { cursor: auto; } }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.85rem 1.75rem; border: 1.5px solid transparent; border-radius: 4px; transition: all 0.2s ease; white-space: nowrap; }
+    .btn-orange { background: #FF5500; color: #FFFFFF !important; border-color: #FF5500; }
+    .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
+    .btn-outline-dark { background: transparent; color: var(--black); border-color: rgba(10,10,10,0.22); }
+    .btn-outline-dark:hover { border-color: var(--black); background: rgba(10,10,10,0.04); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
+    .btn-arrow::after { content: ' →'; }
+
+    /* NAV */
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; background: rgba(10,10,10,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--muted-dark); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--white); }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 490; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
+
+    /* ════════════════════════════════════
+       HERO SECTION
+    ════════════════════════════════════ */
+    .post-hero {
+      background: var(--black);
+      padding: 9rem 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(circle, rgba(255,85,0,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
+    }
+
+    .post-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--muted-dark);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .breadcrumb a { color: var(--muted-dark); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+    .breadcrumb-current { color: var(--orange); }
+
+    /* Post category tag */
+    .post-cat-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid rgba(255,85,0,0.35);
+      padding: 0.35rem 0.85rem;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.18s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+
+    /* Post headline */
+    .post-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.75s 0.28s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .post-title .accent { color: var(--orange); }
+
+    /* Meta row */
+    .post-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .meta-author { display: flex; align-items: center; gap: 0.65rem; }
+    .meta-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), #FF8C42);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .meta-author-name { font-size: 0.8rem; font-weight: 500; color: var(--white); }
+    .meta-author-role { font-size: 0.68rem; color: var(--muted-dark); }
+    .meta-sep { width: 1px; height: 24px; background: var(--border-dark); }
+    .meta-item { font-size: 0.75rem; color: var(--muted-dark); }
+
+    /* ── HERO IMAGE ── */
+    .post-hero-image-wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.55s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .post-hero-image {
+      width: 100%;
+      height: 440px;
+      border-radius: 10px 10px 0 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f1a2e 0%, #1a2a48 40%, #0d1520 70%, #0a1020 100%);
+      position: relative;
+    }
+    .post-hero-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,85,0,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,85,0,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .post-hero-image-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .hero-img-icon { font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 30px rgba(255,85,0,0.4)); }
+    .hero-img-label {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .hero-img-label span { color: var(--orange); }
+    .hero-img-sub { font-size: 0.8rem; font-weight: 300; color: var(--muted-dark); margin-top: 0.6rem; }
+    .post-image-caption { font-size: 0.7rem; font-weight: 300; color: var(--muted-dark); text-align: center; padding: 0.75rem 0 0; font-style: italic; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ════════════════════════════════════
+       ARTICLE LAYOUT
+    ════════════════════════════════════ */
+    .article-section { background: var(--off-white); padding: 5rem 3rem 6rem; }
+    .article-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* ── INTRO TEXT ── */
+    .article-intro {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .article-intro .intro-highlight { color: var(--orange); }
+
+    /* ── CONTENT TEXT ── */
+    .article-body {}
+    .article-body h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+    .article-body h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+    }
+    .article-body p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(10,10,10,0.75);
+      margin-bottom: 1.35rem;
+    }
+    .article-body strong { font-weight: 600; color: var(--black); }
+    .article-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    .article-body ul, .article-body ol {
+      padding-left: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .article-body li {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(10,10,10,0.75);
+    }
+
+    /* Callout box */
+    .callout {
+      background: var(--white);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 6px 6px 0;
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .callout-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .callout p { margin-bottom: 0; font-size: 0.88rem; color: var(--muted-light); }
+    .callout strong { color: var(--black); }
+
+    /* Pull quote */
+    .pull-quote {
+      border-top: 2px solid var(--orange);
+      border-bottom: 1px solid var(--border-light);
+      padding: 2rem 0;
+      margin: 2.5rem 0;
+    }
+    .pull-quote blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    /* Stat block inline */
+    .inline-stat {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 2rem 0;
+      background: var(--white);
+    }
+    .inline-stat-cell {
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      border-right: 1px solid var(--border-light);
+    }
+    .inline-stat-cell:last-child { border-right: none; }
+    .inline-stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 0.3rem; }
+    .inline-stat-label { font-size: 0.72rem; font-weight: 400; color: var(--muted-light); line-height: 1.35; }
+
+    /* ── SIDEBAR ── */
+    .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .sidebar-card-head { background: var(--black); padding: 1.25rem 1.5rem; }
+    .sidebar-card-head-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .sidebar-card-body { padding: 1.5rem; }
+    .sidebar-card-body p { font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--muted-light); margin-bottom: 1.25rem; }
+    .sidebar-card-body .btn { width: 100%; justify-content: center; font-size: 0.75rem; padding: 0.75rem 1rem; }
+
+    /* TOC */
+    .sidebar-toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-toc-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .toc-list li a {
+      display: block;
+      padding: 0.55rem 0;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted-light);
+      border-bottom: 1px solid var(--border-light);
+      transition: color 0.2s;
+      line-height: 1.4;
+    }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list li a:hover { color: var(--orange); }
+
+    /* Share */
+    .sidebar-share { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
+    .sidebar-share-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
+    .share-btns { display: flex; flex-direction: column; gap: 0.6rem; }
+    .share-btn { display: flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; font-weight: 400; color: var(--black); background: var(--off-white); border: 1px solid var(--border-light); border-radius: 4px; padding: 0.65rem 1rem; cursor: pointer; transition: all 0.2s; }
+    .share-btn:hover { border-color: var(--orange); color: var(--orange); background: var(--white); }
+    .share-btn span { font-size: 1rem; }
+
+    /* Tags */
+    .article-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-light); }
+    .article-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 99px; border: 1px solid var(--border-light); color: var(--muted-light); transition: all 0.2s; }
+    .article-tag:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* ════════════════════════════════════
+       IN-ARTICLE CTA
+    ════════════════════════════════════ */
+    .article-cta {
+      background: var(--black);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      border: 1px solid var(--border-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .article-cta::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(255,85,0,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .article-cta-label { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+    .article-cta-title { font-family: var(--serif); font-size: clamp(1.3rem, 2vw, 1.7rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.85rem; }
+    .article-cta-title span { color: var(--orange); }
+    .article-cta-text { font-size: 0.85rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 1.75rem; }
+    .article-cta-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+    /* ════════════════════════════════════
+       RELATED POSTS
+    ════════════════════════════════════ */
+    .related-section { background: var(--off-white); padding: 5rem 3rem; border-top: 1px solid var(--border-light); }
+    .related-wrap { max-width: 1100px; margin: 0 auto; }
+    .related-hd { margin-bottom: 2.5rem; }
+    .related-hd .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .related-hd h2 { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .related-card:hover { border-color: rgba(10,10,10,0.14); transform: translateY(-2px); }
+    .related-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
+    .related-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--black); line-height: 1.25; margin-bottom: 0.6rem; flex: 1; }
+    .related-meta { font-size: 0.68rem; color: var(--muted-light); display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; }
+    .related-link { color: var(--orange); font-weight: 500; }
+
+    /* ════════════════════════════════════
+       PAGE-BOTTOM CTA
+    ════════════════════════════════════ */
+    .cta-band { background: #0A0A0A; padding: 0 3rem; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF5500 0%, rgba(255,85,0,0.3) 60%, transparent 100%); }
+    .cta-band::after { content: ''; position: absolute; left: -80px; top: 50%; transform: translateY(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(255,85,0,0.11) 0%, transparent 65%); pointer-events: none; }
+    .cta-band-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 5rem; padding: 5.5rem 0; position: relative; z-index: 2; }
+    .cta-band-left {}
+    .cta-band p.eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #FF5500; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+    .cta-band p.eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1.5px; background: #FF5500; flex-shrink: 0; }
+    .cta-band h2 { font-family: var(--serif); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; color: #FFFFFF; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .cta-band h2 span { color: #FF5500; }
+    .cta-band-sub { font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.52); line-height: 1.8; max-width: 500px; }
+    .cta-band-right { display: flex; flex-direction: column; gap: 0.85rem; flex-shrink: 0; min-width: 230px; }
+    .cta-band-right .btn { justify-content: center; padding: 1.05rem 2rem; font-size: 0.82rem; }
+    .cta-band-right .btn-orange { background: #FF5500 !important; color: #FFFFFF !important; border-color: #FF5500 !important; }
+    .cta-band-right .btn-outline-white { color: #FFFFFF !important; border-color: rgba(255,255,255,0.3) !important; }
+    .cta-band-note { font-size: 0.65rem; color: rgba(255,255,255,0.2); text-align: center; letter-spacing: 0.04em; margin-top: 0.25rem; }
+    @media (max-width: 780px) { .cta-band-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 0; } .cta-band-right { min-width: unset; } }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-links-row { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
+    .footer-links-row a { font-size: 0.75rem; color: var(--muted-dark); transition: color 0.2s; }
+    .footer-links-row a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+
+    /* Progress bar */
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--orange); z-index: 1000; width: 0%; transition: width 0.1s linear; }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .article-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+      .inline-stat { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      #nav { padding: 1.1rem 1.5rem; }
+      .nav-links, .nav-right .btn { display: none; }
+      .nav-hamburger { display: flex; }
+      .post-hero { padding: 7.5rem 1.5rem 0; }
+      .post-hero-image { height: 240px; }
+      .article-section, .related-section, .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .inline-stat { grid-template-columns: 1fr; }
+      .inline-stat-cell { border-right: none; border-bottom: 1px solid var(--border-light); }
+      footer { padding: 2rem 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading progress bar -->
+  <div class="progress-bar" id="progress"></div>
+
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="ring"></div>
+
+  <div class="mobile-nav" id="mob">
+    <button class="mobile-close" id="mob-close">✕</button>
+    <a href="../index.html">Home</a>
+    <a href="../how-it-works.html">How It Works</a>
+    <a href="../pricing.html">Pricing</a>
+    <a href="../faqs.html">FAQs</a>
+    <a href="../blog.html" style="color:var(--orange)">Blog</a>
+    <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+  </div>
+
+  <nav id="nav">
+    <a href="../index.html" class="nav-logo">CLAW<span>MARK</span></a>
+    <ul class="nav-links">
+      <li><a href="../how-it-works.html">How It Works</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../faqs.html">FAQs</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Get My Free Website</a>
+      <button class="nav-hamburger" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════
+       HERO
+  ════════════════════════════════════ -->
+  <section class="post-hero">
+    <div class="hero-grid"></div>
+    <div class="post-hero-content">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../blog.html">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Business Growth</span>
+      </nav>
+
+      <!-- Category tag -->
+      <div class="post-cat-tag">📈 Business Growth</div>
+
+      <!-- Main headline -->
+      <h1 class="post-title">
+        Springfield Tradies: Your Google Reviews Are<br>
+        <span class="accent">Wasted Without a Website</span>
+      </h1>
+
+      <!-- Meta row -->
+      <div class="post-meta-row">
+        <div class="meta-author">
+          <div class="meta-avatar">A</div>
+          <div>
+            <div class="meta-author-name">Andres Henao</div>
+            <div class="meta-author-role">Founder, Clawmark</div>
+          </div>
+        </div>
+        <div class="meta-sep"></div>
+        <span class="meta-item">📅 10 May 2026</span>
+        <span class="meta-item">⏱ 5 min read</span>
+        <span class="meta-item">📍 Springfield, QLD</span>
+      </div>
+
+    </div>
+
+    <!-- ── HERO IMAGE ── -->
+    <div class="post-hero-image-wrap">
+      <div class="post-hero-image">
+        <div class="post-hero-image-inner">
+          <div class="hero-img-icon">⭐</div>
+          <div class="hero-img-label">
+            47 five-star reviews.<br>
+            <span>Zero website.</span>
+          </div>
+          <div class="hero-img-sub">Here's why those reviews aren't doing what you think.</div>
+        </div>
+      </div>
+      <p class="post-image-caption">Springfield tradies are building real reputations — but without a website, most of that trust never converts into new jobs from people who don't already know you.</p>
+    </div>
+
+  </section>
+
+  <!-- ════════════════════════════════════
+       ARTICLE
+  ════════════════════════════════════ -->
+  <section class="article-section">
+    <div class="article-layout">
+
+      <!-- Main content -->
+      <article>
+
+        <!-- ── INTRO TEXT ── -->
+        <p class="article-intro reveal">
+          You've done the work. Forty-seven five-star reviews on Google. Customers raving about your response time, your clean finish, your fair pricing. <span class="intro-highlight">And you're still losing jobs to tradies with half your reviews and a quarter of your experience</span> — because they have a website and you don't.
+        </p>
+
+        <!-- ── CONTENT TEXT ── -->
+        <div class="article-body reveal">
+
+          <h2 id="the-problem">Why great reviews alone aren't enough</h2>
+
+          <p>I talk to Springfield tradies all the time who are genuinely good at what they do. Electricians. Plumbers. Builders. Roofers. They've worked hard to earn a solid reputation. Their existing customers love them. And they genuinely believe their Google reviews are doing the selling for them.</p>
+
+          <p>Here's what's actually happening. Someone in Springfield Lakes searches "licensed electrician Springfield" on their phone. Google shows them three results in the Maps pack at the top. Your competitor — 22 reviews, newer business, proper website — is sitting in position two. You're not in the top three at all. They get the call. You don't even appear.</p>
+
+          <p>That's the gap. Not your quality. Not your reviews. <strong>Your digital footprint is missing the one thing Google needs to rank you with confidence.</strong></p>
+
+          <div class="inline-stat">
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">88%</div>
+              <div class="inline-stat-label">of consumers trust online reviews as much as personal recommendations</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">Top 3</div>
+              <div class="inline-stat-label">Google Maps results capture the overwhelming majority of clicks on local searches</div>
+            </div>
+            <div class="inline-stat-cell">
+              <div class="inline-stat-num">53%</div>
+              <div class="inline-stat-label">of mobile users leave a site that takes longer than 3 seconds to load</div>
+            </div>
+          </div>
+
+          <h2 id="why-reviews-alone-fail">Why reviews without a website fall flat</h2>
+
+          <p>Think about what happens after someone reads your Google reviews and wants to learn more. They look for a link to your website. There isn't one. So they do one of two things: they call you directly (great, if they bother) or they go back and click on someone who has a site they can actually browse.</p>
+
+          <p>A website does things reviews can't. It shows your work. It lists your services clearly. It tells Google exactly where you operate — Springfield, Ripley, Augustine Heights, Redbank Plains — and what you do in those suburbs. Without it, Google is guessing at your relevance. And Google doesn't rank on guesses.</p>
+
+          <p>Reviews build trust with people who already found you. A website is how people find you in the first place. Those are two different jobs, and reviews can't do both.</p>
+
+          <div class="callout">
+            <div class="callout-label">Brisbane Example</div>
+            <p><strong>A Springfield plumber with 41 reviews and no website was consistently being outranked by a competitor with 18 reviews and a simple, fast Webflow site.</strong> Once the website went live with suburb-specific service pages, the plumber appeared in the top three Maps results for "plumber Springfield" within six weeks — and enquiries picked up immediately.</p>
+          </div>
+
+          <h2 id="what-google-actually-weighs">What Google weighs when it ranks local tradies</h2>
+
+          <p>Google's local algorithm factors in three things: relevance, distance, and prominence. Distance you can't control — Google knows where your customer is. Relevance and prominence are entirely yours to shape.</p>
+
+          <p>Relevance means: does Google understand exactly what you do and where you do it? If you're an electrician servicing Springfield and Camira but your Google Business Profile doesn't mention those suburbs — and you have no website spelling it out — Google can't confidently match you to searches in those areas.</p>
+
+          <p>Prominence is where reviews come in. But only as one signal among many. Your website's speed, mobile experience, and the consistency of your business details across the web all feed into prominence too. Reviews are one input. A well-built website covering your local area is another — and without it, you're competing with one hand tied behind your back.</p>
+
+          <div class="pull-quote">
+            <blockquote>"Google reviews tell people you're good. A website tells Google you exist — and exactly where and what you do."</blockquote>
+          </div>
+
+          <h2 id="what-to-do">What actually fixes this</h2>
+
+          <p>The answer isn't complicated, but it does require getting a few things right at once.</p>
+
+          <p><strong>Get a proper website.</strong> Not a one-page freebie with your phone number on it. A fast, mobile-first site that clearly describes every service you offer, names the suburbs you cover, and links to your Google Business Profile. The kind that loads in under two seconds and doesn't look like it was built in 2014.</p>
+
+          <p><strong>Fill out your Google Business Profile completely.</strong> Every service. Every suburb. Updated hours. At least ten photos of your actual work. A business description that naturally mentions Springfield and the surrounding areas. Most tradies have a half-finished profile and wonder why they're not ranking.</p>
+
+          <p><strong>Keep collecting reviews — and respond to every single one.</strong> Responding to reviews is itself a trust signal Google registers. A tradie who responds to reviews looks like an active, engaged business. Most don't bother.</p>
+
+          <p>Finally, make sure your business name, phone number, and address are identical everywhere they appear — your website, Google, Facebook, any trade directories. Inconsistency confuses Google and hurts your ranking. It's a small thing that matters more than people realise.</p>
+
+          <p>If you've put in the work to earn strong reviews, the last thing you want is for that reputation to hit a dead end because there's nowhere for a new customer to go. Your reviews are an asset. A website turns them into a funnel — one that works while you're on the tools.</p>
+
+          <!-- In-article CTA -->
+          <div class="article-cta">
+            <div class="article-cta-label">Let's put your reviews to work</div>
+            <h3 class="article-cta-title">Free website. Built for <span>local Springfield search.</span></h3>
+            <p class="article-cta-text">Every Clawmark website is built on Webflow — fast, mobile-first, and set up with the on-page SEO signals Google needs to rank you locally. The GROWTH plan also includes Google Business Profile management and local SEO. No upfront build fee. You see the site before you sign anything.</p>
+            <div class="article-cta-actions">
+              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+              <a href="../pricing.html" class="btn btn-outline-white">See Plans & Pricing</a>
+            </div>
+          </div>
+
+          <p>If you're a tradie in Springfield or the surrounding growth corridor and you've been relying on word of mouth and Google reviews alone — this is the gap. <a href="2026-05-06-ipswich-personal-trainers-word-of-mouth-website.html">Word of mouth has a ceiling</a>. A website is how you break through it. And if you want to understand what local search visibility actually looks like for your business, <a href="2026-05-09-fortitude-valley-cafe-google-wrong-hours.html">the Google Business Profile basics matter for every local business</a> — not just cafes.</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="../blog.html" class="article-tag">Business Growth</a>
+            <a href="../blog.html" class="article-tag">Tradies</a>
+            <a href="../blog.html" class="article-tag">Springfield</a>
+            <a href="../blog.html" class="article-tag">Local SEO</a>
+            <a href="../blog.html" class="article-tag">Google Reviews</a>
+            <a href="../blog.html" class="article-tag">Small Business</a>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="article-sidebar reveal">
+
+        <!-- Table of contents -->
+        <div class="sidebar-toc">
+          <div class="sidebar-toc-title">In this article</div>
+          <ul class="toc-list">
+            <li><a href="#the-problem">Why great reviews alone aren't enough</a></li>
+            <li><a href="#why-reviews-alone-fail">Why reviews without a website fall flat</a></li>
+            <li><a href="#what-google-actually-weighs">What Google weighs when ranking tradies</a></li>
+            <li><a href="#what-to-do">What actually fixes this</a></li>
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-head">
+            <div class="sidebar-card-head-title">Turn your reviews into real leads</div>
+          </div>
+          <div class="sidebar-card-body">
+            <p>Custom Webflow website with local SEO and Google Business Profile management — from $189/mo. Zero upfront build fee. See the design before you commit.</p>
+            <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="sidebar-share">
+          <div class="sidebar-share-title">Share this post</div>
+          <div class="share-btns">
+            <button class="share-btn" onclick="sharePost('facebook')"><span>👍</span> Share on Facebook</button>
+            <button class="share-btn" onclick="sharePost('linkedin')"><span>💼</span> Share on LinkedIn</button>
+            <button class="share-btn" onclick="copyLink()"><span>🔗</span> Copy link</button>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       RELATED POSTS
+  ════════════════════════════════════ -->
+  <section class="related-section">
+    <div class="related-wrap">
+      <div class="related-hd reveal">
+        <div class="section-label">More from the blog</div>
+        <h2>Keep reading</h2>
+      </div>
+      <div class="related-grid">
+        <a href="2026-05-09-fortitude-valley-cafe-google-wrong-hours.html" class="related-card reveal">
+          <div class="related-tag">Local SEO</div>
+          <div class="related-title">Why Google Shows Your Cafe as Closed (And What It's Costing You)</div>
+          <div class="related-meta">
+            <span>9 May 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+        <a href="2026-05-08-morayfield-retail-facebook-page-website.html" class="related-card reveal">
+          <div class="related-tag">Web Design</div>
+          <div class="related-title">Morayfield Retailers: A Facebook Page Is Not a Website</div>
+          <div class="related-meta">
+            <span>8 May 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+        <a href="2026-05-06-ipswich-personal-trainers-word-of-mouth-website.html" class="related-card reveal">
+          <div class="related-tag">Business Growth</div>
+          <div class="related-title">Ipswich Personal Trainers: Word of Mouth Has a Ceiling</div>
+          <div class="related-meta">
+            <span>6 May 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       BOTTOM CTA
+  ════════════════════════════════════ -->
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div class="cta-band-left">
+        <p class="eyebrow">Free website. No upfront cost.</p>
+        <h2>Your reviews deserve a<br>website that <span>backs them up.</span></h2>
+        <p class="cta-band-sub">A Clawmark website gives Google the signals it needs to rank you locally — and gives new customers a place to land when they want to know more. Book a call and we'll show you what it looks like for your business.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="color:#FFFFFF;">Book My Free Call</a>
+        <a href="../blog.html" class="btn btn-outline-white" style="color:#FFFFFF;">← Back to Blog</a>
+        <p class="cta-band-note">No commitment · See design first</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="../index.html" class="footer-logo">CLAW<span>MARK</span></a>
+      <ul class="footer-links-row">
+        <li><a href="../how-it-works.html">How It Works</a></li>
+        <li><a href="../pricing.html">Pricing</a></li>
+        <li><a href="../faqs.html">FAQs</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Clawmark. All rights reserved.</p>
+      <nav class="footer-legal" style="display:flex;gap:1.5rem;">
+        <a href="../privacy-policy.html" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Privacy Policy</a>
+        <a href="#" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Terms of Use</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Cursor
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
+    animRing();
+    document.querySelectorAll('a,button').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+    });
+
+    // Mobile nav
+    document.getElementById('ham').addEventListener('click', () => document.getElementById('mob').classList.add('open'));
+    document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob').classList.remove('open'));
+
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      document.getElementById('progress').style.width = progress + '%';
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Share functions
+    function sharePost(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      if (platform === 'facebook') window.open(`https://facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+      if (platform === 'linkedin') window.open(`https://linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+    }
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.querySelector('[onclick="copyLink()"]');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span>✓</span> Link copied!';
+        btn.style.color = '#2D8A4E';
+        btn.style.borderColor = '#2D8A4E';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; btn.style.borderColor = ''; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
