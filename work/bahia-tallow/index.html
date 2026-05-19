@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bahia Tallow — Premium, minimalist skincare built on one ancestral ingredient. Grass-fed tallow balm biologically aligned with your skin.">
+  <title>Bahia Tallow — One Balm. Everything Your Skin Needs.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Variables ─────────────────────────────────── */
+    :root {
+      --sand:        #F5EFE0;
+      --brown:       #3B2314;
+      --brown-mid:   #5C3520;
+      --cream:       #FDF8F2;
+      --terracotta:  #C4622D;
+      --terra-dark:  #A85226;
+      --sage:        #8A9E7E;
+      --body-text:   #4A3728;
+      --muted:       rgba(59,35,20,0.42);
+      --serif:       'Cormorant Garamond', Georgia, serif;
+      --sans:        'Inter', system-ui, sans-serif;
+    }
+
+    /* ── Reset & Base ──────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      color: var(--brown);
+      background: var(--cream);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Grain Texture ─────────────────────────────── */
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── Reveal Animations ─────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.75s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Common Tokens ─────────────────────────────── */
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.9rem;
+    }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 3.8vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: 0.005em;
+    }
+    .divider {
+      width: 36px;
+      height: 1px;
+      background: var(--terracotta);
+      margin: 1.4rem 0;
+    }
+    .divider-center { margin: 1.4rem auto; }
+
+    /* ── Buttons ───────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.4rem;
+      cursor: pointer;
+      transition: background 0.22s, color 0.22s, border-color 0.22s;
+      border: 1.5px solid transparent;
+    }
+    .btn-dark {
+      background: var(--brown);
+      color: var(--cream);
+      border-color: var(--brown);
+    }
+    .btn-dark:hover { background: var(--terracotta); border-color: var(--terracotta); }
+    .btn-outline {
+      background: transparent;
+      color: var(--brown);
+      border-color: rgba(59,35,20,0.28);
+    }
+    .btn-outline:hover { border-color: var(--brown); }
+    .btn-light {
+      background: var(--cream);
+      color: var(--brown);
+      border-color: var(--cream);
+    }
+    .btn-light:hover { background: transparent; color: var(--cream); border-color: var(--cream); }
+
+    /* ════════════════════════════════════════════════
+       NAVBAR
+    ════════════════════════════════════════════════ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem 3.5rem;
+      transition: padding 0.35s ease, background 0.35s ease, backdrop-filter 0.35s ease,
+                  border-color 0.35s ease;
+      border-bottom: 1px solid transparent;
+    }
+    #navbar.scrolled {
+      padding: 1rem 3.5rem;
+      background: rgba(253,248,242,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: rgba(59,35,20,0.07);
+    }
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .nav-logo:hover img { opacity: 0.8; }
+    .nav-center {
+      display: flex;
+      gap: 2.75rem;
+      list-style: none;
+    }
+    .nav-center a {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brown);
+      transition: color 0.2s;
+    }
+    .nav-center a:hover { color: var(--terracotta); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--brown);
+      transition: all 0.3s;
+    }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 190;
+      background: var(--cream);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--brown);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--terracotta); }
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--brown);
+    }
+
+    /* ════════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .hero-split {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 58% 42%;
+      align-items: center;
+      padding: 9rem 4rem 6rem 5rem;
+      gap: 3rem;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 70% at 50% 45%, #F2EAD5 0%, var(--cream) 65%);
+      z-index: 0;
+    }
+    .hero-grain { position: absolute; inset: 0; z-index: 0; }
+    .hero-grain::after { opacity: 0.038; }
+
+    /* Decorative concentric rings */
+    .hero-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(59,35,20,0.055);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+    .ring-1 { width: 520px; height: 520px; }
+    .ring-2 { width: 820px; height: 820px; border-color: rgba(59,35,20,0.03); }
+    .ring-3 { width: 1120px; height: 1120px; border-color: rgba(59,35,20,0.015); }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: left;
+    }
+    .hero-image-wrap {
+      position: relative;
+      height: 75vh;
+      max-height: 780px;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 2px;
+    }
+    .hero-image-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 2px;
+      box-shadow: inset 0 0 0 1px rgba(59,35,20,0.06);
+    }
+    .hero-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 2.2rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.15s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.8rem, 7.5vw, 7rem);
+      font-weight: 300;
+      line-height: 1.04;
+      letter-spacing: 0.005em;
+      color: var(--brown);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.32s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .hero h1 em { font-style: italic; color: var(--terracotta); }
+    .hero-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--body-text);
+      max-width: 480px;
+      margin: 0 0 2.8rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.48s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.62s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .hero-trust {
+      margin-top: 3.2rem;
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp 0.9s 0.78s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .hero-trust span { color: var(--sage); }
+
+    /* Wave bottom of hero */
+    .hero-wave {
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      line-height: 0;
+      z-index: 3;
+    }
+    .hero-wave svg { display: block; width: 100%; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ════════════════════════════════════════════════
+       PHILOSOPHY STRIP
+    ════════════════════════════════════════════════ */
+    #philosophy {
+      background: var(--sand);
+      padding: 0;
+    }
+    .phil-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 100%;
+    }
+    .phil-cell {
+      padding: 4rem 3rem;
+      border-right: 1px solid rgba(59,35,20,0.09);
+      position: relative;
+    }
+    .phil-cell:last-child { border-right: none; }
+    .phil-from {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: line-through;
+      text-decoration-color: rgba(59,35,20,0.25);
+      margin-bottom: 0.6rem;
+    }
+    .phil-arrow {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--terracotta);
+      margin-bottom: 0.6rem;
+      line-height: 1;
+    }
+    .phil-to {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--brown);
+      line-height: 1.15;
+    }
+
+    /* ════════════════════════════════════════════════
+       PRODUCTS
+    ════════════════════════════════════════════════ */
+    #products {
+      background: var(--cream);
+      padding: 7rem 3.5rem;
+    }
+    .products-wrap { max-width: 1240px; margin: 0 auto; }
+    .products-hd {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+    .products-feature {
+      margin-bottom: 3.5rem;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .products-feature img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .products-feature:hover img { transform: scale(1.02); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .product-card {
+      background: var(--sand);
+      padding: 2.75rem 2.25rem;
+      border: 1px solid transparent;
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.3s,
+                  border-color 0.3s;
+      cursor: default;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(59,35,20,0.09);
+      border-color: rgba(59,35,20,0.07);
+    }
+    .product-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      border: 1px solid var(--sage);
+      padding: 0.28rem 0.65rem;
+      margin-bottom: 1.6rem;
+    }
+    .product-name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--brown);
+      line-height: 1.2;
+      margin-bottom: 0.9rem;
+    }
+    .product-desc {
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.72;
+      color: var(--body-text);
+      margin-bottom: 2rem;
+    }
+    .product-cta {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brown);
+      border-bottom: 1px solid var(--brown);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+      display: inline-block;
+    }
+    .product-cta:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+    /* ════════════════════════════════════════════════
+       SCIENCE
+    ════════════════════════════════════════════════ */
+    #science {
+      background: var(--brown);
+      padding: 7rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .science-watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--serif);
+      font-size: clamp(10rem, 22vw, 22rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.025);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .science-wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .science-wrap .section-label { color: var(--sage); }
+    .science-wrap .section-heading { color: var(--cream); margin-bottom: 4rem; }
+    .science-wrap .section-heading em { font-style: italic; color: var(--terracotta); }
+    .science-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
+    }
+    .science-item {
+      background: var(--brown);
+      padding: 3.5rem 3rem;
+      transition: background 0.3s;
+    }
+    .science-item:hover { background: rgba(255,255,255,0.035); }
+    .science-num {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .science-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+    }
+    .science-text {
+      font-size: 0.855rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(253,248,242,0.58);
+    }
+
+    /* ════════════════════════════════════════════════
+       STORY / QUOTE
+    ════════════════════════════════════════════════ */
+    .story {
+      background: var(--cream);
+      padding: 7rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-layout {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .story-image-col {
+      position: relative;
+    }
+    .story-image-col img {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 2px;
+      display: block;
+    }
+    .story-image-col::before {
+      content: '';
+      position: absolute;
+      top: -1.5rem;
+      left: -1.5rem;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      border: 1px solid rgba(59,35,20,0.1);
+      border-radius: 2px;
+      z-index: 0;
+    }
+    .story-text-col {
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+    .story-bg-quote {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--serif);
+      font-size: 28rem;
+      font-weight: 300;
+      color: rgba(59,35,20,0.025);
+      line-height: 0.8;
+      pointer-events: none;
+      user-select: none;
+    }
+    .story-inner {
+      position: relative;
+      z-index: 2;
+    }
+    .story-open-mark {
+      font-family: var(--serif);
+      font-size: 4rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .story-pull {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.38;
+      color: var(--brown);
+      margin-bottom: 2.4rem;
+    }
+    .story-body {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--body-text);
+      max-width: 580px;
+      margin: 0 0 2.5rem;
+    }
+    .story-attr {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    /* ════════════════════════════════════════════════
+       TESTIMONIALS
+    ════════════════════════════════════════════════ */
+    #stories {
+      background: var(--sand);
+      padding: 7rem 3.5rem;
+    }
+    .test-wrap { max-width: 1240px; margin: 0 auto; }
+    .test-hd {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .test-card {
+      background: var(--cream);
+      padding: 2.75rem;
+      border: 1px solid rgba(59,35,20,0.06);
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+    }
+    .test-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 36px rgba(59,35,20,0.08);
+    }
+    .test-stars {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--terracotta);
+      margin-bottom: 1.4rem;
+    }
+    .test-quote {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--brown);
+      margin-bottom: 1.75rem;
+    }
+    .test-name {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--body-text);
+    }
+    .test-detail {
+      font-size: 0.68rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ════════════════════════════════════════════════
+       CTA BANNER
+    ════════════════════════════════════════════════ */
+    .cta-banner {
+      background: var(--terracotta);
+      padding: 8rem 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-grain { position: absolute; inset: 0; }
+    .cta-grain::after { opacity: 0.07; }
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+    }
+    .cta-banner .section-label { color: rgba(253,248,242,0.55); }
+    .cta-h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.12;
+      margin-bottom: 0.9rem;
+    }
+    .cta-sub {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(253,248,242,0.7);
+      margin-bottom: 2.75rem;
+      line-height: 1.7;
+    }
+
+    /* ════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════ */
+    footer {
+      background: var(--brown);
+      padding: 5.5rem 3.5rem 2.5rem;
+    }
+    .footer-grid {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 2fr;
+      gap: 3.5rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(253,248,242,0.09);
+      margin-bottom: 2rem;
+    }
+    .footer-brand-logo {
+      margin-bottom: 1rem;
+    }
+    .footer-brand-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    .footer-brand-text {
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.72;
+      color: rgba(253,248,242,0.48);
+      margin-bottom: 1.75rem;
+    }
+    .footer-social-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+    .footer-social-links a {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(253,248,242,0.45);
+      border-bottom: 1px solid rgba(253,248,242,0.18);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .footer-social-links a:hover { color: var(--cream); border-color: var(--cream); }
+    .footer-col-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(253,248,242,0.35);
+      margin-bottom: 1.5rem;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(253,248,242,0.58);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-signup-desc {
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(253,248,242,0.48);
+      margin-bottom: 1.25rem;
+    }
+    .footer-form {
+      display: flex;
+    }
+    .footer-form input {
+      flex: 1;
+      min-width: 0;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(253,248,242,0.14);
+      border-right: none;
+      padding: 0.8rem 1rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--cream);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .footer-form input::placeholder { color: rgba(253,248,242,0.28); }
+    .footer-form input:focus { border-color: rgba(253,248,242,0.3); }
+    .footer-form button {
+      background: var(--terracotta);
+      border: 1px solid var(--terracotta);
+      padding: 0.8rem 1.25rem;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .footer-form button:hover { background: var(--terra-dark); }
+    .footer-bottom {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(253,248,242,0.28);
+      letter-spacing: 0.04em;
+    }
+    .footer-legal {
+      display: flex;
+      gap: 1.75rem;
+    }
+    .footer-legal a {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(253,248,242,0.28);
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: rgba(253,248,242,0.58); }
+
+    /* ════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .hero-split { grid-template-columns: 55% 45%; padding: 9rem 2.5rem 6rem; gap: 2rem; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .story-layout { gap: 3.5rem; }
+    }
+
+    @media (max-width: 860px) {
+      .hero-split { grid-template-columns: 1fr; padding: 8rem 2rem 4rem; }
+      .hero-image-wrap { height: 50vw; max-height: 420px; }
+      .phil-grid { grid-template-columns: repeat(2, 1fr); }
+      .test-grid { grid-template-columns: 1fr; }
+      .science-grid { grid-template-columns: 1fr; }
+      .story-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .story-image-col::before { display: none; }
+      .story-image-col img { height: 320px; }
+      .story-text-col { text-align: center; }
+      .story-body { margin: 0 auto 2.5rem; }
+      .divider { margin-left: auto; margin-right: auto; }
+    }
+
+    @media (max-width: 640px) {
+      #navbar { padding: 1.25rem 1.5rem; }
+      #navbar.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-center { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta { display: none; }
+
+      .hero-split { padding: 7rem 1.5rem 3rem; }
+      .hero-image-wrap { height: 75vw; }
+      .products-feature img { height: 260px; }
+      .phil-grid { grid-template-columns: 1fr; }
+      .phil-cell { border-right: none; border-bottom: 1px solid rgba(59,35,20,0.09); }
+      .phil-cell:last-child { border-bottom: none; }
+      #products, #science, #stories { padding: 5rem 1.5rem; }
+      .products-grid { grid-template-columns: 1fr; }
+      .products-hd { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+      .story { padding: 5rem 1.5rem; }
+      .cta-banner { padding: 6rem 1.5rem; }
+      footer { padding: 4rem 1.5rem 2rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-legal { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ──────────────────────────────────────────────
+     MOBILE MENU
+────────────────────────────────────────────── -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="#philosophy" class="mobile-link">Philosophy</a>
+  <a href="#products" class="mobile-link">Products</a>
+  <a href="#science" class="mobile-link">Science</a>
+  <a href="#stories" class="mobile-link">Stories</a>
+  <a href="coming-soon.html" class="btn btn-dark" style="margin-top:1rem;">Shop Now</a>
+</div>
+
+<!-- ──────────────────────────────────────────────
+     NAVBAR
+────────────────────────────────────────────── -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-logo" aria-label="Bahia Tallow home">
+    <img src="Branding/Bahia Tallow-Logo-Red.png" alt="Bahia Tallow" id="navLogo">
+  </a>
+  <ul class="nav-center">
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#science">Science</a></li>
+    <li><a href="#stories">Stories</a></li>
+  </ul>
+  <a href="coming-soon.html" class="btn btn-dark">Shop Now</a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- ──────────────────────────────────────────────
+     HERO
+────────────────────────────────────────────── -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain grain"></div>
+  <div class="hero-ring ring-1" aria-hidden="true"></div>
+  <div class="hero-ring ring-2" aria-hidden="true"></div>
+  <div class="hero-ring ring-3" aria-hidden="true"></div>
+
+  <div class="hero-split">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Modern Ancestral Skincare</p>
+      <h1>One Balm.<br><em>Everything</em><br>Your Skin Needs.</h1>
+      <p class="hero-sub">Grass-fed tallow, biologically aligned with your skin's natural oils. One product. Zero complexity. Radically simple care that actually works.</p>
+      <div class="hero-actions">
+        <a href="coming-soon.html" class="btn btn-dark">Discover the Balm</a>
+        <a href="#philosophy" class="btn btn-outline">Our Philosophy</a>
+      </div>
+      <p class="hero-trust">Trusted by <span>10,000+</span> skin-conscious people worldwide</p>
+    </div>
+    <div class="hero-image-wrap">
+      <img src="Images/Generated/fb-ad-lifestyle.png" alt="Bahia Tallow balm — woman holding jar at golden hour" loading="eager">
+    </div>
+  </div>
+
+  <div class="hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path fill="#F5EFE0" d="M0,36 C180,72 360,4 540,40 C720,76 900,8 1080,38 C1260,68 1380,20 1440,36 L1440,72 L0,72 Z"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     PHILOSOPHY STRIP
+────────────────────────────────────────────── -->
+<section id="philosophy" aria-label="Philosophy">
+  <div class="phil-grid">
+    <div class="phil-cell reveal">
+      <div class="phil-from">Chemical</div>
+      <span class="phil-arrow" aria-hidden="true">↓</span>
+      <div class="phil-to">Natural</div>
+    </div>
+    <div class="phil-cell reveal">
+      <div class="phil-from">Complex</div>
+      <span class="phil-arrow" aria-hidden="true">↓</span>
+      <div class="phil-to">Simple</div>
+    </div>
+    <div class="phil-cell reveal">
+      <div class="phil-from">Synthetic</div>
+      <span class="phil-arrow" aria-hidden="true">↓</span>
+      <div class="phil-to">Biologically&nbsp;Aligned</div>
+    </div>
+    <div class="phil-cell reveal">
+      <div class="phil-from">Overconsumption</div>
+      <span class="phil-arrow" aria-hidden="true">↓</span>
+      <div class="phil-to">Intentional&nbsp;Living</div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     PRODUCTS
+────────────────────────────────────────────── -->
+<section id="products" aria-label="Products">
+  <div class="products-wrap">
+    <div class="products-hd reveal">
+      <div>
+        <p class="section-label">The Collection</p>
+        <h2 class="section-heading">One ingredient,<br>four expressions.</h2>
+      </div>
+      <a href="#" class="btn btn-outline" style="white-space:nowrap; flex-shrink:0;">View All</a>
+    </div>
+    <div class="products-feature reveal">
+      <img src="Images/Generated/woman-body-apply.png" alt="Bahia Tallow balm on beach sand with woman applying in background" loading="lazy">
+    </div>
+    <div class="products-grid">
+      <article class="product-card reveal">
+        <span class="product-badge">Sensitive Skin</span>
+        <h3 class="product-name">Pure Tallow Balm</h3>
+        <p class="product-desc">The purest expression of our formula — nothing added, nothing masked. Ideal for reactive, sensitive, or baby skin that needs honest, uncomplicated nourishment.</p>
+        <a href="coming-soon.html" class="product-cta">Shop Now →</a>
+      </article>
+      <article class="product-card reveal">
+        <span class="product-badge">The Signature</span>
+        <h3 class="product-name">Coastal Tallow Balm</h3>
+        <p class="product-desc">Infused with subtle botanicals that turn your morning ritual into a sensory moment. Coastal. Warm. Earthy. The scent of intentional living.</p>
+        <a href="coming-soon.html" class="product-cta">Shop Now →</a>
+      </article>
+      <article class="product-card reveal">
+        <span class="product-badge">Sun &amp; Outdoors</span>
+        <h3 class="product-name">Zinc Tallow Balm</h3>
+        <p class="product-desc">Natural zinc oxide meets ancestral tallow. Broad-spectrum protection for surfers, hikers, and anyone who lives outside. Clean. Reef-safe. Uncompromising.</p>
+        <a href="coming-soon.html" class="product-cta">Shop Now →</a>
+      </article>
+      <article class="product-card reveal">
+        <span class="product-badge">Family-Safe</span>
+        <h3 class="product-name">Baby Tallow Balm</h3>
+        <p class="product-desc">Gentle enough for newborns, powerful enough for rough adult skin. One jar for the entire family — from cradle rash to cracked heels.</p>
+        <a href="coming-soon.html" class="product-cta">Shop Now →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     SCIENCE
+────────────────────────────────────────────── -->
+<section id="science" aria-label="Why Tallow">
+  <div class="science-watermark" aria-hidden="true">Tallow</div>
+  <div class="science-wrap">
+    <p class="section-label reveal">The Science</p>
+    <h2 class="section-heading reveal">Why tallow <em>actually</em> works.</h2>
+    <div class="science-grid">
+      <div class="science-item reveal">
+        <div class="science-num">01</div>
+        <h3 class="science-title">Skin-Identical Lipids</h3>
+        <p class="science-text">Tallow's fatty acid profile mirrors human sebum with up to 55% similarity. Your skin recognizes it, absorbs it, and doesn't have to fight it. No irritation. No barrier disruption. Just deep, biological compatibility.</p>
+      </div>
+      <div class="science-item reveal">
+        <div class="science-num">02</div>
+        <h3 class="science-title">Vitamins A, D, E &amp; K</h3>
+        <p class="science-text">Grass-fed tallow is dense with fat-soluble vitamins that synthetic serums spend billions trying to replicate — and can't. Vitamin A for cell renewal. D for immunity. E for antioxidant protection. K for healing. All delivered bioavailably.</p>
+      </div>
+      <div class="science-item reveal">
+        <div class="science-num">03</div>
+        <h3 class="science-title">Deep Barrier Repair</h3>
+        <p class="science-text">Most moisturizers sit on the surface and create an illusion of softness. Tallow penetrates. It restores the lipid matrix, rebuilds compromised skin barriers, and creates lasting resilience — not temporary relief.</p>
+      </div>
+      <div class="science-item reveal">
+        <div class="science-num">04</div>
+        <h3 class="science-title">One Product, Five Roles</h3>
+        <p class="science-text">Face moisturizer. Body balm. Lip treatment. Eye cream. Cuticle repair. Bahia replaces an entire shelf with a single, honest jar. The simplest skincare routine is also the most effective one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     STORY / QUOTE
+────────────────────────────────────────────── -->
+<section class="story" aria-label="Brand Story">
+  <div class="story-bg-quote" aria-hidden="true">"</div>
+  <div class="story-layout">
+    <div class="story-image-col reveal">
+      <img src="Images/Generated/woman-morning-ritual.png" alt="Bahia Tallow balm on marble vanity with woman in mirror" loading="lazy">
+    </div>
+    <div class="story-text-col">
+      <div class="story-inner reveal">
+        <p class="story-open-mark" aria-hidden="true">"</p>
+        <blockquote class="story-pull">
+          One ingredient.<br>One ritual. One truth.
+        </blockquote>
+        <p class="story-body">Before skincare became an industry, skin took care of itself — with the foods we ate, the fats we used, and the simplicity we lived by. Bahia Tallow is a return to that clarity. We didn't invent anything new. We remembered what always worked.</p>
+        <div class="divider"></div>
+        <p class="story-attr">Bahia Tallow — Est. 2024</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     TESTIMONIALS
+────────────────────────────────────────────── -->
+<section id="stories" aria-label="Customer Stories">
+  <div class="test-wrap">
+    <div class="test-hd reveal">
+      <p class="section-label">Real Skin. Real People.</p>
+      <h2 class="section-heading">Stories from<br>the community.</h2>
+    </div>
+    <div class="test-grid">
+      <article class="test-card reveal">
+        <div class="test-stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="test-quote">"I spent years layering creams, serums, and oils — hundreds of dollars a month. One jar of Bahia replaced all of it. My skin has never looked this good. I feel ridiculous it took me this long."</blockquote>
+        <p class="test-name">Sofia M.</p>
+        <p class="test-detail">Sensitive skin — 3 months with Bahia</p>
+      </article>
+      <article class="test-card reveal">
+        <div class="test-stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="test-quote">"As someone who surfs every morning, I needed something that could handle salt, sun, and wind. The Zinc Balm is the only thing that's protected my skin without wrecking it. It feels ancestral — in the best way."</blockquote>
+        <p class="test-name">James R.</p>
+        <p class="test-detail">Outdoor lifestyle — Zinc Balm devotee</p>
+      </article>
+      <article class="test-card reveal">
+        <div class="test-stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="test-quote">"I use the baby formula on my daughter and myself. Zero reactions on her sensitive skin, and my hands finally healed after months of trying everything else. This is what skincare should have always been."</blockquote>
+        <p class="test-name">Lena K.</p>
+        <p class="test-detail">Mother of two — Family Formula user</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     CTA BANNER
+────────────────────────────────────────────── -->
+<section class="cta-banner" aria-label="Call to action">
+  <div class="cta-grain grain" aria-hidden="true"></div>
+  <div class="cta-inner reveal">
+    <p class="section-label">Start Simple</p>
+    <h2 class="cta-h2">Ready to simplify?</h2>
+    <p class="cta-sub">Your skin doesn't need more products.<br>It needs the right one.</p>
+    <a href="coming-soon.html" class="btn btn-light">Shop the Collection</a>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────────
+     FOOTER
+────────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-logo">
+        <img src="Branding/Bahia Tallow-Logo-White.png" alt="Bahia Tallow">
+      </div>
+      <p class="footer-brand-text">Modern ancestral skincare built on one powerful truth: your skin already knows what it needs. We just help it remember.</p>
+      <div class="footer-social-links">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-col-label">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#science">Science</a></li>
+        <li><a href="#stories">Stories</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-label">Info</p>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Ingredients</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-label">Join the Community</p>
+      <p class="footer-signup-desc">Get the latest on ancestral living, skin education, and early access to new products.</p>
+      <form class="footer-form" id="emailForm" novalidate>
+        <input type="email" placeholder="your@email.com" aria-label="Email address">
+        <button type="submit">Join</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Bahia Tallow. All rights reserved.</p>
+    <nav class="footer-legal" aria-label="Legal links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookie Settings</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ──────────────────────────────────────────────
+     SCRIPTS
+────────────────────────────────────────────── -->
+<script>
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile menu
+  const hamburger = document.getElementById('navHamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+
+  const openMenu = () => {
+    mobileMenu.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeMenu = () => {
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+
+  hamburger.addEventListener('click', openMenu);
+  mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('.mobile-link, .btn').forEach(el => {
+    el.addEventListener('click', closeMenu);
+  });
+
+  // Reveal on scroll (IntersectionObserver)
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      // Stagger siblings in the same grid/flex parent
+      const parent = entry.target.parentElement;
+      const siblings = Array.from(parent.querySelectorAll(':scope > .reveal'));
+      const idx = siblings.indexOf(entry.target);
+      const delay = idx * 90;
+      setTimeout(() => entry.target.classList.add('visible'), delay);
+      revealObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => revealObs.observe(el));
+
+  // Email form
+  const emailForm = document.getElementById('emailForm');
+  emailForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = emailForm.querySelector('input');
+    const btn = emailForm.querySelector('button');
+    if (!input.value.includes('@')) {
+      input.style.borderColor = 'rgba(196,98,45,0.6)';
+      setTimeout(() => { input.style.borderColor = ''; }, 2000);
+      return;
+    }
+    btn.textContent = 'Done ✓';
+    input.value = '';
+    setTimeout(() => { btn.textContent = 'Join'; }, 3500);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bahia Tallow — Launching soon. Subscribe for 40% off your first order.">
+  <title>Bahia Tallow — Launching Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sand:       #F5EFE0;
+      --brown:      #3B2314;
+      --brown-mid:  #5C3520;
+      --cream:      #FDF8F2;
+      --terracotta: #C4622D;
+      --terra-dark: #A85226;
+      --sage:       #8A9E7E;
+      --muted:      rgba(59,35,20,0.42);
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--brown);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Grain overlay ── */
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── Navbar ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3.5rem;
+      background: rgba(253,248,242,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(59,35,20,0.07);
+    }
+    .nav-logo img { height: 30px; width: auto; }
+    .nav-back {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--brown); }
+
+    /* ── Main layout ── */
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+
+    /* ── Left: Image ── */
+    .launch-image {
+      position: relative;
+      overflow: hidden;
+    }
+    .launch-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .launch-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(59,35,20,0.18), transparent 60%);
+    }
+
+    /* ── Right: Content ── */
+    .launch-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 9rem 5rem 5rem 5rem;
+      position: relative;
+      background: var(--cream);
+      overflow: hidden;
+    }
+    .launch-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 40%, #F2EAD5 0%, var(--cream) 70%);
+      z-index: 0;
+    }
+    .launch-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Eyebrow */
+    .launch-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.1s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+
+    /* Heading */
+    .launch-h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 4vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--brown);
+      margin-bottom: 1.25rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.22s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .launch-h1 em { font-style: italic; color: var(--terracotta); }
+
+    .launch-sub {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--brown-mid);
+      max-width: 400px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.34s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+
+    /* ── Offer badge ── */
+    .offer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--sand);
+      border: 1px solid rgba(59,35,20,0.1);
+      padding: 1rem 1.5rem;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.44s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .offer-discount {
+      background: var(--terracotta);
+      color: var(--cream);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    .offer-prices {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    .offer-original {
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+    .offer-sale {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--brown);
+      line-height: 1;
+    }
+    .offer-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 300;
+      white-space: nowrap;
+    }
+
+    /* ── Countdown ── */
+    .countdown-wrap {
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.54s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .countdown-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .countdown {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .countdown-num {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--brown);
+      background: var(--sand);
+      border: 1px solid rgba(59,35,20,0.08);
+      min-width: 70px;
+      text-align: center;
+      padding: 0.6rem 0.5rem 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .countdown-unit-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .countdown-sep {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--terracotta);
+      line-height: 1;
+      padding-top: 0.5rem;
+      opacity: 0.5;
+    }
+
+    /* ── Subscribe form ── */
+    .form-wrap {
+      opacity: 0;
+      animation: fadeUp 0.8s 0.64s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .form-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .form-row {
+      display: flex;
+      gap: 0;
+      max-width: 420px;
+    }
+    .form-input {
+      flex: 1;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--brown);
+      background: #fff;
+      border: 1.5px solid rgba(59,35,20,0.18);
+      border-right: none;
+      padding: 0.85rem 1.1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder { color: var(--muted); }
+    .form-input:focus { border-color: var(--terracotta); }
+    .form-btn {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--brown);
+      color: var(--cream);
+      border: 1.5px solid var(--brown);
+      padding: 0.85rem 1.5rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .form-btn:hover { background: var(--brown-mid); border-color: var(--brown-mid); }
+    .form-disclaimer {
+      margin-top: 0.75rem;
+      font-size: 0.68rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Success state ── */
+    .form-success {
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--sand);
+      border: 1px solid rgba(138,158,126,0.4);
+      padding: 1rem 1.25rem;
+      max-width: 420px;
+    }
+    .form-success.visible { display: flex; }
+    .form-success-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .form-success-text {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--brown);
+      line-height: 1.4;
+    }
+    .form-success-text strong { font-weight: 600; color: var(--terracotta); }
+
+    /* ── Divider line ── */
+    .launch-divider {
+      width: 36px;
+      height: 1px;
+      background: var(--terracotta);
+      margin: 2rem 0;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.74s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .launch-trust {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.74s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .launch-trust span { color: var(--sage); font-weight: 500; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.68rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(59,35,20,0.07);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; }
+      .launch-image { height: 45vh; }
+      .launch-content { padding: 4rem 2.5rem 4rem; }
+      .launch-h1 { font-size: 2.4rem; }
+    }
+    @media (max-width: 560px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .launch-content { padding: 3rem 1.5rem 3rem; }
+      .countdown { gap: 0.6rem; }
+      .countdown-num { min-width: 58px; font-size: 2rem; }
+      .form-row { flex-direction: column; }
+      .form-input { border-right: 1.5px solid rgba(59,35,20,0.18); border-bottom: none; }
+      .form-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navbar ── -->
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Bahia Tallow home">
+    <img src="Branding/Bahia Tallow-Logo-Red.png" alt="Bahia Tallow">
+  </a>
+  <a href="index.html" class="nav-back">
+    ← Back to site
+  </a>
+</nav>
+
+<!-- ── Main ── -->
+<main>
+
+  <!-- Left: Product image -->
+  <div class="launch-image">
+    <img src="Images/Generated/fb-ad-lifestyle.png" alt="Bahia Tallow balm — product in focus, woman applying in background" loading="eager">
+    <div class="launch-image-overlay"></div>
+  </div>
+
+  <!-- Right: Launch content -->
+  <div class="launch-content">
+    <div class="launch-bg"></div>
+    <div class="launch-inner">
+
+      <p class="launch-eyebrow">Coming Soon</p>
+
+      <h1 class="launch-h1">
+        The balm your skin<br>has been <em>waiting for.</em>
+      </h1>
+
+      <p class="launch-sub">
+        Bahia Tallow launches in just a few weeks. Subscribe now and be first in line — with 40% off your first order.
+      </p>
+
+      <!-- Offer badge -->
+      <div class="offer-badge">
+        <span class="offer-discount">40% Off</span>
+        <div class="offer-prices">
+          <span class="offer-original">$53.99</span>
+          <span class="offer-sale">$32.39</span>
+        </div>
+        <span class="offer-note">for early subscribers</span>
+      </div>
+
+      <!-- Countdown -->
+      <div class="countdown-wrap">
+        <p class="countdown-label">Launching in</p>
+        <div class="countdown">
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-days">31</span>
+            <span class="countdown-unit-label">Days</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-hours">00</span>
+            <span class="countdown-unit-label">Hours</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-mins">00</span>
+            <span class="countdown-unit-label">Mins</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-secs">00</span>
+            <span class="countdown-unit-label">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subscribe form -->
+      <div class="form-wrap">
+        <label class="form-label" for="email-input">Subscribe to claim your 40% off</label>
+        <div class="form-row" id="formRow">
+          <input
+            type="email"
+            id="email-input"
+            class="form-input"
+            placeholder="your@email.com"
+            autocomplete="email"
+            required
+          >
+          <button class="form-btn" id="subscribeBtn" type="button">Notify Me</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">✓</div>
+          <div class="form-success-text">
+            You're on the list! Your <strong>40% off code</strong> will be emailed on launch day.
+          </div>
+        </div>
+        <p class="form-disclaimer">No spam. One email on launch day with your exclusive discount code.</p>
+      </div>
+
+      <div class="launch-divider"></div>
+
+      <p class="launch-trust">
+        Join <span>2,400+</span> people already on the waitlist.
+      </p>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2025 Bahia Tallow · <a href="index.html" style="color:inherit">bahiatallow.com.au</a>
+</footer>
+
+<script>
+  // ── Countdown to launch (31 days from page load date) ──
+  (function () {
+    const LAUNCH_KEY = 'bahia_launch_target';
+    let target = localStorage.getItem(LAUNCH_KEY);
+
+    if (!target) {
+      const d = new Date();
+      d.setDate(d.getDate() + 31);
+      d.setHours(0, 0, 0, 0);
+      target = d.getTime();
+      localStorage.setItem(LAUNCH_KEY, target);
+    } else {
+      target = parseInt(target, 10);
+    }
+
+    const els = {
+      days:  document.getElementById('cd-days'),
+      hours: document.getElementById('cd-hours'),
+      mins:  document.getElementById('cd-mins'),
+      secs:  document.getElementById('cd-secs'),
+    };
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+      const now  = Date.now();
+      const diff = Math.max(0, target - now);
+
+      const days  = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins  = Math.floor((diff % 3600000)  / 60000);
+      const secs  = Math.floor((diff % 60000)    / 1000);
+
+      els.days.textContent  = pad(days);
+      els.hours.textContent = pad(hours);
+      els.mins.textContent  = pad(mins);
+      els.secs.textContent  = pad(secs);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // ── Supabase config ──
+  const SUPABASE_URL    = 'https://pcgfwcxbodvluzleiklx.supabase.co';
+  const SUPABASE_ANON   = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBjZ2Z3Y3hib2R2bHV6bGVpa2x4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2NzMxOTEsImV4cCI6MjA4ODI0OTE5MX0.RyZ5YuPV2lulN3TvYJmreHNKhDUF9LvwWXcZneoXuig';
+
+  // ── Subscribe form ──
+  document.getElementById('subscribeBtn').addEventListener('click', async function () {
+    const input = document.getElementById('email-input');
+    const btn   = document.getElementById('subscribeBtn');
+    const email = input.value.trim();
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      input.style.borderColor = '#C4622D';
+      input.focus();
+      setTimeout(() => input.style.borderColor = '', 1500);
+      return;
+    }
+
+    // Loading state
+    btn.textContent = '...';
+    btn.disabled = true;
+    input.disabled = true;
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/bahia_tallow_subscribers`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON,
+          'Authorization': `Bearer ${SUPABASE_ANON}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ email, source: 'coming-soon' })
+      });
+
+      if (res.ok || res.status === 409) {
+        // 409 = duplicate email (already subscribed) — still show success
+        document.getElementById('formRow').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      btn.textContent = 'Notify Me';
+      btn.disabled = false;
+      input.disabled = false;
+      input.style.borderColor = '#C4622D';
+      setTimeout(() => input.style.borderColor = '', 2000);
+    }
+  });
+
+  // Allow Enter key on email input
+  document.getElementById('email-input').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') document.getElementById('subscribeBtn').click();
+  });
+</script>
+</body>
+</html>

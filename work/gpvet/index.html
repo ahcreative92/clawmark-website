@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPVet & GlamPet | West End Brisbane | Same-Day Vet & Pet Grooming</title>
+  <meta name="description" content="GPVet and GlamPet — Brisbane's same-day veterinary clinic and professional pet grooming salon in West End. Vets with 25+ years experience. Book today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ─────────────────────────────────────────────────────────────
+       GPVet Brand Tokens — electric blue + orange-red + white
+       matching gpvet.com: Syne headings, #170DF2 primary, #FC4E1A CTA
+    ───────────────────────────────────────────────────────────── */
+    :root {
+      --green:        #170DF2;
+      --green-dark:   #0E09C7;
+      --green-light:  #2842EB;
+      --green-pale:   #EEF0FF;
+      --amber:        #FC4E1A;
+      --amber-light:  #FF7043;
+      --amber-pale:   #FFF3F0;
+      --warm-white:   #FFFFFF;
+      --warm-cream:   #F2F2F2;
+      --warm-sand:    #E8E8E8;
+      --charcoal:     #0A0A1A;
+      --charcoal-mid: #2D2D4E;
+      --charcoal-soft:#717190;
+      --white:        #FFFFFF;
+      --nav-h:        70px;
+      --radius:       14px;
+      --radius-lg:    22px;
+      --radius-pill:  100px;
+      --shadow-xs:    0 1px 6px rgba(23,13,242,0.07);
+      --shadow-sm:    0 3px 14px rgba(23,13,242,0.09);
+      --shadow-md:    0 8px 32px rgba(23,13,242,0.13);
+      --shadow-lg:    0 20px 60px rgba(23,13,242,0.17);
+      --ease:         cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--charcoal);
+      background: var(--warm-white);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { font-family: inherit; }
+
+    /* ── Utility ── */
+    .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .chip {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-pale);
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+    }
+    .h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 3.8vw, 44px);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--charcoal);
+    }
+    .lead {
+      font-size: 17px;
+      color: var(--charcoal-mid);
+      line-height: 1.75;
+      max-width: 600px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: var(--radius-pill);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.22s var(--ease);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .btn-green { background: var(--green); color: #fff; border-color: var(--green); }
+    .btn-green:hover { background: var(--green-dark); border-color: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(23,13,242,0.32); }
+    .btn-amber { background: var(--amber); color: #fff; border-color: var(--amber); }
+    .btn-amber:hover { background: #D63A0E; border-color: #D63A0E; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(252,78,26,0.35); }
+    .btn-outline { background: transparent; color: var(--green); border-color: var(--green); }
+    .btn-outline:hover { background: var(--green); color: #fff; }
+    .btn-ghost-white { background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.45); }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.28); border-color: rgba(255,255,255,0.8); }
+
+    /* ─────────────────────────────────────────────────────────────
+       NAVBAR
+    ───────────────────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h);
+      background: rgba(253,251,247,0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(23,13,242,0.07);
+      transition: box-shadow 0.22s var(--ease);
+    }
+    .nav.shadow { box-shadow: var(--shadow-sm); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; }
+    .nav-brand-mark {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-brand-mark svg { color: #fff; }
+    .nav-brand-text { line-height: 1.15; }
+    .nav-brand-name { font-family: 'Syne', sans-serif; font-size: 19px; font-weight: 700; color: var(--green); }
+    .nav-brand-sub { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      font-size: 14px; font-weight: 600; color: var(--charcoal-mid);
+      padding: 8px 13px; border-radius: 8px;
+      transition: all 0.18s var(--ease);
+    }
+    .nav-links a:hover { color: var(--green); background: var(--green-pale); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .nav-phone-link {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 13px; font-weight: 700; color: var(--charcoal-mid);
+      transition: color 0.18s;
+    }
+    .nav-phone-link:hover { color: var(--green); }
+    .nav-phone-link svg { color: var(--green); flex-shrink: 0; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: all 0.22s var(--ease); }
+    .mobile-nav {
+      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 99;
+      background: var(--warm-white); border-bottom: 1px solid var(--warm-sand);
+      box-shadow: var(--shadow-md); padding: 12px 24px 24px;
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a { display: block; font-size: 16px; font-weight: 600; color: var(--charcoal); padding: 13px 0; border-bottom: 1px solid var(--warm-sand); }
+    .mobile-nav a:last-of-type { border-bottom: none; }
+    .mobile-nav .btn {
+      display: flex; justify-content: center; align-items: center;
+      margin-top: 20px; width: 100%;
+      padding: 16px 26px; font-size: 16px;
+      border-radius: var(--radius-pill);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      padding-top: var(--nav-h);
+      display: flex; align-items: center;
+      background: linear-gradient(150deg, #080569 0%, var(--green-dark) 45%, var(--green) 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero-orb1 {
+      position: absolute; top: -120px; right: -100px;
+      width: 520px; height: 520px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(252,78,26,0.14) 0%, transparent 70%);
+    }
+    .hero-orb2 {
+      position: absolute; bottom: -140px; left: -120px;
+      width: 480px; height: 480px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    }
+    .hero-paw-bg {
+      position: absolute; bottom: 30px; right: 60px;
+      opacity: 0.06; transform: rotate(-15deg);
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 440px;
+      gap: 60px; align-items: center;
+      padding: 100px 0 110px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.28);
+      color: rgba(255,255,255,0.92); font-size: 13px; font-weight: 700;
+      padding: 6px 16px; border-radius: var(--radius-pill); margin-bottom: 22px;
+    }
+    .hero-eyebrow svg { color: var(--amber-light); flex-shrink: 0; }
+    .hero-h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(36px, 5vw, 62px);
+      font-weight: 700; color: #fff; line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero-h1 em { font-style: italic; color: var(--amber-light); }
+    .hero-sub { font-size: 18px; color: rgba(255,255,255,0.82); line-height: 1.75; margin-bottom: 36px; max-width: 520px; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-proof {
+      display: flex; gap: 30px; margin-top: 48px; padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+      flex-wrap: wrap;
+    }
+    .hero-proof-item {}
+    .hero-proof-num {
+      font-family: 'Syne', sans-serif; font-size: 30px; font-weight: 700;
+      color: #fff; line-height: 1;
+    }
+    .hero-proof-label { font-size: 12px; color: rgba(255,255,255,0.62); margin-top: 4px; font-weight: 600; }
+    /* card */
+    .hero-card {
+      background: rgba(255,255,255,0.11);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      position: relative;
+    }
+    .hero-card-tag {
+      position: absolute; top: -14px; right: 20px;
+      background: var(--amber); color: #fff;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: var(--radius-pill);
+      box-shadow: 0 4px 14px rgba(252,78,26,0.4);
+    }
+    .hero-card-title { font-family: 'Syne', sans-serif; font-size: 18px; color: #fff; margin-bottom: 18px; }
+    .hc-list { display: flex; flex-direction: column; gap: 13px; }
+    .hc-item { display: flex; align-items: flex-start; gap: 12px; }
+    .hc-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(255,255,255,0.14);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .hc-icon svg { color: var(--amber-light); }
+    .hc-text { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); }
+    .hc-sub { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+    .hero-rating {
+      margin-top: 20px; background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 10px; padding: 14px 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .stars { color: var(--amber-light); font-size: 15px; letter-spacing: 2px; }
+    .rating-label { font-size: 13px; color: rgba(255,255,255,0.8); }
+    .rating-label strong { color: #fff; }
+
+    /* ── Hero photo card ── */
+    .hero-photo-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      height: 520px;
+    }
+    .hero-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+    .hero-photo-badge {
+      position: absolute; top: 18px; left: 18px;
+      background: var(--amber); color: #fff;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 15px; border-radius: var(--radius-pill);
+      box-shadow: 0 4px 14px rgba(252,78,26,0.4);
+    }
+    .hero-photo-rating {
+      position: absolute; bottom: 18px; left: 18px; right: 18px;
+      background: rgba(10,10,26,0.72);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px; padding: 14px 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       TRUST STRIP
+    ───────────────────────────────────────────────────────────── */
+    .trust-strip { background: var(--charcoal); padding: 0; }
+    .trust-list { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      color: rgba(255,255,255,0.72); font-size: 14px; font-weight: 600;
+      padding: 18px 30px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-item svg { color: var(--amber-light); flex-shrink: 0; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SERVICES
+    ───────────────────────────────────────────────────────────── */
+    .services { padding: 96px 0; background: var(--warm-white); }
+    .sec-hdr { margin-bottom: 56px; }
+    .sec-hdr.center { text-align: center; }
+    .sec-hdr.center .lead { margin: 14px auto 0; }
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .svc-card {
+      background: var(--white);
+      border: 1px solid rgba(23,13,242,0.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.25s var(--ease);
+      cursor: pointer;
+    }
+    .svc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--green); }
+    .svc-card-top {
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 56px;
+      background: var(--green-pale);
+      position: relative;
+    }
+    .svc-label {
+      position: absolute; top: 14px; left: 14px;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 11px; border-radius: var(--radius-pill);
+    }
+    .svc-label-green { background: var(--green); color: #fff; }
+    .svc-label-amber { background: var(--amber); color: #fff; }
+    .svc-body { padding: 26px; }
+    .svc-icon-ring {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .svc-icon-ring svg { color: var(--green); }
+    .svc-title { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--charcoal); margin-bottom: 10px; }
+    .svc-desc { font-size: 14px; color: var(--charcoal-mid); line-height: 1.7; margin-bottom: 18px; }
+    .svc-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 14px; font-weight: 700; color: var(--green);
+      transition: gap 0.18s var(--ease);
+    }
+    .svc-link:hover { gap: 9px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       WHY GPVET (About)
+    ───────────────────────────────────────────────────────────── */
+    .why { padding: 96px 0; background: var(--green-pale); }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .why-visual-box {
+      background: var(--green);
+      border-radius: var(--radius-lg);
+      padding: 44px 38px;
+      position: relative;
+    }
+    /* ── Why / About photo ── */
+    .why-photo-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      height: 480px;
+    }
+    .why-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
+    }
+    .why-photo-stats {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(10,10,26,0.85) 0%, transparent 100%);
+      padding: 32px 28px 28px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    }
+    .why-stat { text-align: center; }
+    .why-stat-n {
+      font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800;
+      color: #fff; line-height: 1;
+    }
+    .why-stat-l { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 4px; font-weight: 600; }
+
+    .why-big-n {
+      font-family: 'Syne', sans-serif; font-size: 78px; font-weight: 700;
+      color: var(--amber-light); line-height: 1;
+    }
+    .why-big-l { font-size: 14px; color: rgba(255,255,255,0.72); margin-top: 6px; margin-bottom: 28px; font-weight: 600; }
+    .why-mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .why-mini {
+      background: rgba(255,255,255,0.11);
+      border-radius: 10px; padding: 18px;
+    }
+    .why-mini-n { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; color: #fff; }
+    .why-mini-l { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 3px; font-weight: 600; }
+    .why-floating {
+      position: absolute; bottom: -22px; right: -22px;
+      background: var(--white); border-radius: var(--radius);
+      padding: 16px 20px; box-shadow: var(--shadow-md);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .why-float-ico {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--amber-pale);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .why-float-ico svg { color: var(--amber); }
+    .why-float-t { font-size: 13px; font-weight: 700; color: var(--charcoal); }
+    .why-float-s { font-size: 11px; color: var(--charcoal-soft); margin-top: 2px; }
+    .why-points { display: flex; flex-direction: column; gap: 26px; margin-top: 36px; }
+    .why-pt { display: flex; gap: 18px; align-items: flex-start; }
+    .why-pt-ico {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: var(--white); box-shadow: var(--shadow-xs);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .why-pt-ico svg { color: var(--green); }
+    .why-pt-title { font-size: 17px; font-weight: 800; color: var(--charcoal); margin-bottom: 5px; }
+    .why-pt-desc { font-size: 14px; color: var(--charcoal-mid); line-height: 1.7; }
+
+    /* ─────────────────────────────────────────────────────────────
+       TEAM
+    ───────────────────────────────────────────────────────────── */
+    .team { padding: 96px 0; background: var(--warm-white); }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .team-card {
+      background: var(--white);
+      border: 1px solid rgba(23,13,242,0.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.25s var(--ease);
+    }
+    .team-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .team-photo {
+      height: 280px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .team-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+    .team-photo.green-bg { background: linear-gradient(135deg, #080569, var(--green)); }
+    .team-photo.sage-bg { background: linear-gradient(135deg, #0E09C7, #2842EB); }
+    .team-photo.warm-bg { background: linear-gradient(135deg, #C02D00, #FC4E1A); }
+    .team-photo::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 48px;
+      background: linear-gradient(to top, var(--white), transparent);
+    }
+    .team-body { padding: 22px 26px 30px; }
+    .team-name { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--charcoal); margin-bottom: 4px; }
+    .team-role { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 13px; }
+    .team-bio { font-size: 14px; color: var(--charcoal-mid); line-height: 1.7; }
+
+    /* ─────────────────────────────────────────────────────────────
+       GLAMPET / GROOMING
+    ───────────────────────────────────────────────────────────── */
+    .glampet {
+      padding: 96px 0;
+      background: linear-gradient(150deg, #080569 0%, #0E09C7 55%, #170DF2 100%);
+      position: relative; overflow: hidden;
+    }
+    .glampet::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 40%, rgba(252,78,26,0.1) 0%, transparent 60%);
+    }
+    .glampet-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    }
+    .glampet-chip {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--amber-light); background: rgba(252,78,26,0.15);
+      padding: 5px 14px; border-radius: var(--radius-pill); margin-bottom: 14px;
+    }
+    .glampet-h2 {
+      font-family: 'Syne', sans-serif; font-size: clamp(28px, 3.6vw, 44px);
+      font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 18px;
+    }
+    .glampet-h2 em { font-style: italic; color: var(--amber-light); }
+    .glampet-desc { font-size: 16px; color: rgba(255,255,255,0.76); line-height: 1.8; margin-bottom: 28px; }
+    .glampet-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 32px; }
+    .gf-item { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.88); }
+    .gf-item svg { color: var(--amber-light); flex-shrink: 0; }
+    /* ── GlamPet photo side ── */
+    .glampet-photo-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      height: 460px;
+    }
+    .glampet-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
+    }
+    .glampet-photo-wrap .glampet-panel-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(8,5,105,0.9) 0%, transparent 60%);
+      padding: 28px 24px;
+    }
+
+    .glampet-panel {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg); padding: 32px;
+    }
+    .glampet-panel-title { font-family: 'Syne', sans-serif; font-size: 20px; color: #fff; margin-bottom: 20px; }
+    .style-rows { display: flex; flex-direction: column; gap: 10px; }
+    .style-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 600;
+    }
+    .style-tag {
+      font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: var(--radius-pill);
+      background: rgba(252,78,26,0.22); color: var(--amber-light);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       REVIEWS
+    ───────────────────────────────────────────────────────────── */
+    .reviews { padding: 96px 0; background: var(--warm-cream); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 56px; }
+    .rv-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      border: 1px solid rgba(23,13,242,0.07); padding: 26px;
+      transition: all 0.22s var(--ease);
+    }
+    .rv-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .rv-stars { color: var(--amber); font-size: 15px; letter-spacing: 2px; margin-bottom: 14px; }
+    .rv-quote { font-size: 14px; color: var(--charcoal-mid); line-height: 1.75; margin-bottom: 18px; font-style: italic; }
+    .rv-author { display: flex; align-items: center; gap: 12px; }
+    .rv-av {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 800; color: #fff; flex-shrink: 0;
+    }
+    .rv-name { font-size: 14px; font-weight: 700; color: var(--charcoal); }
+    .rv-meta { font-size: 12px; color: var(--charcoal-soft); margin-top: 1px; }
+    .reviews-footer { text-align: center; margin-top: 44px; }
+    .g-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--white); border: 1px solid rgba(23,13,242,0.1);
+      border-radius: var(--radius-pill); padding: 10px 20px;
+      font-size: 14px; font-weight: 700; color: var(--charcoal);
+      box-shadow: var(--shadow-xs);
+    }
+    .g-circle {
+      width: 24px; height: 24px; border-radius: 50%; background: #4285F4;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800; color: #fff;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       BOOK CTA BAND
+    ───────────────────────────────────────────────────────────── */
+    .book-band { padding: 96px 0; background: var(--green); position: relative; overflow: hidden; }
+    .book-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.07) 0%, transparent 60%);
+    }
+    .book-band-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    }
+    .book-chip {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--amber-light); background: rgba(252,78,26,0.15);
+      padding: 5px 14px; border-radius: var(--radius-pill); margin-bottom: 14px;
+    }
+    .book-h2 {
+      font-family: 'Syne', sans-serif; font-size: clamp(28px, 3.6vw, 46px);
+      font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 16px;
+    }
+    .book-sub { font-size: 17px; color: rgba(255,255,255,0.78); line-height: 1.75; margin-bottom: 32px; }
+    .book-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    /* ── CTA band photo column ── */
+    .book-photo-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 380px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .book-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+      display: block;
+    }
+    .book-photo-wrap::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(23,13,242,0.6) 100%);
+      border-radius: var(--radius-lg);
+    }
+
+    .book-cards { display: flex; flex-direction: column; gap: 14px; }
+    .book-card {
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius); padding: 18px 22px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .book-card-ico {
+      width: 44px; height: 44px; border-radius: 11px;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .book-card-ico svg { color: var(--amber-light); }
+    .book-card-t { font-size: 15px; font-weight: 700; color: #fff; }
+    .book-card-s { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       CONTACT
+    ───────────────────────────────────────────────────────────── */
+    .contact { padding: 96px 0; background: var(--warm-white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .contact-info { display: flex; flex-direction: column; gap: 26px; margin-top: 32px; }
+    .ci-item { display: flex; gap: 16px; align-items: flex-start; }
+    .ci-ico {
+      width: 46px; height: 46px; border-radius: 12px;
+      background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .ci-ico svg { color: var(--green); }
+    .ci-label { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 4px; }
+    .ci-val { font-size: 16px; font-weight: 700; color: var(--charcoal); }
+    .ci-note { font-size: 13px; color: var(--charcoal-soft); margin-top: 2px; }
+    .hours-table { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; margin-top: 6px; }
+    .hr-row { display: flex; justify-content: space-between; font-size: 14px; color: var(--charcoal-mid); padding: 5px 0; border-bottom: 1px solid var(--warm-sand); }
+    .hr-row .d { font-weight: 700; color: var(--charcoal); }
+    .social-row { display: flex; gap: 10px; margin-top: 28px; }
+    .soc-btn {
+      width: 42px; height: 42px; border-radius: 10px;
+      border: 1px solid rgba(23,13,242,0.12);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--charcoal-mid); transition: all 0.18s var(--ease); cursor: pointer;
+    }
+    .soc-btn:hover { background: var(--green); border-color: var(--green); color: #fff; }
+    .map-box {
+      background: var(--green-pale);
+      border-radius: var(--radius-lg); border: 1px solid rgba(23,13,242,0.08);
+      height: 300px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 14px; text-align: center; padding: 40px;
+    }
+    .map-box svg { color: var(--green); }
+    .map-addr { font-size: 16px; font-weight: 700; color: var(--charcoal); }
+    .map-sub { font-size: 13px; color: var(--charcoal-soft); }
+    .map-dir {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 700; color: var(--green);
+      transition: gap 0.18s;
+    }
+    .map-dir:hover { gap: 10px; }
+    .portal-box {
+      margin-top: 24px;
+      background: var(--white); border: 1px solid rgba(23,13,242,0.08);
+      border-radius: var(--radius-lg); padding: 26px;
+    }
+    .portal-box h3 { font-family: 'Syne', sans-serif; font-size: 19px; color: var(--charcoal); margin-bottom: 10px; }
+    .portal-box p { font-size: 14px; color: var(--charcoal-mid); margin-bottom: 18px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────────────────────── */
+    .footer { background: var(--charcoal); padding: 60px 0 28px; }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 52px; padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer-brand-name { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 700; color: #fff; }
+    .footer-brand-name span { color: var(--amber-light); }
+    .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.48); margin-top: 10px; line-height: 1.7; max-width: 300px; }
+    .footer-soc { display: flex; gap: 10px; margin-top: 22px; }
+    .footer-soc-btn {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.45); transition: all 0.18s var(--ease); cursor: pointer;
+    }
+    .footer-soc-btn:hover { background: var(--green); color: #fff; }
+    .footer-col-hd { font-size: 11px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber-light); margin-bottom: 18px; }
+    .footer-links { display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.55); transition: color 0.15s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 24px; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+    /* ─────────────────────────────────────────────────────────────
+       FLOATING BOOK BTN
+    ───────────────────────────────────────────────────────────── */
+    .float-bar {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+    }
+    .float-call {
+      width: 50px; height: 50px; border-radius: 50%;
+      background: var(--amber); color: #fff; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 22px rgba(252,78,26,0.45);
+      transition: transform 0.18s var(--ease);
+    }
+    .float-call:hover { transform: scale(1.1); }
+    .float-book-btn {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--green); color: #fff;
+      border: none; border-radius: var(--radius-pill);
+      padding: 13px 22px; font-size: 14px; font-weight: 800;
+      cursor: pointer; box-shadow: 0 6px 22px rgba(23,13,242,0.4);
+      transition: all 0.18s var(--ease); font-family: inherit;
+    }
+    .float-book-btn:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+    /* ─────────────────────────────────────────────────────────────
+       SCROLL CARET
+    ───────────────────────────────────────────────────────────── */
+    .scroll-caret {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.45); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+    /* ─────────────────────────────────────────────────────────────
+       SCROLL ANIMATIONS
+    ───────────────────────────────────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
+      .reveal.in { opacity: 1; transform: translateY(0); }
+      .reveal:nth-child(2) { transition-delay: 0.08s; }
+      .reveal:nth-child(3) { transition-delay: 0.16s; }
+      .reveal:nth-child(4) { transition-delay: 0.24s; }
+      .reveal:nth-child(5) { transition-delay: 0.32s; }
+      .reveal:nth-child(6) { transition-delay: 0.40s; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 820px) {
+      .nav-links, .nav-phone-link, .nav-actions .btn { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; padding: 64px 0 80px; }
+      .hero-photo-wrap { display: none; }
+      .hero-proof { gap: 18px; }
+      .why-grid { grid-template-columns: 1fr; gap: 44px; }
+      .why-photo-wrap { height: 320px; }
+      .why-photo-stats { grid-template-columns: repeat(2, 1fr); }
+      .why-floating { display: none; }
+      .glampet-inner { grid-template-columns: 1fr; gap: 44px; }
+      .glampet-photo-wrap { height: 300px; }
+      .book-band-inner { grid-template-columns: 1fr; gap: 40px; }
+      .book-photo-wrap { height: 260px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 44px; }
+    }
+    @media (max-width: 600px) {
+      .svc-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .glampet-feats { grid-template-columns: 1fr; }
+      .hero-ctas, .book-btns { flex-direction: column; }
+      .hero-ctas .btn, .book-btns .btn { width: 100%; justify-content: center; }
+      .hours-table { grid-template-columns: 1fr; }
+      .trust-item { padding: 14px 18px; font-size: 13px; }
+      .float-bar { bottom: 14px; right: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────────── -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="#home" class="nav-brand" aria-label="GPVet home">
+        <div class="nav-brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="nav-brand-text">
+          <div class="nav-brand-name">GPVet</div>
+          <div class="nav-brand-sub">& GlamPet</div>
+        </div>
+      </a>
+
+      <div class="nav-links" role="menubar">
+        <a href="#services" role="menuitem">Services</a>
+        <a href="#about" role="menuitem">About Us</a>
+        <a href="#grooming" role="menuitem">Grooming</a>
+        <a href="#reviews" role="menuitem">Reviews</a>
+        <a href="#contact" role="menuitem">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="tel:0730599159" class="nav-phone-link" aria-label="Call us on (07) 3059 9159">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (07) 3059 9159
+        </a>
+        <a href="https://gpvet.apse2.ezyvet.com/external/portal" target="_blank" rel="noopener" class="btn btn-green">Book Now</a>
+      </div>
+
+      <button class="hamburger" id="ham" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── MOBILE NAV ───────────────────────────────────────────────────── -->
+<div class="mobile-nav" id="mobileNav" role="menu">
+  <a href="#services" role="menuitem">Services</a>
+  <a href="#about" role="menuitem">About Us</a>
+  <a href="#grooming" role="menuitem">Grooming</a>
+  <a href="#reviews" role="menuitem">Reviews</a>
+  <a href="#contact" role="menuitem">Contact</a>
+  <a href="tel:0730599159" style="color:var(--green);font-weight:700;" role="menuitem">(07) 3059 9159</a>
+  <a href="https://gpvet.apse2.ezyvet.com/external/portal" target="_blank" rel="noopener" class="btn btn-green">Book Appointment</a>
+</div>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────── -->
+<section id="home" class="hero" aria-labelledby="hero-h1">
+  <div class="hero-orb1" aria-hidden="true"></div>
+  <div class="hero-orb2" aria-hidden="true"></div>
+  <svg class="hero-paw-bg" width="300" height="300" viewBox="0 0 200 200" fill="white" aria-hidden="true">
+    <ellipse cx="100" cy="140" rx="40" ry="32"/>
+    <ellipse cx="58" cy="100" rx="22" ry="18"/>
+    <ellipse cx="142" cy="100" rx="22" ry="18"/>
+    <ellipse cx="78" cy="66" rx="16" ry="13"/>
+    <ellipse cx="122" cy="66" rx="16" ry="13"/>
+  </svg>
+
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          Highly Rated · Same-Day Appointments · West End Brisbane
+        </div>
+        <h1 class="hero-h1" id="hero-h1">
+          Same-Day Vet Care<br/>for <em>Every Beloved</em> Pet
+        </h1>
+        <p class="hero-sub">Brisbane's first GP-style veterinary clinic. Experienced vets with 25+ years. Calm environment. In-home visits. And a professional pet grooming salon — all in one place.</p>
+        <div class="hero-ctas">
+          <a href="https://gpvet.apse2.ezyvet.com/external/portal" target="_blank" rel="noopener" class="btn btn-amber">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book Appointment
+          </a>
+          <a href="#services" class="btn btn-ghost-white">Our Services</a>
+        </div>
+        <div class="hero-proof" role="list" aria-label="Key statistics">
+          <div class="hero-proof-item" role="listitem">
+            <div class="hero-proof-num">25+</div>
+            <div class="hero-proof-label">Years Experience</div>
+          </div>
+          <div class="hero-proof-item" role="listitem">
+            <div class="hero-proof-num" style="font-size:20px;letter-spacing:2px;">★★★★★</div>
+            <div class="hero-proof-label">Highly Rated</div>
+          </div>
+          <div class="hero-proof-item" role="listitem">
+            <div class="hero-proof-num">Same Day</div>
+            <div class="hero-proof-label">Appointments</div>
+          </div>
+          <div class="hero-proof-item" role="listitem">
+            <div class="hero-proof-num">2-in-1</div>
+            <div class="hero-proof-label">Vet + Grooming</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap" aria-label="Happy border collie at GPVet">
+        <img src="GPVET%20/baptist-standaert-mx0DEnfYxic-unsplash.jpg" alt="Happy border collie — just like Dr Megan's beloved pets" loading="eager" />
+        <div class="hero-photo-badge">Brisbane's First GP Vet</div>
+        <div class="hero-photo-rating" role="note">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <div class="rating-label"><strong>5 Stars</strong> · Highly Rated on Google</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-caret" aria-hidden="true">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<!-- ── TRUST STRIP ───────────────────────────────────────────────────── -->
+<div class="trust-strip" role="complementary" aria-label="Trust indicators">
+  <div class="wrap">
+    <ul class="trust-list" role="list">
+      <li class="trust-item" role="listitem">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Same-Day Bookings
+      </li>
+      <li class="trust-item" role="listitem">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        25+ Years Experience
+      </li>
+      <li class="trust-item" role="listitem">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        In-Home Consults
+      </li>
+      <li class="trust-item" role="listitem">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Low Stress Environment
+      </li>
+      <li class="trust-item" role="listitem">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        West End, Brisbane QLD
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── SERVICES ──────────────────────────────────────────────────────── -->
+<section id="services" class="services" aria-labelledby="svc-hd">
+  <div class="wrap">
+    <div class="sec-hdr center">
+      <span class="chip">What We Offer</span>
+      <h2 class="h2" id="svc-hd">Complete Pet Care, All in One Place</h2>
+      <p class="lead">From same-day vet consultations to expert grooming — GPVet and GlamPet are your single point of contact for everything your pet needs.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card reveal">
+        <div class="svc-card-top">
+          <div class="svc-label svc-label-green">Most Popular</div>
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon-ring">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="svc-title">Veterinary Consultations</h3>
+          <p class="svc-desc">Comprehensive, same-day vet consults. Thorough examinations, clear explanations and practical treatment plans — tailored to your pet and your needs as a carer.</p>
+          <a href="#contact" class="svc-link">Book a consult <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+
+      <article class="svc-card reveal">
+        <div class="svc-card-top">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon-ring">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="svc-title">In-Home Vet Consultations</h3>
+          <p class="svc-desc">Can't make it to the clinic? We come to you. Perfect for anxious pets or busy owners — quality vet care without the travel stress for you or your animal.</p>
+          <a href="#contact" class="svc-link">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+
+      <article class="svc-card reveal">
+        <div class="svc-card-top">
+          <div class="svc-label svc-label-amber">New!</div>
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon-ring">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3 class="svc-title">Dental Care</h3>
+          <p class="svc-desc">Our new dental service, led by Dr Brian Wong, offers assessment, periodontal treatment and oral surgery. Healthier teeth mean a healthier, happier pet overall.</p>
+          <a href="#contact" class="svc-link">Book dental check <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+
+      <article class="svc-card reveal">
+        <div class="svc-card-top">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon-ring">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="svc-title">Specialist Referrals & Ancillary Services</h3>
+          <p class="svc-desc">We're your link to specialist facilities and allied pet services. We coordinate transfers and handovers so your pet gets the right care promptly — without the confusion.</p>
+          <a href="#contact" class="svc-link">Find out more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+
+      <article class="svc-card reveal">
+        <div class="svc-card-top">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon-ring">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3 class="svc-title">Happy Vet Vibes</h3>
+          <p class="svc-desc">Behaviour and pain management support for your pet. A holistic approach that addresses physical and emotional health — because a calm, comfortable pet is a healthy pet.</p>
+          <a href="#contact" class="svc-link">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+
+      <article class="svc-card reveal">
+        <div class="svc-card-top">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.2" aria-hidden="true"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon-ring" style="background:var(--amber-pale);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" aria-hidden="true"><path d="M20 7H4a2 2 0 0 0-2 2v6c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3 class="svc-title">Professional Pet Grooming</h3>
+          <p class="svc-desc">GlamPet by GPVet. Amanda and her expert team offer breed clips, teddy clips, Asian fusion styles and more — all with a calm, gentle approach your pet will love.</p>
+          <a href="#grooming" class="svc-link" style="color:var(--amber);">View grooming <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY GPVET ─────────────────────────────────────────────────────── -->
+<section id="about" class="why" aria-labelledby="why-hd">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="why-visual">
+        <div class="why-photo-wrap">
+          <img src="GPVET%20/bruce-warrington-WSAOGHKEqFc-unsplash.jpg" alt="Happy dogs in the park — the patients we love at GPVet West End" loading="lazy" />
+          <div class="why-photo-stats" aria-label="GPVet key statistics">
+            <div class="why-stat"><div class="why-stat-n">25+</div><div class="why-stat-l">Years Exp.</div></div>
+            <div class="why-stat"><div class="why-stat-n">★★★★★</div><div class="why-stat-l">Google</div></div>
+            <div class="why-stat"><div class="why-stat-n">Same Day</div><div class="why-stat-l">Appts</div></div>
+            <div class="why-stat"><div class="why-stat-n">2-in-1</div><div class="why-stat-l">Vet + Groom</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="chip">About GPVet</span>
+        <h2 class="h2" id="why-hd">Brisbane's First GP‑Style Vet Clinic</h2>
+        <p class="lead" style="margin-top:14px;">GPVet is the first of its kind — built around the idea that accessing great vet care shouldn't be difficult. We're here to be your pet's long-term health partner, not just a one-off appointment.</p>
+        <div class="why-points">
+          <div class="why-pt">
+            <div class="why-pt-ico">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="why-pt-title">Access When You Need It</div>
+              <p class="why-pt-desc">When your pet is unwell, waiting days for an appointment is stressful. Same-day care is our standard — not a premium add-on.</p>
+            </div>
+          </div>
+          <div class="why-pt">
+            <div class="why-pt-ico">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="why-pt-title">Your Single Point of Contact</div>
+              <p class="why-pt-desc">From primary care through to specialist referrals, we manage everything. No confusing hand-offs — just seamless, coordinated care for your pet.</p>
+            </div>
+          </div>
+          <div class="why-pt">
+            <div class="why-pt-ico">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div>
+              <div class="why-pt-title">Genuine Care, Every Time</div>
+              <p class="why-pt-desc">Our team genuinely love animals. Every consultation focuses on both your pet's wellbeing and your peace of mind as their carer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ──────────────────────────────────────────────────────────── -->
+<section class="team" aria-labelledby="team-hd">
+  <div class="wrap">
+    <div class="sec-hdr center">
+      <span class="chip">Our Team</span>
+      <h2 class="h2" id="team-hd">The People Behind Your Pet's Care</h2>
+      <p class="lead">Experienced, compassionate, and genuinely passionate about animals — meet the team at GPVet and GlamPet.</p>
+    </div>
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="team-photo" aria-label="Dr Megan Pitcher — like her own border collies, she loves every patient">
+          <img src="GPVET%20/baptist-standaert-mx0DEnfYxic-unsplash.jpg" alt="Happy border collie — just like Dr Megan's own dogs" loading="lazy" />
+        </div>
+        <div class="team-body">
+          <h3 class="team-name">Dr Megan Pitcher</h3>
+          <div class="team-role">Head Veterinarian</div>
+          <p class="team-bio">BVSc (First Class Honours), University of Queensland. 25+ years in small animal practice across Australia and the UK. Associate Fellow of the Higher Education Association, teaching in the Veterinary and Medical faculties at UQ since 2006. Devoted mum to border collies Mollie and Albert.</p>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-photo" aria-label="Dr Brian Wong — dental specialist">
+          <img src="GPVET%20/victor-g-N04FIfHhv_k-unsplash.jpg" alt="Attentive Jack Russell — the kind of care Dr Brian gives every patient" loading="lazy" style="object-position: center center;" />
+        </div>
+        <div class="team-body">
+          <h3 class="team-name">Dr Brian Wong</h3>
+          <div class="team-role">Veterinarian · Dental Specialist</div>
+          <p class="team-bio">A passionate veterinarian specialising in dentistry and advanced oral care. Skilled in dental assessment, periodontal treatment, and oral surgery. Dr Brian combines precision and a gentle touch to deliver the best outcomes for every patient. Cat dad to Mui.</p>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-photo" aria-label="Amanda — GlamPet Head Groomer">
+          <img src="GPVET%20/bill-stephan-9LkqymZFLrE-unsplash.jpg" alt="Golden retriever puppy — the kind of fresh results Amanda delivers" loading="lazy" />
+        </div>
+        <div class="team-body">
+          <h3 class="team-name">Amanda</h3>
+          <div class="team-role" style="color:var(--amber);letter-spacing:0.08em;">Head Groomer · GlamPet</div>
+          <p class="team-bio">14 years of hands-on grooming experience across breed-specific trims, creative styling, and Asian fusion techniques. Known for her calm, gentle approach with even the most anxious pets. Amanda leads and trains the GlamPet team to a consistently exceptional standard.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── GLAMPET ────────────────────────────────────────────────────────── -->
+<section id="grooming" class="glampet" aria-labelledby="glampet-hd">
+  <div class="wrap">
+    <div class="glampet-inner">
+      <div>
+        <span class="glampet-chip">GlamPet Grooming</span>
+        <h2 class="glampet-h2" id="glampet-hd">Your Pet Deserves to<br/><em>Look & Feel Amazing</em></h2>
+        <p class="glampet-desc">At GlamPet, we offer a full range of professional grooming styles for pets of all shapes, sizes and breeds — conveniently located right alongside GPVet for total one-stop pet care.</p>
+        <div class="glampet-feats">
+          <div class="gf-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Breed-specific clips</div>
+          <div class="gf-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Asian fusion styling</div>
+          <div class="gf-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Teddy bear & puppy clips</div>
+          <div class="gf-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> General clip-offs</div>
+          <div class="gf-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Cat grooming</div>
+          <div class="gf-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Anxious-pet friendly</div>
+        </div>
+        <a href="https://gpvet.apse2.ezyvet.com/external/portal" target="_blank" rel="noopener" class="btn btn-amber">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book a Grooming Appointment
+        </a>
+      </div>
+
+      <div class="glampet-photo-wrap">
+        <img src="GPVET%20/oscar-sutton-yihlaRCCvd4-unsplash.jpg" alt="Happy golden retriever running free — the joy of a well-cared-for pet" loading="lazy" />
+        <div class="glampet-panel-overlay">
+          <div class="style-rows">
+            <div class="style-row">Breed-Specific Clips <span class="style-tag">All Breeds</span></div>
+            <div class="style-row">Teddy Bear / Puppy Clip <span class="style-tag">Dogs</span></div>
+            <div class="style-row">Asian Fusion Styling <span class="style-tag">Creative</span></div>
+            <div class="style-row">General Clip-Off & Tidy <span class="style-tag">All Pets</span></div>
+            <div class="style-row">Cat Grooming <span class="style-tag">Cats</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ────────────────────────────────────────────────────────── -->
+<section id="reviews" class="reviews" aria-labelledby="rv-hd">
+  <div class="wrap">
+    <div class="sec-hdr center">
+      <span class="chip">Client Reviews</span>
+      <h2 class="h2" id="rv-hd">What West End Pet Owners Say</h2>
+      <p class="lead">Real stories from the pets and people who trust GPVet and GlamPet with their most important family members.</p>
+    </div>
+    <div class="reviews-grid">
+      <article class="rv-card reveal">
+        <div class="rv-stars" aria-label="5 stars">★★★★★</div>
+        <p class="rv-quote">"I could write an entire book about how incredible Megan is as a vet! There are truly no words to describe how amazing she is."</p>
+        <div class="rv-author">
+          <div class="rv-av" aria-hidden="true">M</div>
+          <div><div class="rv-name">Maisa Lima</div><div class="rv-meta">Google Review · Local Guide</div></div>
+        </div>
+      </article>
+
+      <article class="rv-card reveal">
+        <div class="rv-stars" aria-label="5 stars">★★★★★</div>
+        <p class="rv-quote">"AMAZING! Hard to put into words the excellence of this clinic. Led by Dr Megan, they provide the best service to both our pets and to us as carers."</p>
+        <div class="rv-author">
+          <div class="rv-av" aria-hidden="true">L</div>
+          <div><div class="rv-name">Luisa Baldo</div><div class="rv-meta">Google Review</div></div>
+        </div>
+      </article>
+
+      <article class="rv-card reveal">
+        <div class="rv-stars" aria-label="5 stars">★★★★★</div>
+        <p class="rv-quote">"The best vet and dog groomer in Brisbane! Lady is always excited to come. Everyone on the team is lovely and provides a high quality service."</p>
+        <div class="rv-author">
+          <div class="rv-av" aria-hidden="true">G</div>
+          <div><div class="rv-name">Ghassani Swaryandini</div><div class="rv-meta">Google Review · Local Guide</div></div>
+        </div>
+      </article>
+
+      <article class="rv-card reveal">
+        <div class="rv-stars" aria-label="5 stars">★★★★★</div>
+        <p class="rv-quote">"I highly recommend Dr Megan! Very knowledgeable and explains everything perfectly. We are so happy to have found her."</p>
+        <div class="rv-author">
+          <div class="rv-av" aria-hidden="true">S</div>
+          <div><div class="rv-name">Sass</div><div class="rv-meta">Google Review · Local Guide</div></div>
+        </div>
+      </article>
+
+      <article class="rv-card reveal">
+        <div class="rv-stars" aria-label="5 stars">★★★★★</div>
+        <p class="rv-quote">"What a wonderful service having a groomer and vet together — very convenient! Megan is lovely as well as being very experienced and thorough."</p>
+        <div class="rv-author">
+          <div class="rv-av" aria-hidden="true">I</div>
+          <div><div class="rv-name">Ian Munt</div><div class="rv-meta">Google Review · Local Guide</div></div>
+        </div>
+      </article>
+
+      <article class="rv-card reveal">
+        <div class="rv-stars" aria-label="5 stars">★★★★★</div>
+        <p class="rv-quote">"The whole team helped my very nervous cat feel right at home during his visit. Couldn't recommend highly enough!"</p>
+        <div class="rv-author">
+          <div class="rv-av" aria-hidden="true">L</div>
+          <div><div class="rv-name">Luke Senbruns</div><div class="rv-meta">Google Review · Local Guide · 342 reviews</div></div>
+        </div>
+      </article>
+    </div>
+    <div class="reviews-footer">
+      <div class="g-badge" role="note">
+        <div class="g-circle" aria-hidden="true">G</div>
+        <strong>★★★★★</strong> · Highly Rated on Google Maps
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOK CTA BAND ──────────────────────────────────────────────────── -->
+<section class="book-band" aria-labelledby="book-hd">
+  <div class="wrap">
+    <div class="book-band-inner">
+      <div>
+        <span class="book-chip">Ready to Book?</span>
+        <h2 class="book-h2" id="book-hd">Your Pet's Health<br/>Shouldn't Wait</h2>
+        <p class="book-sub">Same-day appointments available now. Whether it's a check-up, an urgent concern or a grooming session — we're here for you and your pet, in West End Brisbane.</p>
+        <div class="book-btns">
+          <a href="https://gpvet.apse2.ezyvet.com/external/portal" target="_blank" rel="noopener" class="btn btn-amber">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book Online Now
+          </a>
+          <a href="tel:0730599159" class="btn btn-ghost-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call (07) 3059 9159
+          </a>
+        </div>
+      </div>
+      <div class="book-photo-wrap">
+        <img src="GPVET%20/james-barker-v3-zcCWMjgM-unsplash.jpg" alt="Excited chocolate Labrador — the enthusiasm our patients bring every visit" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────────────────────────────── -->
+<section id="contact" class="contact" aria-labelledby="contact-hd">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <span class="chip">Visit Us</span>
+        <h2 class="h2" id="contact-hd">Find GPVet & GlamPet</h2>
+        <div class="contact-info">
+          <div class="ci-item">
+            <div class="ci-ico">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Address</div>
+              <div class="ci-val">2B/31 Anthony Street</div>
+              <div class="ci-note">West End QLD 4101, Australia</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-ico">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Phone</div>
+              <a href="tel:0730599159" class="ci-val" style="color:var(--green);text-decoration:none;">(07) 3059 9159</a>
+              <div class="ci-note">Call us to speak with the team</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-ico">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Opening Hours</div>
+              <div class="hours-table">
+                <div class="hr-row"><span class="d">Mon–Fri</span><span>Open</span></div>
+                <div class="hr-row"><span class="d">Closes</span><span>17:00</span></div>
+              </div>
+              <div class="ci-note" style="margin-top:8px;">Same-day appointments — call to confirm availability</div>
+            </div>
+          </div>
+        </div>
+        <div class="social-row" aria-label="Social media links">
+          <a href="https://www.facebook.com/GPVet" target="_blank" rel="noopener" class="soc-btn" aria-label="GPVet on Facebook">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/gpvet_brisbane/" target="_blank" rel="noopener" class="soc-btn" aria-label="GPVet on Instagram">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="map-box" role="complementary" aria-label="Location map">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <div class="map-addr">2B/31 Anthony Street</div>
+            <div class="map-sub">West End QLD 4101</div>
+          </div>
+          <a href="https://maps.google.com/?q=GPVet+2b+31+Anthony+St+West+End+QLD" target="_blank" rel="noopener" class="map-dir">
+            Get Directions
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="portal-box">
+          <h3>Existing Patient?</h3>
+          <p>Log in to the Animal Portal to manage appointments, access records and book your next visit with ease.</p>
+          <a href="https://gpvet.apse2.ezyvet.com/external/portal" target="_blank" rel="noopener" class="btn btn-outline">
+            Animal Portal Login
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">GPVet <span>&</span> GlamPet</div>
+        <p class="footer-tagline">Brisbane's first GP-style veterinary clinic and professional pet grooming salon. Same-day appointments available. Servicing West End and surrounds.</p>
+        <div class="footer-soc" aria-label="Social media">
+          <a href="https://www.facebook.com/GPVet" target="_blank" rel="noopener" class="footer-soc-btn" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/gpvet_brisbane/" target="_blank" rel="noopener" class="footer-soc-btn" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-hd">Navigation</div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#services">Services</a>
+          <a href="#about">About Us</a>
+          <a href="#grooming">GlamPet Grooming</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact & Hours</a>
+          <a href="https://gpvet.apse2.ezyvet.com/external/portal" target="_blank" rel="noopener">Patient Portal</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-hd">Contact</div>
+        <div class="footer-links">
+          <span style="color:rgba(255,255,255,0.45);font-size:14px;">2B/31 Anthony Street<br/>West End QLD 4101</span>
+          <a href="tel:0730599159">(07) 3059 9159</a>
+          <a href="https://www.facebook.com/GPVet" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/gpvet_brisbane/" target="_blank" rel="noopener">@gpvet_brisbane</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 GPVet.com · West End, Brisbane QLD · All rights reserved</div>
+      <div class="footer-copy">Website redesign concept</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── FLOATING BUTTONS ───────────────────────────────────────────────── -->
+<div class="float-bar" role="complementary" aria-label="Quick contact">
+  <a href="tel:0730599159" class="float-call" aria-label="Call GPVet">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+  <a href="https://gpvet.apse2.ezyvet.com/external/portal" target="_blank" rel="noopener" class="float-book-btn" aria-label="Book appointment">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Book Now
+  </a>
+</div>
+
+<script>
+  // Navbar shadow on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('shadow', window.scrollY > 16);
+  }, { passive: true });
+
+  // Hamburger toggle
+  const ham = document.getElementById('ham');
+  const mob = document.getElementById('mobileNav');
+  ham.addEventListener('click', () => {
+    const open = mob.classList.toggle('open');
+    ham.setAttribute('aria-expanded', open);
+    const spans = ham.querySelectorAll('span');
+    spans[0].style.transform = open ? 'rotate(45deg) translate(5px,5px)' : '';
+    spans[1].style.opacity   = open ? '0' : '1';
+    spans[2].style.transform = open ? 'rotate(-45deg) translate(5px,-5px)' : '';
+  });
+
+  // Close mobile nav on link click
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mob.classList.remove('open');
+    ham.setAttribute('aria-expanded', 'false');
+    ham.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }));
+
+  // Smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 74, behavior: 'smooth' }); }
+    });
+  });
+
+  // Scroll reveal
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }
+</script>
+</body>
+</html>

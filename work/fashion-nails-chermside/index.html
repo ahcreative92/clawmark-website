@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fashion Nails Chermside | Nail Salon Brisbane</title>
+  <meta name="description" content="Premium nail salon in Chermside, Brisbane. Gel sets, acrylics, pedicures & intricate nail art by Steven Tran and team. 395 Hamilton Rd, Chermside QLD 4032." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── CSS Variables ─────────────────────────────────────────── */
+    :root {
+      --color-primary:    #EC4899;
+      --color-primary-dark: #DB2777;
+      --color-secondary:  #F9A8D4;
+      --color-accent:     #8B5CF6;
+      --color-bg:         #FDF2F8;
+      --color-bg-alt:     #FFF7FB;
+      --color-surface:    #FFFFFF;
+      --color-foreground: #831843;
+      --color-text:       #1C0A15;
+      --color-text-muted: #9D4E72;
+      --color-border:     #FBCFE8;
+      --color-muted:      #F5EEF5;
+      --color-star:       #F59E0B;
+
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body:    'Inter', -apple-system, sans-serif;
+
+      --shadow-sm:  0 1px 3px rgba(236,72,153,.08), 0 1px 2px rgba(236,72,153,.06);
+      --shadow-md:  0 4px 12px rgba(236,72,153,.12), 0 2px 6px rgba(236,72,153,.08);
+      --shadow-lg:  0 12px 32px rgba(236,72,153,.15), 0 4px 10px rgba(236,72,153,.08);
+      --shadow-card: 0 2px 8px rgba(131,24,67,.07), 0 0 0 1px rgba(251,207,232,.5);
+
+      --radius-sm:  8px;
+      --radius-md:  14px;
+      --radius-lg:  22px;
+      --radius-xl:  32px;
+
+      --transition: 220ms cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ─── Reset & Base ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ─── Typography ────────────────────────────────────────────── */
+    h1,h2,h3,h4 { font-family: var(--font-heading); line-height: 1.2; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 600; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 500; }
+    p  { font-size: 1rem; color: var(--color-text-muted); }
+
+    /* ─── Layout Utilities ──────────────────────────────────────── */
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .section    { padding: 80px 0; }
+    .section-sm { padding: 56px 0; }
+
+    .section-label {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      background: rgba(236,72,153,.1);
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .section-title { color: var(--color-foreground); margin-bottom: 14px; }
+    .section-sub   { font-size: 1.05rem; max-width: 560px; }
+    .text-center   { text-align: center; }
+    .text-center .section-sub { margin: 0 auto; }
+
+    /* ─── Buttons ───────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-body); font-size: .95rem; font-weight: 600;
+      padding: 14px 28px; border-radius: 100px;
+      cursor: pointer; border: none; outline: none;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .btn:focus-visible { box-shadow: 0 0 0 3px rgba(236,72,153,.4); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #D946EF 100%);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(236,72,153,.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(236,72,153,.45);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-outline {
+      background: transparent;
+      color: var(--color-primary);
+      border: 1.5px solid var(--color-primary);
+    }
+    .btn-outline:hover {
+      background: rgba(236,72,153,.08);
+      transform: translateY(-1px);
+    }
+    .btn-ghost {
+      background: rgba(255,255,255,.85);
+      color: var(--color-foreground);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover { background: #fff; transform: translateY(-1px); }
+
+    /* ─── NAV ───────────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(253,242,248,.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(251,207,232,.5);
+      transition: var(--transition);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      display: flex; flex-direction: column; line-height: 1.1;
+    }
+    .nav-logo-top {
+      font-family: var(--font-heading);
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--color-foreground);
+      letter-spacing: .01em;
+    }
+    .nav-logo-sub {
+      font-size: .68rem; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--color-primary);
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+    }
+    .nav-links a {
+      font-size: .88rem; font-weight: 500;
+      color: var(--color-text-muted);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--color-primary); }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+    .nav-phone {
+      font-size: .82rem; font-weight: 600;
+      color: var(--color-foreground);
+    }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--color-foreground); border-radius: 2px; transition: var(--transition); }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      padding-top: 68px;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      background: linear-gradient(150deg,
+        #FFF0F8 0%,
+        #FDF2F8 40%,
+        #F8F0FF 100%);
+    }
+    /* decorative blobs */
+    .hero::before {
+      content: '';
+      position: absolute; top: -160px; right: -120px;
+      width: 680px; height: 680px;
+      background: radial-gradient(circle, rgba(236,72,153,.18) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -200px; left: -140px;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(139,92,246,.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 80px 0 80px;
+      position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid var(--color-border);
+      border-radius: 100px;
+      padding: 6px 16px 6px 8px;
+      font-size: .78rem; font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.6; transform:scale(1.3); }
+    }
+    .hero-title {
+      margin-bottom: 20px;
+      color: var(--color-foreground);
+    }
+    .hero-title em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.1rem; max-width: 480px; margin-bottom: 36px;
+      color: var(--color-text-muted); line-height: 1.7;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .hero-social-proof {
+      display: flex; align-items: center; gap: 12px;
+      margin-top: 36px; padding-top: 28px;
+      border-top: 1px solid var(--color-border);
+    }
+    .hero-stars { display: flex; gap: 2px; }
+    .hero-stars svg { width: 16px; height: 16px; fill: var(--color-star); }
+    .hero-proof-text { font-size: .83rem; color: var(--color-text-muted); }
+    .hero-proof-text strong { color: var(--color-foreground); }
+
+    /* hero visual */
+    .hero-visual {
+      position: relative;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .hero-img-wrap {
+      position: relative; width: 100%; max-width: 480px;
+    }
+    .hero-img-main {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: linear-gradient(145deg, #F9D0E8 0%, #E8C6F0 50%, #D0B4E8 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-img-main img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    /* placeholder gradient nail art visual */
+    .img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(145deg, #FBBFDA 0%, #DBA8F0 50%, #C9A3E8 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px;
+      color: rgba(255,255,255,.7);
+      font-family: var(--font-heading);
+      font-size: 1.1rem; font-style: italic;
+      text-align: center; padding: 20px;
+    }
+    .nail-icon { font-size: 3rem; line-height: 1; filter: drop-shadow(0 2px 4px rgba(0,0,0,.15)); }
+
+    .hero-card {
+      position: absolute;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(251,207,232,.6);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      box-shadow: var(--shadow-md);
+    }
+    .hero-card-1 {
+      bottom: 48px; left: -48px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-card-2 {
+      top: 52px; right: -36px;
+    }
+    .hc-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .hc-icon-pink { background: rgba(236,72,153,.12); }
+    .hc-icon-purple { background: rgba(139,92,246,.12); }
+    .hc-label { font-size: .72rem; font-weight: 500; color: var(--color-text-muted); }
+    .hc-value { font-size: .95rem; font-weight: 700; color: var(--color-foreground); line-height: 1.2; }
+    .hc-row   { display: flex; gap: 16px; }
+    .hc-stat  { text-align: center; }
+    .hc-divider { width: 1px; background: var(--color-border); }
+
+    /* ─── SERVICES ──────────────────────────────────────────────── */
+    .services { background: var(--color-surface); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+    .service-card {
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      position: relative; overflow: hidden;
+      transition: var(--transition);
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(236,72,153,.3);
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(236,72,153,.15), rgba(139,92,246,.1));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .service-name {
+      font-family: var(--font-heading);
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--color-foreground);
+      margin-bottom: 10px;
+    }
+    .service-desc {
+      font-size: .88rem; line-height: 1.65;
+      color: var(--color-text-muted);
+      margin-bottom: 18px;
+    }
+    .service-price {
+      font-size: .82rem; font-weight: 600;
+      color: var(--color-primary);
+      background: rgba(236,72,153,.08);
+      padding: 4px 12px;
+      border-radius: 100px;
+      display: inline-block;
+    }
+
+    /* ─── WHY US ────────────────────────────────────────────────── */
+    .whyus { background: var(--color-bg); }
+    .whyus-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .whyus-visual {
+      position: relative;
+    }
+    .whyus-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: linear-gradient(160deg, #F5D0EA 0%, #E8C0F8 60%, #D0B0F0 100%);
+      box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .whyus-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    .whyus-badge-num {
+      font-family: var(--font-heading);
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1;
+    }
+    .whyus-badge-label {
+      font-size: .75rem; font-weight: 500;
+      color: var(--color-text-muted);
+      text-transform: uppercase; letter-spacing: .08em;
+      margin-top: 4px;
+    }
+    .features-list { display: flex; flex-direction: column; gap: 28px; margin-top: 36px; }
+    .feature-item { display: flex; gap: 18px; align-items: flex-start; }
+    .feature-icon {
+      flex-shrink: 0;
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(236,72,153,.15), rgba(139,92,246,.08));
+      border: 1px solid rgba(236,72,153,.18);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem;
+      margin-top: 2px;
+    }
+    .feature-title {
+      font-weight: 600; font-size: .95rem;
+      color: var(--color-foreground); margin-bottom: 4px;
+    }
+    .feature-desc { font-size: .87rem; line-height: 1.6; }
+
+    /* ─── GALLERY ───────────────────────────────────────────────── */
+    .gallery { background: var(--color-surface); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 220px);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-md); }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(4) { grid-column: span 2; }
+    .gallery-item:nth-child(5) { grid-column: 1 / -1; }
+    .gallery-thumb {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: rgba(131,24,67,.35);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .gallery-overlay-icon {
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,.9);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gallery-overlay-icon svg { width: 20px; height: 20px; stroke: var(--color-primary); fill: none; }
+    /* gallery placeholder gradients */
+    .g1 { background: linear-gradient(145deg, #FBBFDA,#E8A8F0); }
+    .g2 { background: linear-gradient(145deg, #F8D0E8,#D4B4E8); }
+    .g3 { background: linear-gradient(145deg, #EDB8F0,#C8A0E0); }
+    .g4 { background: linear-gradient(145deg, #F0D4EC,#C4A4D8); }
+    .g5 { background: linear-gradient(145deg, #E8C0F8,#B8A0D8); }
+    .gallery-cta { text-align: center; margin-top: 36px; }
+
+    /* ─── TESTIMONIALS ──────────────────────────────────────────── */
+    .testimonials { background: var(--color-bg); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+    .review-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .review-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .review-stars { display: flex; gap: 3px; }
+    .review-stars svg { width: 16px; height: 16px; fill: var(--color-star); }
+    .review-text {
+      font-size: .9rem; line-height: 1.7;
+      color: var(--color-text-muted);
+      font-style: italic;
+      flex: 1;
+    }
+    .review-text::before { content: '\201C'; font-family: var(--font-heading); font-size: 2rem; color: var(--color-secondary); line-height: 0; vertical-align: -.4em; margin-right: 4px; }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .review-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .9rem; color: #fff;
+      flex-shrink: 0;
+    }
+    .review-name  { font-weight: 600; font-size: .88rem; color: var(--color-foreground); }
+    .review-date  { font-size: .76rem; color: var(--color-text-muted); }
+    .review-source {
+      font-size: .7rem; font-weight: 600;
+      letter-spacing: .05em; text-transform: uppercase;
+      color: var(--color-text-muted); opacity: .6;
+    }
+    .reviews-aggregate {
+      display: flex; align-items: center; gap: 24px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 24px 32px;
+      margin-top: 36px;
+      box-shadow: var(--shadow-card);
+      flex-wrap: wrap;
+    }
+    .agg-score {
+      font-family: var(--font-heading);
+      font-size: 3.5rem; font-weight: 700;
+      color: var(--color-primary); line-height: 1;
+    }
+    .agg-info { flex: 1; }
+    .agg-stars { display: flex; gap: 4px; margin-bottom: 4px; }
+    .agg-stars svg { width: 20px; height: 20px; fill: var(--color-star); }
+    .agg-count { font-size: .85rem; color: var(--color-text-muted); }
+    .agg-text { font-size: .9rem; color: var(--color-text-muted); max-width: 340px; }
+    .agg-cta  { margin-left: auto; }
+
+    /* ─── CONTACT ───────────────────────────────────────────────── */
+    .contact { background: var(--color-surface); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 28px; }
+    .contact-item { display: flex; gap: 18px; align-items: flex-start; }
+    .contact-icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(236,72,153,.14), rgba(139,92,246,.08));
+      border: 1px solid rgba(236,72,153,.16);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .contact-item-label {
+      font-size: .72rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--color-primary);
+      margin-bottom: 4px;
+    }
+    .contact-item-value {
+      font-size: .95rem; font-weight: 500;
+      color: var(--color-foreground); line-height: 1.6;
+    }
+    .contact-item-value a:hover { color: var(--color-primary); }
+    .hours-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4px 16px; margin-top: 4px;
+    }
+    .hours-row { display: flex; justify-content: space-between; font-size: .88rem; }
+    .hours-day   { color: var(--color-text-muted); }
+    .hours-time  { font-weight: 500; color: var(--color-foreground); }
+    .map-placeholder {
+      width: 100%; aspect-ratio: 4/3;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-muted);
+    }
+    .map-placeholder iframe {
+      width: 100%; height: 100%;
+      border: none; display: block;
+    }
+    .map-fallback {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px;
+      background: linear-gradient(145deg, #FDF0F8, #F5EEFF);
+      color: var(--color-text-muted);
+      font-size: .88rem;
+    }
+    .map-fallback-pin { font-size: 2.5rem; }
+
+    /* ─── BOOKING BANNER ────────────────────────────────────────── */
+    .booking-banner {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #D946EF 50%, var(--color-accent) 100%);
+      padding: 72px 0;
+      position: relative; overflow: hidden;
+    }
+    .booking-banner::before {
+      content: '';
+      position: absolute; top: -120px; right: -80px;
+      width: 400px; height: 400px;
+      background: rgba(255,255,255,.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .booking-banner::after {
+      content: '';
+      position: absolute; bottom: -100px; left: -60px;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,.06);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .booking-banner-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .banner-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem,3.5vw,2.4rem);
+      font-weight: 600; color: #fff;
+      margin-bottom: 8px;
+    }
+    .banner-sub { font-size: 1rem; color: rgba(255,255,255,.8); }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    .footer {
+      background: var(--color-foreground);
+      color: rgba(255,255,255,.75);
+      padding: 56px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.4rem; font-weight: 600;
+      color: #fff; margin-bottom: 12px;
+    }
+    .footer-brand-desc { font-size: .88rem; line-height: 1.7; max-width: 300px; }
+    .footer-social { display: flex; gap: 10px; margin-top: 20px; }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      transition: background var(--transition);
+    }
+    .footer-social a:hover { background: rgba(236,72,153,.5); }
+    .footer-col-title {
+      font-size: .78rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 18px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: .88rem;
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--color-secondary); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: .8rem; }
+    .footer-made { font-size: .8rem; }
+    .footer-made a { color: var(--color-secondary); }
+    .footer-made a:hover { text-decoration: underline; }
+
+    /* ─── Mobile Nav ────────────────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 0; z-index: 99;
+      background: rgba(253,242,248,.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-heading);
+      font-size: 1.6rem; font-weight: 500;
+      color: var(--color-foreground);
+    }
+    .mobile-menu-close {
+      position: absolute; top: 20px; right: 24px;
+      font-size: 1.5rem; cursor: pointer;
+      color: var(--color-primary);
+    }
+
+    /* ─── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero-inner          { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .hero-actions        { justify-content: center; }
+      .hero-social-proof   { justify-content: center; }
+      .hero-sub            { margin: 0 auto 36px; }
+      .hero-visual         { display: none; }
+      .services-grid       { grid-template-columns: repeat(2,1fr); }
+      .whyus-inner         { grid-template-columns: 1fr; }
+      .whyus-visual        { display: none; }
+      .gallery-grid        { grid-template-columns: repeat(2,1fr); grid-template-rows: unset; }
+      .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .gallery-item:nth-child(4) { grid-column: span 1; }
+      .reviews-grid        { grid-template-columns: repeat(2,1fr); }
+      .contact-inner       { grid-template-columns: 1fr; }
+      .footer-inner        { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 56px 0; }
+      .nav-links, .nav-cta .btn { display: none; }
+      .hamburger { display: flex; }
+      .services-grid  { grid-template-columns: 1fr; }
+      .reviews-grid   { grid-template-columns: 1fr; }
+      .gallery-grid   { grid-template-columns: repeat(2,1fr); }
+      .footer-inner   { grid-template-columns: 1fr; gap: 32px; }
+      .agg-cta        { width: 100%; }
+      .booking-banner-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item:nth-child(1),
+      .gallery-item:nth-child(4) { grid-column: span 1; }
+    }
+
+    /* ─── Scroll animations ─────────────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      .animate-up {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity .5s ease, transform .5s ease;
+      }
+      .animate-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" aria-label="Fashion Nails Chermside home">
+          <span class="nav-logo-top">Fashion Nails</span>
+          <span class="nav-logo-sub">Chermside</span>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <span class="nav-phone" aria-label="Call us">(07) XXXX XXXX</span>
+          <a href="#contact" class="btn btn-primary" aria-label="Book an appointment">Book Now</a>
+        </div>
+
+        <button class="hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">✕</button>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#about"    class="mobile-link">About</a>
+    <a href="#gallery"  class="mobile-link">Gallery</a>
+    <a href="#reviews"  class="mobile-link">Reviews</a>
+    <a href="#contact"  class="mobile-link">Contact</a>
+    <a href="#contact" class="btn btn-primary">Book Now</a>
+  </div>
+
+
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <section class="hero" aria-label="Hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- Copy -->
+        <div class="hero-copy">
+          <div class="hero-badge" aria-label="Now accepting walk-ins">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            Now accepting walk-ins
+          </div>
+
+          <h1 class="hero-title">
+            Where Nails Become<br/>
+            <em>Works of Art</em>
+          </h1>
+
+          <p class="hero-sub">
+            Brisbane's favourite nail salon in the heart of Chermside. Precision gel sets, intricate nail art, and luxurious pedicures — crafted by Steven Tran and our passionate team.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary" aria-label="Book appointment">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              Book Appointment
+            </a>
+            <a href="#services" class="btn btn-outline">View Services</a>
+          </div>
+
+          <div class="hero-social-proof">
+            <div class="hero-stars" aria-label="4 out of 5 stars">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true" style="fill:none;stroke:#F59E0B;stroke-width:1.5"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            </div>
+            <p class="hero-proof-text">
+              <strong>130+ reviews</strong> · Trusted by Chermside locals for <strong>8+ years</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Visual -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-img-wrap">
+            <div class="hero-img-main">
+              <div class="img-placeholder">
+                <span class="nail-icon">💅</span>
+                Add your best nail art photo here
+              </div>
+            </div>
+
+            <!-- Floating card: team -->
+            <div class="hero-card hero-card-1">
+              <div class="hc-icon hc-icon-pink">💅</div>
+              <div>
+                <div class="hc-label">Our Specialist</div>
+                <div class="hc-value">Steven Tran</div>
+              </div>
+            </div>
+
+            <!-- Floating card: stats -->
+            <div class="hero-card hero-card-2">
+              <div class="hc-row">
+                <div class="hc-stat">
+                  <div class="hc-value">8+</div>
+                  <div class="hc-label">Years open</div>
+                </div>
+                <div class="hc-divider"></div>
+                <div class="hc-stat">
+                  <div class="hc-value">130+</div>
+                  <div class="hc-label">Reviews</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── SERVICES ──────────────────────────────────────────── -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="text-center animate-up">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-sub">From everyday elegance to intricate statement sets — we bring your nail vision to life.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card animate-up">
+          <div class="service-icon" aria-hidden="true">💎</div>
+          <div class="service-name">Gel Nail Sets</div>
+          <p class="service-desc">Long-lasting gel overlays and full sets with a flawless, chip-resistant finish. Perfect for everyday wear or special occasions.</p>
+          <span class="service-price">From $60</span>
+        </div>
+
+        <div class="service-card animate-up">
+          <div class="service-icon" aria-hidden="true">✨</div>
+          <div class="service-name">Acrylic Extensions</div>
+          <p class="service-desc">Durable acrylic nail extensions in any length or shape — round, coffin, stiletto, square. Built to last.</p>
+          <span class="service-price">From $65</span>
+        </div>
+
+        <div class="service-card animate-up">
+          <div class="service-icon" aria-hidden="true">🌸</div>
+          <div class="service-name">Nail Art & Design</div>
+          <p class="service-desc">Intricate custom nail art — from subtle florals to bold statement designs. Steven specialises in complex bespoke designs.</p>
+          <span class="service-price">From $20 extra</span>
+        </div>
+
+        <div class="service-card animate-up">
+          <div class="service-icon" aria-hidden="true">👑</div>
+          <div class="service-name">French Manicure</div>
+          <p class="service-desc">The timeless classic, refreshed. Clean white tips over a natural base — always chic, always appropriate.</p>
+          <span class="service-price">From $85</span>
+        </div>
+
+        <div class="service-card animate-up">
+          <div class="service-icon" aria-hidden="true">🦋</div>
+          <div class="service-name">Luxury Pedicure</div>
+          <p class="service-desc">A truly indulgent experience. Foot soak, exfoliation, massage, and polish — our pedicures are pure relaxation. Ask for Tam!</p>
+          <span class="service-price">From $50</span>
+        </div>
+
+        <div class="service-card animate-up">
+          <div class="service-icon" aria-hidden="true">🌺</div>
+          <div class="service-name">Nail Removal & Infill</div>
+          <p class="service-desc">Safe removal and professional infill services to maintain the health and beauty of your nails between full sets.</p>
+          <span class="service-price">From $35</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── WHY US / ABOUT ─────────────────────────────────────── -->
+  <section class="whyus section" id="about">
+    <div class="container">
+      <div class="whyus-inner">
+
+        <!-- Visual -->
+        <div class="whyus-visual animate-up" aria-hidden="true">
+          <div class="whyus-img">
+            <div class="img-placeholder">
+              <span class="nail-icon">💅</span>
+              Add a team or salon photo here
+            </div>
+          </div>
+          <div class="whyus-badge">
+            <div class="whyus-badge-num">8+</div>
+            <div class="whyus-badge-label">Years in Chermside</div>
+          </div>
+        </div>
+
+        <!-- Copy -->
+        <div class="animate-up">
+          <span class="section-label">About Us</span>
+          <h2 class="section-title">Craftsmanship You Can See. Care You Can Feel.</h2>
+          <p class="section-sub" style="margin-bottom: 0;">
+            Fashion Nails Chermside has been a trusted name in Brisbane's beauty scene for over 8 years. Our founder Steven Tran and the dedicated team are passionate about making every client feel their best — whether it's a quick tidy-up or an intricate custom set.
+          </p>
+
+          <ul class="features-list" role="list">
+            <li class="feature-item">
+              <div class="feature-icon" aria-hidden="true">🎨</div>
+              <div>
+                <div class="feature-title">Detail-Obsessed Nail Artists</div>
+                <p class="feature-desc">Steven specialises in complex, intricate nail designs. Bring your inspo — we'll make it happen and then some.</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon" aria-hidden="true">✨</div>
+              <div>
+                <div class="feature-title">Immaculate Salon Standards</div>
+                <p class="feature-desc">Clean, hygienic, and welcoming — our salon is maintained to the highest standards. Comfortable pedicure chairs with massage function.</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon" aria-hidden="true">🤝</div>
+              <div>
+                <div class="feature-title">Loyal Local Community</div>
+                <p class="feature-desc">Many of our clients have been coming to us for years — some for over 8. That loyalty is everything to us.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── GALLERY ──────────────────────────────────────────────── -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="text-center animate-up">
+        <span class="section-label">Our Work</span>
+        <h2 class="section-title">The Gallery</h2>
+        <p class="section-sub">A glimpse of what we create every day. Follow us on Instagram for more.</p>
+      </div>
+
+      <div class="gallery-grid animate-up" role="list" aria-label="Gallery of nail designs">
+
+        <div class="gallery-item" role="listitem" tabindex="0" aria-label="Featured nail design">
+          <img class="gallery-thumb" src="images/nails-1.jpg" alt="Long square nude nails with gold glitter — Fashion Nails Chermside">
+          <div class="gallery-overlay" aria-hidden="true">
+            <div class="gallery-overlay-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" role="listitem" tabindex="0" aria-label="Nail art design">
+          <img class="gallery-thumb" src="images/nails-2.jpg" alt="Gel nail set — Fashion Nails Chermside">
+          <div class="gallery-overlay" aria-hidden="true"><div class="gallery-overlay-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div></div>
+        </div>
+
+        <div class="gallery-item" role="listitem" tabindex="0" aria-label="Nail art design">
+          <img class="gallery-thumb" src="images/nails-3.jpg" alt="Nail art with gold scroll designs — Fashion Nails Chermside">
+          <div class="gallery-overlay" aria-hidden="true"><div class="gallery-overlay-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div></div>
+        </div>
+
+        <div class="gallery-item" role="listitem" tabindex="0" aria-label="Nail art design">
+          <img class="gallery-thumb" src="images/nails-4.jpg" alt="Iridescent butterfly-wing nail art — Fashion Nails Chermside">
+          <div class="gallery-overlay" aria-hidden="true"><div class="gallery-overlay-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div></div>
+        </div>
+
+        <div class="gallery-item" role="listitem" tabindex="0" aria-label="Nail art design">
+          <img class="gallery-thumb" src="images/nails-5.jpg" alt="Teal and gold rose nail art — Fashion Nails Chermside">
+          <div class="gallery-overlay" aria-hidden="true"><div class="gallery-overlay-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div></div>
+        </div>
+
+      </div>
+
+      <div class="gallery-cta animate-up">
+        <a href="https://www.instagram.com/fashionnailschermside/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="View more on Instagram">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          View More on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── TESTIMONIALS ───────────────────────────────────────── -->
+  <section class="testimonials section" id="reviews">
+    <div class="container">
+      <div class="text-center animate-up">
+        <span class="section-label">Happy Clients</span>
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-sub">Real reviews from real Chermside locals who trust us with their nails.</p>
+      </div>
+
+      <div class="reviews-grid">
+
+        <article class="review-card animate-up">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+          </div>
+          <p class="review-text">Amazing service every single time and such lovely staff! I've been coming to Fashion Nails for years and am always so impressed with my sets. The attention to detail is unmatched.</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">N</div>
+            <div>
+              <div class="review-name">Nikkita Bayles</div>
+              <div class="review-date">2 months ago</div>
+            </div>
+            <span class="review-source" aria-label="Source: Google">Google</span>
+          </div>
+        </article>
+
+        <article class="review-card animate-up">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+          </div>
+          <p class="review-text">Definitely recommend Fashion Nails Chermside. Steven is amazing! I've been a regular client for several months and Steven always provides exceptional service and is always willing to accommodate my intricate nail designs.</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">B</div>
+            <div>
+              <div class="review-name">Brittney Locke</div>
+              <div class="review-date">3 months ago</div>
+            </div>
+            <span class="review-source" aria-label="Source: Google">Google</span>
+          </div>
+        </article>
+
+        <article class="review-card animate-up">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+          </div>
+          <p class="review-text">The most divine pedicure I've ever had, done by the beautiful Tam. So much care and attention to detail — the leg and foot massage was spectacular. I didn't want it to end! An absolute luxury. Thank you, Tam!</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">W</div>
+            <div>
+              <div class="review-name">Wendy Tuttle</div>
+              <div class="review-date">4 months ago</div>
+            </div>
+            <span class="review-source" aria-label="Source: Google">Google</span>
+          </div>
+        </article>
+
+        <article class="review-card animate-up">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+          </div>
+          <p class="review-text">The staff are lovely and my nails always come out amazing. I have been to many places around Chermside but this is hands down the best I've tried, with so much attention to detail. I will keep coming back!</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">G</div>
+            <div>
+              <div class="review-name">Gretel</div>
+              <div class="review-date">4 months ago</div>
+            </div>
+            <span class="review-source" aria-label="Source: Google">Google</span>
+          </div>
+        </article>
+
+        <article class="review-card animate-up">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+          </div>
+          <p class="review-text">I've been coming here for 8 years and have always had a fantastic experience. Steven and his team are so friendly and helpful. My nails always look incredible. Thank you so much!</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">M</div>
+            <div>
+              <div class="review-name">Mark & Fiona Herron</div>
+              <div class="review-date">4 months ago</div>
+            </div>
+            <span class="review-source" aria-label="Source: Google">Google</span>
+          </div>
+        </article>
+
+        <article class="review-card animate-up">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+          </div>
+          <p class="review-text">Took my daughter for her very first pedicure and we stumbled upon Fashion Nails — so lucky! My mum, daughter, and I all got our toenails done and the experience was wonderful. Staff were so kind and took their time.</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">C</div>
+            <div>
+              <div class="review-name">Cassie Stevens</div>
+              <div class="review-date">4 months ago</div>
+            </div>
+            <span class="review-source" aria-label="Source: Google">Google</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Aggregate score -->
+      <div class="reviews-aggregate animate-up" role="region" aria-label="Overall rating summary">
+        <div class="agg-score" aria-label="Rating: 3.5 out of 5">3.5</div>
+        <div class="agg-info">
+          <div class="agg-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" style="fill:none;stroke:#F59E0B;stroke-width:1.5"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+            <svg viewBox="0 0 20 20" style="fill:none;stroke:#F59E0B;stroke-width:1.5"><polygon points="10,1 12.9,7 19.5,7.6 14.8,12 16.4,18.5 10,15 3.6,18.5 5.2,12 0.5,7.6 7.1,7"/></svg>
+          </div>
+          <p class="agg-count">130+ reviews on Google Maps</p>
+        </div>
+        <p class="agg-text">Trusted by locals for over 8 years. Leave us a review and help us grow.</p>
+        <div class="agg-cta">
+          <a href="https://maps.google.com/?cid=fashionnailschermside" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Leave a Google review">
+            Leave a Review
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── BOOKING BANNER ────────────────────────────────────── -->
+  <section class="booking-banner" aria-label="Booking call to action">
+    <div class="container">
+      <div class="booking-banner-inner">
+        <div>
+          <h2 class="banner-title">Ready for Your Next Set?</h2>
+          <p class="banner-sub">Walk in or call ahead — we'd love to see you.</p>
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="tel:+61XXXXXXXXXX" class="btn btn-ghost" aria-label="Call us to book">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127 1.08.36 2.14.7 3.17a2 2 0 01-.45 2.11L6.09 8.34a16 16 0 006.57 6.57l1.27-1.27a2 2 0 012.11-.45c1.03.34 2.09.573 3.17.7a2 2 0 011.73 2.03z"/></svg>
+            Call Us
+          </a>
+          <a href="#contact" class="btn btn-ghost" aria-label="Get directions to salon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Get Directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── CONTACT ──────────────────────────────────────────────── -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="animate-up">
+        <span class="section-label">Visit Us</span>
+        <h2 class="section-title">Find Us in Chermside</h2>
+      </div>
+
+      <div class="contact-inner" style="margin-top:48px;">
+
+        <!-- Details -->
+        <div class="contact-details animate-up">
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">📍</div>
+            <div>
+              <div class="contact-item-label">Address</div>
+              <div class="contact-item-value">
+                <a href="https://maps.google.com/?q=395+Hamilton+Rd+Chermside+QLD+4032" target="_blank" rel="noopener noreferrer">
+                  395 Hamilton Rd<br/>Chermside QLD 4032
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">📞</div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-value">
+                <a href="tel:+61XXXXXXXXXX">(07) XXXX XXXX</a><br/>
+                <small style="font-size:.8rem;color:var(--color-text-muted);">Update with real phone number</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">🕐</div>
+            <div>
+              <div class="contact-item-label">Opening Hours</div>
+              <div class="contact-item-value">
+                <div class="hours-grid" role="list" aria-label="Opening hours">
+                  <div class="hours-row" role="listitem"><span class="hours-day">Mon – Fri</span><span class="hours-time">9:00am – 6:00pm</span></div>
+                  <div class="hours-row" role="listitem"><span class="hours-day">Saturday</span><span class="hours-time">9:00am – 5:00pm</span></div>
+                  <div class="hours-row" role="listitem"><span class="hours-day">Sunday</span><span class="hours-time">10:00am – 4:00pm</span></div>
+                </div>
+                <small style="font-size:.78rem;color:var(--color-text-muted);display:block;margin-top:8px;">* Confirm hours directly — update as needed</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">📸</div>
+            <div>
+              <div class="contact-item-label">Follow Us</div>
+              <div class="contact-item-value">
+                <a href="https://www.instagram.com/fashionnailschermside/" target="_blank" rel="noopener noreferrer">
+                  @fashionnailschermside
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Map -->
+        <div class="animate-up">
+          <div class="map-placeholder" role="region" aria-label="Map showing salon location">
+            <iframe
+              src="https://maps.google.com/maps?q=395+Hamilton+Rd,+Chermside+QLD+4032&output=embed"
+              title="Fashion Nails Chermside location map"
+              loading="lazy"
+              allowfullscreen
+              aria-label="Google Maps showing 395 Hamilton Rd, Chermside QLD 4032"
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── FOOTER ──────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div>
+          <div class="footer-brand-name">Fashion Nails Chermside</div>
+          <p class="footer-brand-desc">Brisbane's favourite nail studio — where artistry meets care. Come in for a set, leave feeling beautiful.</p>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="https://www.instagram.com/fashionnailschermside/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://maps.google.com/?q=395+Hamilton+Rd+Chermside+QLD+4032" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links" role="list">
+            <li><a href="#services">Gel Nail Sets</a></li>
+            <li><a href="#services">Acrylic Extensions</a></li>
+            <li><a href="#services">Nail Art & Design</a></li>
+            <li><a href="#services">French Manicure</a></li>
+            <li><a href="#services">Luxury Pedicure</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Visit</div>
+          <ul class="footer-links" role="list">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact & Hours</a></li>
+            <li>
+              <a href="https://www.instagram.com/fashionnailschermside/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Fashion Nails Chermside. All rights reserved.</p>
+        <p class="footer-made">
+          Website by <a href="https://www.instagram.com/thecrewmarketing/" target="_blank" rel="noopener noreferrer">ClawMark</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ── SCRIPTS ────────────────────────────────────────────── -->
+  <script>
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose  = document.getElementById('menuClose');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    menuToggle.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    mobileLinks.forEach(l => l.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+    // Scroll animations (respects prefers-reduced-motion via CSS)
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      const observer = new IntersectionObserver(
+        entries => entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        }),
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.animate-up').forEach(el => observer.observe(el));
+    } else {
+      // If reduced-motion, just show everything immediately
+      document.querySelectorAll('.animate-up').forEach(el => el.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>

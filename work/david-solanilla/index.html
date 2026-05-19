@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Solanilla Mejía — Plastic Artist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:      #09080A;
+      --dark:       #100F12;
+      --card-bg:    #161419;
+      --warm-white: #F5F0EA;
+      --muted:      rgba(245,240,234,0.42);
+      --gold:       #C8903A;
+      --gold-hi:    #D9A256;
+      --border-d:   rgba(245,240,234,0.07);
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Jost', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--warm-white); font-family: var(--sans); font-weight: 300; overflow-x: hidden; }
+
+    /* ─── CURSOR ─── */
+    .cur-dot, .cur-ring { position: fixed; pointer-events: none; z-index: 9999; border-radius: 50%; transform: translate(-50%,-50%); }
+    .cur-dot  { width: 7px; height: 7px; background: var(--gold); }
+    .cur-ring { width: 38px; height: 38px; border: 1px solid rgba(200,144,58,.5); transition: all .18s ease; }
+
+    /* ═══════════════════════════
+       LIGHTBOX
+    ═══════════════════════════ */
+    .lb {
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(9,8,10,.97); backdrop-filter: blur(16px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity .45s;
+      padding: 2rem;
+    }
+    .lb.on { opacity: 1; pointer-events: all; }
+    .lb-inner {
+      display: grid; grid-template-columns: 1fr 320px;
+      max-width: 1080px; width: 100%; max-height: 88vh;
+      border: 1px solid var(--border-d);
+      transform: translateY(16px); transition: transform .45s cubic-bezier(.22,1,.36,1);
+    }
+    .lb.on .lb-inner { transform: translateY(0); }
+    .lb-img-wrap {
+      background: #0D0C0E; display: flex;
+      align-items: center; justify-content: center;
+      overflow: hidden; min-height: 380px;
+    }
+    .lb-img-wrap img { max-width: 100%; max-height: 86vh; object-fit: contain; display: block; }
+    .lb-info {
+      background: #0D0C0E; border-left: 1px solid var(--border-d);
+      padding: 3rem 2.5rem; display: flex; flex-direction: column;
+      justify-content: center; overflow-y: auto;
+    }
+    .lb-series-tag {
+      font-size: .58rem; letter-spacing: .26em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500; margin-bottom: 1rem; display: block;
+    }
+    .lb-title {
+      font-family: var(--serif); font-size: 2rem; font-weight: 300;
+      line-height: 1.05; color: var(--warm-white); margin-bottom: 1.75rem;
+    }
+    .lb-title em { font-style: italic; color: var(--gold); }
+    .lb-divider { width: 28px; height: 1px; background: var(--gold); opacity:.55; margin-bottom: 1.75rem; }
+    .lb-meta { margin-bottom: 2.25rem; }
+    .lb-meta-row { display: flex; gap: .75rem; align-items: baseline; margin-bottom: .65rem; }
+    .lb-meta-key { font-size: .56rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 500; min-width: 68px; flex-shrink: 0; }
+    .lb-meta-val { font-size: .82rem; color: rgba(245,240,234,.72); font-weight: 300; line-height: 1.5; }
+    .lb-enquire {
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: .85rem 1.75rem; border: 1px solid rgba(200,144,58,.35);
+      color: var(--gold); font-family: var(--sans); font-size: .67rem;
+      font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+      text-decoration: none; transition: all .3s; margin-top: auto;
+    }
+    .lb-enquire:hover { background: var(--gold); color: var(--black); }
+    .lb-close {
+      position: absolute; top: 1.5rem; right: 2rem; z-index: 10;
+      background: none; border: none; cursor: pointer; font-family: var(--sans);
+      font-size: .63rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); transition: color .3s;
+    }
+    .lb-close:hover { color: var(--warm-white); }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.75rem 3.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all .45s cubic-bezier(.22,1,.36,1);
+    }
+    nav.s {
+      background: rgba(9,8,10,.92); backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: 1.1rem 3.5rem; border-bottom: 1px solid var(--border-d);
+    }
+    .logo { display: flex; align-items: center; gap: .9rem; text-decoration: none; }
+    .logo-name { font-family: var(--serif); font-size: 1rem; font-weight: 400; letter-spacing: .08em; color: var(--warm-white); display: block; }
+    .logo-name span { color: var(--gold); font-style: italic; }
+    .logo-sub { font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); display: block; margin-top: .1rem; }
+    .nav-links { display: flex; gap: 2.75rem; list-style: none; }
+    .nav-links a { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .3s; }
+    .nav-links a:hover { color: var(--warm-white); }
+    .nav-btn { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; padding: .6rem 1.5rem; border: 1px solid rgba(200,144,58,.35); color: var(--gold); text-decoration: none; transition: all .3s; border-radius: 2px; }
+    .nav-btn:hover { background: var(--gold); color: var(--black); }
+
+    /* ─── HERO ─── */
+    .hero { height: 100vh; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 35%; transform: scale(1.06); transition: transform 8s cubic-bezier(.22,1,.36,1); }
+    .hero-bg.loaded { transform: scale(1); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(9,8,10,.15) 0%, rgba(9,8,10,.05) 35%, rgba(9,8,10,.72) 68%, rgba(9,8,10,1) 100%); }
+    .hero-side { position: absolute; inset: 0; background: linear-gradient(to right, rgba(9,8,10,.6) 0%, transparent 60%); }
+    .hero-content { position: relative; z-index: 2; padding: 0 3.5rem 5.5rem; max-width: 780px; }
+    .hero-eyebrow { font-size: .65rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; opacity: 0; animation: fu .9s .3s cubic-bezier(.22,1,.36,1) forwards; }
+    .hero-h1 { font-family: var(--serif); font-size: clamp(4rem,9vw,8rem); font-weight: 300; line-height: .9; letter-spacing: -.015em; color: var(--warm-white); margin-bottom: 1.75rem; opacity: 0; animation: fu .9s .45s cubic-bezier(.22,1,.36,1) forwards; }
+    .hero-h1 em { font-style: italic; color: var(--gold); display: block; }
+    .hero-sub { font-size: .88rem; font-weight: 300; line-height: 1.9; color: var(--muted); max-width: 420px; margin-bottom: 2.75rem; opacity: 0; animation: fu .9s .6s cubic-bezier(.22,1,.36,1) forwards; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fu .9s .75s cubic-bezier(.22,1,.36,1) forwards; }
+    .btn-g { display: inline-flex; align-items: center; gap: .5rem; padding: .9rem 2.25rem; background: var(--gold); color: var(--black); font-family: var(--sans); font-size: .7rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; transition: all .3s; }
+    .btn-g:hover { background: var(--gold-hi); transform: translateY(-2px); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: .5rem; padding: .9rem 2.25rem; background: transparent; border: 1px solid rgba(245,240,234,.2); color: var(--warm-white); font-family: var(--sans); font-size: .7rem; font-weight: 300; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; transition: all .3s; }
+    .btn-ghost:hover { border-color: rgba(245,240,234,.5); }
+    .hero-scroll { position: absolute; right: 3.5rem; bottom: 2.5rem; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: .85rem; opacity: 0; animation: fu .9s 1s cubic-bezier(.22,1,.36,1) forwards; }
+    .hero-scroll span { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); writing-mode: vertical-rl; }
+    .scroll-line { width: 1px; height: 52px; background: linear-gradient(to bottom, transparent, var(--gold)); animation: sp 2.2s ease-in-out infinite; }
+
+    /* ─── MARQUEE ─── */
+    .marquee { background: var(--gold); overflow: hidden; padding: .9rem 0; }
+    .marquee-track { display: flex; white-space: nowrap; animation: mq 30s linear infinite; }
+    .marquee-track span { font-size: .65rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--black); padding: 0 2.25rem; }
+    .marquee-track .sep { opacity: .35; }
+
+    /* ─── SECTIONS ─── */
+    .sec { padding: 7rem 3.5rem; }
+    .sec-inner { max-width: 1200px; margin: 0 auto; }
+    .label { font-size: .62rem; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: .75rem; font-weight: 500; }
+    .sec-h { font-family: var(--serif); font-size: clamp(2.4rem,4vw,4rem); font-weight: 300; line-height: 1.0; letter-spacing: -.012em; }
+    .sec-h em { font-style: italic; color: var(--gold); }
+    .sec-desc { font-size: .87rem; font-weight: 300; line-height: 1.9; color: var(--muted); }
+    .series-header { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; margin-bottom: 3.5rem; }
+
+    /* ─── GALLERY ─── */
+    .g-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+    .g-grid.feat { grid-template-columns: 2fr 1fr 1fr; }
+    .g-item { position: relative; overflow: hidden; cursor: zoom-in; background: var(--card-bg); aspect-ratio: 1; }
+    .g-item.tall { grid-row: span 2; aspect-ratio: auto; }
+    .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .75s cubic-bezier(.22,1,.36,1); }
+    .g-item:hover img { transform: scale(1.06); }
+    .g-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(9,8,10,.9) 0%, rgba(9,8,10,.3) 45%, transparent 100%);
+      opacity: 0; transition: opacity .4s;
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem;
+    }
+    .g-item:hover .g-overlay { opacity: 1; }
+    .g-lbl { font-family: var(--serif); font-size: 1.05rem; font-weight: 300; color: var(--warm-white); margin-bottom: .2rem; }
+    .g-sub { font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(245,240,234,.5); }
+
+    /* ─── ABOUT ─── */
+    .about { background: #F5F0EA; color: #09080A; }
+    .about .sec-inner { display: grid; grid-template-columns: 5fr 7fr; gap: 7rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; display: block; }
+    .about-frame { position: absolute; top: -18px; left: -18px; right: 18px; bottom: 18px; border: 1px solid rgba(200,144,58,.28); pointer-events: none; }
+    .about .label { color: var(--gold); }
+    .about .sec-h { color: #09080A; margin-bottom: 1.75rem; }
+    .about-p { font-size: .88rem; font-weight: 300; line-height: 1.95; color: rgba(9,8,10,.62); margin-bottom: 1.1rem; }
+    .about-p em { font-style: italic; color: rgba(9,8,10,.85); }
+    .about-btns { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .btn-dark { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.85rem; background: #09080A; color: var(--warm-white); font-family: var(--sans); font-size: .7rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: all .3s; }
+    .btn-dark:hover { background: #1c1a20; transform: translateY(-2px); }
+    .btn-outline-light { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.85rem; border: 1px solid rgba(9,8,10,.2); color: #09080A; font-family: var(--sans); font-size: .7rem; font-weight: 300; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: all .3s; }
+    .btn-outline-light:hover { border-color: #09080A; background: rgba(9,8,10,.04); }
+
+    /* ─── DARK SERIES ─── */
+    .dark-sec { background: var(--dark); }
+    .dark-sec .sec-h { color: var(--warm-white); }
+    .dark-sec .sec-desc { color: var(--muted); }
+    .sec-divider { border: none; border-top: 1px solid var(--border-d); margin: 5rem 0; }
+
+    /* ─── CONTACT ─── */
+    .contact { background: var(--black); text-align: center; padding: 9rem 3.5rem; position: relative; overflow: hidden; }
+    .contact::before { content:''; position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(200,144,58,.1) 0%, transparent 70%); left: 50%; top: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+    .contact .label { display: block; margin-bottom: 1rem; }
+    .contact-h { font-family: var(--serif); font-size: clamp(3rem,7vw,6rem); font-weight: 300; line-height: .92; letter-spacing: -.015em; margin-bottom: 1.75rem; }
+    .contact-h em { font-style: italic; color: var(--gold); }
+    .contact-sub { font-size: .88rem; font-weight: 300; line-height: 1.85; color: var(--muted); max-width: 380px; margin: 0 auto 2.75rem; }
+    .contact-phone { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 300; letter-spacing: .05em; color: var(--gold); display: block; text-decoration: none; margin-bottom: 3rem; transition: opacity .3s; }
+    .contact-phone:hover { opacity: .7; }
+    .socials { display: flex; justify-content: center; gap: 2.25rem; }
+    .soc { display: flex; align-items: center; gap: .55rem; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .3s; }
+    .soc:hover { color: var(--gold); }
+    .soc svg { width: 15px; height: 15px; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--dark); border-top: 1px solid var(--border-d); padding: 2rem 3.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .ft { font-size: .68rem; color: var(--muted); letter-spacing: .08em; }
+    .ft-brand { font-family: var(--serif); font-size: .9rem; color: rgba(245,240,234,.4); }
+    .ft-brand em { color: var(--gold); font-style: italic; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fu { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes mq { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    @keyframes sp { 0%,100% { opacity:.35; } 50% { opacity:1; } }
+    .reveal { opacity:0; transform:translateY(32px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1); }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    .reveal-d { transition-delay:.15s; }
+    .reveal-d2 { transition-delay:.3s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .lb-inner { grid-template-columns:1fr; max-height:90vh; overflow-y:auto; }
+      .lb-info { border-left:none; border-top:1px solid var(--border-d); padding:2rem; }
+      .lb-img-wrap img { max-height:55vh; }
+    }
+    @media (max-width: 900px) {
+      nav, nav.s { padding-left:1.5rem; padding-right:1.5rem; }
+      .nav-links, .nav-btn { display:none; }
+      .hero-content { padding:0 1.5rem 4rem; }
+      .sec { padding:5rem 1.5rem; }
+      .series-header { grid-template-columns:1fr; gap:1.25rem; }
+      .g-grid.feat { grid-template-columns:1fr 1fr; }
+      .g-item.tall { grid-row:span 1; aspect-ratio:1; }
+      .about .sec-inner { grid-template-columns:1fr; gap:3rem; }
+      .about-frame { display:none; }
+      .contact { padding:6rem 1.5rem; }
+      footer { padding:1.5rem; flex-direction:column; gap:.6rem; text-align:center; }
+    }
+    @media (max-width: 540px) {
+      .g-grid, .g-grid.feat { grid-template-columns:1fr 1fr; }
+      .lb { padding:.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cur-dot" id="dot"></div>
+<div class="cur-ring" id="ring"></div>
+
+<!-- ═══════════════════════════════ LIGHTBOX ═══ -->
+<div class="lb" id="lb">
+  <button class="lb-close" onclick="closeLb()">Close &nbsp;✕</button>
+  <div class="lb-inner">
+    <div class="lb-img-wrap">
+      <img id="lb-img" src="" alt="">
+    </div>
+    <div class="lb-info">
+      <span class="lb-series-tag" id="lb-series"></span>
+      <h3 class="lb-title" id="lb-title"></h3>
+      <div class="lb-divider"></div>
+      <div class="lb-meta">
+        <div class="lb-meta-row">
+          <span class="lb-meta-key">Medium</span>
+          <span class="lb-meta-val" id="lb-medium"></span>
+        </div>
+        <div class="lb-meta-row">
+          <span class="lb-meta-key">Size</span>
+          <span class="lb-meta-val" id="lb-dims"></span>
+        </div>
+        <div class="lb-meta-row">
+          <span class="lb-meta-key">Artist</span>
+          <span class="lb-meta-val">David Solanilla Mejía</span>
+        </div>
+      </div>
+      <a href="tel:3184844378" class="lb-enquire">Enquire about this work &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ NAV ═══ -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="21" cy="21" r="20" stroke="#C8903A" stroke-width="0.7"/>
+      <circle cx="21" cy="21" r="16.5" stroke="rgba(200,144,58,0.25)" stroke-width="0.5"/>
+      <text x="21" y="26.5" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="13" font-weight="400" font-style="italic" fill="#F5F0EA" letter-spacing="1.5">DS</text>
+      <circle cx="21" cy="35" r="1.2" fill="#C8903A"/>
+    </svg>
+    <div>
+      <span class="logo-name">David Solanilla <span>Mejía</span></span>
+      <span class="logo-sub">Plastic Artist</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#obras">Works</a></li>
+    <li><a href="#sobre">About</a></li>
+    <li><a href="#series">Series</a></li>
+    <li><a href="#contacto">Contact</a></li>
+  </ul>
+  <a href="#contacto" class="nav-btn">Enquire</a>
+</nav>
+
+<!-- ═══════════════════════════════ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg" id="hbg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-side"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Plastic Artist &nbsp;·&nbsp; Colombia</p>
+    <h1 class="hero-h1">David<br>Solanilla<br><em>Mejía</em></h1>
+    <p class="hero-sub">Abstract paintings that explore the natural and urban world — vast, poetic, and impossible to fully grasp.</p>
+    <div class="hero-actions">
+      <a href="#obras" class="btn-g">View Works &rarr;</a>
+      <a href="Portfolio.pdf" download class="btn-ghost">Download Portfolio</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>De Terra</span><span class="sep">◆</span><span>Urban Landscape</span><span class="sep">◆</span><span>Oil on Canvas</span><span class="sep">◆</span><span>Oil on Wood</span><span class="sep">◆</span><span>Abstract Painting</span><span class="sep">◆</span><span>Colombia</span><span class="sep">◆</span><span>Large Format</span><span class="sep">◆</span><span>Plastic Artist</span><span class="sep">◆</span>
+    <span>De Terra</span><span class="sep">◆</span><span>Urban Landscape</span><span class="sep">◆</span><span>Oil on Canvas</span><span class="sep">◆</span><span>Oil on Wood</span><span class="sep">◆</span><span>Abstract Painting</span><span class="sep">◆</span><span>Colombia</span><span class="sep">◆</span><span>Large Format</span><span class="sep">◆</span><span>Plastic Artist</span><span class="sep">◆</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ DE TERRA ═══ -->
+<section class="sec" id="obras">
+  <div class="sec-inner">
+
+    <div class="series-header">
+      <div class="reveal">
+        <p class="label">Series &nbsp;01</p>
+        <h2 class="sec-h">De&nbsp;<em>Terra</em></h2>
+      </div>
+      <p class="sec-desc reveal reveal-d">A series inspired by geological phenomena — the composition and structure offered by the natural and biological processes of our planet. A dynamic cycle visualised through abstract and geometric forms, where a vast chromatic range of shapes and textures intertwine, immersing the viewer entirely in the work.</p>
+    </div>
+
+    <!-- Featured layout: large left + 2×2 right -->
+    <div class="g-grid feat reveal">
+      <div class="g-item tall"
+           data-src="https://static.wixstatic.com/media/ff1fd8_4358ee33bea54f4eb270007ac7d7c781~mv2.png/v1/fill/w_1400,q_90,enc_avif,quality_auto/terra3.png"
+           data-title="De Terra III" data-series="De Terra"
+           data-medium="Oil on wood" data-dims="120 × 120 cms (47.2 × 47.2 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_4358ee33bea54f4eb270007ac7d7c781~mv2.png/v1/fill/w_800,h_1100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/terra3.png" alt="De Terra III" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">De Terra III</span><span class="g-sub">Oil on wood · 120 × 120 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_7f752474a9a844618b7bbc4583d5f4d4~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/deterraVIII.jpg"
+           data-title="De Terra VIII" data-series="De Terra"
+           data-medium="Oil on canvas" data-dims="164 × 164 cms (64.5 × 64.5 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_7f752474a9a844618b7bbc4583d5f4d4~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/deterraVIII.jpg" alt="De Terra VIII" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">De Terra VIII</span><span class="g-sub">Oil on canvas · 164 × 164 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_fc029028b7124e3a89fe8ed393cb5979~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/deterraIX.jpg"
+           data-title="De Terra IX" data-series="De Terra"
+           data-medium="Oil on canvas" data-dims="100 × 190 cms (39.3 × 74.8 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_fc029028b7124e3a89fe8ed393cb5979~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/deterraIX.jpg" alt="De Terra IX" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">De Terra IX</span><span class="g-sub">Oil on canvas · 100 × 190 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_51de03a1244c47f7870b1936a69a0f1f~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/deterraV.jpg"
+           data-title="De Terra V" data-series="De Terra"
+           data-medium="Oil on wood" data-dims="120 × 120 cms (47.2 × 47.2 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_51de03a1244c47f7870b1936a69a0f1f~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/deterraV.jpg" alt="De Terra V" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">De Terra V</span><span class="g-sub">Oil on wood · 120 × 120 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_7ab341e32e454b2a9b7c80ac4a2ea1f5~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/deterraVI.jpg"
+           data-title="De Terra VI" data-series="De Terra"
+           data-medium="Oil on wood" data-dims="120 × 120 cms (47.2 × 47.2 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_7ab341e32e454b2a9b7c80ac4a2ea1f5~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/deterraVI.jpg" alt="De Terra VI" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">De Terra VI</span><span class="g-sub">Oil on wood · 120 × 120 cms</span></div>
+      </div>
+    </div>
+
+    <!-- Second row of De Terra -->
+    <div class="g-grid reveal" style="margin-top:3px;">
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_c1992f6f982941708d09e0c5a8896d3d~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/deterraI.jpg"
+           data-title="De Terra I" data-series="De Terra"
+           data-medium="Oil on wood" data-dims="120 × 120 cms (47.2 × 47.2 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_c1992f6f982941708d09e0c5a8896d3d~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/deterraI.jpg" alt="De Terra I" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">De Terra I</span><span class="g-sub">Oil on wood · 120 × 120 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_d0bc7dcf45314b83839cd5b94e2b1484~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/deterraII.jpg"
+           data-title="De Terra II" data-series="De Terra"
+           data-medium="Oil on wood" data-dims="120 × 120 cms (47.2 × 47.2 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_d0bc7dcf45314b83839cd5b94e2b1484~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/deterraII.jpg" alt="De Terra II" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">De Terra II</span><span class="g-sub">Oil on wood · 120 × 120 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_f5b45c78136b4ee3b5119868aed4e475~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/deterraIV.jpg"
+           data-title="De Terra IV" data-series="De Terra"
+           data-medium="Oil on wood" data-dims="120 × 120 cms (47.2 × 47.2 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_f5b45c78136b4ee3b5119868aed4e475~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/deterraIV.jpg" alt="De Terra IV" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">De Terra IV</span><span class="g-sub">Oil on wood · 120 × 120 cms</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ ABOUT ═══ -->
+<section class="sec about" id="sobre">
+  <div class="sec-inner">
+    <div class="about-img-wrap reveal">
+      <img class="about-img"
+        src="https://static.wixstatic.com/media/ff1fd8_29f2c370d3dc48f8b5b90bf5413446fb~mv2.jpg/v1/fill/w_800,h_1100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/portrait.jpg"
+        alt="David Solanilla Mejía" loading="lazy">
+      <div class="about-frame"></div>
+    </div>
+    <div class="reveal reveal-d">
+      <p class="label">About</p>
+      <h2 class="sec-h" style="color:#09080A; margin-bottom:1.75rem;">Plastic<br><em>artist</em></h2>
+      <p class="about-p">I am a plastic artist who creates abstract paintings. My visual proposal presents reflections on the environments, both the natural and the urban — an artistic search that aims to interpret a vast world that surrounds man. An aesthetic atmosphere where the pictorial dimension embraces the spectator and allows them to enjoy an experience of forms intertwined among colours and lines.</p>
+      <p class="about-p">I normally use very large formats as this allows me to give dimension to the sensations I want to generate: <em>stroked colour jungles and faintly revealed structures.</em> Nature, as well as the city, are represented on large canvas to suggest the idea of vastness, enormity and power — in order to lose oneself within the poetic horizons of the image.</p>
+      <p class="about-p">It is more a poetic than a direct work, more metaphoric than illustrative; it is mostly the inexorable feeling that the world, in one way or another, is hard to discern and grasp in its vastness.</p>
+      <div class="about-btns">
+        <a href="Portfolio.pdf" download class="btn-dark">Download Portfolio &rarr;</a>
+        <a href="#contacto" class="btn-outline-light">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ URBAN LANDSCAPE ═══ -->
+<section class="sec dark-sec" id="series">
+  <div class="sec-inner">
+
+    <div class="series-header reveal">
+      <div>
+        <p class="label">Series &nbsp;02</p>
+        <h2 class="sec-h">Urban<br><em>Landscape</em></h2>
+      </div>
+      <p class="sec-desc">Cities are organic components where human life is circumscribed — the city grows, mutates, rearranges and reconfigures itself constantly. Texture and colour are the elements that form the basis of this series, representing through wounds, cavities and textures the symptomatic displays of the urban spectrum.</p>
+    </div>
+
+    <div class="g-grid feat reveal">
+      <div class="g-item tall"
+           data-src="https://static.wixstatic.com/media/ff1fd8_484494e855e1417bb68429aaf9529370~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/cityinstorm.jpg"
+           data-title="City in Storm" data-series="Urban Landscape"
+           data-medium="Oil on canvas" data-dims="100 × 100 cms (39.3 × 39.3 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_484494e855e1417bb68429aaf9529370~mv2.jpg/v1/fill/w_800,h_1100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/cityinstorm.jpg" alt="City in Storm" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">City in Storm</span><span class="g-sub">Oil on canvas · 100 × 100 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_1c86ca7165804211bfb459b19823d471~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/cityinmist.jpg"
+           data-title="City in Mist" data-series="Urban Landscape"
+           data-medium="Oil on canvas" data-dims="170 × 170 cms (66.9 × 66.9 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_1c86ca7165804211bfb459b19823d471~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/cityinmist.jpg" alt="City in Mist" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">City in Mist</span><span class="g-sub">Oil on canvas · 170 × 170 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_7e8ccb7c181a406cad8009f0400c12a1~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/bigfragment.jpg"
+           data-title="Big Fragment" data-series="Urban Landscape"
+           data-medium="Oil on canvas" data-dims="170 × 170 cms (66.9 × 66.9 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_7e8ccb7c181a406cad8009f0400c12a1~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bigfragment.jpg" alt="Big Fragment" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">Big Fragment</span><span class="g-sub">Oil on canvas · 170 × 170 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_06aca50a48484b579ca2453c998dec2b~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/forgottenfragmentII.jpg"
+           data-title="Forgotten Architectural Fragment II" data-series="Urban Landscape"
+           data-medium="Oil on canvas" data-dims="100 × 100 cms (39.3 × 39.3 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_06aca50a48484b579ca2453c998dec2b~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/forgottenfragmentII.jpg" alt="Forgotten Architectural Fragment II" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">Forgotten Fragment II</span><span class="g-sub">Oil on canvas · 100 × 100 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_91b98847bca746dba9aa3510712956b2~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/forgottenfragment.jpg"
+           data-title="Forgotten Architectural Fragment" data-series="Urban Landscape"
+           data-medium="Oil on canvas" data-dims="100 × 100 cms (39.3 × 39.3 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_91b98847bca746dba9aa3510712956b2~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/forgottenfragment.jpg" alt="Forgotten Architectural Fragment" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">Forgotten Fragment</span><span class="g-sub">Oil on canvas · 100 × 100 cms</span></div>
+      </div>
+    </div>
+
+    <hr class="sec-divider">
+
+    <div class="g-grid reveal">
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_be316cc31b8c4cecbc7ea8fc919c7693~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/cityIV.jpg"
+           data-title="City IV" data-series="Urban Landscape"
+           data-medium="Oil on wood" data-dims="120 × 120 cms (47.2 × 47.2 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_be316cc31b8c4cecbc7ea8fc919c7693~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/cityIV.jpg" alt="City IV" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">City IV</span><span class="g-sub">Oil on wood · 120 × 120 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_ed4992bcbeef401b9844a3630309eed9~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/warmwinter.jpg"
+           data-title="Warm Winter III (Diptych)" data-series="Urban Landscape"
+           data-medium="Oil on wood" data-dims="70 × 70 cms each (27.55 × 27.55 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_ed4992bcbeef401b9844a3630309eed9~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/warmwinter.jpg" alt="Warm Winter III" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">Warm Winter III</span><span class="g-sub">Oil on wood · Diptych 70 × 70 cms</span></div>
+      </div>
+      <div class="g-item"
+           data-src="https://static.wixstatic.com/media/ff1fd8_7ab341e32e454b2a9b7c80ac4a2ea1f5~mv2.jpg/v1/fill/w_1400,q_90,enc_avif,quality_auto/deterraXII.jpg"
+           data-title="De Terra XII" data-series="De Terra"
+           data-medium="Oil on wood" data-dims="64 × 192 cms (25.1 × 75.5 IN)"
+           onclick="openLb(this)">
+        <img src="https://static.wixstatic.com/media/ff1fd8_7ab341e32e454b2a9b7c80ac4a2ea1f5~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/deterraXII.jpg" alt="De Terra XII" loading="lazy">
+        <div class="g-overlay"><span class="g-lbl">De Terra XII</span><span class="g-sub">Oil on wood · 64 × 192 cms</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONTACT ═══ -->
+<section class="contact reveal" id="contacto">
+  <span class="label">Contact</span>
+  <h2 class="contact-h">Let's talk<br>about <em>art.</em></h2>
+  <p class="contact-sub">Enquiries about works, exhibitions, collaborations or acquisition of original pieces.</p>
+  <a href="tel:3184844378" class="contact-phone">318 484 4378</a>
+  <div class="socials">
+    <a href="https://www.instagram.com/dsolanillamejia/" target="_blank" rel="noopener" class="soc">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+      @dsolanillamejia
+    </a>
+    <a href="Portfolio.pdf" download class="soc">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Portfolio
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="ft">&copy; 2024 David Solanilla Mejía</span>
+  <span class="ft-brand">David Solanilla <em>Mejía</em></span>
+  <span class="ft">Plastic Artist &nbsp;·&nbsp; Colombia</span>
+</footer>
+
+<script>
+  /* Nav */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('s', scrollY > 70), { passive:true });
+
+  /* Hero bg */
+  const hbg = document.getElementById('hbg');
+  const heroSrc = 'https://static.wixstatic.com/media/ff1fd8_484494e855e1417bb68429aaf9529370~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/dark.jpg';
+  hbg.style.backgroundImage = `url('${heroSrc}')`;
+  const pre = new Image(); pre.onload = () => hbg.classList.add('loaded'); pre.src = heroSrc;
+
+  /* Scroll reveal */
+  const io = new IntersectionObserver(
+    es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
+    { threshold: 0.06, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* Cursor */
+  const dot = document.getElementById('dot'), ring = document.getElementById('ring');
+  let mx=0,my=0,rx=0,ry=0;
+  if (!('ontouchstart' in window)) {
+    window.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; }, {passive:true});
+    const tick = () => {
+      dot.style.cssText=`left:${mx}px;top:${my}px`;
+      rx+=(mx-rx)*.14; ry+=(my-ry)*.14;
+      ring.style.cssText=`left:${rx}px;top:${ry}px`;
+      requestAnimationFrame(tick);
+    };
+    tick();
+    document.querySelectorAll('a,button,.g-item').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.style.transform='translate(-50%,-50%) scale(1.6)');
+      el.addEventListener('mouseleave', () => ring.style.transform='translate(-50%,-50%) scale(1)');
+    });
+  } else { dot.style.display=ring.style.display='none'; }
+
+  /* Lightbox */
+  function openLb(el) {
+    document.getElementById('lb-img').src       = el.dataset.src    || '';
+    document.getElementById('lb-title').textContent = el.dataset.title  || '';
+    document.getElementById('lb-series').textContent = el.dataset.series || '';
+    document.getElementById('lb-medium').textContent = el.dataset.medium || '';
+    document.getElementById('lb-dims').textContent   = el.dataset.dims   || '';
+    document.getElementById('lb').classList.add('on');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    document.getElementById('lb').classList.remove('on');
+    document.body.style.overflow = '';
+    setTimeout(() => { document.getElementById('lb-img').src=''; }, 450);
+  }
+  document.getElementById('lb').addEventListener('click', e => { if (e.target===e.currentTarget) closeLb(); });
+  document.addEventListener('keydown', e => { if (e.key==='Escape') closeLb(); });
+</script>
+</body>
+</html>
