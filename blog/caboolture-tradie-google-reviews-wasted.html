@@ -3,8 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="See exactly what's included in Clawmark's $189/mo GROWTH plan — custom Webflow website, local SEO, and more for Brisbane businesses.">
-  <title>Everything in a Clawmark Website Plan — $189/mo in Brisbane — Clawmark Blog</title>
+  <meta name="description" content="Caboolture tradies with great Google reviews but no website are losing jobs daily. Here's exactly why reviews alone aren't enough — and what to fix.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.clawmark.com.au/blog/caboolture-tradie-google-reviews-wasted">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Caboolture Tradies: Your Google Reviews Are Going to Waste — Clawmark Blog">
+  <meta property="og:description" content="Caboolture tradies with great Google reviews but no website are losing jobs daily. Here's exactly why reviews alone aren't enough — and what to fix.">
+  <meta property="og:url" content="https://www.clawmark.com.au/blog/caboolture-tradie-google-reviews-wasted">
+  <meta property="og:site_name" content="Clawmark">
+  <meta property="og:image" content="https://www.clawmark.com.au/og-image.jpg">
+  <meta property="og:locale" content="en_AU">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Caboolture Tradies: Your Google Reviews Are Going to Waste">
+  <meta name="twitter:description" content="Caboolture tradies with great Google reviews but no website are losing jobs daily. Here's exactly why reviews alone aren't enough — and what to fix.">
+  <title>Caboolture Tradies: Your Google Reviews Are Going to Waste — Clawmark Blog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -186,7 +200,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #1a0a05 0%, #2d1108 40%, #1a0808 70%, #0a0505 100%);
+      background: linear-gradient(135deg, #1a0f00 0%, #2a1800 40%, #1a0f00 70%, #0f0800 100%);
       position: relative;
     }
     .post-hero-image::before {
@@ -218,7 +232,7 @@
 
     @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 
-    /* ARTICLE LAYOUT */
+    /* ARTICLE */
     .article-section { background: var(--off-white); padding: 5rem 3rem 6rem; }
     .article-layout {
       max-width: 1100px;
@@ -329,6 +343,7 @@
     .inline-stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 0.3rem; }
     .inline-stat-label { font-size: 0.72rem; font-weight: 400; color: var(--muted-light); line-height: 1.35; }
 
+    /* SIDEBAR */
     .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 1.5rem; }
 
     .sidebar-card {
@@ -421,6 +436,7 @@
     .cta-band::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF5500 0%, rgba(255,85,0,0.3) 60%, transparent 100%); }
     .cta-band::after { content: ''; position: absolute; left: -80px; top: 50%; transform: translateY(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(255,85,0,0.11) 0%, transparent 65%); pointer-events: none; }
     .cta-band-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 5rem; padding: 5.5rem 0; position: relative; z-index: 2; }
+    .cta-band-left {}
     .cta-band p.eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #FF5500; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
     .cta-band p.eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1.5px; background: #FF5500; flex-shrink: 0; }
     .cta-band h2 { font-family: var(--serif); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; color: #FFFFFF; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
@@ -431,7 +447,9 @@
     .cta-band-right .btn-orange { background: #FF5500 !important; color: #FFFFFF !important; border-color: #FF5500 !important; }
     .cta-band-right .btn-outline-white { color: #FFFFFF !important; border-color: rgba(255,255,255,0.3) !important; }
     .cta-band-note { font-size: 0.65rem; color: rgba(255,255,255,0.2); text-align: center; letter-spacing: 0.04em; margin-top: 0.25rem; }
+    @media (max-width: 780px) { .cta-band-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 0; } .cta-band-right { min-width: unset; } }
 
+    /* FOOTER */
     footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
     .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
@@ -470,22 +488,22 @@
   <div class="cursor-ring" id="ring"></div>
 
   <div class="mobile-nav" id="mob">
-    <button class="mobile-close" id="mob-close">&#x2715;</button>
-    <a href="../index.html">Home</a>
-    <a href="../how-it-works.html">How It Works</a>
-    <a href="../pricing.html">Pricing</a>
-    <a href="../faqs.html">FAQs</a>
-    <a href="../blog.html" style="color:var(--orange)">Blog</a>
+    <button class="mobile-close" id="mob-close">✕</button>
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="faqs.html">FAQs</a>
+    <a href="blog.html" style="color:var(--orange)">Blog</a>
     <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
   </div>
 
   <nav id="nav">
-    <a href="../index.html" class="nav-logo">CLAW<span>MARK</span></a>
+    <a href="index.html" class="nav-logo">CLAW<span>MARK</span></a>
     <ul class="nav-links">
-      <li><a href="../how-it-works.html">How It Works</a></li>
-      <li><a href="../pricing.html">Pricing</a></li>
-      <li><a href="../faqs.html">FAQs</a></li>
-      <li><a href="../blog.html" class="active">Blog</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
     </ul>
     <div class="nav-right">
       <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Get My Free Website</a>
@@ -493,23 +511,24 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="post-hero">
     <div class="hero-grid"></div>
     <div class="post-hero-content">
 
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Home</a>
+        <a href="index.html">Home</a>
         <span class="breadcrumb-sep">/</span>
-        <a href="../blog.html">Blog</a>
+        <a href="blog.html">Blog</a>
         <span class="breadcrumb-sep">/</span>
-        <span class="breadcrumb-current">Web Design</span>
+        <span class="breadcrumb-current">Local SEO</span>
       </nav>
 
-      <div class="post-cat-tag">&#128188; Web Design</div>
+      <div class="post-cat-tag">📍 Local SEO</div>
 
       <h1 class="post-title">
-        Everything in a Clawmark Website Plan —<br>
-        <span class="accent">$189/mo in Brisbane</span>
+        Caboolture Tradies: Your Google Reviews<br>
+        Are <span class="accent">Going to Waste</span>
       </h1>
 
       <div class="post-meta-row">
@@ -521,9 +540,9 @@
           </div>
         </div>
         <div class="meta-sep"></div>
-        <span class="meta-item">&#128197; 29 April 2026</span>
-        <span class="meta-item">&#9203; 5 min read</span>
-        <span class="meta-item">&#128205; Brisbane, QLD</span>
+        <span class="meta-item">📅 29 May 2026</span>
+        <span class="meta-item">⏱ 5 min read</span>
+        <span class="meta-item">📍 Caboolture, QLD</span>
       </div>
 
     </div>
@@ -531,152 +550,144 @@
     <div class="post-hero-image-wrap">
       <div class="post-hero-image">
         <div class="post-hero-image-inner">
-          <div class="hero-img-icon">&#128187;</div>
+          <div class="hero-img-icon">⭐</div>
           <div class="hero-img-label">
-            Free website.<br>
-            <span>No upfront cost.</span>
+            47 five-star reviews.<br>
+            <span>Zero website.</span>
           </div>
-          <div class="hero-img-sub">Everything included — one flat monthly rate.</div>
+          <div class="hero-img-sub">Here's what that's actually costing you.</div>
         </div>
       </div>
-      <p class="post-image-caption">The GROWTH plan at $189/mo is Clawmark's most popular option for Brisbane small businesses ready to stop relying on word of mouth alone.</p>
+      <p class="post-image-caption">Caboolture tradies are building genuine trust with customers — then losing the next job because there's nowhere to send people who search before they call.</p>
     </div>
 
   </section>
 
+  <!-- ARTICLE -->
   <section class="article-section">
     <div class="article-layout">
 
       <article>
 
         <p class="article-intro reveal">
-          Most Brisbane business owners asking about the Clawmark website plan want to know one thing: <span class="intro-highlight">exactly what am I paying for, and what does $189 a month actually get me?</span> This post breaks down every single inclusion in the GROWTH plan — no vague promises, no hidden asterisks.
+          You've done the hard work. Forty-seven five-star reviews from real customers in Caboolture and Morayfield. A solid reputation built over years of showing up on time and doing the job properly. <span class="intro-highlight">But right now, every one of those reviews is pointing to a dead end</span> — because there's no website for them to land on.
         </p>
 
         <div class="article-body reveal">
 
-          <h2 id="the-real-question">The question behind the question</h2>
+          <h2 id="the-dead-end-problem">The dead end your reviews keep hitting</h2>
 
-          <p>When a tradie in Ipswich, a cafe owner in West End, or a beauty therapist in Chermside asks about the Clawmark website plan Brisbane pricing, what they're really asking is: "Is this worth it?" That's a fair question. A monthly subscription you can't cancel is a commitment, and you deserve to know exactly what you're committing to.</p>
+          <p>Think about what happens when a potential customer finds your Google Business Profile. They read the reviews — they're impressed. They want to know more. They click around looking for a website. There isn't one. So they back out and look at the next tradie on the list. That one has a site. They read it. They book.</p>
 
-          <p>The short answer is this: you get a custom Webflow website with no upfront build fee, plus a full suite of ongoing support, SEO work, and digital tools that most agencies charge thousands to set up separately. Here's the full breakdown.</p>
+          <p>You never even knew that person existed. Your 47 reviews did their job. They built trust. But there was nowhere to go with that trust, so someone else got the call.</p>
+
+          <p>This isn't a theory. I've spoken to enough Caboolture tradies to know it's happening constantly — electricians, roofers, builders, plumbers. Great word of mouth. Strong reviews. And a chronic leak in their new enquiry pipeline that they can't see because it's online.</p>
 
           <div class="inline-stat">
             <div class="inline-stat-cell">
-              <div class="inline-stat-num">$0</div>
-              <div class="inline-stat-label">upfront build fee — the website is included in your monthly plan</div>
+              <div class="inline-stat-num">64%</div>
+              <div class="inline-stat-label">of consumers visit a business website after reading positive online reviews</div>
             </div>
             <div class="inline-stat-cell">
-              <div class="inline-stat-num">$189</div>
-              <div class="inline-stat-label">per month for the GROWTH plan — Brisbane's most popular Clawmark tier</div>
+              <div class="inline-stat-num">88%</div>
+              <div class="inline-stat-label">of people trust online reviews as much as a personal recommendation</div>
             </div>
             <div class="inline-stat-cell">
-              <div class="inline-stat-num">18 mo</div>
-              <div class="inline-stat-label">minimum term — locks in your plan rate and gives time for SEO to compound</div>
+              <div class="inline-stat-num">3 sec</div>
+              <div class="inline-stat-label">is the average time before a visitor bounces from a slow or absent site</div>
             </div>
           </div>
 
-          <h2 id="whats-included">What's included in the GROWTH plan</h2>
+          <h2 id="reviews-earn-attention-not-jobs">Reviews earn attention. They don't close jobs.</h2>
 
-          <p>The GROWTH plan at $189/mo is designed for Brisbane small businesses that are actively chasing new customers — tradies, hospitality venues, beauty businesses, fitness studios, and professional services. Here's every inclusion:</p>
+          <p>Here's the thing about Google reviews — they do one job well. They get people to stop scrolling. A tradie with 40 solid reviews stands out from one with three. That's real. Reviews build credibility fast.</p>
 
-          <h3>Custom Webflow website — no build fee</h3>
-          <p>You get a fully custom website built on Webflow. Not a template with your logo slapped on it. A site designed around your business, your suburb, and the customers you're trying to reach. There is no upfront build fee. The cost of designing and building the site is absorbed into your monthly subscription. You see the design before you sign anything.</p>
+          <p>But credibility isn't the same as conversion. Once someone is interested, they start asking questions. What exactly do you do? Do you cover my area? What does your work look like? Can I reach you right now or do I have to wait? A Google Business Profile can answer some of this. A proper website answers all of it, in a format you control, with the images and copy and phone number right there at the top.</p>
 
-          <h3>5 content updates per month</h3>
-          <p>Your business changes. Your website should keep up. The GROWTH plan includes five content updates per month — new service pages, changed opening hours, updated pricing, new photos, seasonal offers. You message us, we update it within 24 hours.</p>
-
-          <h3>24-hour response time</h3>
-          <p>When something needs fixing or updating, you hear back within a business day. No support tickets. No waiting three days for a reply from an offshore team. Direct access to the person who built your site.</p>
-
-          <h3>Local SEO optimisation</h3>
-          <p>Your website is built and maintained to rank for searches in your area. That means suburb-specific keywords, proper meta tags, structured data, fast load times, and mobile-first design. Local SEO is not a one-time job — it's an ongoing process, and it's included at no extra charge on the GROWTH plan.</p>
-
-          <h3>Google Business Profile setup and management</h3>
-          <p>Your Google Business Profile is often the first thing a potential customer sees before they even visit your website. On the GROWTH plan, Clawmark sets it up correctly and manages it for you — keeping your hours accurate, your photos fresh, and your profile optimised so Google shows you in local search results. This alone is worth hundreds of dollars a month if you were to hire a specialist separately.</p>
-
-          <h3>Hosting and maintenance</h3>
-          <p>Your website is hosted and maintained as part of the plan. Webflow's infrastructure means fast load times, 99.9% uptime, and automatic SSL. You never deal with a separate hosting bill or a random "your SSL certificate has expired" panic email.</p>
+          <p>Without that, you're relying on the person to pick up the phone cold — no context, no photos, no sense of who they're calling. Some will. A lot won't bother. They'll go with the tradie whose site gave them enough confidence to make that call feel easy.</p>
 
           <div class="callout">
-            <div class="callout-label">Brisbane Example</div>
-            <p><strong>A plumbing business in Caboolture</strong> joined Clawmark on the GROWTH plan. Within 60 days of launch, they were ranking in the top three for "plumber Caboolture" on Google Maps, were receiving consistent enquiries through their contact form, and had their Google Business Profile fully managed — all included in the $189/mo plan. No separate hosting bill. No SEO retainer. No content agency fees.</p>
+            <div class="callout-label">Real scenario</div>
+            <p><strong>A Caboolture roofer with 52 Google reviews and no website</strong> was losing enquiries to a competitor with 18 reviews and a basic site. The competitor's website showed photos of finished jobs, listed suburbs covered, and had a "get a quote" button visible on mobile. That was enough. People didn't need more reviews — they needed a reason to feel confident making the call.</p>
           </div>
 
-          <h2 id="what-you-dont-pay-for">What you don't pay for separately</h2>
+          <h2 id="google-sees-it-too">Google sees the gap too</h2>
 
-          <p>The Clawmark website plan Brisbane model is deliberately all-inclusive. Here's what competitors typically charge extra for that's bundled into the GROWTH plan:</p>
+          <p>It's not just potential customers who notice you don't have a website. Google notices. And it factors it into how you rank.</p>
 
-          <ul>
-            <li><strong>Website design and build:</strong> Agencies typically charge $3,000–$12,000 upfront. With Clawmark, $0 upfront.</li>
-            <li><strong>Monthly hosting:</strong> Usually $30–$80/mo billed separately. Included in your Clawmark plan.</li>
-            <li><strong>Local SEO retainer:</strong> Brisbane SEO agencies charge $500–$2,000/mo for ongoing local SEO. Included at the GROWTH tier.</li>
-            <li><strong>Google Business Profile management:</strong> Typically $150–$400/mo as a standalone service. Included.</li>
-            <li><strong>Website maintenance and updates:</strong> Most agencies bill hourly for changes. Clawmark's five updates per month are included at no extra charge.</li>
-          </ul>
+          <p>Google's local ranking algorithm weighs something called <strong>prominence</strong> — how well-established and trustworthy a business appears across the web. A proper website, with your business name, location, and services clearly stated, is one of the strongest signals you can send. Without it, you're handing that ground to every competitor who does have one.</p>
+
+          <p>I've seen Caboolture tradies with fewer reviews outrank better-reviewed competitors simply because they had a fast, mobile-optimised website with a few suburb-specific pages. Google connected the dots. The competitor with more reviews but no site ranked lower — and got fewer calls from it.</p>
+
+          <p>That's a hard thing to stomach when you've spent years building your reputation. The reviews are real. The work is real. But the signal Google picks up is incomplete, and it shows in the rankings.</p>
 
           <div class="pull-quote">
-            <blockquote>"You're not paying $189 a month for a website. You're paying $189 a month for a website, local SEO, Google Business Profile management, hosting, and a team watching your online presence every single day."</blockquote>
+            <blockquote>"Your reviews prove you're good. A website proves you're serious. You need both."</blockquote>
           </div>
 
-          <h2 id="the-other-plans">What if GROWTH isn't the right fit?</h2>
+          <h2 id="what-a-website-actually-does">What a website actually does for a tradie</h2>
 
-          <p>GROWTH is the right starting point for most Brisbane small businesses. But if your needs are simpler or bigger, there are two other options.</p>
+          <p>A website isn't about looking fancy. For a Caboolture tradie, it does three practical things.</p>
 
-          <p>The <strong>PRESENCE plan at $129/mo</strong> is for sole traders and businesses that just need a sharp, credible online presence — two content updates per month, basic on-page SEO, no Google Business Profile management. It's the right call if you're not actively chasing new customers through search and just want to look professional online.</p>
+          <p>First, it gives your reviews somewhere to land. Someone finds you on Google, reads five reviews, clicks through, and sees your services, photos of your work, the suburbs you cover, and your phone number — all in thirty seconds. That's the difference between a maybe and a booking.</p>
 
-          <p>The <strong>AUTHORITY plan at $289/mo</strong> is for established businesses that want their website doing serious commercial work — 20 content updates per month, same-day response, full SEO reporting, monthly blog posts written for you, and an AI-powered chat widget. If you want to <a href="brisbane-beauty-clinic-website.html">dominate your local market the way some Brisbane beauty clinics are already doing</a>, AUTHORITY is worth the look.</p>
+          <p>Second, it gives Google more to work with. A page that says "roofing Caboolture" and "gutter replacement Morayfield" and loads fast on a phone is a concrete ranking signal. Your Google Business Profile is good — a website backed by local SEO is better.</p>
 
-          <p>For most businesses — a tradie in Springfield, a yoga studio in West End, a mortgage broker in Nundah — the GROWTH plan is the right choice. It's what Clawmark recommends by default for a reason.</p>
+          <p>Third, it works while you're on the tools. You don't have to be available. The site answers the basic questions, qualifies the enquiry, and gets them to call when they're ready. That's not a small thing when you're on a roof in Caboolture and can't answer your phone for three hours.</p>
 
-          <h2 id="what-to-do-next">What happens when you sign up</h2>
+          <p>Want to understand what that kind of site actually costs — and what you're risking by patching it together yourself? <a href="2026-05-27-free-website-builder-brisbane-small-business.html">This post breaks down what free website builders actually cost Brisbane small businesses</a> in lost customers and missed Google rankings.</p>
 
-          <p>The process is straightforward. You book a free 30-minute call, we find out about your business and what you need your website to do. We build a concept or mockup for you to review. Once you're happy with the direction, you sign the agreement and we start building.</p>
+          <h2 id="fix-it-without-the-upfront-cost">Fix it without the upfront cost</h2>
 
-          <p>You see the website before you commit to the ongoing plan. No surprises. No "trust us, you'll love it" — you sign off on the design first. The site goes live, and from that point, your $189/mo covers everything described above for the 18-month term.</p>
+          <p>The biggest reason Caboolture tradies put off getting a website is the upfront cost. A decent custom site can run $3,000 to $6,000 from a web developer. That's a hard ask when you're running a small operation and cash flow is tight.</p>
 
-          <p>If you're a <a href="2026-04-30-fitness-business-website-ipswich.html">fitness business in Ipswich</a> or a tradie who's been relying on Facebook referrals, this is what a proper Clawmark website plan Brisbane looks like in practice: a site that's built to rank, updated as your business grows, and supported by someone who picks up the phone.</p>
+          <p>Free website. No upfront cost. That's what we do at Clawmark. You get a custom Webflow site built for your trade, your suburb, and your specific services — starting from $189 a month with no build fee. You see the design before you pay anything.</p>
 
+          <p>It's not a template. It's built around your business, your photos, and the suburbs you actually work in. And because it's on Webflow, it loads fast and ranks better than most DIY builders. <a href="2026-05-28-brisbane-gym-personal-trainer-website-revenue-growth.html">The data on what a proper site does for small business revenue growth</a> is pretty clear — businesses with one are twice as likely to grow year over year.</p>
+
+          <!-- In-article CTA -->
           <div class="article-cta">
-            <div class="article-cta-label">See your website before you sign anything</div>
-            <h3 class="article-cta-title">Free website. <span>No upfront cost.</span><br>One flat monthly rate.</h3>
-            <p class="article-cta-text">Book a free call and we'll show you what a Clawmark GROWTH website looks like for your specific business and suburb. You see the design first. No commitment until you're happy with it.</p>
+            <div class="article-cta-label">Ready to stop leaking enquiries?</div>
+            <h3 class="article-cta-title">Get a website that turns your<br><span>reviews into bookings</span> — free upfront.</h3>
+            <p class="article-cta-text">We build custom Webflow sites for Caboolture tradies with proper local SEO, mobile-first design, and suburb-specific pages. You see it before you sign anything. $189/mo, no build fee.</p>
             <div class="article-cta-actions">
               <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
-              <a href="../pricing.html" class="btn btn-outline-dark">Compare All Plans</a>
+              <a href="pricing.html" class="btn btn-outline-white">See Plans & Pricing</a>
             </div>
           </div>
 
           <div class="article-tags">
-            <a href="../blog.html" class="article-tag">Web Design</a>
-            <a href="../blog.html" class="article-tag">Brisbane</a>
-            <a href="../blog.html" class="article-tag">Pricing</a>
-            <a href="../blog.html" class="article-tag">Small Business</a>
-            <a href="../blog.html" class="article-tag">Local SEO</a>
+            <a href="blog.html" class="article-tag">Local SEO</a>
+            <a href="blog.html" class="article-tag">Caboolture</a>
+            <a href="blog.html" class="article-tag">Trades</a>
+            <a href="blog.html" class="article-tag">Google Reviews</a>
+            <a href="blog.html" class="article-tag">Small Business</a>
+            <a href="blog.html" class="article-tag">Brisbane</a>
           </div>
 
         </div>
       </article>
 
+      <!-- Sidebar -->
       <aside class="article-sidebar reveal">
 
         <div class="sidebar-toc">
           <div class="sidebar-toc-title">In this article</div>
           <ul class="toc-list">
-            <li><a href="#the-real-question">The question behind the question</a></li>
-            <li><a href="#whats-included">What's included in GROWTH</a></li>
-            <li><a href="#what-you-dont-pay-for">What you don't pay for separately</a></li>
-            <li><a href="#the-other-plans">Other plan options</a></li>
-            <li><a href="#what-to-do-next">What happens when you sign up</a></li>
+            <li><a href="#the-dead-end-problem">The dead end your reviews keep hitting</a></li>
+            <li><a href="#reviews-earn-attention-not-jobs">Reviews earn attention. They don't close jobs.</a></li>
+            <li><a href="#google-sees-it-too">Google sees the gap too</a></li>
+            <li><a href="#what-a-website-actually-does">What a website actually does for a tradie</a></li>
+            <li><a href="#fix-it-without-the-upfront-cost">Fix it without the upfront cost</a></li>
           </ul>
         </div>
 
         <div class="sidebar-card">
           <div class="sidebar-card-head">
-            <div class="sidebar-card-head-title">Get a website that works as hard as you do</div>
+            <div class="sidebar-card-head-title">Turn your reviews into bookings</div>
           </div>
           <div class="sidebar-card-body">
-            <p>Custom Webflow website, local SEO, and Google Business Profile management — $189/mo with zero upfront build fee. See the design before you commit.</p>
+            <p>Custom Webflow website for your trade, built for Caboolture and surrounds. Local SEO included. $189/mo — no upfront build fee.</p>
             <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
           </div>
         </div>
@@ -684,9 +695,9 @@
         <div class="sidebar-share">
           <div class="sidebar-share-title">Share this post</div>
           <div class="share-btns">
-            <button class="share-btn" onclick="sharePost('facebook')"><span>&#128077;</span> Share on Facebook</button>
-            <button class="share-btn" onclick="sharePost('linkedin')"><span>&#128188;</span> Share on LinkedIn</button>
-            <button class="share-btn" onclick="copyLink()"><span>&#128279;</span> Copy link</button>
+            <button class="share-btn" onclick="sharePost('facebook')"><span>👍</span> Share on Facebook</button>
+            <button class="share-btn" onclick="sharePost('linkedin')"><span>💼</span> Share on LinkedIn</button>
+            <button class="share-btn" onclick="copyLink()"><span>🔗</span> Copy link</button>
           </div>
         </div>
 
@@ -695,6 +706,7 @@
     </div>
   </section>
 
+  <!-- RELATED POSTS -->
   <section class="related-section">
     <div class="related-wrap">
       <div class="related-hd reveal">
@@ -702,62 +714,63 @@
         <h2>Keep reading</h2>
       </div>
       <div class="related-grid">
-        <a href="2026-04-30-fitness-business-website-ipswich.html" class="related-card reveal">
+        <a href="2026-05-28-brisbane-gym-personal-trainer-website-revenue-growth.html" class="related-card reveal">
           <div class="related-tag">Business Growth</div>
-          <div class="related-title">Why fitness businesses in Ipswich are finally getting serious about their websites</div>
+          <div class="related-title">Brisbane Personal Trainers: A Website Doubles Your Revenue Growth</div>
           <div class="related-meta">
-            <span>April 30, 2026 &middot; 5 min</span>
-            <span class="related-link">Read &#x2192;</span>
+            <span>28 May 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
           </div>
         </a>
-        <a href="brisbane-beauty-clinic-website.html" class="related-card reveal">
+        <a href="2026-05-27-free-website-builder-brisbane-small-business.html" class="related-card reveal">
           <div class="related-tag">Web Design</div>
-          <div class="related-title">How a Brisbane beauty clinic turned a dated website into their best-performing sales tool</div>
+          <div class="related-title">Free Website Builder? Here's What Brisbane Businesses Actually Pay</div>
           <div class="related-meta">
-            <span>April 20, 2026 &middot; 4 min</span>
-            <span class="related-link">Read &#x2192;</span>
+            <span>27 May 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
           </div>
         </a>
-        <a href="../pricing.html" class="related-card reveal">
-          <div class="related-tag">Pricing</div>
-          <div class="related-title">Compare all Clawmark plans — PRESENCE, GROWTH, and AUTHORITY</div>
+        <a href="2026-05-26-brisbane-professional-services-trust-signals-website.html" class="related-card reveal">
+          <div class="related-tag">Business Growth</div>
+          <div class="related-title">Brisbane Professional Services: Trust Signals That Win Clients</div>
           <div class="related-meta">
-            <span>See full pricing</span>
-            <span class="related-link">View &#x2192;</span>
+            <span>26 May 2026 · 5 min</span>
+            <span class="related-link">Read →</span>
           </div>
         </a>
       </div>
     </div>
   </section>
 
+  <!-- BOTTOM CTA -->
   <section class="cta-band">
     <div class="cta-band-inner">
       <div class="cta-band-left">
         <p class="eyebrow">No upfront cost</p>
-        <h2>Your website should be<br>working for you. <span>Is it?</span></h2>
-        <p class="cta-band-sub">A Clawmark GROWTH website means local SEO, Google Business Profile management, and content updates — all for $189/mo with no upfront build fee. Book a call and see what it looks like for your business.</p>
+        <h2>Your reviews are working.<br>Now give them <span>somewhere to land.</span></h2>
+        <p class="cta-band-sub">A free Clawmark website turns your Google reviews from a dead end into a booking funnel. Built for your trade, your suburb, your customers. Book a call and we'll show you what it looks like.</p>
       </div>
       <div class="cta-band-right">
         <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="color:#FFFFFF;">Book My Free Call</a>
-        <a href="../blog.html" class="btn btn-outline-white" style="color:#FFFFFF;">&#x2190; Back to Blog</a>
-        <p class="cta-band-note">No commitment &middot; See design first</p>
+        <a href="blog.html" class="btn btn-outline-white" style="color:#FFFFFF;">← Back to Blog</a>
+        <p class="cta-band-note">No commitment · See design first</p>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="footer-inner">
-      <a href="../index.html" class="footer-logo">CLAW<span>MARK</span></a>
+      <a href="index.html" class="footer-logo">CLAW<span>MARK</span></a>
       <ul class="footer-links-row">
-        <li><a href="../how-it-works.html">How It Works</a></li>
-        <li><a href="../pricing.html">Pricing</a></li>
-        <li><a href="../faqs.html">FAQs</a></li>
-        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a></li>
       </ul>
-      <p class="footer-copy">&#169; 2026 Clawmark. All rights reserved.</p>
+      <p class="footer-copy">© 2026 Clawmark. All rights reserved.</p>
       <nav class="footer-legal" style="display:flex;gap:1.5rem;">
-        <a href="../privacy-policy.html" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Privacy Policy</a>
+        <a href="privacy-policy.html" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Privacy Policy</a>
         <a href="#" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Terms of Use</a>
       </nav>
     </div>
@@ -793,14 +806,14 @@
     function sharePost(platform) {
       const url = encodeURIComponent(window.location.href);
       const title = encodeURIComponent(document.title);
-      if (platform === 'facebook') window.open('https://facebook.com/sharer/sharer.php?u=' + url, '_blank');
-      if (platform === 'linkedin') window.open('https://linkedin.com/sharing/share-offsite/?url=' + url, '_blank');
+      if (platform === 'facebook') window.open(`https://facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+      if (platform === 'linkedin') window.open(`https://linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
     }
     function copyLink() {
       navigator.clipboard.writeText(window.location.href).then(() => {
         const btn = document.querySelector('[onclick="copyLink()"]');
         const orig = btn.innerHTML;
-        btn.innerHTML = '<span>&#10003;</span> Link copied!';
+        btn.innerHTML = '<span>✓</span> Link copied!';
         btn.style.color = '#2D8A4E';
         btn.style.borderColor = '#2D8A4E';
         setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; btn.style.borderColor = ''; }, 2000);
@@ -812,12 +825,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Everything in a Clawmark Website Plan — $189/mo in Brisbane — Clawmark Blog",
-  "description": "See exactly what",
+  "headline": "Caboolture Tradies: Your Google Reviews Are Going to Waste — Clawmark Blog",
+  "description": "Caboolture tradies with great Google reviews but no website are losing jobs daily. Here",
   "image": "https://www.clawmark.com.au/og-image.jpg",
-  "url": "https://www.clawmark.com.au/blog/clawmark-website-plan-brisbane",
-  "datePublished": "2026-04-30",
-  "dateModified": "2026-04-30",
+  "url": "https://www.clawmark.com.au/blog/caboolture-tradie-google-reviews-wasted",
+  "datePublished": "2026-05-27",
+  "dateModified": "2026-05-27",
   "author": {
     "@type": "Person",
     "name": "Andres Henao",
@@ -834,7 +847,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://www.clawmark.com.au/blog/clawmark-website-plan-brisbane"
+    "@id": "https://www.clawmark.com.au/blog/caboolture-tradie-google-reviews-wasted"
   }
 }
 </script>
@@ -859,8 +872,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Everything in a Clawmark Website Plan — $189/mo in Brisbane — Clawmark Blog",
-      "item": "https://www.clawmark.com.au/blog/clawmark-website-plan-brisbane"
+      "name": "Caboolture Tradies: Your Google Reviews Are Going to Waste — Clawmark Blog",
+      "item": "https://www.clawmark.com.au/blog/caboolture-tradie-google-reviews-wasted"
     }
   ]
 }

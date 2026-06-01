@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="[POST META DESCRIPTION — 150 characters describing the article for Google]">
-  <title>[POST TITLE] — Clawmark Blog</title>
+  <meta name="description" content="Caboolture tradies with 50+ Google reviews are still losing jobs to competitors. Here's why reviews alone can't win local search — and what actually does.">
+  <title>Caboolture Tradies: Why Your Google Reviews Aren't Enough — Clawmark Blog</title>
+  <link rel="canonical" href="https://www.clawmark.com.au/blog/caboolture-tradies-google-reviews-wasted-no-website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -64,390 +64,106 @@
     .mobile-nav a:hover { color: var(--orange); }
     .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
 
-    /* ════════════════════════════════════
-       HERO SECTION
-    ════════════════════════════════════ */
-    .post-hero {
-      background: var(--black);
-      padding: 9rem 3rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .post-hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 700px; height: 500px;
-      background: radial-gradient(circle, rgba(255,85,0,0.09) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
-    }
-
-    .post-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    /* Breadcrumb */
-    .breadcrumb {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.72rem;
-      font-weight: 400;
-      color: var(--muted-dark);
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
+    /* HERO */
+    .post-hero { background: var(--black); padding: 9rem 3rem 0; position: relative; overflow: hidden; }
+    .post-hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; background: radial-gradient(circle, rgba(255,85,0,0.09) 0%, transparent 65%); pointer-events: none; }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%); }
+    .post-hero-content { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 400; color: var(--muted-dark); margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) forwards; }
     .breadcrumb a { color: var(--muted-dark); transition: color 0.2s; }
     .breadcrumb a:hover { color: var(--white); }
     .breadcrumb-sep { color: rgba(255,255,255,0.2); }
     .breadcrumb-current { color: var(--orange); }
-
-    /* Post category tag */
-    .post-cat-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--orange);
-      border: 1px solid rgba(255,85,0,0.35);
-      padding: 0.35rem 0.85rem;
-      border-radius: 99px;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.18s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
-
-    /* Post headline */
-    .post-title {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.75s 0.28s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
+    .post-cat-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); border: 1px solid rgba(255,85,0,0.35); padding: 0.35rem 0.85rem; border-radius: 99px; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.18s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .post-title { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; color: var(--white); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.75s 0.28s cubic-bezier(0.22,1,0.36,1) forwards; }
     .post-title .accent { color: var(--orange); }
-
-    /* Meta row */
-    .post-meta-row {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      padding-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
+    .post-meta-row { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; padding-bottom: 2rem; opacity: 0; animation: fadeUp 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) forwards; }
     .meta-author { display: flex; align-items: center; gap: 0.65rem; }
-    .meta-avatar {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--orange), #FF8C42);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--serif);
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--white);
-      flex-shrink: 0;
-    }
+    .meta-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), #FF8C42); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 0.85rem; font-weight: 700; color: var(--white); flex-shrink: 0; }
     .meta-author-name { font-size: 0.8rem; font-weight: 500; color: var(--white); }
     .meta-author-role { font-size: 0.68rem; color: var(--muted-dark); }
     .meta-sep { width: 1px; height: 24px; background: var(--border-dark); }
     .meta-item { font-size: 0.75rem; color: var(--muted-dark); }
-
-    /* ── HERO IMAGE ── */
-    .post-hero-image-wrap {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-      margin: 2.5rem auto 0;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.55s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
-    .post-hero-image {
-      width: 100%;
-      height: 440px;
-      border-radius: 10px 10px 0 0;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #0f1a2e 0%, #1a2a48 40%, #0d1520 70%, #0a1020 100%);
-      position: relative;
-    }
-    /* Hero image decorative pattern */
-    .post-hero-image::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,85,0,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,85,0,0.06) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-    .post-hero-image-inner {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
+    .post-hero-image-wrap { position: relative; z-index: 2; max-width: 900px; margin: 2.5rem auto 0; opacity: 0; animation: fadeUp 0.8s 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .post-hero-image { width: 100%; height: 440px; border-radius: 10px 10px 0 0; overflow: hidden; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0f1a2e 0%, #1a2a48 40%, #0d1520 70%, #0a1020 100%); position: relative; }
+    .post-hero-image::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,85,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,85,0,0.06) 1px, transparent 1px); background-size: 40px 40px; }
+    .post-hero-image-inner { position: relative; z-index: 2; text-align: center; }
     .hero-img-icon { font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 30px rgba(255,85,0,0.4)); }
-    .hero-img-label {
-      font-family: var(--serif);
-      font-size: clamp(1.6rem, 3vw, 2.5rem);
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
+    .hero-img-label { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 800; color: var(--white); letter-spacing: -0.02em; line-height: 1.1; }
     .hero-img-label span { color: var(--orange); }
     .hero-img-sub { font-size: 0.8rem; font-weight: 300; color: var(--muted-dark); margin-top: 0.6rem; }
     .post-image-caption { font-size: 0.7rem; font-weight: 300; color: var(--muted-dark); text-align: center; padding: 0.75rem 0 0; font-style: italic; }
-
     @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 
-    /* ════════════════════════════════════
-       ARTICLE LAYOUT
-    ════════════════════════════════════ */
+    /* ARTICLE */
     .article-section { background: var(--off-white); padding: 5rem 3rem 6rem; }
-    .article-layout {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    /* ── INTRO TEXT ── */
-    .article-intro {
-      font-family: var(--serif);
-      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-      font-weight: 600;
-      color: var(--black);
-      line-height: 1.55;
-      letter-spacing: -0.01em;
-      margin-bottom: 2.5rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border-light);
-    }
+    .article-layout { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 280px; gap: 5rem; align-items: start; }
+    .article-intro { font-family: var(--serif); font-size: clamp(1.15rem, 1.8vw, 1.35rem); font-weight: 600; color: var(--black); line-height: 1.55; letter-spacing: -0.01em; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-light); }
     .article-intro .intro-highlight { color: var(--orange); }
-
-    /* ── CONTENT TEXT ── */
     .article-body {}
-    .article-body h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
-      font-weight: 700;
-      color: var(--black);
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-    }
-    .article-body h3 {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-top: 2rem;
-      margin-bottom: 0.6rem;
-    }
-    .article-body p {
-      font-size: 0.92rem;
-      font-weight: 300;
-      line-height: 1.85;
-      color: rgba(10,10,10,0.75);
-      margin-bottom: 1.35rem;
-    }
+    .article-body h2 { font-family: var(--serif); font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 700; color: var(--black); letter-spacing: -0.02em; line-height: 1.15; margin-top: 3rem; margin-bottom: 1rem; }
+    .article-body h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--black); margin-top: 2rem; margin-bottom: 0.6rem; }
+    .article-body p { font-size: 0.92rem; font-weight: 300; line-height: 1.85; color: rgba(10,10,10,0.75); margin-bottom: 1.35rem; }
     .article-body strong { font-weight: 600; color: var(--black); }
     .article-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
-    .article-body ul, .article-body ol {
-      padding-left: 1.25rem;
-      margin-bottom: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-    .article-body li {
-      font-size: 0.92rem;
-      font-weight: 300;
-      line-height: 1.7;
-      color: rgba(10,10,10,0.75);
-    }
-
-    /* Callout box */
-    .callout {
-      background: var(--white);
-      border-left: 3px solid var(--orange);
-      border-radius: 0 6px 6px 0;
-      padding: 1.5rem 1.75rem;
-      margin: 2rem 0;
-    }
+    .article-body ul, .article-body ol { padding-left: 1.25rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .article-body li { font-size: 0.92rem; font-weight: 300; line-height: 1.7; color: rgba(10,10,10,0.75); }
+    .callout { background: var(--white); border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; padding: 1.5rem 1.75rem; margin: 2rem 0; }
     .callout-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
     .callout p { margin-bottom: 0; font-size: 0.88rem; color: var(--muted-light); }
     .callout strong { color: var(--black); }
-
-    /* Pull quote */
-    .pull-quote {
-      border-top: 2px solid var(--orange);
-      border-bottom: 1px solid var(--border-light);
-      padding: 2rem 0;
-      margin: 2.5rem 0;
-    }
-    .pull-quote blockquote {
-      font-family: var(--serif);
-      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
-      font-weight: 700;
-      color: var(--black);
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-    }
-
-    /* Stat block inline */
-    .inline-stat {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: 1px solid var(--border-light);
-      border-radius: 6px;
-      overflow: hidden;
-      margin: 2rem 0;
-      background: var(--white);
-    }
-    .inline-stat-cell {
-      padding: 1.5rem 1.25rem;
-      text-align: center;
-      border-right: 1px solid var(--border-light);
-    }
+    .pull-quote { border-top: 2px solid var(--orange); border-bottom: 1px solid var(--border-light); padding: 2rem 0; margin: 2.5rem 0; }
+    .pull-quote blockquote { font-family: var(--serif); font-size: clamp(1.2rem, 1.8vw, 1.5rem); font-weight: 700; color: var(--black); line-height: 1.3; letter-spacing: -0.01em; }
+    .inline-stat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border-light); border-radius: 6px; overflow: hidden; margin: 2rem 0; background: var(--white); }
+    .inline-stat-cell { padding: 1.5rem 1.25rem; text-align: center; border-right: 1px solid var(--border-light); }
     .inline-stat-cell:last-child { border-right: none; }
     .inline-stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 0.3rem; }
     .inline-stat-label { font-size: 0.72rem; font-weight: 400; color: var(--muted-light); line-height: 1.35; }
-
-    /* ── SIDEBAR ── */
     .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 1.5rem; }
-
-    .sidebar-card {
-      background: var(--white);
-      border: 1px solid var(--border-light);
-      border-radius: 8px;
-      overflow: hidden;
-    }
+    .sidebar-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; }
     .sidebar-card-head { background: var(--black); padding: 1.25rem 1.5rem; }
     .sidebar-card-head-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--white); }
     .sidebar-card-body { padding: 1.5rem; }
     .sidebar-card-body p { font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--muted-light); margin-bottom: 1.25rem; }
     .sidebar-card-body .btn { width: 100%; justify-content: center; font-size: 0.75rem; padding: 0.75rem 1rem; }
-
-    /* TOC */
     .sidebar-toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
     .sidebar-toc-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
     .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
-    .toc-list li a {
-      display: block;
-      padding: 0.55rem 0;
-      font-size: 0.78rem;
-      font-weight: 400;
-      color: var(--muted-light);
-      border-bottom: 1px solid var(--border-light);
-      transition: color 0.2s;
-      line-height: 1.4;
-    }
+    .toc-list li a { display: block; padding: 0.55rem 0; font-size: 0.78rem; font-weight: 400; color: var(--muted-light); border-bottom: 1px solid var(--border-light); transition: color 0.2s; line-height: 1.4; }
     .toc-list li:last-child a { border-bottom: none; }
     .toc-list li a:hover { color: var(--orange); }
-
-    /* Share */
     .sidebar-share { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.5rem; }
     .sidebar-share-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 1rem; }
     .share-btns { display: flex; flex-direction: column; gap: 0.6rem; }
     .share-btn { display: flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; font-weight: 400; color: var(--black); background: var(--off-white); border: 1px solid var(--border-light); border-radius: 4px; padding: 0.65rem 1rem; cursor: pointer; transition: all 0.2s; }
     .share-btn:hover { border-color: var(--orange); color: var(--orange); background: var(--white); }
     .share-btn span { font-size: 1rem; }
-
-    /* Tags */
     .article-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-light); }
     .article-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 99px; border: 1px solid var(--border-light); color: var(--muted-light); transition: all 0.2s; }
     .article-tag:hover { border-color: var(--orange); color: var(--orange); }
-
-    /* ════════════════════════════════════
-       IN-ARTICLE CTA
-    ════════════════════════════════════ */
-    .article-cta {
-      background: var(--black);
-      border-radius: 8px;
-      padding: 2.5rem;
-      margin: 3rem 0;
-      border: 1px solid var(--border-dark);
-      position: relative;
-      overflow: hidden;
-    }
-    .article-cta::before {
-      content: '';
-      position: absolute;
-      top: -30px; right: -30px;
-      width: 200px; height: 200px;
-      background: radial-gradient(circle, rgba(255,85,0,0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    .article-cta { background: var(--black); border-radius: 8px; padding: 2.5rem; margin: 3rem 0; border: 1px solid var(--border-dark); position: relative; overflow: hidden; }
+    .article-cta::before { content: ''; position: absolute; top: -30px; right: -30px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,85,0,0.15) 0%, transparent 70%); pointer-events: none; }
     .article-cta-label { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
     .article-cta-title { font-family: var(--serif); font-size: clamp(1.3rem, 2vw, 1.7rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.85rem; }
     .article-cta-title span { color: var(--orange); }
     .article-cta-text { font-size: 0.85rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 1.75rem; }
     .article-cta-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-
-    /* ════════════════════════════════════
-       RELATED POSTS
-    ════════════════════════════════════ */
     .related-section { background: var(--off-white); padding: 5rem 3rem; border-top: 1px solid var(--border-light); }
     .related-wrap { max-width: 1100px; margin: 0 auto; }
     .related-hd { margin-bottom: 2.5rem; }
     .related-hd .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
     .related-hd h2 { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
     .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .related-card {
-      background: var(--white);
-      border: 1px solid var(--border-light);
-      border-radius: 8px;
-      padding: 1.75rem;
-      transition: border-color 0.2s, transform 0.2s;
-      display: flex;
-      flex-direction: column;
-    }
+    .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 8px; padding: 1.75rem; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; }
     .related-card:hover { border-color: rgba(10,10,10,0.14); transform: translateY(-2px); }
     .related-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
     .related-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--black); line-height: 1.25; margin-bottom: 0.6rem; flex: 1; }
     .related-meta { font-size: 0.68rem; color: var(--muted-light); display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; }
     .related-link { color: var(--orange); font-weight: 500; }
-
-    /* ════════════════════════════════════
-       PAGE-BOTTOM CTA
-    ════════════════════════════════════ */
     .cta-band { background: #0A0A0A; padding: 0 3rem; position: relative; overflow: hidden; }
     .cta-band::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF5500 0%, rgba(255,85,0,0.3) 60%, transparent 100%); }
     .cta-band::after { content: ''; position: absolute; left: -80px; top: 50%; transform: translateY(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(255,85,0,0.11) 0%, transparent 65%); pointer-events: none; }
     .cta-band-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 5rem; padding: 5.5rem 0; position: relative; z-index: 2; }
-    .cta-band-left {}
     .cta-band p.eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #FF5500; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
     .cta-band p.eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1.5px; background: #FF5500; flex-shrink: 0; }
     .cta-band h2 { font-family: var(--serif); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; color: #FFFFFF; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
@@ -458,9 +174,6 @@
     .cta-band-right .btn-orange { background: #FF5500 !important; color: #FFFFFF !important; border-color: #FF5500 !important; }
     .cta-band-right .btn-outline-white { color: #FFFFFF !important; border-color: rgba(255,255,255,0.3) !important; }
     .cta-band-note { font-size: 0.65rem; color: rgba(255,255,255,0.2); text-align: center; letter-spacing: 0.04em; margin-top: 0.25rem; }
-    @media (max-width: 780px) { .cta-band-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 0; } .cta-band-right { min-width: unset; } }
-
-    /* FOOTER */
     footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
     .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
@@ -469,35 +182,15 @@
     .footer-links-row a { font-size: 0.75rem; color: var(--muted-dark); transition: color 0.2s; }
     .footer-links-row a:hover { color: var(--white); }
     .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
-
-    /* Progress bar */
     .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--orange); z-index: 1000; width: 0%; transition: width 0.1s linear; }
-
-    @media (max-width: 960px) {
-      .article-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .article-sidebar { position: static; }
-      .related-grid { grid-template-columns: 1fr; }
-      .inline-stat { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 640px) {
-      #nav { padding: 1.1rem 1.5rem; }
-      .nav-links, .nav-right .btn { display: none; }
-      .nav-hamburger { display: flex; }
-      .post-hero { padding: 7.5rem 1.5rem 0; }
-      .post-hero-image { height: 240px; }
-      .article-section, .related-section, .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .inline-stat { grid-template-columns: 1fr; }
-      .inline-stat-cell { border-right: none; border-bottom: 1px solid var(--border-light); }
-      footer { padding: 2rem 1.5rem; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-    }
+    @media (max-width: 960px) { .article-layout { grid-template-columns: 1fr; gap: 2.5rem; } .article-sidebar { position: static; } .related-grid { grid-template-columns: 1fr; } .inline-stat { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 780px) { .cta-band-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 0; } .cta-band-right { min-width: unset; } }
+    @media (max-width: 640px) { #nav { padding: 1.1rem 1.5rem; } .nav-links, .nav-right .btn { display: none; } .nav-hamburger { display: flex; } .post-hero { padding: 7.5rem 1.5rem 0; } .post-hero-image { height: 240px; } .article-section, .related-section, .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; } .inline-stat { grid-template-columns: 1fr; } .inline-stat-cell { border-right: none; border-bottom: 1px solid var(--border-light); } footer { padding: 2rem 1.5rem; } .footer-inner { flex-direction: column; align-items: flex-start; } }
   </style>
 </head>
 <body>
 
-  <!-- Reading progress bar -->
   <div class="progress-bar" id="progress"></div>
-
   <div class="cursor" id="cur"></div>
   <div class="cursor-ring" id="ring"></div>
 
@@ -525,32 +218,25 @@
     </div>
   </nav>
 
-  <!-- ════════════════════════════════════
-       HERO
-  ════════════════════════════════════ -->
   <section class="post-hero">
     <div class="hero-grid"></div>
     <div class="post-hero-content">
 
-      <!-- Breadcrumb -->
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="index.html">Home</a>
         <span class="breadcrumb-sep">/</span>
         <a href="blog.html">Blog</a>
         <span class="breadcrumb-sep">/</span>
-        <span class="breadcrumb-current">[Category]</span>
+        <span class="breadcrumb-current">Local SEO</span>
       </nav>
 
-      <!-- Category tag -->
-      <div class="post-cat-tag">🔍 Local SEO</div>
+      <div class="post-cat-tag">📍 Local SEO</div>
 
-      <!-- Main headline -->
       <h1 class="post-title">
-        Why Brisbane tradies are losing jobs to competitors with<br>
-        <span class="accent">worse Google reviews</span>
+        Caboolture Tradies: Why Your<br>
+        <span class="accent">Google Reviews Aren't Enough</span>
       </h1>
 
-      <!-- Meta row -->
       <div class="post-meta-row">
         <div class="meta-author">
           <div class="meta-avatar">A</div>
@@ -560,156 +246,151 @@
           </div>
         </div>
         <div class="meta-sep"></div>
-        <span class="meta-item">📅 April 7, 2026</span>
+        <span class="meta-item">📅 14 May 2026</span>
         <span class="meta-item">⏱ 5 min read</span>
-        <span class="meta-item">📍 Brisbane, QLD</span>
+        <span class="meta-item">📍 Caboolture, QLD</span>
       </div>
 
     </div>
 
-    <!-- ── HERO IMAGE ── -->
     <div class="post-hero-image-wrap">
       <div class="post-hero-image">
         <div class="post-hero-image-inner">
-          <div class="hero-img-icon">🗺️</div>
+          <div class="hero-img-icon">⭐</div>
           <div class="hero-img-label">
-            Google Maps.<br>
-            <span>Your next customer is there.</span>
+            Great reviews.<br>
+            <span>No website. No jobs.</span>
           </div>
-          <div class="hero-img-sub">Are you showing up when they search?</div>
+          <div class="hero-img-sub">Your reviews aren't the problem — what happens after is.</div>
         </div>
       </div>
-      <p class="post-image-caption">Google Maps searches for "plumber near me" happen hundreds of times a day across Brisbane. Most of those clicks go to whoever shows up first — not whoever has the best reviews.</p>
+      <p class="post-image-caption">Caboolture tradies are collecting five-star reviews while their competitors — with fewer reviews and a proper website — are winning the jobs. Here's why.</p>
     </div>
 
   </section>
 
-  <!-- ════════════════════════════════════
-       ARTICLE
-  ════════════════════════════════════ -->
   <section class="article-section">
     <div class="article-layout">
 
-      <!-- Main content -->
       <article>
 
-        <!-- ── INTRO TEXT ── -->
         <p class="article-intro reveal">
-          It's not about having the most 5-star reviews. It's about <span class="intro-highlight">showing up when someone in your suburb searches for what you do.</span> Brisbane tradies with 12 reviews and a well-optimised Google Business Profile are consistently beating competitors with 80 reviews and nothing else. Here's why — and what you can do about it.
+          You've got 60 Google reviews. Most are five stars. You've been doing this work in Caboolture for years, and your customers love you. <span class="intro-highlight">But that competitor who started two years ago keeps getting the calls you should be getting.</span> The difference isn't the reviews. It's what happens when someone tries to find out more about you.
         </p>
 
-        <!-- ── CONTENT TEXT ── -->
         <div class="article-body reveal">
 
-          <h2 id="the-problem">The problem most tradies don't see</h2>
+          <h2 id="the-gap">The gap between reviews and jobs</h2>
 
-          <p>Let's say you're a plumber in Chermside. You've been in business for eight years. You've got 65 Google reviews, mostly glowing. A customer in your suburb searches "emergency plumber Chermside" on their phone at 7pm on a Tuesday night.</p>
+          <p>Here's what actually happens when someone searches "electrician Caboolture" on their phone. Google shows them a map with three businesses. They see your name, they see your stars. They click. And then — nothing. Your Google Business Profile has a phone number, some reviews, maybe a few photos. But no website.</p>
 
-          <p>You don't show up in the top three Google Maps results. Your competitor — six months in business, 14 reviews, a proper website and a well-managed Google Business Profile — does. They get the job. You don't even know you missed it.</p>
+          <p>So they do what everyone does. They click the next result. That person has 28 reviews and a website. A proper website. One that loads fast, looks like the business is real, and answers the questions a customer has before they call — pricing, service area, how fast you respond. They book that tradie. You don't know you missed it.</p>
 
-          <p>This happens dozens of times a day across Brisbane. And it's not about who has the better reviews. <strong>It's about who Google trusts more as a local business.</strong></p>
+          <p>This happens dozens of times a week for Caboolture tradies with great reviews and no website. <strong>The reviews get people to your profile. The website — or the absence of one — determines whether they call.</strong></p>
 
           <div class="inline-stat">
             <div class="inline-stat-cell">
-              <div class="inline-stat-num">76%</div>
-              <div class="inline-stat-label">of local searches result in a phone call or visit within 24 hours</div>
+              <div class="inline-stat-num">88%</div>
+              <div class="inline-stat-label">of consumers who search for a local business on their phone call or visit within 24 hours</div>
             </div>
             <div class="inline-stat-cell">
-              <div class="inline-stat-num">#1–3</div>
-              <div class="inline-stat-label">Google Maps positions capture over 70% of all local search clicks</div>
+              <div class="inline-stat-num">53%</div>
+              <div class="inline-stat-label">of mobile users abandon a site that takes longer than 3 seconds to load</div>
             </div>
             <div class="inline-stat-cell">
-              <div class="inline-stat-num">3 sec</div>
-              <div class="inline-stat-label">is all you get before a visitor bounces from a slow or amateur-looking website</div>
+              <div class="inline-stat-num">2×</div>
+              <div class="inline-stat-label">more likely — businesses with a website are to be contacted over those without one</div>
             </div>
           </div>
 
-          <h2 id="what-google-looks-at">What Google actually looks at</h2>
+          <h2 id="what-reviews-actually-do">What reviews actually do — and don't do</h2>
 
-          <p>Google's local ranking algorithm uses three main factors: <strong>relevance, distance, and prominence</strong>. You can't control distance — Google knows where your customer is. But relevance and prominence are entirely in your hands.</p>
+          <p>Reviews matter. I'm not saying they don't. They're a trust signal that Google pays attention to when deciding who shows up in the local pack. They're also the first thing a potential customer reads when they click your profile.</p>
 
-          <h3>Relevance</h3>
-          <p>Does your Google Business Profile and website tell Google clearly what you do and where you do it? If your profile says "Joe's Plumbing" but doesn't mention Chermside, Aspley, or the specific services you offer, Google can't confidently connect you with someone searching in your area.</p>
+          <p>But reviews have a ceiling. After about 20 solid five-star reviews, each new one moves the needle less. The gap between 60 reviews and 80 reviews is almost meaningless in terms of how Google ranks you. What isn't meaningless is whether you have a fast, well-built website pointing back to your business. That's a trust signal Google never stops caring about.</p>
 
-          <h3>Prominence</h3>
-          <p>This is where most tradies fall behind. Prominence is built through your website (quality, speed, mobile-friendliness), the consistency of your business information across the web, and yes — reviews. But reviews are just one input. A fast, well-built website with proper local SEO signals is often the deciding factor.</p>
+          <h3>Reviews answer "are they good?"</h3>
+          <p>A customer reading your reviews is asking one question: can I trust this person to do the job? Your reviews answer that. Good. Now they have a follow-up question: is this a real business I can rely on?</p>
+
+          <h3>Your website answers "are they legit?"</h3>
+          <p>A proper website answers the legitimacy question. It shows you've invested in your business. It tells them exactly what you do, where you work, and how to get in touch. Without it, your reviews can get them interested — but they'll often back away when there's nothing else to find.</p>
 
           <div class="callout">
-            <div class="callout-label">Key insight</div>
-            <p><strong>A tradie with 14 reviews and a properly optimised website can outrank a tradie with 80 reviews and no website</strong> — because Google values trust signals across multiple channels, not just review count.</p>
+            <div class="callout-label">Caboolture Example</div>
+            <p><strong>A Caboolture plumber with 55 reviews and no website was losing jobs to a competitor with 19 reviews and a basic website.</strong> Once we built the plumber a proper site — service pages, suburb coverage, a contact form — his enquiry rate doubled in the first six weeks. The reviews hadn't changed. The business hadn't changed. Just the website.</p>
           </div>
 
-          <h2 id="what-to-do">What to do about it</h2>
+          <h2 id="how-google-decides">How Google decides who shows up first</h2>
 
-          <p>The good news is this is fixable. And most of it doesn't cost much. Here's where to start:</p>
+          <p>Google's local ranking uses three factors: relevance, distance, and prominence. You can't do much about distance — Google knows where the searcher is. But the other two are entirely in your control.</p>
 
-          <ul>
-            <li><strong>Claim and fully complete your Google Business Profile.</strong> Every field. Category, service areas, opening hours, photos, business description. If you haven't touched your profile in a year, it's probably incomplete.</li>
-            <li><strong>Get a real website.</strong> Not a Facebook page. Not a Google site. A proper, fast-loading, mobile-first website that tells Google who you are, what you do, and where you do it.</li>
-            <li><strong>Use suburb-specific keywords naturally.</strong> "Emergency plumber Chermside" and "blocked drain Aspley" should appear naturally in your website copy and Google Business Profile description.</li>
-            <li><strong>Keep asking for reviews — but respond to every single one.</strong> Responding to reviews is a trust signal Google pays attention to. Most tradies never respond.</li>
-            <li><strong>Be consistent.</strong> Your business name, phone number, and address should be identical everywhere it appears online — Google, Facebook, your website, directories.</li>
-          </ul>
+          <p><strong>Relevance</strong> is about whether Google understands what you do and where. A well-built website with service pages — "plumber Caboolture", "blocked drains Morayfield", "hot water repairs North Lakes" — tells Google exactly who you are. A Google Business Profile alone doesn't give Google enough to work with.</p>
+
+          <p><strong>Prominence</strong> is how well-established your business looks online. This includes your website's quality and speed, backlinks, consistent business information across directories, and yes, your reviews. A tradie with a fast, well-optimised website and 25 reviews will often outrank a tradie with 80 reviews and no website — because the prominence signals are so much stronger.</p>
+
+          <p>I've seen it happen. It's not a theory. It's what the data shows when you look at which Caboolture trades businesses are actually ranking in the top three results.</p>
 
           <div class="pull-quote">
-            <blockquote>"The tradies winning on Google Maps in Brisbane aren't the ones with the most reviews. They're the ones who've treated their online presence like a tool, not an afterthought."</blockquote>
+            <blockquote>"Your reviews get people to your profile. Your website — or the lack of one — decides whether they call."</blockquote>
           </div>
 
-          <h2 id="the-bottom-line">The bottom line</h2>
+          <h2 id="what-to-do">What to actually do about it</h2>
 
-          <p>If you're relying on word of mouth and Google reviews alone, you're leaving a significant chunk of your potential customers on the table. The ones going to your competitors aren't necessarily happier with them — they just found them first.</p>
+          <p>The fix isn't complicated. It's just not optional anymore.</p>
 
-          <p>A proper website, a well-managed Google Business Profile, and consistent local SEO signals are how you change that. It's not complicated. It just needs to be done.</p>
+          <p>First, get a proper website. Not a Facebook page — people don't look for trade businesses on Facebook when they need someone urgently. Not a Google site — those load slowly and look amateur. A real, fast-loading, mobile-first website that tells Google and your customers exactly who you are.</p>
 
-          <!-- In-article CTA -->
+          <p>Second, make sure your website and Google Business Profile say the same things. Same business name. Same phone number. Same address. Same service area suburbs. Consistency across the web is something Google specifically looks for when deciding who to trust.</p>
+
+          <p>Third, use suburb names in your website copy — naturally, not stuffed in. If you cover Caboolture, Morayfield, North Lakes, and Burpengary, say so. Have a page or a section for each area if you can. That's how you tell Google "I serve these suburbs" without just hoping it figures it out from your address.</p>
+
+          <p>Keep collecting reviews. Keep responding to every one — because responding is itself a signal. But stop thinking of reviews as the finish line. They're one leg of a three-legged stool. The website is another. <a href="blog/2026-05-13-google-my-business-not-enough-brisbane-cafe.html">A properly managed Google Business Profile</a> is the third. You need all three to consistently show up when it counts.</p>
+
+          <p>Word-of-mouth referrals are great. But <a href="blog/2026-05-12-ipswich-personal-trainers-website-word-of-mouth.html">there's a limit to how far word of mouth alone can take you</a> — and that limit shows up right when you want to grow.</p>
+
           <div class="article-cta">
-            <div class="article-cta-label">Want to fix this for your business?</div>
-            <h3 class="article-cta-title">Get a website built for local<br><span>Brisbane search</span> — free upfront.</h3>
-            <p class="article-cta-text">Every Clawmark website is built with proper on-page SEO, mobile-first design, and fast load times. GROWTH plan includes local SEO and Google Business Profile management. You see the site before you sign anything.</p>
+            <div class="article-cta-label">Ready to fix this?</div>
+            <h3 class="article-cta-title">A website that works as hard as<br><span>you do</span> — free upfront.</h3>
+            <p class="article-cta-text">Every Clawmark website is built for local search — fast loading, mobile-first, with suburb-specific pages and proper on-page SEO. You see the design before you sign anything. No build fee. Starts at $189/mo on the GROWTH plan.</p>
             <div class="article-cta-actions">
-              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Book a Free Call</a>
+              <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
               <a href="pricing.html" class="btn btn-outline-white">See Plans & Pricing</a>
             </div>
           </div>
 
-          <!-- Tags -->
           <div class="article-tags">
             <a href="blog.html" class="article-tag">Local SEO</a>
-            <a href="blog.html" class="article-tag">Brisbane</a>
-            <a href="blog.html" class="article-tag">Google Business Profile</a>
+            <a href="blog.html" class="article-tag">Caboolture</a>
             <a href="blog.html" class="article-tag">Tradies</a>
+            <a href="blog.html" class="article-tag">Google Reviews</a>
             <a href="blog.html" class="article-tag">Small Business</a>
           </div>
 
         </div>
       </article>
 
-      <!-- Sidebar -->
       <aside class="article-sidebar reveal">
 
-        <!-- Table of contents -->
         <div class="sidebar-toc">
           <div class="sidebar-toc-title">In this article</div>
           <ul class="toc-list">
-            <li><a href="#the-problem">The problem most tradies don't see</a></li>
-            <li><a href="#what-google-looks-at">What Google actually looks at</a></li>
-            <li><a href="#what-to-do">What to do about it</a></li>
-            <li><a href="#the-bottom-line">The bottom line</a></li>
+            <li><a href="#the-gap">The gap between reviews and jobs</a></li>
+            <li><a href="#what-reviews-actually-do">What reviews actually do</a></li>
+            <li><a href="#how-google-decides">How Google decides who ranks</a></li>
+            <li><a href="#what-to-do">What to actually do about it</a></li>
           </ul>
         </div>
 
-        <!-- CTA card -->
         <div class="sidebar-card">
           <div class="sidebar-card-head">
-            <div class="sidebar-card-head-title">Get a website that gets you found</div>
+            <div class="sidebar-card-head-title">Turn your reviews into booked jobs</div>
           </div>
           <div class="sidebar-card-body">
-            <p>Custom Webflow website, local SEO, and Google Business Profile management — starting from $189/mo with zero upfront build fee.</p>
+            <p>Custom Webflow website, local SEO, and suburb-specific pages — starting from $189/mo with zero upfront build fee. You see the site before you commit.</p>
             <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow">Book a Free Call</a>
           </div>
         </div>
 
-        <!-- Share -->
         <div class="sidebar-share">
           <div class="sidebar-share-title">Share this post</div>
           <div class="share-btns">
@@ -724,9 +405,6 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════════════
-       RELATED POSTS
-  ════════════════════════════════════ -->
   <section class="related-section">
     <div class="related-wrap">
       <div class="related-hd reveal">
@@ -734,27 +412,27 @@
         <h2>Keep reading</h2>
       </div>
       <div class="related-grid">
-        <a href="blog-post-template.html" class="related-card reveal">
+        <a href="blog/2026-05-13-google-my-business-not-enough-brisbane-cafe.html" class="related-card reveal">
           <div class="related-tag">Local SEO</div>
-          <div class="related-title">The 5 local SEO mistakes Brisbane small businesses make (and how to fix them)</div>
+          <div class="related-title">Google My Business Is Not Enough for Your Brisbane Café</div>
           <div class="related-meta">
-            <span>March 20, 2026 · 6 min</span>
+            <span>13 May 2026 · 5 min</span>
             <span class="related-link">Read →</span>
           </div>
         </a>
-        <a href="blog-post-template.html" class="related-card reveal">
-          <div class="related-tag">Websites</div>
-          <div class="related-title">How slow websites are costing Brisbane businesses customers every single day</div>
+        <a href="blog/2026-05-12-ipswich-personal-trainers-website-word-of-mouth.html" class="related-card reveal">
+          <div class="related-tag">Business Growth</div>
+          <div class="related-title">Ipswich Personal Trainers: When Word of Mouth Stops Working</div>
           <div class="related-meta">
-            <span>March 28, 2026 · 5 min</span>
+            <span>12 May 2026 · 5 min</span>
             <span class="related-link">Read →</span>
           </div>
         </a>
-        <a href="blog-post-template.html" class="related-card reveal">
-          <div class="related-tag">Local Business</div>
-          <div class="related-title">Why your Google Business Profile matters more than your website right now</div>
+        <a href="blog.html" class="related-card reveal">
+          <div class="related-tag">Local SEO</div>
+          <div class="related-title">Why Brisbane tradies are losing jobs to competitors with worse Google reviews</div>
           <div class="related-meta">
-            <span>April 4, 2026 · 4 min</span>
+            <span>April 2026 · 5 min</span>
             <span class="related-link">Read →</span>
           </div>
         </a>
@@ -762,15 +440,12 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════════════
-       BOTTOM CTA
-  ════════════════════════════════════ -->
   <section class="cta-band">
     <div class="cta-band-inner">
       <div class="cta-band-left">
         <p class="eyebrow">No commitment required</p>
-        <h2>Your next customer is<br>searching. Are you <span>showing up?</span></h2>
-        <p class="cta-band-sub">A free Clawmark website with proper local SEO means more of those searches end with your phone ringing. Book a call and we'll show you what that looks like for your business.</p>
+        <h2>Your reviews deserve a website<br>that <span>converts them.</span></h2>
+        <p class="cta-band-sub">A Clawmark website turns your Google profile from a dead end into a booking machine. We build it for free — you pay monthly, cancel if it's not working.</p>
       </div>
       <div class="cta-band-right">
         <a href="https://calendly.com/ahcreative92-arcr/30m-growth-website-clone" class="btn btn-orange btn-arrow" style="color:#FFFFFF;">Book My Free Call</a>
@@ -799,7 +474,6 @@
   </footer>
 
   <script>
-    // Cursor
     const cur = document.getElementById('cur');
     const ring = document.getElementById('ring');
     let mx=0,my=0,rx=0,ry=0;
@@ -810,29 +484,19 @@
       el.addEventListener('mouseenter', () => cur.classList.add('grow'));
       el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
     });
-
-    // Mobile nav
     document.getElementById('ham').addEventListener('click', () => document.getElementById('mob').classList.add('open'));
     document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob').classList.remove('open'));
-
-    // Reading progress bar
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      document.getElementById('progress').style.width = progress + '%';
+      document.getElementById('progress').style.width = ((scrollTop / docHeight) * 100) + '%';
     });
-
-    // Scroll reveal
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Share functions
     function sharePost(platform) {
       const url = encodeURIComponent(window.location.href);
-      const title = encodeURIComponent(document.title);
       if (platform === 'facebook') window.open(`https://facebook.com/sharer/sharer.php?u=${url}`, '_blank');
       if (platform === 'linkedin') window.open(`https://linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
     }
@@ -847,5 +511,63 @@
       });
     }
   </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Caboolture Tradies: Why Your Google Reviews Aren't Enough — Clawmark Blog",
+  "description": "Caboolture tradies with 50+ Google reviews are still losing jobs to competitors. Here",
+  "image": "https://www.clawmark.com.au/og-image.jpg",
+  "url": "https://www.clawmark.com.au/blog/caboolture-tradies-google-reviews-wasted-no-website",
+  "datePublished": "2026-05-13",
+  "dateModified": "2026-05-13",
+  "author": {
+    "@type": "Person",
+    "name": "Andres Henao",
+    "jobTitle": "Founder, Clawmark",
+    "url": "https://www.clawmark.com.au"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Clawmark",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.clawmark.com.au/og-image.jpg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.clawmark.com.au/blog/caboolture-tradies-google-reviews-wasted-no-website"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.clawmark.com.au"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://www.clawmark.com.au/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Caboolture Tradies: Why Your Google Reviews Aren't Enough — Clawmark Blog",
+      "item": "https://www.clawmark.com.au/blog/caboolture-tradies-google-reviews-wasted-no-website"
+    }
+  ]
+}
+</script>
 </body>
 </html>
