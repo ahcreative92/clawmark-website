@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Get a custom Webflow website for $500 upfront, then $59/month. Limited spots for Brisbane small businesses — join the waitlist today.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>$500 Website Offer | Clawmark</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111111;
+      --dark-2:       #181818;
+      --orange:       #FF5500;
+      --orange-dim:   rgba(255,85,0,0.10);
+      --orange-glow:  rgba(255,85,0,0.18);
+      --white:        #FFFFFF;
+      --off-white:    #F6F3EF;
+      --stone:        #EBEBEB;
+      --muted-dark:   rgba(255,255,255,0.42);
+      --muted-light:  rgba(10,10,10,0.45);
+      --border-dark:  rgba(255,255,255,0.07);
+      --border-light: rgba(10,10,10,0.08);
+      --serif:        'Syne', sans-serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--off-white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      cursor: none;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: none; }
+
+    /* ── Custom Cursor ─────────────────────── */
+    .cursor {
+      position: fixed; width: 10px; height: 10px;
+      background: var(--orange); border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+    }
+    .cursor.grow { width: 36px; height: 36px; opacity: 0.22; }
+    .cursor-ring {
+      position: fixed; width: 36px; height: 36px;
+      border: 1px solid rgba(255,85,0,0.35); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: transform 0.18s ease;
+    }
+    @media (hover: none) {
+      .cursor, .cursor-ring { display: none; }
+      body, button { cursor: auto; }
+      button { cursor: pointer; }
+    }
+
+    /* ── Reveal ───────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ── Shared ───────────────────────────── */
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; padding: 0.4rem 0.9rem;
+      border-radius: 99px; border: 1px solid;
+    }
+    .tag-dark  { border-color: var(--border-dark);  color: var(--muted-dark); }
+    .tag-light { border-color: var(--border-light); color: var(--muted-light); }
+    .tag-orange{ border-color: var(--orange);       color: var(--orange); }
+    .tag .dot  { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+    .section-label {
+      font-family: var(--sans); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 1rem;
+    }
+    .h-section {
+      font-family: var(--serif); font-size: clamp(2.2rem,3.5vw,3rem);
+      font-weight: 700; line-height: 1.08; letter-spacing: -0.02em;
+    }
+    .body-text { font-size: 0.95rem; font-weight: 300; line-height: 1.75; }
+    .accent    { color: var(--orange); }
+
+    /* ── Buttons ──────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--sans); font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.04em; padding: 0.85rem 1.75rem;
+      border: 1.5px solid transparent; border-radius: 4px;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .btn-orange { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-orange:hover {
+      background: #e04a00; border-color: #e04a00;
+      transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3);
+    }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
+    .btn-arrow::after { content: ' →'; }
+
+    /* ── Navbar ───────────────────────────── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 3rem;
+      transition: padding 0.35s, background 0.35s, border-color 0.35s, backdrop-filter 0.35s;
+      border-bottom: 1px solid transparent;
+    }
+    #nav.scrolled {
+      padding: 0.9rem 3rem;
+      background: rgba(10,10,10,0.88); backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px); border-bottom-color: var(--border-dark);
+    }
+    .nav-logo {
+      font-family: var(--serif); font-size: 1.3rem; font-weight: 800;
+      letter-spacing: -0.01em; color: var(--white);
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-badge {
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted-dark);
+    }
+
+    /* ── Hero ─────────────────────────────── */
+    #hero {
+      background: var(--black); padding: 10rem 3rem 7rem;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(255,85,0,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 100%);
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; max-width: 820px; margin: 0 auto; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim-1 { animation: fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) 0.10s both; }
+    .anim-2 { animation: fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) 0.25s both; }
+    .anim-3 { animation: fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) 0.40s both; }
+    .anim-4 { animation: fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) 0.52s both; }
+    .anim-5 { animation: fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) 0.68s both; }
+
+    .hero-h1 {
+      font-family: var(--serif); font-weight: 800;
+      font-size: clamp(3rem,7vw,6.5rem);
+      line-height: 1.0; letter-spacing: -0.02em;
+      color: var(--white); margin: 1.5rem 0 1.25rem;
+    }
+    .hero-sub {
+      font-size: 1.05rem; font-weight: 300; line-height: 1.7;
+      color: var(--muted-dark); max-width: 520px; margin: 0 auto 2.5rem;
+    }
+    .hero-fine {
+      margin-top: 1.5rem; font-size: 0.78rem; font-weight: 300;
+      color: rgba(255,255,255,0.32);
+    }
+
+    /* Spots counter */
+    .spots-counter { margin: 3rem auto 0; max-width: 460px; }
+    .spots-row {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 0.65rem;
+    }
+    .spots-text {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted-dark);
+    }
+    .spots-num {
+      font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--orange);
+    }
+    .spots-bar {
+      height: 6px; border-radius: 99px;
+      background: rgba(255,255,255,0.10); overflow: hidden;
+    }
+    .spots-fill {
+      height: 100%; width: 100%; border-radius: 99px; background: var(--orange);
+    }
+    .spots-note {
+      text-align: center; margin-top: 0.8rem;
+      font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.28);
+    }
+
+    /* ── Marquee ──────────────────────────── */
+    .marquee-band { background: var(--orange); padding: 0.85rem 0; overflow: hidden; }
+    .marquee-track {
+      display: flex; flex-shrink: 0; gap: 3rem; width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-band:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      display: inline-flex; align-items: center; gap: 3rem;
+      font-family: var(--sans); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--white);
+      white-space: nowrap;
+    }
+    .marquee-item::after { content: '◆'; font-size: 0.45rem; opacity: 0.55; }
+
+    /* ── Offer ────────────────────────────── */
+    #offer { background: var(--off-white); padding: 7rem 3rem; }
+    .offer-inner { max-width: 1100px; margin: 0 auto; }
+    .offer-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: start; margin-top: 3rem;
+    }
+
+    .price-only {
+      font-size: 0.95rem; font-weight: 500; color: var(--muted-light); margin-bottom: 0.25rem;
+    }
+    .price-setup {
+      font-family: var(--serif); font-size: clamp(3.5rem,6vw,5rem);
+      font-weight: 800; color: var(--black); letter-spacing: -0.03em; line-height: 1;
+    }
+    .price-setup-label {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted-light); margin-top: 0.4rem;
+    }
+    .price-then {
+      font-size: 0.9rem; font-weight: 300; color: var(--muted-light);
+      margin-top: 1rem; line-height: 1.6;
+    }
+    .price-then strong {
+      font-family: var(--serif); font-weight: 800; font-size: 1.6rem;
+      color: var(--black); letter-spacing: -0.02em;
+    }
+
+    .risk-box {
+      margin-top: 2.25rem; padding: 1.5rem; border-radius: 8px;
+      border: 1px solid var(--border-light); background: var(--white);
+    }
+    .risk-label {
+      font-family: var(--serif); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem;
+    }
+    .risk-text { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: var(--muted-light); }
+
+    /* Inclusions */
+    .inclusions { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; }
+    .incl-item {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: 0.92rem; font-weight: 400; color: var(--black);
+    }
+    .check {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: var(--orange-dim); border: 1px solid rgba(255,85,0,0.2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .check svg {
+      width: 13px; height: 13px; stroke: var(--orange); fill: none;
+      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── Work ─────────────────────────────── */
+    #work {
+      background: var(--white); padding: 7rem 3rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .work-inner { max-width: 1100px; margin: 0 auto; }
+    .work-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;
+    }
+    .work-card {
+      border-radius: 8px; border: 1px solid var(--border-light);
+      overflow: hidden; background: var(--off-white);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .work-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 56px rgba(10,10,10,0.10);
+    }
+    .card-mockup {
+      width: 100%; display: block; background: #1A1A1A;
+    }
+    .card-body { padding: 1.75rem; }
+    .card-name {
+      font-family: var(--serif); font-size: 1.3rem; font-weight: 700;
+      line-height: 1.2; color: var(--black); margin: 0.65rem 0 0.5rem;
+    }
+    .card-desc {
+      font-size: 0.82rem; font-weight: 300; line-height: 1.7;
+      color: var(--muted-light); margin-bottom: 1.25rem;
+    }
+    .card-link {
+      font-size: 0.78rem; font-weight: 500; color: var(--orange);
+      letter-spacing: 0.04em; transition: opacity 0.2s;
+      display: inline-flex; align-items: center;
+    }
+    .card-link:hover { opacity: 0.65; }
+
+    /* ── Shortlist / Form ─────────────────── */
+    #shortlist {
+      background: var(--black); padding: 9rem 3rem;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .form-glow {
+      position: absolute; bottom: -200px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(255,85,0,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .form-inner { position: relative; max-width: 580px; margin: 0 auto; }
+
+    .round-badge {
+      display: inline-flex; align-items: center; gap: 0.65rem;
+      padding: 0.5rem 1.1rem; border-radius: 99px;
+      border: 1px solid var(--border-dark); margin-bottom: 2rem;
+    }
+    .badge-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--orange);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+    .badge-label {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted-dark);
+    }
+
+    .form-h {
+      font-family: var(--serif); font-weight: 800;
+      font-size: clamp(2.5rem,5.5vw,4.2rem);
+      line-height: 1.0; letter-spacing: -0.02em;
+      color: var(--white); margin-bottom: 1.25rem;
+    }
+    .form-sub {
+      font-size: 0.95rem; font-weight: 300; line-height: 1.7;
+      color: var(--muted-dark); margin-bottom: 2.5rem;
+    }
+
+    /* Contact form */
+    #contact-form {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left;
+    }
+    .field { display: flex; flex-direction: column; gap: 0.45rem; }
+    .field.wide { grid-column: 1 / -1; }
+    .field label {
+      font-size: 0.67rem; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.42);
+    }
+    .field input {
+      font-family: var(--sans); font-size: 0.88rem; font-weight: 300;
+      color: var(--white); background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border-dark); border-radius: 6px;
+      padding: 0.85rem 1rem; outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .field input:focus {
+      border-color: rgba(255,85,0,0.4); background: rgba(255,255,255,0.09);
+    }
+    .field input::placeholder { color: rgba(255,255,255,0.2); }
+    .form-btn-wrap { grid-column: 1 / -1; margin-top: 0.25rem; }
+    .btn-submit {
+      width: 100%; justify-content: center;
+      font-size: 0.9rem; padding: 1rem 2rem; border-radius: 6px;
+    }
+    .form-fine {
+      grid-column: 1 / -1; text-align: center;
+      font-size: 0.7rem; font-weight: 300;
+      color: rgba(255,255,255,0.22); line-height: 1.65; margin-top: 0.25rem;
+    }
+
+    /* Success */
+    .form-success {
+      display: none; padding: 2.75rem 2rem;
+      border: 1px solid rgba(255,85,0,0.18); border-radius: 8px;
+      background: rgba(255,85,0,0.05);
+    }
+    .form-success.show { display: block; }
+    .success-check {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--orange-dim); border: 1px solid rgba(255,85,0,0.25);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;
+    }
+    .success-check svg {
+      width: 20px; height: 20px; stroke: var(--orange); fill: none;
+      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .success-h {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.75rem;
+    }
+    .success-p {
+      font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: var(--muted-dark);
+    }
+
+    /* ── Modal ────────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(10,10,10,0.78);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+      padding: 2rem 1.25rem;
+      opacity: 0; transition: opacity 0.25s ease;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-overlay.show { opacity: 1; }
+    .modal-box {
+      position: relative; width: 100%; max-width: 540px;
+      max-height: 90vh; overflow-y: auto;
+      background: var(--black);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transform: translateY(16px) scale(0.98);
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    .modal-overlay.show .modal-box { transform: translateY(0) scale(1); }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--border-dark);
+      color: var(--white); font-size: 1.3rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
+    .modal-box .section-label { text-align: center; }
+    .modal-h {
+      font-family: var(--serif); font-weight: 800; font-size: clamp(1.8rem,4vw,2.4rem);
+      line-height: 1.1; letter-spacing: -0.02em; color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .modal-sub {
+      font-size: 0.88rem; font-weight: 300; line-height: 1.65;
+      color: var(--muted-dark); max-width: 420px; margin: 0 auto 1.75rem;
+    }
+    .modal-box .spots-counter { margin: 0 auto 2rem; max-width: 100%; }
+    .modal-box .form-success { margin-top: 0; }
+
+    /* ── Footer ───────────────────────────── */
+    #footer {
+      background: var(--dark); border-top: 1px solid var(--border-dark);
+      padding: 2.5rem 3rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a {
+      font-size: 0.75rem; font-weight: 300; color: var(--muted-dark); transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.22); }
+
+    /* ── Responsive ───────────────────────── */
+    @media (max-width: 768px) {
+      #nav { padding: 1.2rem 1.5rem; }
+      #nav.scrolled { padding: 0.9rem 1.5rem; }
+      #hero { padding: 8rem 1.5rem 5rem; }
+      #offer { padding: 5rem 1.5rem; }
+      .offer-grid { grid-template-columns: 1fr; gap: 3rem; }
+      #work { padding: 5rem 1.5rem; }
+      .work-grid { grid-template-columns: 1fr; }
+      #shortlist { padding: 6rem 1.5rem; }
+      #contact-form { grid-template-columns: 1fr; }
+      .field.wide, .form-btn-wrap, .form-fine { grid-column: 1; }
+      #footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+      .footer-links { flex-direction: column; gap: 1rem; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-h1 { font-size: 2.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Navbar -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">CLAW<span>MARK</span></a>
+    <span class="nav-badge">Brisbane Web Design</span>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+
+      <div class="anim-1">
+        <span class="tag tag-orange"><span class="dot"></span>Limited Website Offer</span>
+      </div>
+
+      <h1 class="hero-h1 anim-2">
+        Get Your Limited<br>
+        <span class="accent">Website Promotion</span>
+      </h1>
+
+      <p class="hero-sub anim-3">
+        A no-frills website for Brisbane small businesses — $500 upfront, then $59/month. Only 50 spots available, and they're going fast.
+      </p>
+
+      <div class="anim-4">
+        <button type="button" class="btn btn-orange btn-arrow open-modal-btn">Get My Website</button>
+      </div>
+      <p class="hero-fine anim-5">Only 50 spots. $500 setup, then $59/month.</p>
+
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-band" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Limited Spots Available</span>
+      <span class="marquee-item">Priority Access</span>
+      <span class="marquee-item">Brisbane Small Business</span>
+      <span class="marquee-item">$500 Custom Website</span>
+      <span class="marquee-item">$59/Month Hosting</span>
+      <span class="marquee-item">Built on Webflow</span>
+      <span class="marquee-item">No Hidden Fees</span>
+      <span class="marquee-item">Limited Spots Available</span>
+      <span class="marquee-item">Priority Access</span>
+      <span class="marquee-item">Brisbane Small Business</span>
+      <span class="marquee-item">$500 Custom Website</span>
+      <span class="marquee-item">$59/Month Hosting</span>
+      <span class="marquee-item">Built on Webflow</span>
+      <span class="marquee-item">No Hidden Fees</span>
+    </div>
+  </div>
+
+  <!-- Offer -->
+  <section id="offer">
+    <div class="offer-inner">
+      <p class="section-label reveal">What You Get</p>
+      <h2 class="h-section reveal">Everything you need.<br>Nothing you don't.</h2>
+      <div class="offer-grid">
+
+        <div class="reveal">
+          <p class="price-only">Only</p>
+          <div class="price-setup">$500</div>
+          <p class="price-setup-label">One-time setup fee</p>
+          <p class="price-then">then <strong>$59</strong> / month for hosting &amp; maintenance</p>
+          <div class="risk-box">
+            <p class="risk-label">Our Guarantee</p>
+            <p class="risk-text">If you're not happy with the design before we go live, we fix it. No arguments.</p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <ul class="inclusions">
+            <li class="incl-item">
+              <span class="check"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="3" y1="8.5" x2="21" y2="8.5"/></svg></span>
+              Custom Webflow website
+            </li>
+            <li class="incl-item">
+              <span class="check"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg></span>
+              A monthly content update
+            </li>
+            <li class="incl-item">
+              <span class="check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg></span>
+              48-hour response time
+            </li>
+            <li class="incl-item">
+              <span class="check"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+              Starter on-page setup
+            </li>
+            <li class="incl-item">
+              <span class="check"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4z"/></svg></span>
+              Hosting &amp; maintenance included
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work">
+    <div class="work-inner">
+      <p class="section-label reveal">Recent Work</p>
+      <h2 class="h-section reveal">Websites we've built<br>for Brisbane businesses.</h2>
+      <div class="work-grid">
+
+        <div class="work-card reveal">
+          <img class="card-mockup" src="images/hooked-on-bellerive-mockup.png" alt="Hooked on Bellerive website mockup">
+          <div class="card-body">
+            <span class="tag tag-light"><span class="dot"></span>Hospitality</span>
+            <h3 class="card-name">Hooked on Bellerive</h3>
+            <p class="card-desc">Clean, fast-loading site for a Brisbane hospitality venue — built to drive bookings and showcase the brand at its best.</p>
+            <a href="https://www.hookedonbellerive.com.au/" target="_blank" rel="noopener" class="card-link">View live site →</a>
+          </div>
+        </div>
+
+        <div class="work-card reveal">
+          <img class="card-mockup" src="images/mezethes-mockup.png" alt="Mezethes Greek Taverna website mockup">
+          <div class="card-body">
+            <span class="tag tag-light"><span class="dot"></span>Restaurant</span>
+            <h3 class="card-name">Mezethes</h3>
+            <p class="card-desc">Modern, atmosphere-first website for a Greek restaurant — showcasing the menu and making it easy for guests to find and book.</p>
+            <a href="https://mezethes.com.au/" target="_blank" rel="noopener" class="card-link">View live site →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="shortlist">
+    <div class="form-glow"></div>
+    <div class="form-inner">
+
+      <div class="round-badge reveal">
+        <div class="badge-dot"></div>
+        <span class="badge-label">Only 50 Spots — Limited Time</span>
+      </div>
+
+      <h2 class="form-h reveal">
+        Ready to get<br><span class="accent">your website?</span>
+      </h2>
+
+      <p class="form-sub reveal">
+        Fill in your details and we'll call you back to get started. No payment needed to join the list.
+      </p>
+
+      <div class="reveal">
+        <button type="button" class="btn btn-orange btn-arrow open-modal-btn">Get My Website</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <a href="/" class="footer-logo">CLAW<span>MARK</span></a>
+    <div class="footer-links">
+      <a href="/">Main website</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+    </div>
+    <span class="footer-copy">© 2026 Clawmark. All rights reserved.</span>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+
+      <div id="modal-form-view">
+        <p class="section-label">Limited Offer</p>
+        <h3 class="modal-h" id="modal-heading">Join the Waitlist</h3>
+        <p class="modal-sub">Get early access to the next website round before we open it up publicly.</p>
+
+        <div class="spots-counter">
+          <div class="spots-row">
+            <span class="spots-text">Spots Filled</span>
+            <span class="spots-num" id="modal-spots-num">0 / 50</span>
+          </div>
+          <div class="spots-bar"><div class="spots-fill" id="modal-spots-fill"></div></div>
+          <p class="spots-note">Next round date — to be confirmed.</p>
+        </div>
+
+        <!--
+          SETUP REQUIRED:
+          1. Go to https://formspree.io and create a free account
+          2. Create a new form — set the recipient to hello@clawmark.com.au
+          3. Copy your Form ID (looks like "xpwzeabc") and replace REPLACE_WITH_YOUR_FORM_ID below
+        -->
+        <form id="contact-form" action="https://formspree.io/f/mzdqwowr" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="[TO CALL] New Website Waitlist Signup — Clawmark">
+
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="field">
+            <label for="business">Business Name</label>
+            <input type="text" id="business" name="business" placeholder="Smith's Plumbing" required>
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com.au" required>
+          </div>
+          <div class="field">
+            <label for="phone">Contact Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="0400 000 000" required>
+          </div>
+          <div class="form-btn-wrap">
+            <button type="submit" class="btn btn-orange btn-arrow btn-submit">Secure My Spot</button>
+          </div>
+          <p class="form-fine">No payment required. We'll call to confirm your spot when the next round opens.</p>
+        </form>
+      </div>
+
+      <div class="form-success" id="form-success">
+        <div class="success-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="success-h">You're on the list.</h3>
+        <p class="success-p">We'll call you when the next round opens — you'll hear from us before anyone else. Keep an eye on your phone.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursor-ring');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+      ring.style.left   = e.clientX + 'px';
+      ring.style.top    = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, input').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
+    });
+
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Modal elements
+    const overlay       = document.getElementById('modal-overlay');
+    const modalCloseBtn = document.getElementById('modal-close');
+    const modalFormView = document.getElementById('modal-form-view');
+    const spotsNum       = document.getElementById('modal-spots-num');
+    const spotsFill      = document.getElementById('modal-spots-fill');
+    const form            = document.getElementById('contact-form');
+    const success         = document.getElementById('form-success');
+    const submitBtn        = form.querySelector('button[type="submit"]');
+
+    function animateSpots() {
+      spotsFill.style.width = '0%';
+      spotsNum.textContent = '0 / 50';
+      let count = 0;
+      const target = 50;
+      const timer = setInterval(() => {
+        count++;
+        spotsNum.textContent = count + ' / 50';
+        spotsFill.style.width = (count / target * 100) + '%';
+        if (count >= target) clearInterval(timer);
+      }, 22);
+    }
+
+    function resetForm() {
+      form.reset();
+      submitBtn.textContent = 'Secure My Spot';
+      submitBtn.disabled = false;
+      modalFormView.style.display = '';
+      success.classList.remove('show');
+    }
+
+    function openModal() {
+      resetForm();
+      overlay.classList.add('open');
+      requestAnimationFrame(() => overlay.classList.add('show'));
+      document.body.style.overflow = 'hidden';
+      animateSpots();
+    }
+    function closeModal() {
+      overlay.classList.remove('show');
+      document.body.style.overflow = '';
+      setTimeout(() => overlay.classList.remove('open'), 250);
+    }
+    document.querySelectorAll('.open-modal-btn').forEach(btn => btn.addEventListener('click', openModal));
+    modalCloseBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
+
+    // Form AJAX
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          modalFormView.style.display = 'none';
+          success.classList.add('show');
+        } else {
+          submitBtn.textContent = 'Something went wrong — try again';
+          submitBtn.disabled = false;
+        }
+      } catch {
+        submitBtn.textContent = 'Something went wrong — try again';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
