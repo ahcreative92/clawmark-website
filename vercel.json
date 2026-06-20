@@ -5,123 +5,624 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     },
     {
       "source": "/sitemap.xml",
       "headers": [
-        { "key": "Content-Type", "value": "application/xml" }
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        }
       ]
     }
   ],
   "redirects": [
-    { "source": "/blog/2026-05-04-google-maps-ranking-brisbane-tradies", "destination": "/blog/google-maps-ranking-brisbane-tradies", "permanent": true },
-    { "source": "/blog/2026-05-04-google-maps-ranking-brisbane-tradies.html", "destination": "/blog/google-maps-ranking-brisbane-tradies", "permanent": true },
-    { "source": "/blog/2026-05-02-brisbane-tradies-website-competitors", "destination": "/blog/brisbane-tradies-website-competitors", "permanent": true },
-    { "source": "/blog/2026-05-02-brisbane-tradies-website-competitors.html", "destination": "/blog/brisbane-tradies-website-competitors", "permanent": true },
-    { "source": "/blog/2026-05-02-referrals-arent-enough-brisbane-tradies", "destination": "/blog/referrals-arent-enough-brisbane-tradies", "permanent": true },
-    { "source": "/blog/2026-05-02-referrals-arent-enough-brisbane-tradies.html", "destination": "/blog/referrals-arent-enough-brisbane-tradies", "permanent": true },
-    { "source": "/blog/2026-05-03-brisbane-cafe-website-google-bookings", "destination": "/blog/brisbane-cafe-website-google-bookings", "permanent": true },
-    { "source": "/blog/2026-05-03-brisbane-cafe-website-google-bookings.html", "destination": "/blog/brisbane-cafe-website-google-bookings", "permanent": true },
-    { "source": "/blog/2026-05-29-caboolture-tradie-google-reviews-wasted-no-website", "destination": "/blog/caboolture-tradie-google-reviews-wasted", "permanent": true },
-    { "source": "/blog/2026-05-29-caboolture-tradie-google-reviews-wasted-no-website.html", "destination": "/blog/caboolture-tradie-google-reviews-wasted", "permanent": true },
-    { "source": "/blog/2026-05-30-ipswich-tradie-quote-requests-dried-up-website", "destination": "/blog/ipswich-tradie-quote-requests-website", "permanent": true },
-    { "source": "/blog/2026-05-30-ipswich-tradie-quote-requests-dried-up-website.html", "destination": "/blog/ipswich-tradie-quote-requests-website", "permanent": true },
-    { "source": "/blog/2026-06-01-west-end-cafe-losing-bookings-no-website", "destination": "/blog/west-end-cafe-losing-bookings", "permanent": true },
-    { "source": "/blog/2026-06-01-west-end-cafe-losing-bookings-no-website.html", "destination": "/blog/west-end-cafe-losing-bookings", "permanent": true },
-    { "source": "/blog/2026-06-01-fortitude-valley-beauty-salon-instagram-google", "destination": "/blog/fortitude-valley-beauty-salon-instagram-google", "permanent": true },
-    { "source": "/blog/2026-06-01-fortitude-valley-beauty-salon-instagram-google.html", "destination": "/blog/fortitude-valley-beauty-salon-instagram-google", "permanent": true },
-    { "source": "/blog-brisbane-electrician-80-google-reviews-no-website", "destination": "/blog/brisbane-electrician-google-reviews-no-website", "permanent": true },
-    { "source": "/blog-brisbane-electrician-80-google-reviews-no-website.html", "destination": "/blog/brisbane-electrician-google-reviews-no-website", "permanent": true },
-    { "source": "/blog-brisbane-beauty-instagram-followers-to-bookings", "destination": "/blog/brisbane-beauty-instagram-to-bookings", "permanent": true },
-    { "source": "/blog-brisbane-beauty-instagram-followers-to-bookings.html", "destination": "/blog/brisbane-beauty-instagram-to-bookings", "permanent": true },
-    { "source": "/blog-facebook-page-vs-website-web-design-brisbane-small-business", "destination": "/blog/facebook-page-vs-website-brisbane", "permanent": true },
-    { "source": "/blog-facebook-page-vs-website-web-design-brisbane-small-business.html", "destination": "/blog/facebook-page-vs-website-brisbane", "permanent": true },
-    { "source": "/blog-instagram-facebook-vs-website", "destination": "/blog/instagram-vs-website-brisbane", "permanent": true },
-    { "source": "/blog-instagram-facebook-vs-website.html", "destination": "/blog/instagram-vs-website-brisbane", "permanent": true },
-    { "source": "/blog-word-of-mouth-not-enough-brisbane-small-business", "destination": "/blog/word-of-mouth-not-enough-brisbane", "permanent": true },
-    { "source": "/blog-word-of-mouth-not-enough-brisbane-small-business.html", "destination": "/blog/word-of-mouth-not-enough-brisbane", "permanent": true },
-    { "source": "/referrals-not-enough-brisbane-small-business", "destination": "/blog/referrals-not-enough-brisbane", "permanent": true },
-    { "source": "/referrals-not-enough-brisbane-small-business.html", "destination": "/blog/referrals-not-enough-brisbane", "permanent": true },
-    { "source": "/brisbane-beauty-clinic-website", "destination": "/blog/brisbane-beauty-clinic-website", "permanent": true },
-    { "source": "/brisbane-beauty-clinic-website.html", "destination": "/blog/brisbane-beauty-clinic-website", "permanent": true },
-    { "source": "/website-costing-customers-checklist-brisbane", "destination": "/blog/website-costing-customers-checklist", "permanent": true },
-    { "source": "/website-costing-customers-checklist-brisbane.html", "destination": "/blog/website-costing-customers-checklist", "permanent": true },
-    { "source": "/brisbane-beauty-salon-website-redesign", "destination": "/blog/brisbane-beauty-salon-website-redesign", "permanent": true },
-    { "source": "/brisbane-beauty-salon-website-redesign.html", "destination": "/blog/brisbane-beauty-salon-website-redesign", "permanent": true },
-    { "source": "/2026-04-29-cafe-wrong-google-hours-brisbane", "destination": "/blog/brisbane-cafe-wrong-google-hours", "permanent": true },
-    { "source": "/2026-04-29-cafe-wrong-google-hours-brisbane.html", "destination": "/blog/brisbane-cafe-wrong-google-hours", "permanent": true },
-    { "source": "/facebook-page-vs-website-web-design-brisbane-small-business", "destination": "/blog/facebook-page-vs-website-brisbane", "permanent": true },
-    { "source": "/facebook-page-vs-website-web-design-brisbane-small-business.html", "destination": "/blog/facebook-page-vs-website-brisbane", "permanent": true },
-    { "source": "/blog-post-template", "destination": "/blog", "permanent": true },
-    { "source": "/blog-post-template.html", "destination": "/blog", "permanent": true },
-    { "source": "/blog/2026-04-30-fitness-business-website-ipswich", "destination": "/blog/fitness-business-website-ipswich", "permanent": true },
-    { "source": "/blog/2026-04-30-fitness-business-website-ipswich.html", "destination": "/blog/fitness-business-website-ipswich", "permanent": true },
-    { "source": "/blog/2026-05-01-google-hours-fortitude-valley-cafe", "destination": "/blog/google-hours-fortitude-valley-cafe", "permanent": true },
-    { "source": "/blog/2026-05-01-google-hours-fortitude-valley-cafe.html", "destination": "/blog/google-hours-fortitude-valley-cafe", "permanent": true },
-    { "source": "/blog/2026-05-04-brisbane-small-business-online-presence-mistakes", "destination": "/blog/brisbane-small-business-online-presence-mistakes", "permanent": true },
-    { "source": "/blog/2026-05-04-brisbane-small-business-online-presence-mistakes.html", "destination": "/blog/brisbane-small-business-online-presence-mistakes", "permanent": true },
-    { "source": "/blog/2026-05-05-brisbane-beauty-salons-google-search-instagram", "destination": "/blog/brisbane-beauty-salons-google-search-instagram", "permanent": true },
-    { "source": "/blog/2026-05-05-brisbane-beauty-salons-google-search-instagram.html", "destination": "/blog/brisbane-beauty-salons-google-search-instagram", "permanent": true },
-    { "source": "/blog/2026-05-06-ipswich-personal-trainers-word-of-mouth-website", "destination": "/blog/ipswich-personal-trainers-word-of-mouth-website", "permanent": true },
-    { "source": "/blog/2026-05-06-ipswich-personal-trainers-word-of-mouth-website.html", "destination": "/blog/ipswich-personal-trainers-word-of-mouth-website", "permanent": true },
-    { "source": "/blog/2026-05-07-chermside-accountants-website-credibility", "destination": "/blog/chermside-accountants-website-credibility", "permanent": true },
-    { "source": "/blog/2026-05-07-chermside-accountants-website-credibility.html", "destination": "/blog/chermside-accountants-website-credibility", "permanent": true },
-    { "source": "/blog/2026-05-08-morayfield-retail-facebook-page-website", "destination": "/blog/morayfield-retail-facebook-page-website", "permanent": true },
-    { "source": "/blog/2026-05-08-morayfield-retail-facebook-page-website.html", "destination": "/blog/morayfield-retail-facebook-page-website", "permanent": true },
-    { "source": "/blog/2026-05-09-fortitude-valley-cafe-google-wrong-hours", "destination": "/blog/fortitude-valley-cafe-google-wrong-hours", "permanent": true },
-    { "source": "/blog/2026-05-09-fortitude-valley-cafe-google-wrong-hours.html", "destination": "/blog/fortitude-valley-cafe-google-wrong-hours", "permanent": true },
-    { "source": "/blog/2026-05-10-springfield-tradies-google-reviews-website", "destination": "/blog/springfield-tradies-google-reviews-website", "permanent": true },
-    { "source": "/blog/2026-05-10-springfield-tradies-google-reviews-website.html", "destination": "/blog/springfield-tradies-google-reviews-website", "permanent": true },
-    { "source": "/blog/2026-05-11-brisbane-cafe-facebook-page-losing-bookings", "destination": "/blog/brisbane-cafe-facebook-page-losing-bookings", "permanent": true },
-    { "source": "/blog/2026-05-11-brisbane-cafe-facebook-page-losing-bookings.html", "destination": "/blog/brisbane-cafe-facebook-page-losing-bookings", "permanent": true },
-    { "source": "/blog/2026-05-11-brisbane-hospitality-no-website-cost", "destination": "/blog/brisbane-hospitality-no-website-cost", "permanent": true },
-    { "source": "/blog/2026-05-11-brisbane-hospitality-no-website-cost.html", "destination": "/blog/brisbane-hospitality-no-website-cost", "permanent": true },
-    { "source": "/blog/2026-05-11-caboolture-beauty-salon-instagram-google-invisible", "destination": "/blog/caboolture-beauty-salon-instagram-google-invisible", "permanent": true },
-    { "source": "/blog/2026-05-11-caboolture-beauty-salon-instagram-google-invisible.html", "destination": "/blog/caboolture-beauty-salon-instagram-google-invisible", "permanent": true },
-    { "source": "/blog/2026-05-12-brisbane-cafe-menu-hours-website-bookings", "destination": "/blog/brisbane-cafe-menu-hours-website-bookings", "permanent": true },
-    { "source": "/blog/2026-05-12-brisbane-cafe-menu-hours-website-bookings.html", "destination": "/blog/brisbane-cafe-menu-hours-website-bookings", "permanent": true },
-    { "source": "/blog/2026-05-12-brisbane-cafe-website-losing-bookings", "destination": "/blog/brisbane-cafe-website-losing-bookings", "permanent": true },
-    { "source": "/blog/2026-05-12-brisbane-cafe-website-losing-bookings.html", "destination": "/blog/brisbane-cafe-website-losing-bookings", "permanent": true },
-    { "source": "/blog/2026-05-12-ipswich-personal-trainers-website-word-of-mouth", "destination": "/blog/ipswich-personal-trainers-website-word-of-mouth", "permanent": true },
-    { "source": "/blog/2026-05-12-ipswich-personal-trainers-website-word-of-mouth.html", "destination": "/blog/ipswich-personal-trainers-website-word-of-mouth", "permanent": true },
-    { "source": "/blog/2026-05-13-brisbane-cafe-online-presence-check", "destination": "/blog/brisbane-cafe-online-presence-check", "permanent": true },
-    { "source": "/blog/2026-05-13-brisbane-cafe-online-presence-check.html", "destination": "/blog/brisbane-cafe-online-presence-check", "permanent": true },
-    { "source": "/blog/2026-05-13-google-my-business-not-enough-brisbane-cafe", "destination": "/blog/google-my-business-not-enough-brisbane-cafe", "permanent": true },
-    { "source": "/blog/2026-05-13-google-my-business-not-enough-brisbane-cafe.html", "destination": "/blog/google-my-business-not-enough-brisbane-cafe", "permanent": true },
-    { "source": "/blog/2026-05-14-caboolture-tradies-google-reviews-wasted-no-website", "destination": "/blog/caboolture-tradies-google-reviews-wasted-no-website", "permanent": true },
-    { "source": "/blog/2026-05-14-caboolture-tradies-google-reviews-wasted-no-website.html", "destination": "/blog/caboolture-tradies-google-reviews-wasted-no-website", "permanent": true },
-    { "source": "/blog/2026-05-15-fortitude-valley-bar-website-rebuild-results", "destination": "/blog/fortitude-valley-bar-website-rebuild-results", "permanent": true },
-    { "source": "/blog/2026-05-15-fortitude-valley-bar-website-rebuild-results.html", "destination": "/blog/fortitude-valley-bar-website-rebuild-results", "permanent": true },
-    { "source": "/blog/2026-05-18-brisbane-beauty-instagram-discovery-website-bookings", "destination": "/blog/brisbane-beauty-instagram-discovery-website-bookings", "permanent": true },
-    { "source": "/blog/2026-05-18-brisbane-beauty-instagram-discovery-website-bookings.html", "destination": "/blog/brisbane-beauty-instagram-discovery-website-bookings", "permanent": true },
-    { "source": "/blog/2026-05-18-springfield-accountant-website-credibility-gap", "destination": "/blog/springfield-accountant-website-credibility-gap", "permanent": true },
-    { "source": "/blog/2026-05-18-springfield-accountant-website-credibility-gap.html", "destination": "/blog/springfield-accountant-website-credibility-gap", "permanent": true },
-    { "source": "/blog/2026-05-19-west-end-beauty-salon-website-before-after", "destination": "/blog/west-end-beauty-salon-website-before-after", "permanent": true },
-    { "source": "/blog/2026-05-19-west-end-beauty-salon-website-before-after.html", "destination": "/blog/west-end-beauty-salon-website-before-after", "permanent": true },
-    { "source": "/blog/2026-05-20-chermside-beauty-website-wait-myth", "destination": "/blog/chermside-beauty-website-wait-myth", "permanent": true },
-    { "source": "/blog/2026-05-20-chermside-beauty-website-wait-myth.html", "destination": "/blog/chermside-beauty-website-wait-myth", "permanent": true },
-    { "source": "/blog/2026-05-21-ipswich-personal-trainer-website-no-shows", "destination": "/blog/ipswich-personal-trainer-website-no-shows", "permanent": true },
-    { "source": "/blog/2026-05-21-ipswich-personal-trainer-website-no-shows.html", "destination": "/blog/ipswich-personal-trainer-website-no-shows", "permanent": true },
-    { "source": "/blog/2026-05-22-fortitude-valley-beauty-google-local-seo", "destination": "/blog/fortitude-valley-beauty-google-local-seo", "permanent": true },
-    { "source": "/blog/2026-05-22-fortitude-valley-beauty-google-local-seo.html", "destination": "/blog/fortitude-valley-beauty-google-local-seo", "permanent": true },
-    { "source": "/blog/2026-05-23-caboolture-accountant-website-credibility", "destination": "/blog/caboolture-accountant-website-credibility", "permanent": true },
-    { "source": "/blog/2026-05-23-caboolture-accountant-website-credibility.html", "destination": "/blog/caboolture-accountant-website-credibility", "permanent": true },
-    { "source": "/blog/2026-05-25-springfield-personal-trainer-website-google", "destination": "/blog/springfield-personal-trainer-website-google", "permanent": true },
-    { "source": "/blog/2026-05-25-springfield-personal-trainer-website-google.html", "destination": "/blog/springfield-personal-trainer-website-google", "permanent": true },
-    { "source": "/blog/2026-05-26-brisbane-professional-services-trust-signals-website", "destination": "/blog/brisbane-professional-services-trust-signals-website", "permanent": true },
-    { "source": "/blog/2026-05-26-brisbane-professional-services-trust-signals-website.html", "destination": "/blog/brisbane-professional-services-trust-signals-website", "permanent": true },
-    { "source": "/blog/2026-05-26-morayfield-cafe-wrong-google-hours", "destination": "/blog/morayfield-cafe-wrong-google-hours", "permanent": true },
-    { "source": "/blog/2026-05-26-morayfield-cafe-wrong-google-hours.html", "destination": "/blog/morayfield-cafe-wrong-google-hours", "permanent": true },
-    { "source": "/blog/2026-05-27-free-website-builder-brisbane-small-business", "destination": "/blog/free-website-builder-brisbane-small-business", "permanent": true },
-    { "source": "/blog/2026-05-27-free-website-builder-brisbane-small-business.html", "destination": "/blog/free-website-builder-brisbane-small-business", "permanent": true },
-    { "source": "/blog/2026-05-28-brisbane-gym-personal-trainer-website-revenue-growth", "destination": "/blog/brisbane-gym-personal-trainer-website-revenue-growth", "permanent": true },
-    { "source": "/blog/2026-05-28-brisbane-gym-personal-trainer-website-revenue-growth.html", "destination": "/blog/brisbane-gym-personal-trainer-website-revenue-growth", "permanent": true },
-    { "source": "/blog-brisbane-fitness-personal-trainer-website-local-seo", "destination": "/blog/brisbane-fitness-personal-trainer-website-local-seo", "permanent": true },
-    { "source": "/blog-brisbane-fitness-personal-trainer-website-local-seo.html", "destination": "/blog/brisbane-fitness-personal-trainer-website-local-seo", "permanent": true }
+    {
+      "source": "/blog/2026-05-04-google-maps-ranking-brisbane-tradies",
+      "destination": "/blog/google-maps-ranking-brisbane-tradies",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-04-google-maps-ranking-brisbane-tradies.html",
+      "destination": "/blog/google-maps-ranking-brisbane-tradies",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-02-brisbane-tradies-website-competitors",
+      "destination": "/blog/brisbane-tradies-website-competitors",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-02-brisbane-tradies-website-competitors.html",
+      "destination": "/blog/brisbane-tradies-website-competitors",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-02-referrals-arent-enough-brisbane-tradies",
+      "destination": "/blog/referrals-arent-enough-brisbane-tradies",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-02-referrals-arent-enough-brisbane-tradies.html",
+      "destination": "/blog/referrals-arent-enough-brisbane-tradies",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-03-brisbane-cafe-website-google-bookings",
+      "destination": "/blog/brisbane-cafe-website-google-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-03-brisbane-cafe-website-google-bookings.html",
+      "destination": "/blog/brisbane-cafe-website-google-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-29-caboolture-tradie-google-reviews-wasted-no-website",
+      "destination": "/blog/caboolture-tradie-google-reviews-wasted",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-29-caboolture-tradie-google-reviews-wasted-no-website.html",
+      "destination": "/blog/caboolture-tradie-google-reviews-wasted",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-30-ipswich-tradie-quote-requests-dried-up-website",
+      "destination": "/blog/ipswich-tradie-quote-requests-website",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-30-ipswich-tradie-quote-requests-dried-up-website.html",
+      "destination": "/blog/ipswich-tradie-quote-requests-website",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-06-01-west-end-cafe-losing-bookings-no-website",
+      "destination": "/blog/west-end-cafe-losing-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-06-01-west-end-cafe-losing-bookings-no-website.html",
+      "destination": "/blog/west-end-cafe-losing-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-06-01-fortitude-valley-beauty-salon-instagram-google",
+      "destination": "/blog/fortitude-valley-beauty-salon-instagram-google",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-06-01-fortitude-valley-beauty-salon-instagram-google.html",
+      "destination": "/blog/fortitude-valley-beauty-salon-instagram-google",
+      "permanent": true
+    },
+    {
+      "source": "/blog-brisbane-electrician-80-google-reviews-no-website",
+      "destination": "/blog/brisbane-electrician-google-reviews-no-website",
+      "permanent": true
+    },
+    {
+      "source": "/blog-brisbane-electrician-80-google-reviews-no-website.html",
+      "destination": "/blog/brisbane-electrician-google-reviews-no-website",
+      "permanent": true
+    },
+    {
+      "source": "/blog-brisbane-beauty-instagram-followers-to-bookings",
+      "destination": "/blog/brisbane-beauty-instagram-to-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog-brisbane-beauty-instagram-followers-to-bookings.html",
+      "destination": "/blog/brisbane-beauty-instagram-to-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog-facebook-page-vs-website-web-design-brisbane-small-business",
+      "destination": "/blog/facebook-page-vs-website-brisbane",
+      "permanent": true
+    },
+    {
+      "source": "/blog-facebook-page-vs-website-web-design-brisbane-small-business.html",
+      "destination": "/blog/facebook-page-vs-website-brisbane",
+      "permanent": true
+    },
+    {
+      "source": "/blog-instagram-facebook-vs-website",
+      "destination": "/blog/instagram-vs-website-brisbane",
+      "permanent": true
+    },
+    {
+      "source": "/blog-instagram-facebook-vs-website.html",
+      "destination": "/blog/instagram-vs-website-brisbane",
+      "permanent": true
+    },
+    {
+      "source": "/blog-word-of-mouth-not-enough-brisbane-small-business",
+      "destination": "/blog/referrals-not-enough-brisbane",
+      "permanent": true
+    },
+    {
+      "source": "/blog-word-of-mouth-not-enough-brisbane-small-business.html",
+      "destination": "/blog/referrals-not-enough-brisbane",
+      "permanent": true
+    },
+    {
+      "source": "/referrals-not-enough-brisbane-small-business",
+      "destination": "/blog/referrals-not-enough-brisbane",
+      "permanent": true
+    },
+    {
+      "source": "/referrals-not-enough-brisbane-small-business.html",
+      "destination": "/blog/referrals-not-enough-brisbane",
+      "permanent": true
+    },
+    {
+      "source": "/brisbane-beauty-clinic-website",
+      "destination": "/blog/brisbane-beauty-clinic-website",
+      "permanent": true
+    },
+    {
+      "source": "/brisbane-beauty-clinic-website.html",
+      "destination": "/blog/brisbane-beauty-clinic-website",
+      "permanent": true
+    },
+    {
+      "source": "/website-costing-customers-checklist-brisbane",
+      "destination": "/blog/website-costing-customers-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/website-costing-customers-checklist-brisbane.html",
+      "destination": "/blog/website-costing-customers-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/brisbane-beauty-salon-website-redesign",
+      "destination": "/blog/brisbane-beauty-salon-website-redesign",
+      "permanent": true
+    },
+    {
+      "source": "/brisbane-beauty-salon-website-redesign.html",
+      "destination": "/blog/brisbane-beauty-salon-website-redesign",
+      "permanent": true
+    },
+    {
+      "source": "/2026-04-29-cafe-wrong-google-hours-brisbane",
+      "destination": "/blog/brisbane-cafe-wrong-google-hours",
+      "permanent": true
+    },
+    {
+      "source": "/2026-04-29-cafe-wrong-google-hours-brisbane.html",
+      "destination": "/blog/brisbane-cafe-wrong-google-hours",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-page-vs-website-web-design-brisbane-small-business",
+      "destination": "/blog/facebook-page-vs-website-brisbane",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-page-vs-website-web-design-brisbane-small-business.html",
+      "destination": "/blog/facebook-page-vs-website-brisbane",
+      "permanent": true
+    },
+    {
+      "source": "/blog-post-template",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog-post-template.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-04-30-fitness-business-website-ipswich",
+      "destination": "/blog/fitness-business-website-ipswich",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-04-30-fitness-business-website-ipswich.html",
+      "destination": "/blog/fitness-business-website-ipswich",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-01-google-hours-fortitude-valley-cafe",
+      "destination": "/blog/google-hours-fortitude-valley-cafe",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-01-google-hours-fortitude-valley-cafe.html",
+      "destination": "/blog/google-hours-fortitude-valley-cafe",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-04-brisbane-small-business-online-presence-mistakes",
+      "destination": "/blog/brisbane-small-business-online-presence-mistakes",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-04-brisbane-small-business-online-presence-mistakes.html",
+      "destination": "/blog/brisbane-small-business-online-presence-mistakes",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-05-brisbane-beauty-salons-google-search-instagram",
+      "destination": "/blog/brisbane-beauty-salons-google-search-instagram",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-05-brisbane-beauty-salons-google-search-instagram.html",
+      "destination": "/blog/brisbane-beauty-salons-google-search-instagram",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-06-ipswich-personal-trainers-word-of-mouth-website",
+      "destination": "/blog/ipswich-personal-trainers-website-word-of-mouth",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-06-ipswich-personal-trainers-word-of-mouth-website.html",
+      "destination": "/blog/ipswich-personal-trainers-website-word-of-mouth",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-07-chermside-accountants-website-credibility",
+      "destination": "/blog/chermside-accountant-no-website-credibility",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-07-chermside-accountants-website-credibility.html",
+      "destination": "/blog/chermside-accountant-no-website-credibility",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-08-morayfield-retail-facebook-page-website",
+      "destination": "/blog/morayfield-retail-facebook-page-website",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-08-morayfield-retail-facebook-page-website.html",
+      "destination": "/blog/morayfield-retail-facebook-page-website",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-09-fortitude-valley-cafe-google-wrong-hours",
+      "destination": "/blog/google-hours-fortitude-valley-cafe",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-09-fortitude-valley-cafe-google-wrong-hours.html",
+      "destination": "/blog/google-hours-fortitude-valley-cafe",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-10-springfield-tradies-google-reviews-website",
+      "destination": "/blog/springfield-tradies-google-reviews-website",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-10-springfield-tradies-google-reviews-website.html",
+      "destination": "/blog/springfield-tradies-google-reviews-website",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-11-brisbane-cafe-facebook-page-losing-bookings",
+      "destination": "/blog/brisbane-cafe-facebook-page-losing-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-11-brisbane-cafe-facebook-page-losing-bookings.html",
+      "destination": "/blog/brisbane-cafe-facebook-page-losing-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-11-brisbane-hospitality-no-website-cost",
+      "destination": "/blog/brisbane-hospitality-no-website-cost",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-11-brisbane-hospitality-no-website-cost.html",
+      "destination": "/blog/brisbane-hospitality-no-website-cost",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-11-caboolture-beauty-salon-instagram-google-invisible",
+      "destination": "/blog/caboolture-beauty-salon-instagram-google-invisible",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-11-caboolture-beauty-salon-instagram-google-invisible.html",
+      "destination": "/blog/caboolture-beauty-salon-instagram-google-invisible",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-12-brisbane-cafe-menu-hours-website-bookings",
+      "destination": "/blog/brisbane-cafe-menu-hours-website-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-12-brisbane-cafe-menu-hours-website-bookings.html",
+      "destination": "/blog/brisbane-cafe-menu-hours-website-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-12-brisbane-cafe-website-losing-bookings",
+      "destination": "/blog/brisbane-cafe-website-losing-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-12-brisbane-cafe-website-losing-bookings.html",
+      "destination": "/blog/brisbane-cafe-website-losing-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-12-ipswich-personal-trainers-website-word-of-mouth",
+      "destination": "/blog/ipswich-personal-trainers-website-word-of-mouth",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-12-ipswich-personal-trainers-website-word-of-mouth.html",
+      "destination": "/blog/ipswich-personal-trainers-website-word-of-mouth",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-13-brisbane-cafe-online-presence-check",
+      "destination": "/blog/brisbane-cafe-online-presence-check",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-13-brisbane-cafe-online-presence-check.html",
+      "destination": "/blog/brisbane-cafe-online-presence-check",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-13-google-my-business-not-enough-brisbane-cafe",
+      "destination": "/blog/google-my-business-not-enough-brisbane-cafe",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-13-google-my-business-not-enough-brisbane-cafe.html",
+      "destination": "/blog/google-my-business-not-enough-brisbane-cafe",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-14-caboolture-tradies-google-reviews-wasted-no-website",
+      "destination": "/blog/caboolture-tradie-google-reviews-wasted",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-14-caboolture-tradies-google-reviews-wasted-no-website.html",
+      "destination": "/blog/caboolture-tradie-google-reviews-wasted",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-15-fortitude-valley-bar-website-rebuild-results",
+      "destination": "/blog/fortitude-valley-bar-website-rebuild-results",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-15-fortitude-valley-bar-website-rebuild-results.html",
+      "destination": "/blog/fortitude-valley-bar-website-rebuild-results",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-18-brisbane-beauty-instagram-discovery-website-bookings",
+      "destination": "/blog/brisbane-beauty-instagram-to-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-18-brisbane-beauty-instagram-discovery-website-bookings.html",
+      "destination": "/blog/brisbane-beauty-instagram-to-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-18-springfield-accountant-website-credibility-gap",
+      "destination": "/blog/springfield-accountant-website-credibility-gap",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-18-springfield-accountant-website-credibility-gap.html",
+      "destination": "/blog/springfield-accountant-website-credibility-gap",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-19-west-end-beauty-salon-website-before-after",
+      "destination": "/blog/west-end-beauty-salon-website-before-after",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-19-west-end-beauty-salon-website-before-after.html",
+      "destination": "/blog/west-end-beauty-salon-website-before-after",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-20-chermside-beauty-website-wait-myth",
+      "destination": "/blog/chermside-beauty-website-wait-myth",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-20-chermside-beauty-website-wait-myth.html",
+      "destination": "/blog/chermside-beauty-website-wait-myth",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-21-ipswich-personal-trainer-website-no-shows",
+      "destination": "/blog/ipswich-personal-trainer-website-no-shows",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-21-ipswich-personal-trainer-website-no-shows.html",
+      "destination": "/blog/ipswich-personal-trainer-website-no-shows",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-22-fortitude-valley-beauty-google-local-seo",
+      "destination": "/blog/fortitude-valley-beauty-google-local-seo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-22-fortitude-valley-beauty-google-local-seo.html",
+      "destination": "/blog/fortitude-valley-beauty-google-local-seo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-23-caboolture-accountant-website-credibility",
+      "destination": "/blog/caboolture-accountant-website-credibility",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-23-caboolture-accountant-website-credibility.html",
+      "destination": "/blog/caboolture-accountant-website-credibility",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-25-springfield-personal-trainer-website-google",
+      "destination": "/blog/springfield-personal-trainer-website-google",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-25-springfield-personal-trainer-website-google.html",
+      "destination": "/blog/springfield-personal-trainer-website-google",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-26-brisbane-professional-services-trust-signals-website",
+      "destination": "/blog/brisbane-professional-services-trust-signals-website",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-26-brisbane-professional-services-trust-signals-website.html",
+      "destination": "/blog/brisbane-professional-services-trust-signals-website",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-26-morayfield-cafe-wrong-google-hours",
+      "destination": "/blog/morayfield-cafe-wrong-google-hours",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-26-morayfield-cafe-wrong-google-hours.html",
+      "destination": "/blog/morayfield-cafe-wrong-google-hours",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-27-free-website-builder-brisbane-small-business",
+      "destination": "/blog/free-website-builder-brisbane-small-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-27-free-website-builder-brisbane-small-business.html",
+      "destination": "/blog/free-website-builder-brisbane-small-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-28-brisbane-gym-personal-trainer-website-revenue-growth",
+      "destination": "/blog/brisbane-gym-personal-trainer-website-revenue-growth",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-05-28-brisbane-gym-personal-trainer-website-revenue-growth.html",
+      "destination": "/blog/brisbane-gym-personal-trainer-website-revenue-growth",
+      "permanent": true
+    },
+    {
+      "source": "/blog-brisbane-fitness-personal-trainer-website-local-seo",
+      "destination": "/blog/brisbane-fitness-personal-trainer-website-local-seo",
+      "permanent": true
+    },
+    {
+      "source": "/blog-brisbane-fitness-personal-trainer-website-local-seo.html",
+      "destination": "/blog/brisbane-fitness-personal-trainer-website-local-seo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/caboolture-tradies-google-reviews-wasted-no-website",
+      "destination": "/blog/caboolture-tradie-google-reviews-wasted",
+      "permanent": true
+    },
+    {
+      "source": "/blog/caboolture-tradies-google-reviews-wasted-no-website.html",
+      "destination": "/blog/caboolture-tradie-google-reviews-wasted",
+      "permanent": true
+    },
+    {
+      "source": "/blog/chermside-accountants-website-credibility",
+      "destination": "/blog/chermside-accountant-no-website-credibility",
+      "permanent": true
+    },
+    {
+      "source": "/blog/chermside-accountants-website-credibility.html",
+      "destination": "/blog/chermside-accountant-no-website-credibility",
+      "permanent": true
+    },
+    {
+      "source": "/blog/chermside-gym-pt-word-of-mouth-website",
+      "destination": "/blog/chermside-personal-trainer-gym-website-word-of-mouth",
+      "permanent": true
+    },
+    {
+      "source": "/blog/chermside-gym-pt-word-of-mouth-website.html",
+      "destination": "/blog/chermside-personal-trainer-gym-website-word-of-mouth",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ipswich-personal-trainers-word-of-mouth-website",
+      "destination": "/blog/ipswich-personal-trainers-website-word-of-mouth",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ipswich-personal-trainers-word-of-mouth-website.html",
+      "destination": "/blog/ipswich-personal-trainers-website-word-of-mouth",
+      "permanent": true
+    },
+    {
+      "source": "/blog/brisbane-beauty-instagram-discovery-website-bookings",
+      "destination": "/blog/brisbane-beauty-instagram-to-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/brisbane-beauty-instagram-discovery-website-bookings.html",
+      "destination": "/blog/brisbane-beauty-instagram-to-bookings",
+      "permanent": true
+    },
+    {
+      "source": "/blog/fortitude-valley-cafe-google-wrong-hours",
+      "destination": "/blog/google-hours-fortitude-valley-cafe",
+      "permanent": true
+    },
+    {
+      "source": "/blog/fortitude-valley-cafe-google-wrong-hours.html",
+      "destination": "/blog/google-hours-fortitude-valley-cafe",
+      "permanent": true
+    },
+    {
+      "source": "/blog/word-of-mouth-not-enough-brisbane",
+      "destination": "/blog/referrals-not-enough-brisbane",
+      "permanent": true
+    },
+    {
+      "source": "/blog/word-of-mouth-not-enough-brisbane.html",
+      "destination": "/blog/referrals-not-enough-brisbane",
+      "permanent": true
+    }
   ]
 }

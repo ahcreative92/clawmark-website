@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Custom Webflow websites for Caboolture small businesses — trades, beauty, fitness, professional services and retail. Zero upfront. Plans from $129/month.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://www.clawmark.com.au/suburbs/caboolture">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.clawmark.com.au/suburbs/caboolture">
+  <meta property="og:site_name" content="Clawmark">
+  <meta property="og:title" content="Web Design Caboolture Brisbane | Clawmark — $0 Upfront">
+  <meta property="og:description" content="Custom Webflow websites for Caboolture small businesses — trades, beauty, fitness, professional services and retail. Zero upfront. Plans from $129/month.">
+  <meta property="og:image" content="https://www.clawmark.com.au/og-image.jpg">
+  <meta property="og:locale" content="en_AU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Design Caboolture Brisbane | Clawmark — $0 Upfront">
+  <meta name="twitter:description" content="Custom Webflow websites for Caboolture small businesses — trades, beauty, fitness, professional services and retail. Zero upfront. Plans from $129/month.">
+  <meta name="twitter:image" content="https://www.clawmark.com.au/og-image.jpg">
+  <title>Web Design Caboolture Brisbane | Clawmark — $0 Upfront</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:        #0A0A0A;
+      --dark:         #111111;
+      --dark-2:       #181818;
+      --orange:       #FF5500;
+      --orange-dim:   rgba(255,85,0,0.10);
+      --orange-glow:  rgba(255,85,0,0.18);
+      --white:        #FFFFFF;
+      --off-white:    #F6F3EF;
+      --stone:        #EBEBEB;
+      --muted-dark:   rgba(255,255,255,0.42);
+      --muted-light:  rgba(10,10,10,0.45);
+      --border-dark:  rgba(255,255,255,0.07);
+      --border-light: rgba(10,10,10,0.08);
+      --serif:        'Syne', sans-serif;
+      --sans:         'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: none; }
+    .cursor { position: fixed; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease; }
+    .cursor.grow { width: 36px; height: 36px; background: var(--orange); opacity: 0.22; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,85,0,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.18s ease; }
+    @media (hover: none) { .cursor, .cursor-ring { display: none; } body { cursor: auto; } button { cursor: pointer; } }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    .tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.4rem 0.9rem; border-radius: 99px; border: 1px solid; }
+    .tag-dark { border-color: var(--border-dark); color: var(--muted-dark); }
+    .tag-orange { border-color: var(--orange); color: var(--orange); }
+    .tag .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+    .section-label { font-family: var(--sans); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .h-display { font-family: var(--serif); font-weight: 800; line-height: 1.0; letter-spacing: -0.02em; }
+    .h-section { font-family: var(--serif); font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; }
+    .body-text { font-size: 0.95rem; font-weight: 300; line-height: 1.75; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.85rem 1.75rem; border: 1.5px solid transparent; border-radius: 4px; transition: all 0.2s ease; white-space: nowrap; }
+    .btn-orange { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
+    .btn-arrow::after { content: ' →'; }
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; transition: padding 0.35s, background 0.35s, border-color 0.35s, backdrop-filter 0.35s; border-bottom: 1px solid transparent; }
+    #nav.scrolled { padding: 0.9rem 3rem; background: rgba(10,10,10,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom-color: var(--border-dark); }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; letter-spacing: -0.01em; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.02em; color: var(--muted-dark); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--white); transition: all 0.25s; }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 490; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
+    .hero { background: var(--black); min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10rem 2rem 6rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -10%; left: 50%; transform: translateX(-50%); width: 700px; height: 700px; background: radial-gradient(circle, rgba(255,85,0,0.12) 0%, transparent 65%); pointer-events: none; }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+    .hero-badge { margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.1s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .hero-h1 { font-size: clamp(2.6rem, 5.5vw, 5rem); color: var(--white); margin-bottom: 1.75rem; opacity: 0; animation: fadeUp 0.8s 0.25s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .hero-h1 .accent { color: var(--orange); }
+    .hero-sub { font-size: 1.05rem; font-weight: 300; line-height: 1.72; color: var(--muted-dark); max-width: 560px; margin: 0 auto 2.75rem; opacity: 0; animation: fadeUp 0.8s 0.4s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .hero-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.52s cubic-bezier(0.22,1,0.36,1) forwards; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .section-pad { padding: 7rem 3rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-dark { background: var(--black); }
+    .section-light { background: var(--off-white); }
+    .section-hd { margin-bottom: 3rem; }
+    .section-hd .h-section { color: var(--black); margin-bottom: 1.5rem; }
+    .section-dark .section-hd .h-section { color: var(--white); }
+    .prose p { font-size: 0.95rem; font-weight: 300; line-height: 1.85; color: var(--muted-light); margin-bottom: 1.25rem; }
+    .section-dark .prose p { color: var(--muted-dark); }
+    .post-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border-light); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; margin-top: 2rem; }
+    .post-cell { background: var(--white); padding: 1.75rem 2rem; transition: background 0.2s; display: block; }
+    .post-cell:hover { background: var(--off-white); }
+    .post-cell-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; display: block; }
+    .post-cell-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--black); line-height: 1.3; margin-bottom: 0.5rem; }
+    .post-cell-excerpt { font-size: 0.84rem; font-weight: 300; color: var(--muted-light); line-height: 1.6; }
+    .reading-links { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .reading-link { font-size: 0.88rem; font-weight: 400; color: var(--orange); display: inline-flex; align-items: center; gap: 0.4rem; transition: gap 0.2s; }
+    .reading-link:hover { gap: 0.7rem; }
+    .final-cta { background: var(--black); padding: 9rem 3rem; text-align: center; position: relative; overflow: hidden; }
+    .final-cta::before { content: ''; position: absolute; bottom: -20%; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,85,0,0.1) 0%, transparent 65%); pointer-events: none; }
+    .final-cta-inner { position: relative; z-index: 2; }
+    .final-h { font-size: clamp(2.2rem, 5vw, 4.5rem); color: var(--white); margin-bottom: 1rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+    .final-sub { font-size: 0.95rem; font-weight: 300; color: var(--muted-dark); margin-bottom: 3rem; line-height: 1.6; }
+    footer { background: var(--dark); border-top: 1px solid var(--border-dark); padding: 3.5rem 3rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border-dark); margin-bottom: 2rem; }
+    .footer-brand-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; color: var(--white); margin-bottom: 0.6rem; }
+    .footer-brand-name span { color: var(--orange); }
+    .footer-tagline { font-size: 0.8rem; font-weight: 300; color: var(--muted-dark); max-width: 240px; line-height: 1.6; }
+    .footer-col-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 1.25rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-links a { font-size: 0.82rem; font-weight: 300; color: var(--muted-dark); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-contact p { font-size: 0.82rem; font-weight: 300; color: var(--muted-dark); line-height: 1.8; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.22); }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.22); transition: color 0.2s; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.5); }
+    @media (max-width: 768px) {
+      #nav { padding: 1.1rem 1.5rem; }
+      #nav.scrolled { padding: 0.8rem 1.5rem; }
+      .nav-links, .nav-right .btn { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero { padding: 8rem 1.5rem 5rem; }
+      .section-pad { padding: 5rem 1.5rem; }
+      .post-grid { grid-template-columns: 1fr; }
+      .final-cta { padding: 6rem 1.5rem; }
+      footer { padding: 3rem 1.5rem 1.75rem; }
+      .footer-inner { flex-wrap: wrap; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y8W1YZ90B2"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y8W1YZ90B2');</script>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Close">✕</button>
+  <a href="../how-it-works.html" class="mob-link">How It Works</a>
+  <a href="../pricing.html" class="mob-link">Pricing</a>
+  <a href="../portfolio.html" class="mob-link">Our Work</a>
+  <a href="../index.html#industries" class="mob-link">Industries</a>
+  <a href="../faqs.html" class="mob-link">FAQs</a>
+  <a href="../blog.html" class="mob-link">Blog</a>
+  <a href="https://calendly.com/ahcreative92-arcr/your-website-meeting" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+</div>
+<nav id="nav" role="navigation">
+  <a href="../index.html" class="nav-logo">CLAW<span>MARK</span></a>
+  <ul class="nav-links">
+    <li><a href="../how-it-works.html">How It Works</a></li>
+    <li><a href="../pricing.html">Pricing</a></li>
+    <li><a href="../portfolio.html">Our Work</a></li>
+    <li><a href="../index.html#industries">Industries</a></li>
+    <li><a href="../faqs.html">FAQs</a></li>
+    <li><a href="../blog.html">Blog</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://calendly.com/ahcreative92-arcr/your-website-meeting" class="btn btn-orange btn-arrow">Get My Free Website</a>
+    <button class="nav-hamburger" id="navHam" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="tag tag-dark"><span class="dot"></span>SERVING CABOOLTURE</span>
+    </div>
+    <h1 class="h-display hero-h1">Web design for Caboolture small businesses.<br><span class="accent">Zero upfront.</span></h1>
+    <p class="hero-sub">Caboolture is one of Brisbane's fastest-growing outer-north corridors — new estates, new residents, and none of them know your business by reputation yet.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/ahcreative92-arcr/your-website-meeting" class="btn btn-orange btn-arrow">Book a Free Call</a>
+      <a href="../pricing.html" class="btn btn-outline-white">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad section-light">
+  <div class="section-inner">
+    <div class="section-hd reveal">
+      <h2 class="h-section">Why Caboolture businesses lose customers online</h2>
+    </div>
+    <div class="prose reveal">
+      <p>Caboolture is growing fast, which cuts both ways. More customers are moving into the area every month — but most of them have no history with your business and no referral to go on. They search Google first.</p>
+      <p>If your business doesn't show up — or shows up with the wrong hours, no website, or just a Facebook page — that search ends at a competitor's site instead of yours.</p>
+      <p>We build custom Webflow websites for Caboolture businesses with local SEO baked in from day one, for $0 upfront. You only pay once you've seen and approved the design.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="section-hd reveal">
+      <h2 class="h-section">Caboolture business resources</h2>
+    </div>
+    <div class="post-grid reveal">
+      <a href="/blog/caboolture-accountant-website-credibility" class="post-cell reveal">
+        <span class="post-cell-tag">Professional Services</span>
+        <div class="post-cell-title">Caboolture Accountants: Why No Website Kills Your Credibility</div>
+        <p class="post-cell-excerpt">Caboolture accountants and mortgage brokers losing leads to competitors? Without a website, your credentials mean nothing to someone searching online.</p>
+      </a>
+      <a href="/blog/caboolture-beauty-salon-instagram-google-invisible" class="post-cell reveal">
+        <span class="post-cell-tag">Beauty & Wellness</span>
+        <div class="post-cell-title">Caboolture Beauty Salons: Instagram Alone Leaves You Invisible on Google</div>
+        <p class="post-cell-excerpt">Caboolture beauty salons relying only on Instagram are invisible on Google. Here's why that's costing you bookings — and what to do about it.</p>
+      </a>
+      <a href="/blog/caboolture-cafe-restaurant-google-business-profile" class="post-cell reveal">
+        <span class="post-cell-tag">Hospitality</span>
+        <div class="post-cell-title">Caboolture Cafes: Why Google Thinks You're Closed (And You Don't Know It)</div>
+        <p class="post-cell-excerpt">Caboolture cafes and restaurants are losing bookings because Google shows wrong hours or marks them closed. Here's how to fix your Google Business Profile today.</p>
+      </a>
+      <a href="/blog/caboolture-personal-trainer-website" class="post-cell reveal">
+        <span class="post-cell-tag">Fitness</span>
+        <div class="post-cell-title">Caboolture PTs: Why Word of Mouth Has a Hard Limit</div>
+        <p class="post-cell-excerpt">Word of mouth fills your diary — until it stops. Why Caboolture personal trainers need more than referrals to grow their client base.</p>
+      </a>
+      <a href="/blog/caboolture-small-business-online-presence" class="post-cell reveal">
+        <span class="post-cell-tag">Local Business</span>
+        <div class="post-cell-title">Caboolture Small Businesses: Why Your Customers Can't Find You Online</div>
+        <p class="post-cell-excerpt">Caboolture small businesses are invisible online — and losing customers to competitors every day. Here's why it happens and how to fix it fast.</p>
+      </a>
+      <a href="/blog/caboolture-tradie-google-reviews-wasted" class="post-cell reveal">
+        <span class="post-cell-tag">Trades</span>
+        <div class="post-cell-title">Caboolture Tradies: Your Google Reviews Are Going to Waste</div>
+        <p class="post-cell-excerpt">Caboolture tradies with great Google reviews but no website are losing jobs daily. Here's exactly why reviews alone aren't enough — and what to fix.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <p class="section-label" style="color:rgba(255,85,0,0.8)">Ready to start?</p>
+    <h2 class="h-display final-h">Your next Caboolture customer is searching for you right now.</h2>
+    <p class="final-sub">Book a free call. We'll build your site in 72 hours. If you don't love it, you owe us nothing.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://calendly.com/ahcreative92-arcr/your-website-meeting" class="btn btn-orange btn-arrow">Book My Free Call</a>
+      <a href="../pricing.html" class="btn btn-outline-white">View Pricing</a>
+    </div>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">CLAW<span>MARK</span></div>
+      <p class="footer-tagline">Brisbane web design agency. Custom Webflow websites. Zero upfront.</p>
+    </div>
+    <div>
+      <p class="footer-col-label">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="../how-it-works.html">How It Works</a></li>
+        <li><a href="../pricing.html">Pricing</a></li>
+        <li><a href="../index.html#industries">Industries</a></li>
+        <li><a href="../portfolio.html">Our Work</a></li>
+        <li><a href="../faqs.html">FAQs</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-label">Contact</p>
+      <div class="footer-contact">
+        <p><a href="mailto:hello@clawmark.com.au" style="color:var(--muted-dark);transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--muted-dark)'">hello@clawmark.com.au</a></p>
+        <p>Brisbane, QLD, Australia</p>
+        <p style="margin-top:1rem;display:flex;gap:1rem;">
+          <a href="https://facebook.com/clawmark" style="color:var(--muted-dark);transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--muted-dark)'">Facebook</a>
+          <a href="https://instagram.com/clawmark" style="color:var(--muted-dark);transition:color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--muted-dark)'">Instagram</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Clawmark. All rights reserved.</p>
+    <nav class="footer-legal">
+      <a href="../privacy-policy.html">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const ring   = document.getElementById('cursorRing');
+  let mx = -100, my = -100, rx = -100, ry = -100;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  });
+  function animateCursor() {
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
+  });
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+  const ham = document.getElementById('navHam');
+  const mobileNav = document.getElementById('mobileNav');
+  const mClose = document.getElementById('mobileClose');
+  ham.addEventListener('click', () => { mobileNav.classList.add('open'); ham.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; });
+  const closeNav = () => { mobileNav.classList.remove('open'); ham.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+  mClose.addEventListener('click', closeNav);
+  mobileNav.querySelectorAll('.mob-link, .btn').forEach(el => el.addEventListener('click', closeNav));
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const siblings = Array.from(entry.target.parentElement.querySelectorAll(':scope > .reveal'));
+      const idx = siblings.indexOf(entry.target);
+      setTimeout(() => entry.target.classList.add('in'), idx * 80);
+      revealObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  revealEls.forEach(el => revealObs.observe(el));
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Clawmark",
+  "description": "Custom Webflow websites for Caboolture small businesses \u2014 trades, beauty, fitness, professional services and retail. Zero upfront. Plans from $129/month.",
+  "url": "https://www.clawmark.com.au/suburbs/caboolture",
+  "email": "hello@clawmark.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Caboolture",
+    "addressRegion": "QLD",
+    "addressCountry": "AU"
+  },
+  "areaServed": [
+    "Caboolture",
+    "Brisbane",
+    "South East Queensland"
+  ],
+  "priceRange": "$$",
+  "serviceType": "Web Design for Caboolture Small Businesses",
+  "sameAs": [
+    "https://facebook.com/clawmark",
+    "https://instagram.com/clawmark"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.clawmark.com.au"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Caboolture",
+      "item": "https://www.clawmark.com.au/suburbs/caboolture"
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

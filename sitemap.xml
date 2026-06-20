@@ -31,12 +31,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.clawmark.com.au/blog/chermside-gym-pt-word-of-mouth-website</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.clawmark.com.au/blog/morayfield-beauty-salon-instagram-google-invisible</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -136,11 +130,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.clawmark.com.au/blog/brisbane-beauty-instagram-discovery-website-bookings</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.clawmark.com.au/blog/brisbane-beauty-instagram-to-bookings</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -231,16 +220,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.clawmark.com.au/blog/caboolture-tradies-google-reviews-wasted-no-website</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.clawmark.com.au/blog/chermside-accountants-website-credibility</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.clawmark.com.au/blog/chermside-beauty-website-wait-myth</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -267,11 +246,6 @@
   </url>
   <url>
     <loc>https://www.clawmark.com.au/blog/fortitude-valley-beauty-salon-instagram-google</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.clawmark.com.au/blog/fortitude-valley-cafe-google-wrong-hours</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -307,11 +281,6 @@
   </url>
   <url>
     <loc>https://www.clawmark.com.au/blog/ipswich-personal-trainers-website-word-of-mouth</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.clawmark.com.au/blog/ipswich-personal-trainers-word-of-mouth-website</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -376,13 +345,70 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.clawmark.com.au/blog/word-of-mouth-not-enough-brisbane</loc>
+    <loc>https://www.clawmark.com.au/privacy-policy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.clawmark.com.au/blog/brisbane-fitness-personal-trainer-website-local-seo</loc>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.clawmark.com.au/privacy-policy</loc>
+    <loc>https://www.clawmark.com.au/blog/brisbane-small-business-winter-website-google</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.clawmark.com.au/blog/caboolture-small-business-online-presence</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.clawmark.com.au/blog/chermside-personal-trainer-gym-website-word-of-mouth</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.clawmark.com.au/blog/chermside-retail-facebook-page-website</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.clawmark.com.au/blog/clawmark-website-plan-brisbane</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.clawmark.com.au/blog/fortitude-valley-restaurant-bookings-website</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.clawmark.com.au/suburbs/caboolture</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.clawmark.com.au/suburbs/morayfield</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.clawmark.com.au/suburbs/ipswich</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.clawmark.com.au/suburbs/springfield</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 </urlset>
