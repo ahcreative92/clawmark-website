@@ -1,657 +1,289 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ClawMark FAQ — everything you want to know about our free website offer, pricing, process and support for Brisbane small businesses.">
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="canonical" href="https://www.clawmark.com.au/faqs">
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.clawmark.com.au/faqs">
-  <meta property="og:site_name" content="ClawMark">
-  <meta property="og:title" content="FAQs — ClawMark | Brisbane Web Design Questions Answered">
-  <meta property="og:description" content="ClawMark FAQ — everything you want to know about our free website offer, pricing, process and support for Brisbane small businesses.">
-  <meta property="og:image" content="https://www.clawmark.com.au/og-image.jpg">
-  <meta property="og:locale" content="en_AU">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@clawmark">
-  <meta name="twitter:title" content="FAQs — ClawMark | Brisbane Web Design Questions Answered">
-  <meta name="twitter:description" content="ClawMark FAQ — everything you want to know about our free website offer, pricing, process and support for Brisbane small businesses.">
-  <meta name="twitter:image" content="https://www.clawmark.com.au/og-image.jpg">
-  <title>FAQs — ClawMark</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --black:        #0A0A0A;
-      --dark:         #111111;
-      --dark-2:       #181818;
-      --orange:       #FF5500;
-      --orange-dim:   rgba(255,85,0,0.10);
-      --white:        #FFFFFF;
-      --off-white:    #F6F3EF;
-      --muted-dark:   rgba(255,255,255,0.42);
-      --muted-light:  rgba(10,10,10,0.45);
-      --border-dark:  rgba(255,255,255,0.07);
-      --border-light: rgba(10,10,10,0.08);
-      --serif:        'Syne', sans-serif;
-      --sans:         'DM Sans', system-ui, sans-serif;
-    }
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none; }
-    a { text-decoration: none; color: inherit; }
-    button { font-family: inherit; cursor: none; }
-
-    .cursor { position: fixed; width: 10px; height: 10px; background: var(--orange); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease; }
-    .cursor.grow { width: 36px; height: 36px; opacity: 0.22; }
-    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,85,0,0.35); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.18s ease; }
-    @media (hover: none) { .cursor, .cursor-ring { display: none; } body, button { cursor: auto; } }
-
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
-    .reveal.in { opacity:1; transform:translateY(0); }
-
-    .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
-    .h-section { font-family: var(--serif); font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; }
-
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.85rem 1.75rem; border: 1.5px solid transparent; border-radius: 4px; transition: all 0.2s ease; white-space: nowrap; }
-    .btn-orange { background: var(--orange); color: var(--white); border-color: var(--orange); }
-    .btn-orange:hover { background: #e04a00; border-color: #e04a00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,85,0,0.3); }
-    .btn-outline-dark { background: transparent; color: var(--black); border-color: rgba(10,10,10,0.22); }
-    .btn-outline-dark:hover { border-color: var(--black); background: rgba(10,10,10,0.04); }
-    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.22); }
-    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); }
-    .btn-arrow::after { content: ' →'; }
-
-    /* NAV */
-    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; background: rgba(10,10,10,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); }
-    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; color: var(--white); }
-    .nav-logo span { color: var(--orange); }
-    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
-    .nav-links a { font-size: 0.8rem; font-weight: 400; color: var(--muted-dark); transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--white); }
-    .nav-right { display: flex; align-items: center; gap: 1rem; }
-    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
-    .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: var(--white); }
-    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 490; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); }
-    .mobile-nav a:hover { color: var(--orange); }
-    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; background: none; border: none; color: var(--white); }
-
-    /* PAGE HERO */
-    .page-hero { background: var(--black); padding: 10rem 3rem 7rem; text-align: center; position: relative; overflow: hidden; }
-    .page-hero::before { content: ''; position: absolute; top: -5%; left: 50%; transform: translateX(-50%); width: 600px; height: 500px; background: radial-gradient(circle, rgba(255,85,0,0.11) 0%, transparent 65%); pointer-events: none; }
-    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%); }
-    .page-hero-content { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
-    .page-hero-content .section-label { opacity: 0; animation: fadeUp 0.7s 0.1s cubic-bezier(0.22,1,0.36,1) forwards; }
-    .page-hero-h1 { font-family: var(--serif); font-weight: 800; line-height: 1; letter-spacing: -0.02em; font-size: clamp(3rem, 6vw, 5.5rem); color: var(--white); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.22s cubic-bezier(0.22,1,0.36,1) forwards; }
-    .page-hero-h1 .accent { color: var(--orange); }
-    .page-hero-sub { font-size: 1rem; font-weight: 300; line-height: 1.75; color: var(--muted-dark); max-width: 520px; margin: 0 auto; opacity: 0; animation: fadeUp 0.8s 0.38s cubic-bezier(0.22,1,0.36,1) forwards; }
-    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-
-    /* ── FAQ LAYOUT ── */
-    .faq-section { background: var(--off-white); padding: 6rem 3rem 8rem; }
-    .faq-wrap { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 280px 1fr; gap: 6rem; align-items: start; }
-
-    /* Sticky sidebar */
-    .faq-sidebar { position: sticky; top: 6rem; }
-    .faq-sidebar-title { font-family: var(--serif); font-size: 0.85rem; font-weight: 700; color: var(--black); margin-bottom: 1.25rem; letter-spacing: 0.02em; }
-    .faq-nav-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
-    .faq-nav-item a {
-      display: block;
-      padding: 0.7rem 1rem;
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--muted-light);
-      border-left: 2px solid var(--border-light);
-      transition: color 0.2s, border-color 0.2s;
-      line-height: 1.4;
-    }
-    .faq-nav-item a:hover { color: var(--black); border-left-color: var(--orange); }
-    .faq-nav-item a.active { color: var(--orange); border-left-color: var(--orange); font-weight: 500; }
-
-    .faq-sidebar-cta { margin-top: 2.5rem; padding: 1.5rem; background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; }
-    .faq-sidebar-cta p { font-size: 0.78rem; font-weight: 300; line-height: 1.65; color: var(--muted-light); margin-bottom: 1rem; }
-    .faq-sidebar-cta .btn { width: 100%; justify-content: center; font-size: 0.75rem; padding: 0.75rem 1rem; }
-
-    /* FAQ content */
-    .faq-content { }
-    .faq-category { margin-bottom: 3.5rem; }
-    .faq-category-label {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--orange);
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border-light);
-      margin-bottom: 0;
-    }
-
-    .faq-item { border-bottom: 1px solid var(--border-light); }
-    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; cursor: pointer; gap: 1.5rem; }
-    .faq-q-text { font-size: 0.92rem; font-weight: 500; color: var(--black); line-height: 1.45; }
-    .faq-icon { font-size: 1.1rem; color: var(--orange); flex-shrink: 0; transition: transform 0.25s; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1); }
-    .faq-a-inner { padding-bottom: 1.5rem; font-size: 0.85rem; font-weight: 300; line-height: 1.85; color: var(--muted-light); }
-    .faq-a-inner a { color: var(--orange); }
-
-    /* ── CTA BAND ── */
-    .cta-band { background: var(--black); padding: 6rem 3rem; text-align: center; }
-    .cta-band-inner { max-width: 600px; margin: 0 auto; }
-    .cta-band p { font-size: 0.82rem; font-weight: 300; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-dark); margin-bottom: 1.5rem; }
-    .cta-band .h-section { color: var(--white); margin-bottom: 1rem; }
-    .cta-band .h-section span { color: var(--orange); }
-    .cta-band-sub { font-size: 0.88rem; font-weight: 300; color: var(--muted-dark); line-height: 1.7; margin-bottom: 2.5rem; }
-    .cta-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
-
-    /* FOOTER */
-    footer { background: var(--black); border-top: 1px solid var(--border-dark); padding: 3rem; }
-    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-    .footer-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--white); }
-    .footer-logo span { color: var(--orange); }
-    .footer-links-row { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
-    .footer-links-row a { font-size: 0.75rem; color: var(--muted-dark); transition: color 0.2s; }
-    .footer-links-row a:hover { color: var(--white); }
-    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
-
-    @media (max-width: 900px) {
-      #nav { padding: 1.1rem 1.5rem; }
-      .nav-links, .nav-right .btn { display: none; }
-      .nav-hamburger { display: flex; }
-      .faq-wrap { grid-template-columns: 1fr; gap: 2rem; }
-      .faq-sidebar { position: static; display: none; }
-      .page-hero { padding: 8rem 1.5rem 5rem; }
-      .faq-section, .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; }
-      footer { padding: 2rem 1.5rem; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-    }
-  </style>
-  <!-- Google Analytics 4 — replace G-Y8W1YZ90B2 with your Measurement ID from analytics.google.com -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y8W1YZ90B2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Y8W1YZ90B2');
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why is the website free? What's the catch?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "There's no catch. The website isn't free — it's included in your subscription. Instead of charging $3,000–$12,000 upfront like most agencies, we spread the cost across your monthly plan. You get the same quality custom Webflow website, without having to hand over a lump sum before you've seen anything. The model works for us because of the 18-month minimum term. It works for you because there's zero financial risk to get started."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What does the subscription actually cover?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Every plan covers: custom website design and build, Webflow hosting and maintenance, SSL certificate, on-page SEO setup, and ongoing content updates. Higher plans add local SEO, Google Business Profile management, and more. It's all-in — you're not paying for hosting separately, you're not getting nickel-and-dimed for small changes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is this only for Brisbane businesses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Primarily yes. We focus on Brisbane metro and surrounds (roughly 30–50km radius) because we understand the local market — the suburbs, the competition, the customer behaviour. That local knowledge shows up in the copy and SEO we write for your site. We may take on the occasional project outside Brisbane, but it's not our focus."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who is this best suited for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Small Brisbane businesses with 1–20 employees — trades, hospitality, beauty, fitness, retail, and professional services. Especially businesses that currently have no website, a broken one, or something built years ago that's embarrassing to share. If you rely on Facebook, Instagram, or word of mouth and know you should have a proper website, this is built for you."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does it take to go live?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most clients go live within 10–14 days of the first call. The mockup is usually ready in 48–72 hours. After your feedback and approval, the full build takes 3–5 business days. The timeline is mostly determined by how quickly you can give us feedback — we're fast, but we need you to be responsive too."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to provide content (copy and photos)?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We write the initial copy for your website based on what you tell us about your business. You don't need to be a writer — just tell us what you do, who your customers are, and what makes you different, and we'll handle the words. For photos, we'll work with what you have. If you don't have any good photos, we can use high-quality stock images relevant to your industry while you build up your own library."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will I get to see my website before I commit?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — always. We build your mockup before you sign anything. You see the full design, review it, request changes, and only sign once you're happy. If you don't like what we've built, you walk away. No invoice, no awkward conversation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many rounds of revisions do I get?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "As many as it takes to get it right before you approve. We don't put an arbitrary limit on pre-approval revisions — it's in our interest to make you love the design, because that's how we close the deal. Once you've approved and gone live, monthly changes are covered by your content update allocation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the 18-month minimum about?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The 18-month minimum is what makes the free website model work. We invest real time and money building your site upfront, and we recover that cost over the subscription period. It's a genuine commitment from both sides — you get a professional website with no upfront cost, we get the stability of a predictable subscription. Most clients end up staying well beyond 18 months anyway."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I cancel early?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Early cancellation means exiting before the 18-month term is complete. Because we've already invested in building your website, early exits involve a break fee calculated on the remaining months. The exact figure depends on when you exit. We handle these situations like adults — if something changes in your business, come talk to us and we'll figure it out together."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I upgrade my plan?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, any time. Upgrading from PRESENCE to GROWTH, or GROWTH to AUTHORITY, takes effect from your next billing cycle. There's no fee to upgrade — it's just a new monthly rate. Downgrading can only happen at the end of a full term."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are prices GST-inclusive?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No — all prices shown are GST-exclusive. Your invoice will show the GST amount separately. For example, GROWTH at $189/mo + GST = $207.90/mo all-in."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why Webflow and not WordPress?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Webflow is faster, more secure, and easier to maintain than WordPress. WordPress is powerful, but it requires constant plugin updates, is a frequent target for hackers, and can slow down significantly over time. Webflow is a hosted, all-in-one platform with built-in CDN, SSL, and performance optimisation. For small business websites, it's a better fit — and it lets us build better-looking sites, faster."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I own my website?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You own all your content — your copy, photos, brand assets, and any unique elements created for your site. The Webflow build itself is tied to the subscription. If you complete your term and choose not to renew, we'll discuss transfer options with you. We're not in the business of holding websites hostage."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will my website work on mobile?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — every ClawMark site is designed mobile-first. More than 60% of local business website traffic comes from mobile devices, so we design for phones first and then refine the desktop experience. Your site will look sharp on any screen size."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I have an online store?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Webflow does support ecommerce, but our standard plans are built for service-based and local businesses, not product catalogues. If you need a full online store, get in touch and we'll talk through whether we're the right fit — or point you in the right direction if we're not."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What counts as a \"content update\"?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A content update is any reasonable change to text, images, or basic layout — updating your hours, adding a new service, swapping a photo, changing your pricing, adding a promotion. What doesn't count: major redesigns, adding entirely new sections or pages, or structural changes that effectively rebuild part of the site. If you're unsure, just ask — we're always straight about what's in scope."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who do I contact when I need help?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Andres directly — by email or phone. No ticket system, no support queue, no offshore help desk. You deal with the person who built your website. Response times vary by plan: 48 hours on PRESENCE, 24 hours on GROWTH, same day on AUTHORITY."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens if my website goes down?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Webflow's infrastructure has a 99.99% uptime SLA, so genuine outages are rare. If something does go wrong — whether it's a Webflow issue or something on your site specifically — let us know and we'll investigate and resolve it as quickly as possible. Maintenance and availability are covered in your subscription."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will my website rank on Google?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Every site is set up with proper on-page SEO — meta titles, descriptions, alt text, schema markup, and local signals. GROWTH adds local SEO optimisation and Google Business Profile management. AUTHORITY adds full SEO reporting and strategy. That said, SEO takes time — if someone promises you page-one rankings on day one, they're lying. We build a proper foundation and improve your position over time."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's included in \"Local SEO optimisation\"?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Local SEO on GROWTH includes: keyword research for your suburb and service type, location-specific copy on your website, Google Business Profile setup and management, and citation consistency (making sure your business name, address, and phone number are consistent wherever your business appears online). These are the things that actually move the needle for a local service business."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to run Google Ads on top of this?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not necessarily. Organic SEO and a well-optimised Google Business Profile can generate significant leads without paid ads, especially for local service businesses. That said, ads can accelerate results if you want faster growth. We don't run paid ad campaigns as part of our plans — but we can point you in the right direction if that's something you want to pursue."
-      }
-    }
-  ]
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQs — ClawMark</title>
+<meta name="description" content="Answers to the most common questions Brisbane pool and outdoor-living builders ask about ClawMark's websites, pricing, process, and the free redesign offer.">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://www.clawmark.com.au/faqs">
+<meta property="og:title" content="FAQs — ClawMark">
+<meta property="og:description" content="Common questions about ClawMark's websites for Brisbane pool and outdoor-living builders. Free redesign, pricing, process, and more.">
+<meta property="og:url" content="https://www.clawmark.com.au/faqs">
+<meta property="og:image" content="https://www.clawmark.com.au/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0A0A0A;--dark:#111111;--dark-2:#181818;
+  --off-white:#F6F3EF;--white:#FFFFFF;
+  --orange:#FF5500;--orange-glow:rgba(255,85,0,0.18);
+  --muted-dark:rgba(255,255,255,0.42);--muted-light:rgba(10,10,10,0.45);
+  --border-dark:rgba(255,255,255,0.07);--border-light:rgba(10,10,10,0.08);
+  --serif:'Syne',sans-serif;--sans:'DM Sans',system-ui,sans-serif;
 }
-  </script>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--off-white);color:var(--black);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 3rem}
+.section-label{font-size:.7rem;font-weight:500;color:var(--orange);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.4rem;display:inline-block}
+.h-section{font-family:var(--serif);font-weight:700;font-size:clamp(2.2rem,3.5vw,3rem);line-height:1.08;letter-spacing:-.02em}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--sans);font-size:.8rem;font-weight:500;letter-spacing:.04em;padding:.85rem 1.75rem;border-radius:4px;border:1px solid transparent;cursor:pointer;transition:all .25s cubic-bezier(.22,1,.36,1)}
+.btn-orange{background:var(--orange);border-color:var(--orange);color:#fff}
+.btn-orange:hover{background:#e04a00;transform:translateY(-1px);box-shadow:0 8px 24px var(--orange-glow)}
+.btn-outline-white{background:transparent;border-color:rgba(255,255,255,.22);color:#fff}
+.btn-outline-white:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.05)}
+.btn-arrow::after{content:"→"}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;transition:all .3s ease}
+nav.scrolled{background:rgba(10,10,10,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-dark);padding:1rem 3rem}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.3rem;letter-spacing:-.01em;color:#fff}
+.logo span{color:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:2.2rem}
+.nav-links a:not(.btn){font-size:.8rem;letter-spacing:.02em;color:var(--muted-dark);transition:color .2s}
+.nav-links a:not(.btn):hover,.nav-links a.active{color:#fff}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer}
+.nav-toggle span{width:24px;height:2px;background:#fff;transition:.3s}
+
+/* hero */
+.hero{background:var(--black);color:#fff;padding:12rem 3rem 7rem;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,85,0,.1),transparent 65%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border-dark) 1px,transparent 1px),linear-gradient(90deg,var(--border-dark) 1px,transparent 1px);background-size:60px 60px;opacity:.5;pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.8rem,6vw,5.5rem);line-height:1.02;letter-spacing:-.02em;margin:1.4rem 0;max-width:14ch}
+.hero h1 span{color:var(--orange)}
+.hero p{font-weight:300;font-size:1.05rem;color:var(--muted-dark);max-width:50ch;line-height:1.7}
+
+/* faq groups */
+.faqs{padding:7rem 3rem;background:var(--off-white)}
+.faqs .wrap{max-width:800px}
+.faq-group{margin-bottom:4rem}
+.faq-group-label{font-size:.7rem;font-weight:500;color:var(--orange);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.8rem;display:block;padding-bottom:1rem;border-bottom:2px solid var(--orange)}
+.faq-item{border-bottom:1px solid var(--border-light)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.4rem 0;cursor:pointer}
+.faq-q-text{font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--black)}
+.faq-icon{flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1px solid rgba(10,10,10,.2);display:flex;align-items:center;justify-content:center;color:var(--muted-light);transition:all .25s}
+.faq-item.open .faq-icon{background:var(--orange);border-color:var(--orange);color:#fff;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{font-weight:300;font-size:.9rem;line-height:1.75;color:var(--muted-light);padding-bottom:1.4rem;max-width:60ch}
+
+/* final cta */
+.final{position:relative;background:var(--black);color:#fff;text-align:center;overflow:hidden;padding:9rem 3rem}
+.final-glow{position:absolute;bottom:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(255,85,0,.14),transparent 65%);pointer-events:none}
+.final .wrap{position:relative;z-index:2;max-width:760px}
+.final h2{font-family:var(--serif);font-weight:800;font-size:clamp(2.2rem,5vw,4rem);line-height:1.04;letter-spacing:-.02em;margin-bottom:1.2rem}
+.final h2 span{color:var(--orange)}
+.final p{font-weight:300;font-size:1rem;color:var(--muted-dark);max-width:46ch;margin:0 auto 2.2rem;line-height:1.7}
+.final-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.final-note{margin-top:1.2rem;font-size:.78rem;font-weight:300;color:rgba(255,255,255,.25)}
+
+/* footer */
+footer{background:var(--dark);color:#fff;border-top:1px solid var(--border-dark);padding:4rem 3rem 2rem}
+.foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2.5rem}
+.foot-brand .logo{font-size:1.4rem;margin-bottom:.8rem}
+.foot-brand p{font-weight:300;font-size:.85rem;color:var(--muted-dark);max-width:30ch;line-height:1.6}
+.foot-col h4{font-size:.65rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1rem}
+.foot-col a{display:block;font-weight:300;font-size:.85rem;color:var(--muted-dark);margin-bottom:.6rem;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-col.contact a:hover{color:var(--orange)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:3.5rem;padding-top:1.6rem;border-top:1px solid var(--border-dark)}
+.foot-bottom span{font-size:.7rem;font-weight:300;color:rgba(255,255,255,.3)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav,nav.scrolled{padding:1rem 1.5rem}
+  .wrap{padding:0 1.5rem}
+  .hero{padding:9rem 1.5rem 5rem}
+  .faqs,.final{padding:5rem 1.5rem}
+  footer{padding:4rem 1.5rem 2rem}
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+}
+</style>
 </head>
 <body>
 
-  <div class="cursor" id="cur"></div>
-  <div class="cursor-ring" id="ring"></div>
-
-  <div class="mobile-nav" id="mob">
-    <button class="mobile-close" id="mob-close">✕</button>
-    <a href="index.html">Home</a>
-    <a href="how-it-works.html">How It Works</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="faqs.html" style="color:var(--orange)">FAQs</a>
-    <a href="blog.html">Blog</a>
-    <a href="https://calendly.com/ahcreative92-arcr/your-website-meeting" class="btn btn-orange btn-arrow" style="margin-top:1rem;">Get My Free Website</a>
+<nav id="nav">
+  <a href="/" class="logo">Claw<span>Mark</span></a>
+  <div class="nav-links">
+    <a href="/how-it-works">How it works</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/portfolio">Work</a>
+    <a href="/blog">Blog</a>
+    <a href="https://calendly.com/ahcreative92-arcr/your-website-meeting" class="btn btn-orange btn-arrow" target="_blank" rel="noopener">Free homepage redesign</a>
   </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
 
-  <nav id="nav">
-    <a href="index.html" class="nav-logo">CLAW<span>MARK</span></a>
-    <ul class="nav-links">
-      <li><a href="how-it-works.html">How It Works</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="faqs.html" class="active">FAQs</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="https://calendly.com/ahcreative92-arcr/your-website-meeting" class="btn btn-orange btn-arrow">Get My Free Website</a>
-      <button class="nav-hamburger" id="ham"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
+<header class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <span class="section-label">Questions</span>
+    <h1>Straight <span>answers.</span></h1>
+    <p>Everything Brisbane pool and outdoor-living builders typically ask before getting started. If your question isn't here, email me directly.</p>
+  </div>
+</header>
 
-  <!-- Hero -->
-  <section class="page-hero">
-    <div class="hero-grid"></div>
-    <div class="page-hero-content">
-      <div class="section-label">Questions answered</div>
-      <h1 class="page-hero-h1">Every question you're<br>too polite to <span class="accent">ask.</span></h1>
-      <p class="page-hero-sub">We've answered everything we hear regularly — the obvious ones and the ones people think but don't say. If something's still unclear, just email us.</p>
-    </div>
-  </section>
+<section class="faqs">
+  <div class="wrap reveal">
 
-  <!-- FAQ Section -->
-  <section class="faq-section">
-    <div class="faq-wrap">
+    <div class="faq-group">
+      <span class="faq-group-label">The free redesign</span>
 
-      <!-- Sidebar -->
-      <aside class="faq-sidebar reveal">
-        <div class="faq-sidebar-title">Jump to section</div>
-        <ul class="faq-nav-list">
-          <li class="faq-nav-item"><a href="#the-offer" class="active">The Offer</a></li>
-          <li class="faq-nav-item"><a href="#the-process">The Process</a></li>
-          <li class="faq-nav-item"><a href="#pricing-terms">Pricing & Terms</a></li>
-          <li class="faq-nav-item"><a href="#the-website">The Website</a></li>
-          <li class="faq-nav-item"><a href="#support">Ongoing Support</a></li>
-          <li class="faq-nav-item"><a href="#seo">SEO</a></li>
-        </ul>
-        <div class="faq-sidebar-cta">
-          <p>Still have a question we haven't answered? Reach out directly — no bots, no wait time.</p>
-          <a href="mailto:hello@clawmark.com.au" class="btn btn-outline-dark btn-arrow">Email Us</a>
-        </div>
-      </aside>
-
-      <!-- Questions -->
-      <div class="faq-content">
-
-        <!-- THE OFFER -->
-        <div class="faq-category" id="the-offer">
-          <div class="faq-category-label">The Offer</div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Why is the website free? What's the catch?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">There's no catch. The website isn't free — it's included in your subscription. Instead of charging $3,000–$12,000 upfront like most agencies, we spread the cost across your monthly plan. You get the same quality custom Webflow website, without having to hand over a lump sum before you've seen anything. The model works for us because of the 18-month minimum term. It works for you because there's zero financial risk to get started.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">What does the subscription actually cover?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Every plan covers: custom website design and build, Webflow hosting and maintenance, SSL certificate, on-page SEO setup, and ongoing content updates. Higher plans add local SEO, Google Business Profile management, and more. It's all-in — you're not paying for hosting separately, you're not getting nickel-and-dimed for small changes.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Is this only for Brisbane businesses?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Primarily yes. We focus on Brisbane metro and surrounds (roughly 30–50km radius) because we understand the local market — the suburbs, the competition, the customer behaviour. That local knowledge shows up in the copy and SEO we write for your site. We may take on the occasional project outside Brisbane, but it's not our focus.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Who is this best suited for?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Small Brisbane businesses with 1–20 employees — trades, hospitality, beauty, fitness, retail, and professional services. Especially businesses that currently have no website, a broken one, or something built years ago that's embarrassing to share. If you rely on Facebook, Instagram, or word of mouth and know you should have a proper website, this is built for you.</div></div>
-          </div>
-        </div>
-
-        <!-- THE PROCESS -->
-        <div class="faq-category" id="the-process">
-          <div class="faq-category-label">The Process</div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">How long does it take to go live?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Most clients go live within 10–14 days of the first call. The mockup is usually ready in 48–72 hours. After your feedback and approval, the full build takes 3–5 business days. The timeline is mostly determined by how quickly you can give us feedback — we're fast, but we need you to be responsive too.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Do I need to provide content (copy and photos)?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">We write the initial copy for your website based on what you tell us about your business. You don't need to be a writer — just tell us what you do, who your customers are, and what makes you different, and we'll handle the words. For photos, we'll work with what you have. If you don't have any good photos, we can use high-quality stock images relevant to your industry while you build up your own library.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Will I get to see my website before I commit?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Yes — always. We build your mockup before you sign anything. You see the full design, review it, request changes, and only sign once you're happy. If you don't like what we've built, you walk away. No invoice, no awkward conversation.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">How many rounds of revisions do I get?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">As many as it takes to get it right before you approve. We don't put an arbitrary limit on pre-approval revisions — it's in our interest to make you love the design, because that's how we close the deal. Once you've approved and gone live, monthly changes are covered by your content update allocation.</div></div>
-          </div>
-        </div>
-
-        <!-- PRICING & TERMS -->
-        <div class="faq-category" id="pricing-terms">
-          <div class="faq-category-label">Pricing & Terms</div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">What's the 18-month minimum about?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">The 18-month minimum is what makes the free website model work. We invest real time and money building your site upfront, and we recover that cost over the subscription period. It's a genuine commitment from both sides — you get a professional website with no upfront cost, we get the stability of a predictable subscription. Most clients end up staying well beyond 18 months anyway.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Can I cancel early?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Early cancellation means exiting before the 18-month term is complete. Because we've already invested in building your website, early exits involve a break fee calculated on the remaining months. The exact figure depends on when you exit. We handle these situations like adults — if something changes in your business, come talk to us and we'll figure it out together.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Can I upgrade my plan?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Yes, any time. Upgrading from PRESENCE to GROWTH, or GROWTH to AUTHORITY, takes effect from your next billing cycle. There's no fee to upgrade — it's just a new monthly rate. Downgrading can only happen at the end of a full term.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Are prices GST-inclusive?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">No — all prices shown are GST-exclusive. Your invoice will show the GST amount separately. For example, GROWTH at $189/mo + GST = $207.90/mo all-in.</div></div>
-          </div>
-        </div>
-
-        <!-- THE WEBSITE -->
-        <div class="faq-category" id="the-website">
-          <div class="faq-category-label">The Website</div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Why Webflow and not WordPress?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Webflow is faster, more secure, and easier to maintain than WordPress. WordPress is powerful, but it requires constant plugin updates, is a frequent target for hackers, and can slow down significantly over time. Webflow is a hosted, all-in-one platform with built-in CDN, SSL, and performance optimisation. For small business websites, it's a better fit — and it lets us build better-looking sites, faster.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Do I own my website?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">You own all your content — your copy, photos, brand assets, and any unique elements created for your site. The Webflow build itself is tied to the subscription. If you complete your term and choose not to renew, we'll discuss transfer options with you. We're not in the business of holding websites hostage.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Will my website work on mobile?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Yes — every ClawMark site is designed mobile-first. More than 60% of local business website traffic comes from mobile devices, so we design for phones first and then refine the desktop experience. Your site will look sharp on any screen size.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Can I have an online store?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Webflow does support ecommerce, but our standard plans are built for service-based and local businesses, not product catalogues. If you need a full online store, get in touch and we'll talk through whether we're the right fit — or point you in the right direction if we're not.</div></div>
-          </div>
-        </div>
-
-        <!-- ONGOING SUPPORT -->
-        <div class="faq-category" id="support">
-          <div class="faq-category-label">Ongoing Support</div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">What counts as a "content update"?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">A content update is any reasonable change to text, images, or basic layout — updating your hours, adding a new service, swapping a photo, changing your pricing, adding a promotion. What doesn't count: major redesigns, adding entirely new sections or pages, or structural changes that effectively rebuild part of the site. If you're unsure, just ask — we're always straight about what's in scope.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Who do I contact when I need help?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Andres directly — by email or phone. No ticket system, no support queue, no offshore help desk. You deal with the person who built your website. Response times vary by plan: 48 hours on PRESENCE, 24 hours on GROWTH, same day on AUTHORITY.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">What happens if my website goes down?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Webflow's infrastructure has a 99.99% uptime SLA, so genuine outages are rare. If something does go wrong — whether it's a Webflow issue or something on your site specifically — let us know and we'll investigate and resolve it as quickly as possible. Maintenance and availability are covered in your subscription.</div></div>
-          </div>
-        </div>
-
-        <!-- SEO -->
-        <div class="faq-category" id="seo">
-          <div class="faq-category-label">SEO</div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Will my website rank on Google?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Every site is set up with proper on-page SEO — meta titles, descriptions, alt text, schema markup, and local signals. GROWTH adds local SEO optimisation and Google Business Profile management. AUTHORITY adds full SEO reporting and strategy. That said, SEO takes time — if someone promises you page-one rankings on day one, they're lying. We build a proper foundation and improve your position over time.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">What's included in "Local SEO optimisation"?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Local SEO on GROWTH includes: keyword research for your suburb and service type, location-specific copy on your website, Google Business Profile setup and management, and citation consistency (making sure your business name, address, and phone number are consistent wherever your business appears online). These are the things that actually move the needle for a local service business.</div></div>
-          </div>
-
-          <div class="faq-item reveal">
-            <div class="faq-q"><span class="faq-q-text">Do I need to run Google Ads on top of this?</span><span class="faq-icon">+</span></div>
-            <div class="faq-a"><div class="faq-a-inner">Not necessarily. Organic SEO and a well-optimised Google Business Profile can generate significant leads without paid ads, especially for local service businesses. That said, ads can accelerate results if you want faster growth. We don't run paid ad campaigns as part of our plans — but we can point you in the right direction if that's something you want to pursue.</div></div>
-          </div>
-        </div>
-
-      </div><!-- /faq-content -->
-    </div><!-- /faq-wrap -->
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-band">
-    <div class="cta-band-inner reveal">
-      <p>Still got questions?</p>
-      <h2 class="h-section">Just ask.<br>We don't <span>bite.</span></h2>
-      <p class="cta-band-sub">Book a free 30-minute call and we'll answer everything — then show you what your website could look like. No pressure, no pitch deck.</p>
-      <div class="cta-actions">
-        <a href="https://calendly.com/ahcreative92-arcr/your-website-meeting" class="btn btn-orange btn-arrow">Book My Free Call</a>
-        <a href="mailto:hello@clawmark.com.au" class="btn btn-outline-white">Email Us Instead</a>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">You really redesign my homepage for free?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Yes. I rebuild your homepage — new design, new structure, new copy — and send it to you before you've committed to anything. No charge, no watermark, no obligation. The file is yours regardless of what you decide.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">What exactly do I get in the free redesign?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>A fully designed homepage built to show your projects at their best, with a clear "request a quote" path, fast load, and copy that speaks to homeowners making a $60k–$150k decision. It's not a template — it's built specifically for your business, using your photos and your work.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">How long does it take?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Usually 48 hours from when you send me your current site and a handful of your best project photos. I'll let you know if it's going to take longer.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">What if I hate it?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Then we shake hands and you keep the file. No hard sell, no follow-up pressure. I only want to work with builders who can see the value in what I've built — if that's not you, there's no bad blood.</p></div>
       </div>
     </div>
-  </section>
 
-  <footer>
-    <div class="footer-inner">
-      <a href="index.html" class="footer-logo">CLAW<span>MARK</span></a>
-      <ul class="footer-links-row">
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="faqs.html">FAQs</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a></li>
-      </ul>
-      <p class="footer-copy">© 2026 ClawMark. All rights reserved.</p>
-      <nav class="footer-legal" style="display:flex;gap:1.5rem;">
-        <a href="privacy-policy.html" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Privacy Policy</a>
-        <a href="#" style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.22);transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.22)'">Terms of Use</a>
-      </nav>
+    <div class="faq-group">
+      <span class="faq-group-label">Pricing &amp; contracts</span>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">How much does the full build cost?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>From $1,990 for a focused site — homepage, project gallery, about, contact. More pages or more complexity sits higher. I'll give you a fixed quote before you commit, so there are no surprises.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">What's included in the monthly care plan?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Hosting, speed and security updates, Google Business Profile management, review monitoring and responses, content updates (new project photos, copy tweaks), and a monthly performance check-in. From $390/mo.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">Is there a lock-in contract?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>No. The build is a one-off. The care plan is month to month — cancel any time with no penalty. I keep your business by doing good work, not by making it painful to leave.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">Do I have to take the care plan?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>No. The build is a standalone product. But most clients stay on the care plan because it handles everything they'd otherwise forget about — and it's the part that keeps leads coming in month after month.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">Can I pay in instalments?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Yes. I typically do 50% at sign-off and 50% at launch. If your cashflow works differently, let me know — I'm flexible.</p></div>
+      </div>
     </div>
-  </footer>
 
-  <script>
-    const cur = document.getElementById('cur');
-    const ring = document.getElementById('ring');
-    let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
-    function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
-    animRing();
-    document.querySelectorAll('a,button').forEach(el => {
-      el.addEventListener('mouseenter', () => cur.classList.add('grow'));
-      el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
-    });
-    document.getElementById('ham').addEventListener('click', () => document.getElementById('mob').classList.add('open'));
-    document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob').classList.remove('open'));
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    <div class="faq-group">
+      <span class="faq-group-label">The build &amp; process</span>
 
-    // FAQ accordion
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => {
-        const item = q.parentElement;
-        const ans = item.querySelector('.faq-a');
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => {
-          i.classList.remove('open');
-          i.querySelector('.faq-a').style.maxHeight = '0';
-        });
-        if (!isOpen) {
-          item.classList.add('open');
-          ans.style.maxHeight = ans.scrollHeight + 'px';
-        }
-      });
-    });
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">How long does the full site take to build?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Two to three weeks from sign-off to live. Faster than most agencies because I focus on one niche — I'm not learning your industry from scratch each time.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">I already have a website. Can you work with that?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>That's the most common situation I work in. The free redesign will show you exactly what's costing you quote requests right now, then rebuild around that. Most of the builders I work with already had a site — it just wasn't pulling its weight.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">What platform do you build on?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Webflow. It's fast, secure, and gives me design control without bloated page builders. Your site will load quickly, look great on any device, and be easy for me to update when you send through new project photos.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">Can I update the site myself?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Yes, Webflow has a simple editor for text and images. Most clients on the care plan prefer to just send me the new photos and copy, and I handle it — but either works.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">Do you help with Google rankings?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Yes, within the care plan. I set up Google Search Console, manage your Google Business Profile, monitor your local rankings for pool and outdoor-living searches in Brisbane, and make adjustments when needed. I don't promise page-one rankings in week one — I promise a site that's structured correctly and maintained properly so Google rewards it over time.</p></div>
+      </div>
+    </div>
 
-    // Sidebar active state on scroll
-    const sections = document.querySelectorAll('.faq-category');
-    const navLinks = document.querySelectorAll('.faq-nav-item a');
-    const scrollObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          const active = document.querySelector(`.faq-nav-item a[href="#${entry.target.id}"]`);
-          if (active) active.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-30% 0px -60% 0px' });
-    sections.forEach(s => scrollObserver.observe(s));
-  </script>
+    <div class="faq-group">
+      <span class="faq-group-label">Working with me</span>
+
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">Do you work with other kinds of businesses?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>No. I focus exclusively on pool builders, landscape builders, deck and pergola builders, and outdoor-living contractors. The narrow focus is the point — it's why the free redesign is fast, why the sites convert, and why I can price it the way I do.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">Who actually builds the site?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Me — Andres. ClawMark is just me, not an agency. You talk to the person who designs and builds your site from the first call to launch. No account managers, no offshore handoffs, no miscommunication.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">Something else on your mind?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Email me directly at <a href="mailto:hello@clawmark.com.au" style="color:var(--orange)">hello@clawmark.com.au</a> and I'll reply the same day.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="final">
+  <div class="final-glow"></div>
+  <div class="wrap">
+    <h2>Still have questions?<br><span>Let's just talk.</span></h2>
+    <p>Book a free call and ask me anything — no pitch, no pressure. Or email me directly if that's easier.</p>
+    <div class="final-cta">
+      <a href="https://calendly.com/ahcreative92-arcr/your-website-meeting" class="btn btn-orange btn-arrow" target="_blank" rel="noopener">Book a free call</a>
+      <a href="mailto:hello@clawmark.com.au" class="btn btn-outline-white">hello@clawmark.com.au</a>
+    </div>
+    <p class="final-note">The free redesign offer is always the best place to start.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">Claw<span>Mark</span></div>
+        <p>Websites for Brisbane pool and outdoor-living builders.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="/how-it-works">How it works</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/portfolio">Work</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="foot-col contact">
+        <h4>Get in touch</h4>
+        <a href="mailto:hello@clawmark.com.au">hello@clawmark.com.au</a>
+        <a href="https://calendly.com/ahcreative92-arcr/your-website-meeting" target="_blank" rel="noopener">Free homepage redesign</a>
+        <span style="font-size:.85rem;font-weight:300;color:var(--muted-dark)">Brisbane, QLD</span>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ClawMark. All rights reserved.</span>
+      <span>Built in Brisbane.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+document.getElementById('navToggle').addEventListener('click',()=>{
+  const l=document.querySelector('.nav-links');
+  const open=l.style.display==='flex';
+  l.style.display=open?'':'flex';
+  if(!open){l.style.position='absolute';l.style.top='100%';l.style.right='1.5rem';l.style.flexDirection='column';l.style.gap='1.2rem';l.style.background='rgba(10,10,10,.96)';l.style.padding='1.5rem';l.style.borderRadius='8px';l.style.border='1px solid rgba(255,255,255,.07)';}
+});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>{
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null});
+    if(!open){item.classList.add('open');const a=item.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px';}
+  });
+});
+</script>
 </body>
 </html>
